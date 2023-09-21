@@ -18,7 +18,9 @@ os.environ["CUDA_VISIBLE_DEVICES"] = configs.device_id
 import torch
 
 device = torch.device(configs.device)
+from torch.utils.tensorboard import SummaryWriter
 
+writer = SummaryWriter()  # 创建一个SummaryWriter对象，用于记录日志
 
 class Trainer:
     def __init__(self, config):
@@ -163,7 +165,8 @@ class Trainer:
                 tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
 
             ep_et = time.time()
-            
+            writer.add_scalar('Loss/train', loss, i_update)
+            writer.add_scalar('mean_makespan', mean_makespan_all_env, i_update)
             # print the reward, makespan, loss and training time of the current episode
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(

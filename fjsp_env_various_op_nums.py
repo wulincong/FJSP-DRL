@@ -13,12 +13,12 @@ class FJSPEnvForVariousOpNums:
     """
 
     def __init__(self, n_j, n_m):
-        self.number_of_jobs = n_j
-        self.number_of_machines = n_m
-        self.old_state = EnvState()
+        self.number_of_jobs = n_j  # 设置作业数量
+        self.number_of_machines = n_m  # 设置机器数量
+        self.old_state = EnvState() 
 
-        self.op_fea_dim = 10
-        self.mch_fea_dim = 8
+        self.op_fea_dim = 10  # 操作特征维度
+        self.mch_fea_dim = 8  # 机器特征维度
 
     def set_static_properties(self):
         """

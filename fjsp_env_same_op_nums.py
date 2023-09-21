@@ -12,14 +12,14 @@ class EnvState:
     """
         state definition
     """
-    fea_j_tensor: torch.Tensor = None
-    op_mask_tensor: torch.Tensor = None
-    fea_m_tensor: torch.Tensor = None
-    mch_mask_tensor: torch.Tensor = None
-    dynamic_pair_mask_tensor: torch.Tensor = None
-    comp_idx_tensor: torch.Tensor = None
-    candidate_tensor: torch.Tensor = None
-    fea_pairs_tensor: torch.Tensor = None
+    fea_j_tensor: torch.Tensor = None  # 表示操作特征向量
+    op_mask_tensor: torch.Tensor = None  # 操作掩码
+    fea_m_tensor: torch.Tensor = None  # 机器的特征向量
+    mch_mask_tensor: torch.Tensor = None  # 机器之间的注意力系数掩码
+    dynamic_pair_mask_tensor: torch.Tensor = None  # 动态操作-机器对掩码 掩盖不兼容的操作-机器对
+    comp_idx_tensor: torch.Tensor = None  # 
+    candidate_tensor: torch.Tensor = None  # 候选操作的索引
+    fea_pairs_tensor: torch.Tensor = None  # 操作-机器对的特征向量
 
     device = torch.device(configs.device)
 
@@ -111,10 +111,18 @@ class FJSPEnvForSameOpNums:
         """
         self.multi_env_mch_diag = np.tile(np.expand_dims(np.eye(self.number_of_machines, dtype=bool), axis=0),
                                           (self.number_of_envs, 1, 1))
-
+        '''这是一个三维布尔数组，用于表示多个环境中的机器对角线（diagonal）上的元素。它的维度是 (self.number_of_envs,
+          self.number_of_machines, self.number_of_machines)，每个环境中的机器对角线上的元素都为 True，而其他位置为 False。
+          这可能用于标记每个环境中的机器之间的兼容关系。'''
         self.env_idxs = np.arange(self.number_of_envs)
+        # 这是一个包含从0到self.number_of_envs-1的整数的一维数组，表示环境的索引。
+
         self.env_job_idx = self.env_idxs.repeat(self.number_of_jobs).reshape(self.number_of_envs, self.number_of_jobs)
+        '''这是一个二维整数数组，其维度为 (self.number_of_envs, self.number_of_jobs)，用于表示每个环境中每个作业的索引。
+        该数组的每一行都是一个环境中的作业索引，行数代表环境的数量。'''
+
         self.op_idx = np.arange(self.number_of_ops)[np.newaxis, :]
+        # 这是一个一维整数数组，包含从0到self.number_of_ops-1的整数，表示操作的索引。
 
     def set_initial_data(self, job_length_list, op_pt_list):
         """
@@ -124,37 +132,39 @@ class FJSPEnvForSameOpNums:
         :param op_pt_list: the list of 'op_pt'
         """
 
-        self.number_of_envs = len(job_length_list)
-        self.job_length = np.array(job_length_list)
+        self.number_of_envs = len(job_length_list)  # 测试用例环境的数量 100
+        # print(self.number_of_envs)
+        self.job_length = np.array(job_length_list)  # 测试的
         self.op_pt = np.array(op_pt_list)
-        self.number_of_ops = self.op_pt.shape[1]
-        self.number_of_machines = op_pt_list[0].shape[1]
-        self.number_of_jobs = job_length_list[0].shape[0]
+        self.number_of_ops = self.op_pt.shape[1] # 每个环境中的操作数量
+        self.number_of_machines = op_pt_list[0].shape[1] # 每个环境中的机器数量
+        self.number_of_jobs = job_length_list[0].shape[0]  # 每个环境中的作业数量
 
         self.set_static_properties()
 
         # [E, N, M]
+        # 操作加工时间的下限和上限
         self.pt_lower_bound = np.min(self.op_pt)
         self.pt_upper_bound = np.max(self.op_pt)
-        self.true_op_pt = np.copy(self.op_pt)
+        self.true_op_pt = np.copy(self.op_pt) # 操作的真实加工时间
 
         # normalize the processing time
         self.op_pt = (self.op_pt - self.pt_lower_bound) / (self.pt_upper_bound - self.pt_lower_bound + 1e-8)
 
         # bool 3-d array formulating the compatible relation with shape [E,N,M]
-        self.process_relation = (self.op_pt != 0)
-        self.reverse_process_relation = ~self.process_relation
+        self.process_relation = (self.op_pt != 0)  # 一个布尔三维数组，表示操作之间的兼容关系，True 表示兼容。
+        self.reverse_process_relation = ~self.process_relation  # 
 
         # number of compatible machines of each operation ([E,N])
-        self.compatible_op = np.sum(self.process_relation, 2)
+        self.compatible_op = np.sum(self.process_relation, 2) # 每个操作可以在多少台机器上执行
         # number of operations that each machine can process ([E,M])
-        self.compatible_mch = np.sum(self.process_relation, 1)
+        self.compatible_mch = np.sum(self.process_relation, 1) # 每台机器可以处理多少个操作
 
-        self.unmasked_op_pt = np.copy(self.op_pt)
+        self.unmasked_op_pt = np.copy(self.op_pt) 
 
         head_op_id = np.zeros((self.number_of_envs, 1))
 
-        # the index of first operation of each job ([E,J])
+        # the index of first operation of each job ([E,J]) 每个作业的第一个和最后一个操作的索引
         self.job_first_op_id = np.concatenate([head_op_id, np.cumsum(self.job_length, axis=1)[:, :-1]], axis=1).astype(
             'int')
         # the index of last operation of each job ([E,J])
@@ -170,22 +180,22 @@ class FJSPEnvForSameOpNums:
             compute operation raw features
         """
         self.op_mean_pt = np.mean(self.op_pt, axis=2).data
-
+        # 操作的最小和最大加工时间
         self.op_min_pt = np.min(self.op_pt, axis=-1).data
         self.op_max_pt = np.max(self.op_pt, axis=-1).data
-        self.pt_span = self.op_max_pt - self.op_min_pt
-        # [E, M]
+        self.pt_span = self.op_max_pt - self.op_min_pt  # 操作加工时间范围
+        # [E, M]机器的最小和最大加工时间
         self.mch_min_pt = np.max(self.op_pt, axis=1).data
         self.mch_max_pt = np.max(self.op_pt, axis=1)
 
-        # the estimated lower bound of complete time of operations
+        # the estimated lower bound of complete time of operations 操作的完工时间的估计下限
         self.op_ct_lb = copy.deepcopy(self.op_min_pt)
         for k in range(self.number_of_envs):
             for i in range(self.number_of_jobs):
                 self.op_ct_lb[k][self.job_first_op_id[k][i]:self.job_last_op_id[k][i] + 1] = np.cumsum(
                     self.op_ct_lb[k][self.job_first_op_id[k][i]:self.job_last_op_id[k][i] + 1])
 
-        # job remaining number of operations
+        # job remaining number of operations 每个操作剩余的作业数量
         self.op_match_job_left_op_nums = np.array([np.repeat(self.job_length[k],
                                                              repeats=self.job_length[k])
                                                    for k in range(self.number_of_envs)])
@@ -194,7 +204,7 @@ class FJSPEnvForSameOpNums:
             self.job_remain_work.append(
                 [np.sum(self.op_mean_pt[k][self.job_first_op_id[k][i]:self.job_last_op_id[k][i] + 1])
                  for i in range(self.number_of_jobs)])
-
+        # 每个操作匹配的作业剩余工作量
         self.op_match_job_remain_work = np.array([np.repeat(self.job_remain_work[k], repeats=self.job_length[k])
                                                   for k in range(self.number_of_envs)])
 
@@ -209,15 +219,15 @@ class FJSPEnvForSameOpNums:
         """
         self.mch_available_op_nums = np.copy(self.compatible_mch)
         self.mch_current_available_op_nums = np.copy(self.compatible_mch)
-        # [E, J, M]
+        # [E, J, M] 候选操作的加工时间
         self.candidate_pt = np.array([self.unmasked_op_pt[k][self.candidate[k]] for k in range(self.number_of_envs)])
 
         # construct dynamic pair mask : [E, J, M]
-        self.dynamic_pair_mask = (self.candidate_pt == 0)
-        self.candidate_process_relation = np.copy(self.dynamic_pair_mask)
-        self.mch_current_available_jc_nums = np.sum(~self.candidate_process_relation, axis=1)
+        self.dynamic_pair_mask = (self.candidate_pt == 0)  # 动态操作-机器对掩码
+        self.candidate_process_relation = np.copy(self.dynamic_pair_mask) # 候选操作和机器之间的处理关系
+        self.mch_current_available_jc_nums = np.sum(~self.candidate_process_relation, axis=1) # 机器上当前可用的作业数量
 
-        self.mch_mean_pt = np.mean(self.op_pt, axis=1).filled(0)
+        self.mch_mean_pt = np.mean(self.op_pt, axis=1).filled(0) # 
         # construct machine features [E, M, 6]
 
         # construct 'come_idx' : [E, M, M, J]
@@ -274,9 +284,9 @@ class FJSPEnvForSameOpNums:
         """
             initialize variables for further use
         """
-        self.step_count = 0
+        self.step_count = 0 # 记录当前环境中经过的步数或时间步
         # the array that records the makespan of all environments
-        self.current_makespan = np.full(self.number_of_envs, float("-inf"))
+        self.current_makespan = np.full(self.number_of_envs, float("-inf")) # 
         # the complete time of operations ([E,N])
         self.op_ct = np.zeros((self.number_of_envs, self.number_of_ops))
         self.mch_free_time = np.zeros((self.number_of_envs, self.number_of_machines))

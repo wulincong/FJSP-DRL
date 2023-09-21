@@ -1,5 +1,5 @@
 import argparse
-
+import datetime
 
 def str2bool(v):
     """
@@ -54,10 +54,10 @@ parser.add_argument('--sort_flag', type=str2bool, default=True,
 parser.add_argument('--max_solve_time', type=int, default=1800, help='The maximum solving time of OR-Tools')
 
 # args for seed
-parser.add_argument('--seed_datagen', type=int, default=200, help='Seed for data generation')
-parser.add_argument('--seed_train_vali_datagen', type=int, default=100, help='Seed for generate validation data')
-parser.add_argument('--seed_train', type=int, default=300, help='Seed for training')
-parser.add_argument('--seed_test', type=int, default=50, help='Seed for testing heuristics')
+parser.add_argument('--seed_datagen', type=int, default=300, help='Seed for data generation')
+parser.add_argument('--seed_train_vali_datagen', type=int, default=213, help='Seed for generate validation data')
+parser.add_argument('--seed_train', type=int, default=123, help='Seed for training')
+parser.add_argument('--seed_test', type=int, default=510, help='Seed for testing heuristics')
 # args for tricks
 
 # args for env
@@ -86,12 +86,12 @@ parser.add_argument('--num_mlp_layers_critic', type=int, default=3, help='Number
 parser.add_argument('--hidden_dim_critic', type=int, default=64, help='Hidden dimension of Critic network')
 
 # args for PPO Algorithm
-parser.add_argument('--num_envs', type=int, default=20, help='Batch size for training environments')
+parser.add_argument('--num_envs', type=int, default=5, help='Batch size for training environments')
 parser.add_argument('--max_updates', type=int, default=1000, help='No. of episodes of each env for training')
 parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
 
 parser.add_argument('--gamma', type=float, default=1, help='Discount factor used in training')
-parser.add_argument('--k_epochs', type=int, default=4, help='Update frequency of each episode')
+parser.add_argument('--k_epochs', type=int, default=1, help='Update frequency of each episode')
 parser.add_argument('--eps_clip', type=float, default=0.2, help='Clip parameter')
 parser.add_argument('--vloss_coef', type=float, default=0.5, help='Critic loss coefficient')
 parser.add_argument('--ploss_coef', type=float, default=1, help='Policy loss coefficient')
@@ -105,11 +105,21 @@ parser.add_argument('--validate_timestep', type=int, default=10, help='Interval 
 parser.add_argument('--reset_env_timestep', type=int, default=20, help='Interval for reseting the environment')
 parser.add_argument('--minibatch_size', type=int, default=1024, help='Batch size for computing the gradient')
 
+# args for Meta-Learning
+parser.add_argument('--meta_iterations', type=int, default=1000, help='外部循环次数')
+parser.add_argument('--inner_updates', type=int, default=10, help='内部训练次数')
+parser.add_argument('--meta_lr', type=float, default=0.0001, help='元学习率Outer-loop学习率')
+parser.add_argument('--task_lr', type=float, default=0.001, help='任务学习率Inner-loop学习率')
+parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
+
 # args for test
 parser.add_argument('--test_data', nargs='+', default=['10x5+mix'], help='List of data for testing')
 parser.add_argument('--test_mode', type=str2bool, default=False, help='Whether using the sampling strategy in testing')
 parser.add_argument('--sample_times', type=int, default=100, help='Sampling times for the sampling strategy')
 parser.add_argument('--test_model', nargs='+', default=['10x5+mix'], help='List of model for testing')
 parser.add_argument('--test_method', nargs='+', default=[], help='List of heuristic methods for testing')
+
+# args for log
+parser.add_argument('--logdir', type=str, default=str(datetime.datetime.now()), help='Suffix of the data')
 
 configs = parser.parse_args()

@@ -14,9 +14,18 @@ import copy
 
 def sample_action(p):
     """
-        sample an action by the distribution p
-    :param p: this distribution with the probability of choosing each action
-    :return: an action sampled by p
+    参数
+
+        p: 概率分布，通常是一个一维的张量（Tensor）或数组，表示每个动作被选中的概率。
+
+    返回值
+
+        s: 被采样的动作的索引（index）
+        dist.log_prob(s): 采样动作的自然对数概率
+
+    用法
+        p = torch.tensor([0.2, 0.5, 0.3])  # 确保这些概率的和为1
+        dist = sample_action(p)
     """
     dist = Categorical(p)
     s = dist.sample()  # index
@@ -25,9 +34,17 @@ def sample_action(p):
 
 def eval_actions(p, actions):
     """
-    :param p: the policy
-    :param actions: action sequences
-    :return: the log probability of actions and the entropy of p
+    参数：
+
+        p: 策略，通常是一个概率分布的一维或二维张量。
+        这里还使用了 .squeeze() 方法，该方法移除张量中所有大小为1的维度，
+        以便更灵活地处理输入。
+        actions: 动作序列，这通常是一个一维的张量（或数组）。
+
+    返回值：
+
+        ret: 输入动作序列的对数概率。
+        entropy: 策略的熵，这是一个衡量策略随机性（或不确定性）的指标。
     """
     softmax_dist = Categorical(p.squeeze())
     ret = softmax_dist.log_prob(actions).reshape(-1)

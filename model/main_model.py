@@ -105,7 +105,7 @@ class DualAttentionNetwork(nn.Module):
 
 
 class DANIEL(nn.Module):
-    def __init__(self, config):
+    def __init__(self, config, actor, critic):
         """
             The implementation of the proposed learning framework for fjsp
         :param config: a package of parameters
@@ -120,59 +120,168 @@ class DANIEL(nn.Module):
 
         self.feature_exact = DualAttentionNetwork(config).to(
             device)
+        
+        self.actor = actor
+        self.critic = critic
+
         self.actor = Actor(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,
                            config.hidden_dim_actor, 1).to(device)
+        # self.actor = ActorRNN(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,
+        #             config.hidden_dim_actor, 1).to(device)
         self.critic = Critic(config.num_mlp_layers_critic, 2 * self.embedding_output_dim, config.hidden_dim_critic,
                              1).to(device)
+        # self.critic = CriticRNN(config.num_mlp_layers_critic, 2 * self.embedding_output_dim, config.hidden_dim_critic,
+        #                      1).to(device)
 
-    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, dynamic_pair_mask, fea_pairs):
+    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, dynamic_pair_mask, fea_pairs, params = None, bn_training=True):
         """
-        :param candidate: the index of candidate operations with shape [sz_b, J]
-        :param fea_j: input operation feature vectors with shape [sz_b, N, 8]
-        :param op_mask: used for masking nonexistent predecessors/successor
-                        (with shape [sz_b, N, 3])
-        :param fea_m: input operation feature vectors with shape [sz_b, M, 6]
-        :param mch_mask: used for masking attention coefficients (with shape [sz_b, M, M])
-        :param comp_idx: a tensor with shape [sz_b, M, M, J] used for computing T_E
-                    the value of comp_idx[i, k, q, j] (any i) means whether
-                    machine $M_k$ and $M_q$ are competing for candidate[i,j]
-        :param dynamic_pair_mask: a tensor with shape [sz_b, J, M], used for masking
-                            incompatible op-mch pairs
-        :param fea_pairs: pair features with shape [sz_b, J, M, 8]
-        :return:
-            pi: scheduling policy with shape [sz_b, J*M]
-            v: the value of state with shape [sz_b, 1]
+            :param candidate: 候选操作的索引，形状为[sz_b, J]
+            :param fea_j: 输入操作特征向量，形状为[sz_b, N, 8]
+            :param op_mask: 用于屏蔽不存在的前驱/后继操作，形状为[sz_b, N, 3]
+            :param fea_m: 输入操作特征向量，形状为[sz_b, M, 6]
+            :param mch_mask: 用于屏蔽注意力系数的掩码，形状为[sz_b, M, M]
+            :param comp_idx: 形状为[sz_b, M, M, J]的张量，用于计算 T_E。
+            comp_idx[i, k, q, j] (对于任意 i) 的值表示机器 M_k 和 M_q 是否竞争候选操作[i,j]
+            :param dynamic_pair_mask: 形状为[sz_b, J, M]的张量，用于屏蔽不兼容的操作-机器对
+            :param fea_pairs: 包含对特征的形状为[sz_b, J, M, 8]的张量
+            :return:
+            pi: 调度策略，形状为[sz_b, J*M]
+            v: 状态值，形状为[sz_b, 1]
         """
 
         fea_j, fea_m, fea_j_global, fea_m_global = self.feature_exact(fea_j, op_mask, candidate, fea_m, mch_mask,
-                                                                      comp_idx)
-        sz_b, M, _, J = comp_idx.size()
+                                                                      comp_idx) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
+
+        sz_b, M, _, J = comp_idx.size()  # 获取comp_idx张量的形状信息。
         d = fea_j.size(-1)
 
         # collect the input of decision-making network
+        # 根据候选操作的索引，生成一个新的张量candidate_idx，并重复它以匹配操作特征向量的维度。
         candidate_idx = candidate.unsqueeze(-1).repeat(1, 1, d)
         candidate_idx = candidate_idx.type(torch.int64)
-
+        
+        # 对操作特征向量进行索引操作，得到候选操作的特征向量。
         Fea_j_JC = torch.gather(fea_j, 1, candidate_idx)
 
+        # 对Fea_j_JC和fea_m进行扩展和重塑操作，使得它们的形状匹配后续计算的需求。
         Fea_j_JC_serialized = Fea_j_JC.unsqueeze(2).repeat(1, 1, M, 1).reshape(sz_b, M * J, d)
         Fea_m_serialized = fea_m.unsqueeze(1).repeat(1, J, 1, 1).reshape(sz_b, M * J, d)
 
+        # 将全局操作特征向量扩展成与Fea_j_JC_serialized相同的形状
         Fea_Gj_input = fea_j_global.unsqueeze(1).expand_as(Fea_j_JC_serialized)
         Fea_Gm_input = fea_m_global.unsqueeze(1).expand_as(Fea_j_JC_serialized)
-
+        
+        # 重塑fea_pairs张量的形状以匹配接下来拼接操作的需求。
         fea_pairs = fea_pairs.reshape(sz_b, -1, self.pair_input_dim)
         # candidate_feature.shape = [sz_b, J*M, 4*output_dim + 8]
+        # 将多个特征张量按照最后一个维度拼接在一起，得到候选操作的特征张量。
         candidate_feature = torch.cat((Fea_j_JC_serialized, Fea_m_serialized, Fea_Gj_input,
                                        Fea_Gm_input, fea_pairs), dim=-1)
-
-        candidate_scores = self.actor(candidate_feature)
-        candidate_scores = candidate_scores.squeeze(-1)
+        
+        # h0 = torch.zeros(1, candidate_feature.size(0), 64).to(candidate_feature.device)
+        candidate_scores = self.actor(candidate_feature) # 20, 50, 1
+        # candidate_scores, h0 = self.actor(candidate_feature, h0)
+        candidate_scores = candidate_scores.squeeze(-1) 
 
         # masking incompatible op-mch pairs
         candidate_scores[dynamic_pair_mask.reshape(sz_b, -1)] = float('-inf')
         pi = F.softmax(candidate_scores, dim=1)
 
         global_feature = torch.cat((fea_j_global, fea_m_global), dim=-1)
-        v = self.critic(global_feature)
+        v = self.critic(global_feature)  # 20,1 
         return pi, v
+
+    def get_named_parameters(self):
+        for name, param in self.named_parameters():
+            print(name, param.size())
+
+
+class MetaActorDANIEL(nn.Module):
+    def __init__(self, config, actor):
+        """
+            The implementation of the proposed learning framework for fjsp
+        :param config: a package of parameters
+        """
+        super(DANIEL, self).__init__()
+        device = torch.device(config.device)
+
+        # pair features input dim with fixed value
+        self.pair_input_dim = 8
+
+        self.embedding_output_dim = config.layer_fea_output_dim[-1]
+
+        self.feature_exact = DualAttentionNetwork(config).to(
+            device)
+        
+        self.actor = actor.to(device)
+
+        # self.actor = ActorRNN(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,
+        #             config.hidden_dim_actor, 1).to(device)
+        self.critic = Critic(config.num_mlp_layers_critic, 2 * self.embedding_output_dim, config.hidden_dim_critic,
+                             1).to(device)
+        # self.critic = CriticRNN(config.num_mlp_layers_critic, 2 * self.embedding_output_dim, config.hidden_dim_critic,
+        #                      1).to(device)
+
+    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, dynamic_pair_mask, fea_pairs):
+        """
+            :param candidate: 候选操作的索引，形状为[sz_b, J]
+            :param fea_j: 输入操作特征向量，形状为[sz_b, N, 8]
+            :param op_mask: 用于屏蔽不存在的前驱/后继操作，形状为[sz_b, N, 3]
+            :param fea_m: 输入操作特征向量，形状为[sz_b, M, 6]
+            :param mch_mask: 用于屏蔽注意力系数的掩码，形状为[sz_b, M, M]
+            :param comp_idx: 形状为[sz_b, M, M, J]的张量，用于计算 T_E。
+            comp_idx[i, k, q, j] (对于任意 i) 的值表示机器 M_k 和 M_q 是否竞争候选操作[i,j]
+            :param dynamic_pair_mask: 形状为[sz_b, J, M]的张量，用于屏蔽不兼容的操作-机器对
+            :param fea_pairs: 包含对特征的形状为[sz_b, J, M, 8]的张量
+            :return:
+            pi: 调度策略，形状为[sz_b, J*M]
+            v: 状态值，形状为[sz_b, 1]
+        """
+
+        fea_j, fea_m, fea_j_global, fea_m_global = self.feature_exact(fea_j, op_mask, candidate, fea_m, mch_mask,
+                                                                      comp_idx) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
+
+        sz_b, M, _, J = comp_idx.size()  # 获取comp_idx张量的形状信息。
+        d = fea_j.size(-1)
+
+        # collect the input of decision-making network
+        # 根据候选操作的索引，生成一个新的张量candidate_idx，并重复它以匹配操作特征向量的维度。
+        candidate_idx = candidate.unsqueeze(-1).repeat(1, 1, d)
+        candidate_idx = candidate_idx.type(torch.int64)
+        
+        # 对操作特征向量进行索引操作，得到候选操作的特征向量。
+        Fea_j_JC = torch.gather(fea_j, 1, candidate_idx)
+
+        # 对Fea_j_JC和fea_m进行扩展和重塑操作，使得它们的形状匹配后续计算的需求。
+        Fea_j_JC_serialized = Fea_j_JC.unsqueeze(2).repeat(1, 1, M, 1).reshape(sz_b, M * J, d)
+        Fea_m_serialized = fea_m.unsqueeze(1).repeat(1, J, 1, 1).reshape(sz_b, M * J, d)
+
+        # 将全局操作特征向量扩展成与Fea_j_JC_serialized相同的形状
+        Fea_Gj_input = fea_j_global.unsqueeze(1).expand_as(Fea_j_JC_serialized)
+        Fea_Gm_input = fea_m_global.unsqueeze(1).expand_as(Fea_j_JC_serialized)
+        
+        # 重塑fea_pairs张量的形状以匹配接下来拼接操作的需求。
+        fea_pairs = fea_pairs.reshape(sz_b, -1, self.pair_input_dim)
+        # candidate_feature.shape = [sz_b, J*M, 4*output_dim + 8]
+        # 将多个特征张量按照最后一个维度拼接在一起，得到候选操作的特征张量。
+        candidate_feature = torch.cat((Fea_j_JC_serialized, Fea_m_serialized, Fea_Gj_input,
+                                       Fea_Gm_input, fea_pairs), dim=-1)
+        
+        # h0 = torch.zeros(1, candidate_feature.size(0), 64).to(candidate_feature.device)
+        candidate_scores = self.actor(candidate_feature) # 20, 50, 1
+        # candidate_scores, h0 = self.actor(candidate_feature, h0)
+        candidate_scores = candidate_scores.squeeze(-1) 
+
+        # masking incompatible op-mch pairs
+        candidate_scores[dynamic_pair_mask.reshape(sz_b, -1)] = float('-inf')
+        pi = F.softmax(candidate_scores, dim=1)
+
+        global_feature = torch.cat((fea_j_global, fea_m_global), dim=-1)
+        v = self.critic(global_feature)  # 20,1 
+        return pi, v
+
+    def get_named_parameters(self):
+        for name, param in self.named_parameters():
+            print(name, param.size())
+
+

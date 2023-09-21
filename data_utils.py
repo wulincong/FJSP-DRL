@@ -148,6 +148,7 @@ def load_data_from_files(directory):
             job_length, op_pt = text_to_matrix(g)
             dataset_job_length.append(job_length)
             dataset_op_pt.append(op_pt)
+    # print(dataset_op_pt[0])
     return dataset_job_length, dataset_op_pt
 
 

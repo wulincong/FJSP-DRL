@@ -20,7 +20,7 @@ import torch
 device = torch.device(configs.device)
 from torch.utils.tensorboard import SummaryWriter
 
-writer = SummaryWriter()  # 创建一个SummaryWriter对象，用于记录日志
+writer = SummaryWriter(configs.logdir)  # 创建一个SummaryWriter对象，用于记录日志
 
 class Trainer:
     def __init__(self, config):
@@ -165,8 +165,6 @@ class Trainer:
                 tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
 
             ep_et = time.time()
-            writer.add_scalar('Loss/train', loss, i_update)
-            writer.add_scalar('mean_makespan', mean_makespan_all_env, i_update)
             # print the reward, makespan, loss and training time of the current episode
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
@@ -176,6 +174,14 @@ class Trainer:
 
         # log results
         self.save_training_log()
+
+        self.iter_log(i_update, loss, mean_makespan_all_env, vali_result)
+
+    def iter_log(self, iteration, loss, makespan_train, makespan_validate, ):
+        writer.add_scalar('Loss/train', loss, iteration)
+        writer.add_scalar('makespan_train', makespan_train, iteration)
+        writer.add_scalar('makespan_validate', makespan_validate, iteration)
+
 
     def save_training_log(self):
         """

@@ -4,3 +4,7 @@ model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix		training time: 499.34		 
 model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix		training time: 493.65		 local time: 20230814_153302
 model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix		training time: 498.95		 local time: 20230814_154138
 model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix		training time: 396.39		 local time: 20230921_094851
+model path: ./DANIEL_FJSP/trained_network/SD1/10x5+sd1		training time: 408.72		 local time: 20230925_151059
+model path: ./DANIEL_FJSP/trained_network/SD1/10x5+SD1		training time: 410.63		 local time: 20230925_171303
+model path: ./DANIEL_FJSP/trained_network/SD1/10x5+SD1		training time: 412.25		 local time: 20230925_172500
+model path: ./DANIEL_FJSP/trained_network/SD1/10x5+SD1		training time: 411.19		 local time: 20230926_185132

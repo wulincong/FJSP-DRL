@@ -1,5 +1,6 @@
 import argparse
 import datetime
+import time
 
 def str2bool(v):
     """
@@ -14,6 +15,7 @@ def str2bool(v):
     else:
         raise argparse.ArgumentTypeError('Unsupported value encountered.')
 
+str_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
 
 parser = argparse.ArgumentParser(description='Arguments for DANIEL_FJSP')
 # args for device
@@ -120,6 +122,6 @@ parser.add_argument('--test_model', nargs='+', default=['10x5+mix'], help='List 
 parser.add_argument('--test_method', nargs='+', default=[], help='List of heuristic methods for testing')
 
 # args for log
-parser.add_argument('--logdir', type=str, default=str(datetime.datetime.now()), help='Suffix of the data')
+parser.add_argument('--logdir', type=str, default="./runs/"+str_time, help='Suffix of the data')
 
 configs = parser.parse_args()

@@ -15,6 +15,9 @@ from model.PPO import Memory
 import higher
 from model.sub_layers import *
 from collections import OrderedDict
+from torch.utils.tensorboard import SummaryWriter
+
+writer = SummaryWriter(configs.logdir)  # 创建一个SummaryWriter对象，用于记录日志
 
 str_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
 os.environ["CUDA_VISIBLE_DEVICES"] = configs.device_id
@@ -23,7 +26,6 @@ import torch
 device = torch.device(configs.device)
 
 class Trainer:
-
     def __init__(self, config) -> None:
         self.n_j = config.n_j # Number of jobs of the instance
         self.n_m = config.n_m # Number of machines of the instance
@@ -57,7 +59,7 @@ class Trainer:
             self.data_name = f'{self.n_j}x{self.n_m}'
         elif self.data_source == 'SD2':
             self.data_name = f'{self.n_j}x{self.n_m}{strToSuffix(config.data_suffix)}'
-
+        
         self.vali_data_path = f'./data/data_train_vali/{self.data_source}/{self.data_name}'
         self.test_data_path = f'./data/{self.data_source}/{self.data_name}'
         self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}'
@@ -78,127 +80,35 @@ class Trainer:
             self.vali_env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
 
         self.vali_env.set_initial_data(vali_data[0], vali_data[1])
-        actor = Actor(configs.num_mlp_layers_actor, 4 * configs.layer_fea_output_dim[-1] + 8,
-                configs.hidden_dim_actor, 1).to(device)
 
-        critic = Critic(configs.num_mlp_layers_critic, 2 * configs.layer_fea_output_dim[-1], configs.hidden_dim_critic,
-                            1).to(device)
-        self.ppo = PPO_initialize(actor, critic)
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
-        self.actor_optimizer = torch.optim.Adam(self.ppo.policy.actor.parameters(), lr=self.meta_lr)
-        self.critic_optimizer = torch.optim.Adam(self.ppo.policy.critic.parameters(), lr=self.meta_lr)
-        self.optimizer = torch.optim.Adam(self.ppo.policy.parameters(), lr=self.meta_lr)
 
     def train(self):
-        # print the setting
-        print("-" * 25 + "Training Setting" + "-" * 25)
-        print(f"source : {self.data_source}")
-        print(f"model name :{self.model_name}")
-        print(f"vali data :{self.vali_data_path}")
-        print("\n")
-        self.record = float('inf')
-
-        self.train_st = time.time()
-
-        for iteration in tqdm(range(self.meta_iterations), file=sys.stdout, desc="progress", colour="blue"):
-
-            ep_st = time.time()
-            # meta_grads_actor = OrderedDict()  # 用于存储所有任务的Actor梯度
-            # meta_grads_critic = OrderedDict()  # 用于存储所有任务的Critic梯度
-
-            inner_ppos = []
-
-            for task in range(self.num_tasks):
-                env = self.envs[task]
-                if iteration % self.reset_env_timestep == 0:
-                    dataset_job_length, dataset_op_pt = self.sample_training_instances()
-                    state = env.set_initial_data(dataset_job_length, dataset_op_pt)
-                else:
-                    state = env.reset()
-
-                inner_ppo = deepcopy(self.ppo)
-                ep_rewards = self.memory_generate(env, state, inner_ppo)
-
-                loss, v_loss = inner_ppo.update(self.memory)
-                mean_rewards_all_env = np.mean(ep_rewards)
-                mean_makespan_all_env = np.mean(env.current_makespan)
-                inner_ppos.append(inner_ppo)
-            #     # 记录任务内（inner-loop）的梯度
-            #     for name, param in inner_ppo.policy.actor.named_parameters():
-            #         if param.requires_grad:
-            #             if name not in meta_grads_actor:
-            #                 meta_grads_actor[name] = []
-            #             meta_grads_actor[name].append(param.grad.clone())
-
-            #     for name, param in inner_ppo.policy.critic.named_parameters():
-            #         if param.requires_grad:
-            #             if name not in meta_grads_critic:
-            #                 meta_grads_critic[name] = []
-            #             meta_grads_critic[name].append(param.grad.clone())
-
-                
-
-            # # 对于Actor进行元更新
-            # for name, param in self.ppo.policy.actor.named_parameters():
-            #     if param.requires_grad:
-            #         mean_grad = torch.stack(meta_grads_actor[name]).mean(dim=0)
-            #         param.grad = mean_grad
-            # self.actor_optimizer.step()
-            # self.actor_optimizer.zero_grad()
-
-            # # 对于Critic进行元更新
-            # for name, param in self.ppo.policy.critic.named_parameters():
-            #     if param.requires_grad:
-            #         mean_grad = torch.stack(meta_grads_critic[name]).mean(dim=0)
-            #         param.grad = mean_grad
-            # self.critic_optimizer.step()
-            # self.critic_optimizer.zero_grad()
-            # # if iteration % 100 == 0:
-            # #     for name, param in self.ppo.policy.critic.named_parameters():
-            # #         tqdm.write(param.__str__())
-
-            loss_list = []
-            makespans = []
-            for i in range(self.num_tasks):
-                env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
-                dataset_job_length, dataset_op_pt = self.sample_training_instances()
-                state = env.set_initial_data(dataset_job_length, dataset_op_pt)
-
-                self.memory_generate(env, state, inner_ppos[i])
-
-                _, loss = inner_ppos[i].compute_loss(self.memory)
-                loss_list.append(loss)
-                makespans.append(env.current_makespan)
-                self.memory.clear_memory()
-
-            self.optimizer.zero_grad()
-            mean_loss = torch.mean(torch.stack(loss_list))
-            tqdm.write(mean_loss.item().__str__())
-            mean_loss.backward()
-            self.optimizer.step()
-
-            ep_et = time.time()
-            tqdm.write(
-                'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
-                    iteration + 1, mean_rewards_all_env, mean_makespan_all_env, loss, ep_et - ep_st))
-            tqdm.write(str(makespans[0]))
-            # validate the trained model
-            if (iteration + 1) % self.validate_timestep == 0:
-                vali_result = self.validate_envs_with_same_op_nums().mean()
-
-                if vali_result < self.record:
-                    self.save_model()
-                    self.record = vali_result
-
-                # self.validation_log.append(vali_result)
-                # self.save_validation_log()
-
-                tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
+        '''定义训练过程'''
+        raise NotImplementedError
 
 
+    def iter_log(self, iteration, loss, makespan_train, makespan_validate, ):
+        writer.add_scalar('Loss/train', loss, iteration)
+        writer.add_scalar('makespan_train', makespan_train, iteration)
+        writer.add_scalar('makespan_validate', makespan_validate, iteration)
+
+    def valid_model(self,):
+        if self.data_source == "SD1":
+            vali_result = self.validate_envs_with_various_op_nums().mean()
+        else:
+            vali_result = self.validate_envs_with_same_op_nums().mean()
+
+        if vali_result < self.record:
+            self.save_model()
+            self.record = vali_result
+
+        self.validation_log.append(vali_result)
+        self.save_validation_log()
+        return vali_result
 
     def memory_generate(self, env, state, inner_ppo):
-
+        '''根据环境生成轨迹'''
         ep_rewards = - deepcopy(env.init_quality)
         self.memory.clear_memory()
         while True: # 解决一个FJSP问题的过程
@@ -360,22 +270,3 @@ class Trainer:
         """
         model_path = f'./trained_network/{self.data_source}/{self.model_name}.pth'
         self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    trainer = Trainer(configs)
-    trainer.train()
-
-
-
-
-# 1. 环境变化太快了，导致没学习到东西环境就发生了改变
-# 2. 图嵌入注意力机制也需要学习参数，如果它的参数不正确，那么后面的强化学习就很难进行

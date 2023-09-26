@@ -105,7 +105,7 @@ class DualAttentionNetwork(nn.Module):
 
 
 class DANIEL(nn.Module):
-    def __init__(self, config, actor, critic):
+    def __init__(self, config):
         """
             The implementation of the proposed learning framework for fjsp
         :param config: a package of parameters
@@ -121,9 +121,6 @@ class DANIEL(nn.Module):
         self.feature_exact = DualAttentionNetwork(config).to(
             device)
         
-        self.actor = actor
-        self.critic = critic
-
         self.actor = Actor(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,
                            config.hidden_dim_actor, 1).to(device)
         # self.actor = ActorRNN(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,

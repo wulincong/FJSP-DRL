@@ -133,7 +133,7 @@ class Memory:
 
 
 class PPO:
-    def __init__(self, config, actor, critic):
+    def __init__(self, config,):
         """
             The implementation of PPO algorithm
         :param config: a package of parameters
@@ -150,7 +150,7 @@ class PPO:
         self.entloss_coef = config.entloss_coef  # 交叉熵损失系数
         self.minibatch_size = config.minibatch_size  # 批次大小
 
-        self.policy = DANIEL(config, actor, critic)  # 创建策略网络
+        self.policy = DANIEL(config)  # 创建策略网络
         # self.policy.get_named_parameters()
         self.policy_old = deepcopy(self.policy)  # 创建旧策略网络，用于软更新
 
@@ -304,6 +304,6 @@ class PPO:
 
         return total_loss, total_v_loss
 
-def PPO_initialize(actor=None, critic=None):
-    ppo = PPO(configs, actor, critic)
+def PPO_initialize():
+    ppo = PPO(configs)
     return ppo

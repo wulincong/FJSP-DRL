@@ -196,19 +196,20 @@ class Trainer:
         # print("len of sample_training_instances/dataset_OpPT:", len(dataset_OpPT))
         return dataset_JobLength, dataset_OpPT
 
-    def validate_envs_with_same_op_nums(self):
+    def validate_envs_with_same_op_nums(self, model=None):
         """
             validate the policy using the greedy strategy
             where the validation instances have the same number of operations
         :return: the makespan of the validation set
         """
-        self.ppo.policy.eval()
+        if model is None: model = self.ppo
+        model.policy.eval()
         state = self.vali_env.reset()
         
         while True:
 
             with torch.no_grad():
-                pi, _ = self.ppo.policy(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
+                pi, _ = model.policy(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
                                         op_mask=state.op_mask_tensor,
                                         candidate=state.candidate_tensor,  # [sz_b, J]
                                         fea_m=state.fea_m_tensor,  # [sz_b, M, 6]
@@ -223,23 +224,24 @@ class Trainer:
             if done.all():
                 break
 
-        self.ppo.policy.train()
+        model.policy.train()
         return self.vali_env.current_makespan
 
-    def validate_envs_with_various_op_nums(self):
+    def validate_envs_with_various_op_nums(self, model = None):
         """
             validate the policy using the greedy strategy
             where the validation instances have various number of operations
         :return: the makespan of the validation set
         """
-        self.ppo.policy.eval()
+        if model is None: model = self.ppo
+        model.policy.eval()
         state = self.vali_env.reset()
 
         while True:
 
             with torch.no_grad():
                 batch_idx = ~torch.from_numpy(self.vali_env.done_flag)
-                pi, _ = self.ppo.policy(fea_j=state.fea_j_tensor[batch_idx],  # [sz_b, N, 8]
+                pi, _ = model.policy(fea_j=state.fea_j_tensor[batch_idx],  # [sz_b, N, 8]
                                         op_mask=state.op_mask_tensor[batch_idx],
                                         candidate=state.candidate_tensor[batch_idx],  # [sz_b, J]
                                         fea_m=state.fea_m_tensor[batch_idx],  # [sz_b, M, 6]
@@ -254,19 +256,21 @@ class Trainer:
             if done.all():
                 break
 
-        self.ppo.policy.train()
+        model.policy.train()
         return self.vali_env.current_makespan
 
-    def save_model(self):
+    def save_model(self, model=None):
         """
             save the model
         """
-        torch.save(self.ppo.policy.state_dict(), f'./trained_network/{self.data_source}'
+        if model is None: model = self.ppo
+        torch.save(model.policy.state_dict(), f'./trained_network/{self.data_source}'
                                                  f'/{self.model_name}.pth')
 
-    def load_model(self):
+    def load_model(self, model=None):
         """
             load the trained model
         """
+        if model is None: model = self.ppo
         model_path = f'./trained_network/{self.data_source}/{self.model_name}.pth'
-        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+        model.policy.load_state_dict(torch.load(model_path, map_location='cuda'))

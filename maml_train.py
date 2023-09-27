@@ -18,7 +18,7 @@ class SDTrainer(Trainer):
         self.record = float('inf')
         self.validation_log = []
         self.train_st = time.time()
-        vali_result = 1000000
+        
 
         for iteration in tqdm(range(self.meta_iterations), file=sys.stdout, desc="progress"):
 
@@ -53,9 +53,10 @@ class SDTrainer(Trainer):
                 makespans.append(np.mean(env.current_makespan))
 
 
-
             ep_et = time.time()
             makespan = np.mean(makespans)
+            
+            if iteration < 2: vali_result = makespan 
 
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
@@ -67,11 +68,25 @@ class SDTrainer(Trainer):
 
             self.iter_log(iteration, loss, makespan, vali_result)
 
+    def fast_adapt_valid_model(self):
+        
+        if self.data_source == "SD1":
+            vali_result = self.validate_envs_with_various_op_nums().mean()
+        else:
+            vali_result = self.validate_envs_with_same_op_nums().mean()
+
+        if vali_result < self.record:
+            self.save_model()
+            self.record = vali_result
+
+        self.validation_log.append(vali_result)
+        self.save_validation_log()
+        return vali_result
+
+
 
 if __name__ == "__main__":
     trainer = SDTrainer(configs)
     trainer.train()
 
 
-# 1. 环境变化太快了，导致没学习到东西环境就发生了改变
-# 2. 图嵌入注意力机制也需要学习参数，如果它的参数不正确，那么后面的强化学习就很难进行

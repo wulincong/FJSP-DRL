@@ -1,4 +1,6 @@
-from train_base import *
+from train.base import *
+
+
 
 class SDTrainer(Trainer):
 
@@ -18,9 +20,9 @@ class SDTrainer(Trainer):
         self.record = float('inf')
         self.validation_log = []
         self.train_st = time.time()
-        
 
-        for iteration in tqdm(range(self.meta_iterations), file=sys.stdout, desc="progress"):
+
+        for iteration in range(self.meta_iterations):
 
             ep_st = time.time()
 
@@ -65,23 +67,14 @@ class SDTrainer(Trainer):
             if (iteration + 1) % self.validate_timestep == 0:
                 vali_result = self.valid_model()
                 tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
+            del inner_ppos
+            scalars={
+                'Loss/train': loss
+                ,'makespan_train':makespan
+                ,'makespan_validate':vali_result
+            }
+            self.iter_log(iteration, scalars)
 
-            self.iter_log(iteration, loss, makespan, vali_result)
-
-    def fast_adapt_valid_model(self):
-        
-        if self.data_source == "SD1":
-            vali_result = self.validate_envs_with_various_op_nums().mean()
-        else:
-            vali_result = self.validate_envs_with_same_op_nums().mean()
-
-        if vali_result < self.record:
-            self.save_model()
-            self.record = vali_result
-
-        self.validation_log.append(vali_result)
-        self.save_validation_log()
-        return vali_result
 
 
 

@@ -1,4 +1,4 @@
-from train_base import *
+from train.base import *
 
 class DANTrainer(Trainer):
     def __init__(self, config):
@@ -102,7 +102,13 @@ class DANTrainer(Trainer):
                 'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
                     i_update + 1, mean_rewards_all_env, mean_makespan_all_env, loss, ep_et - ep_st))
             
-            self.iter_log(i_update // self.num_tasks, loss, mean_makespan_all_env, vali_result)
+            scalars={
+                'Loss/train': loss
+                ,'makespan_train':mean_makespan_all_env
+                ,'makespan_validate':vali_result
+            }
+            
+            self.iter_log(i_update // self.num_tasks, scalars)
 
         self.train_et = time.time()
 
@@ -118,3 +124,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

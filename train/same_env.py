@@ -1,6 +1,7 @@
-from train_base import *
+from train.base import *
 
 writer_ = SummaryWriter(configs.logdir+"_")  # 创建一个SummaryWriter对象，用于记录日志
+fast_adapt_writer = SummaryWriter(configs.logdir+"_FAD")
 
 class SameEnvTrainer(Trainer):
 
@@ -66,7 +67,7 @@ class SameEnvTrainer(Trainer):
 
             ep_et = time.time()
             makespan = np.mean(makespans)
-            if iteration < 2: vali_result = vali_result_ = makespan 
+            if iteration < 2: vali_result = vali_result_ = vali_result_fast_adapt = makespan 
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t makespan_:{:.2f} Mean_loss: {:.8f},  training time: {:.2f}'.format(
                     iteration + 1, mean_rewards_all_env, makespan, mean_makespan_all_env_, loss, ep_et - ep_st))
@@ -87,10 +88,26 @@ class SameEnvTrainer(Trainer):
                     self.record_ = vali_result_
 
                 tqdm.write(f'The validation quality of ppo_ is: {vali_result} (best : {self.record_})')
+            start_time = time.time()
+            vali_result_fast_adapt = self.fast_adapt_valid_model(self.ppo)
+            end_time = time.time()
+            iteration_time = end_time - start_time
+            self.iter_log(iteration, {'Fast Adapt Time':iteration_time}, fast_adapt_writer)
 
-            self.iter_log(iteration, loss, makespan, vali_result)
-            self.iter_log(iteration, loss_, mean_makespan_all_env_, vali_result_, writer_)
+            self.iter_log(iteration, {
+                'Loss/train': loss
+                ,'makespan_train':makespan
+                ,'makespan_validate':vali_result
+            })
 
+            self.iter_log(iteration,{
+                'Loss/train': loss_
+                ,'makespan_train':mean_makespan_all_env_
+                ,'makespan_validate':vali_result_
+            }, writer_)
+
+            self.iter_log(iteration,{'makespan_validate':vali_result_fast_adapt} , fast_adapt_writer)
+    
     def validate_envs_with_various_op_nums_(self, model):
         model.policy.eval()
         state = self.vali_env.reset()
@@ -146,12 +163,6 @@ class SameEnvTrainer(Trainer):
         """
         torch.save(model.policy.state_dict(), f'./trained_network/{self.data_source}'
                                                  f'/{self.model_name}_.pth')
-
-
-    def iter_log(self, iteration, loss, makespan_train, makespan_validate, writer=writer):
-        writer.add_scalar('Loss/train', loss, iteration)
-        writer.add_scalar('makespan_train', makespan_train, iteration)
-        writer.add_scalar('makespan_validate', makespan_validate, iteration)
 
 
 if __name__ == "__main__":

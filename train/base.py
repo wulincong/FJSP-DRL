@@ -17,7 +17,6 @@ from model.sub_layers import *
 from collections import OrderedDict
 from torch.utils.tensorboard import SummaryWriter
 
-writer = SummaryWriter(configs.logdir)  # 创建一个SummaryWriter对象，用于记录日志
 
 str_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
 os.environ["CUDA_VISIBLE_DEVICES"] = configs.device_id
@@ -44,7 +43,8 @@ class Trainer:
         self.meta_lr = config.meta_lr
         self.task_lr = config.task_lr
         self.num_tasks = config.num_tasks
-
+        self.adapt_lr = config.adapt_lr
+        self.adapt_nums = config.adapt_nums
         if not os.path.exists(f'./trained_network/{self.data_source}'):
             os.makedirs(f'./trained_network/{self.data_source}')
         if not os.path.exists(f'./train_log/{self.data_source}'):
@@ -63,6 +63,7 @@ class Trainer:
         self.vali_data_path = f'./data/data_train_vali/{self.data_source}/{self.data_name}'
         self.test_data_path = f'./data/{self.data_source}/{self.data_name}'
         self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}'
+        print("save model name: ",self.model_name)
 
         # seed
         self.seed_train = config.seed_train
@@ -82,16 +83,20 @@ class Trainer:
         self.vali_env.set_initial_data(vali_data[0], vali_data[1])
 
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
+        self.writer = SummaryWriter(configs.logdir)  # 创建一个SummaryWriter对象，用于记录日志
 
     def train(self):
         '''定义训练过程'''
         raise NotImplementedError
 
 
-    def iter_log(self, iteration, loss, makespan_train, makespan_validate, ):
-        writer.add_scalar('Loss/train', loss, iteration)
-        writer.add_scalar('makespan_train', makespan_train, iteration)
-        writer.add_scalar('makespan_validate', makespan_validate, iteration)
+    def iter_log(self, iteration, scalars:dict=None, writer=None):
+        if writer is None:
+            writer=self.writer
+        for key in scalars.keys():
+            writer.add_scalar(key, scalars[key], iteration)
+
+
 
     def valid_model(self,):
         if self.data_source == "SD1":
@@ -196,20 +201,21 @@ class Trainer:
         # print("len of sample_training_instances/dataset_OpPT:", len(dataset_OpPT))
         return dataset_JobLength, dataset_OpPT
 
-    def validate_envs_with_same_op_nums(self, model=None):
+    def validate_envs_with_same_op_nums(self, model=None, policy = None):
         """
             validate the policy using the greedy strategy
             where the validation instances have the same number of operations
         :return: the makespan of the validation set
         """
-        if model is None: model = self.ppo
-        model.policy.eval()
+        if policy is None: policy = self.ppo.policy
+        if model: policy = model.policy
+        policy.eval()
         state = self.vali_env.reset()
         
         while True:
 
             with torch.no_grad():
-                pi, _ = model.policy(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
+                pi, _ = policy(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
                                         op_mask=state.op_mask_tensor,
                                         candidate=state.candidate_tensor,  # [sz_b, J]
                                         fea_m=state.fea_m_tensor,  # [sz_b, M, 6]
@@ -224,31 +230,32 @@ class Trainer:
             if done.all():
                 break
 
-        model.policy.train()
+        policy.train()
         return self.vali_env.current_makespan
 
-    def validate_envs_with_various_op_nums(self, model = None):
+    def validate_envs_with_various_op_nums(self, model = None, policy = None):
         """
             validate the policy using the greedy strategy
             where the validation instances have various number of operations
         :return: the makespan of the validation set
         """
-        if model is None: model = self.ppo
-        model.policy.eval()
+        if policy is None: policy = self.ppo.policy
+        if model: policy = model.policy
+        policy.eval()
         state = self.vali_env.reset()
 
         while True:
 
             with torch.no_grad():
                 batch_idx = ~torch.from_numpy(self.vali_env.done_flag)
-                pi, _ = model.policy(fea_j=state.fea_j_tensor[batch_idx],  # [sz_b, N, 8]
-                                        op_mask=state.op_mask_tensor[batch_idx],
-                                        candidate=state.candidate_tensor[batch_idx],  # [sz_b, J]
-                                        fea_m=state.fea_m_tensor[batch_idx],  # [sz_b, M, 6]
-                                        mch_mask=state.mch_mask_tensor[batch_idx],  # [sz_b, M, M]
-                                        comp_idx=state.comp_idx_tensor[batch_idx],  # [sz_b, M, M, J]
-                                        dynamic_pair_mask=state.dynamic_pair_mask_tensor[batch_idx],  # [sz_b, J, M]
-                                        fea_pairs=state.fea_pairs_tensor[batch_idx])  # [sz_b, J, M]
+                pi, _ = policy(fea_j=state.fea_j_tensor[batch_idx],  # [sz_b, N, 8]
+                                op_mask=state.op_mask_tensor[batch_idx],
+                                candidate=state.candidate_tensor[batch_idx],  # [sz_b, J]
+                                fea_m=state.fea_m_tensor[batch_idx],  # [sz_b, M, 6]
+                                mch_mask=state.mch_mask_tensor[batch_idx],  # [sz_b, M, M]
+                                comp_idx=state.comp_idx_tensor[batch_idx],  # [sz_b, M, M, J]
+                                dynamic_pair_mask=state.dynamic_pair_mask_tensor[batch_idx],  # [sz_b, J, M]
+                                fea_pairs=state.fea_pairs_tensor[batch_idx])  # [sz_b, J, M]
 
             action = greedy_select_action(pi)
             state, _, done = self.vali_env.step(action.cpu().numpy())
@@ -256,7 +263,7 @@ class Trainer:
             if done.all():
                 break
 
-        model.policy.train()
+        policy.train()
         return self.vali_env.current_makespan
 
     def save_model(self, model=None):
@@ -274,3 +281,32 @@ class Trainer:
         if model is None: model = self.ppo
         model_path = f'./trained_network/{self.data_source}/{self.model_name}.pth'
         model.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+    
+    def fast_adapt_valid_model(self, model=None):
+
+        if model is None: model = self.ppo
+        
+        adapt_policy = model.clone_policy()
+
+        # fast adapt
+        for _ in range(self.adapt_nums):
+            state = self.vali_env.reset()
+            self.memory_generate(self.vali_env, state, model)
+            _, _, adapt_policy = model.fast_adapt(self.memory, adapt_policy)
+
+        
+
+        if self.data_source == "SD1":
+            vali_result = self.validate_envs_with_various_op_nums(policy=adapt_policy).mean()
+        else:
+            vali_result = self.validate_envs_with_same_op_nums(policy=adapt_policy).mean()
+
+        if vali_result < self.record:
+            self.save_model()
+            self.record = vali_result
+
+        
+        
+        self.validation_log.append(vali_result)
+        self.save_validation_log()
+        return vali_result

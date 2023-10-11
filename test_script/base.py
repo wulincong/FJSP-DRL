@@ -13,11 +13,15 @@ import torch
 
 device = torch.device(configs.device)
 
-ppo = PPO_initialize()
+
 test_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
 
 class TestBase:
-    def test_greedy_strategy(data_set, model_path, seed):
+
+    def __init__(self) -> None:
+        self.ppo=PPO_initialize()
+
+    def greedy_strategy(self, data_set, model_path, seed):
         """
             使用贪婪策略在给定的数据上测试模型。
         :param data_set: 测试数据
@@ -28,8 +32,8 @@ class TestBase:
         """
         test_result_list = []
         setup_seed(seed)
-        ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
-        ppo.policy.eval()
+        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+        self.ppo.policy.eval()
 
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
@@ -42,7 +46,7 @@ class TestBase:
             while True:
 
                 with torch.no_grad():
-                    pi, _ = ppo.policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
+                    pi, _ = self.ppo.policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
                                     op_mask=state.op_mask_tensor,  # [1, N, N]
                                     candidate=state.candidate_tensor,  # [1, J]
                                     fea_m=state.fea_m_tensor,  # [1, M, 6]
@@ -62,7 +66,7 @@ class TestBase:
         return np.array(test_result_list)
 
 
-    def test_sampling_strategy(data_set, model_path, sample_times, seed):
+    def sampling_strategy(self, data_set, model_path, sample_times, seed):
         """
             使用抽样策略在给定的数据上测试模型。
         :param data_set: 测试数据
@@ -72,8 +76,8 @@ class TestBase:
         """
         setup_seed(seed)
         test_result_list = []
-        ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
-        ppo.policy.eval()
+        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+        self.ppo.policy.eval()
 
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
@@ -90,7 +94,7 @@ class TestBase:
             while True:
 
                 with torch.no_grad():
-                    pi, _ = ppo.policy(fea_j=state.fea_j_tensor,  # [100, N, 8]
+                    pi, _ = self.ppo.policy(fea_j=state.fea_j_tensor,  # [100, N, 8]
                                     op_mask=state.op_mask_tensor,  # [100, N, N]
                                     candidate=state.candidate_tensor,  # [100, J]
                                     fea_m=state.fea_m_tensor,  # [100, M, 6]
@@ -111,7 +115,13 @@ class TestBase:
         return np.array(test_result_list)
 
 
-
+    def multi_operations(self, data_set, model_path, seed, job_nums:list):
+        setup_seed(seed)
+        test_result_list = []
+        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+        self.ppo.policy.eval()
+        for n_j in job_nums:
+            ...
 
 
 

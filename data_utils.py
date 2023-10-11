@@ -204,16 +204,24 @@ def generate_data_to_files(seed, directory, config):
             os.makedirs(path)
 
         for idx in range(batch_size):
-            if source == 'SD2':
+            if source != 'SD1':
                 job_length, op_pt, op_per_mch = SD2_instance_generator(config=config)
 
                 lines_doc = matrix_to_text(job_length, op_pt, op_per_mch)
 
-                doc = open(
-                    path + '/' + filename + '_{}.fjs'.format(str.zfill(str(idx + 1), 3)),
-                    'w')
-                for i in range(len(lines_doc)):
-                    print(lines_doc[i], file=doc)
+                file_path = os.path.join(path, '{}_{:03}.fjs'.format(filename, idx + 1))
+
+                with open(file_path, 'w') as doc:
+                    for line in lines_doc:
+                        print(line, file=doc)
+
+                # doc = open(
+                #     path + '/' + filename + '_{}.fjs'.format(str.zfill(str(idx + 1), 3)),
+                #     'w')
+                # print(lines_doc)
+                # for i in range(len(lines_doc)):
+                #     print(lines_doc[i], file=doc)
+                
                 doc.close()
     else:
         print("the data already exists...")

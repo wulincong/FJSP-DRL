@@ -16,6 +16,46 @@ device = torch.device(configs.device)
 ppo = PPO_initialize()
 test_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
 
+def test_greedy_strategy_maml(data_set, model_path, seed):
+    
+    test_result_list = []
+
+    setup_seed(seed)
+    ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+    ppo.policy.eval()
+
+    n_j = data_set[0][0].shape[0]
+    n_op, n_m = data_set[1][0].shape
+    env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
+
+    for i in tqdm(range(len(data_set[0])), file=sys.stdout, desc="progress", colour='blue'):
+
+        state = env.set_initial_data([data_set[0][i]], [data_set[1][i]])
+        t1 = time.time()
+        while True:
+
+            with torch.no_grad():
+                pi, _ = ppo.policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
+                                   op_mask=state.op_mask_tensor,  # [1, N, N]
+                                   candidate=state.candidate_tensor,  # [1, J]
+                                   fea_m=state.fea_m_tensor,  # [1, M, 6]
+                                   mch_mask=state.mch_mask_tensor,  # [1, M, M]
+                                   comp_idx=state.comp_idx_tensor,  # [1, M, M, J]
+                                   dynamic_pair_mask=state.dynamic_pair_mask_tensor,
+                                   fea_pairs=state.fea_pairs_tensor)  # [1, J, M]
+
+            action = greedy_select_action(pi)
+            state, reward, done = env.step(actions=action.cpu().numpy())
+            if done:
+                break
+        t2 = time.time()
+
+        test_result_list.append([env.current_makespan[0], t2 - t1])
+
+    return np.array(test_result_list)
+
+
+
 
 def test_greedy_strategy(data_set, model_path, seed):
     """
@@ -171,7 +211,6 @@ def main(config, flag_sample):
                     print(f"makespan(sampling): ", save_result[:, 0].mean())
                     print(f"time: ", save_result[:, 1].mean())
                 np.save(save_path, save_result)
-
 
 if __name__ == '__main__':
     main(configs, False)

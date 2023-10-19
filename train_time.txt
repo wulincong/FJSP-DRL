@@ -14,3 +14,4 @@ model path: ./DANIEL_FJSP/trained_network/SD1/10x5+SD1		training time: 419.65		 
 model path: ./DANIEL_FJSP/trained_network/SD1/10x5+SD1		training time: 107.48		 local time: 20231007_173432
 model path: ./DANIEL_FJSP/trained_network/SD1/10x5+SD1		training time: 107.3		 local time: 20231007_175740
 model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+SD2		training time: 101.08		 local time: 20231007_175930
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+SD2		training time: 101.21		 local time: 20231011_172854

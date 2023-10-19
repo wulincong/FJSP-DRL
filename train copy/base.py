@@ -188,8 +188,8 @@ class Trainer:
             
             else:
                 JobLength, OpPT, _ = SD2_instance_generator(config=self.config,n_j = self.n_j, n_m = self.n_m)  
-                # lines_doc = matrix_to_text(JobLength, OpPT, _)
-                # # print("\n".join(lines_doc))
+                lines_doc = matrix_to_text(JobLength, OpPT, _)
+                print("\n".join(lines_doc))
 
                 # JobLength: array([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])
                 # _ = 2.66

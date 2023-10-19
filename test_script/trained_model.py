@@ -7,6 +7,7 @@ from data_utils import pack_data_from_config
 from model.PPO import PPO_initialize
 from common_utils import setup_seed
 from fjsp_env_same_op_nums import FJSPEnvForSameOpNums
+from test_script.base import *
 
 os.environ["CUDA_VISIBLE_DEVICES"] = configs.device_id
 import torch
@@ -192,13 +193,28 @@ def main(config, flag_sample):
                 if not flag_sample:
                     print("Test mode: Greedy")
                     result_5_times = []
+                    fast_adapt_times = []
                     # Greedy mode, test 5 times, record average time.
+
                     for j in range(5):
-                        result = test_greedy_strategy(data[0], model[0], config.seed_test)
+                        print(j)
+                        test = Test(config, data[0], model[0])
+
+                        # start_time = time.time()
+                        # adapt_policy=test.fast_adapt()
+                        # end_time = time.time()
+                        # fast_adapt_times.append(end_time - start_time)
+
+                        result = test.greedy_strategy()
+                        # result = test_greedy_strategy(data[0], model[0], config.seed_test)
+                        
                         result_5_times.append(result)
                     result_5_times = np.array(result_5_times)
 
                     save_result = np.mean(result_5_times, axis=0)
+                    average_fast_adapt_time = np.mean(fast_adapt_times)
+
+                    print("Average fast_adapt time:", average_fast_adapt_time)
                     print("testing results:")
                     print(f"makespan(greedy): ", save_result[:, 0].mean())
                     print(f"time: ", save_result[:, 1].mean())

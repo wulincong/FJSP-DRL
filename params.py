@@ -109,10 +109,10 @@ parser.add_argument('--minibatch_size', type=int, default=1024, help='Batch size
 
 # args for Meta-Learning
 parser.add_argument('--meta_iterations', type=int, default=1000, help='外部循环次数')
-parser.add_argument('--inner_updates', type=int, default=10, help='内部训练次数')
+parser.add_argument('--inner_updates', type=int, default=4, help='内部训练次数')
 parser.add_argument('--meta_lr', type=float, default=0.0001, help='元学习率Outer-loop学习率')
 parser.add_argument('--task_lr', type=float, default=0.001, help='任务学习率Inner-loop学习率')
-parser.add_argument('--adapt_lr', type=float, default=0.01, help='任务快速适应学习率')
+parser.add_argument('--adapt_lr', type=float, default=0.1, help='任务快速适应学习率')
 parser.add_argument('--adapt_nums', type=int, default=5, help='快速适应迭代次数')
 parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
 

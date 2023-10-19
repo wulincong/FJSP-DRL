@@ -3,7 +3,7 @@
 # 实验1： 无maml训练10x5  SD1
 
 t=./train
-meta_iterations=50
+meta_iterations=1000
 num_tasks=5
 max_updates=$((meta_iterations * num_tasks))
 ADAPT_NUMS=5
@@ -19,7 +19,7 @@ TEST_DIR=./test_script
 #                                 --max_updates ${max_updates} \
 #                             > train_log/exp1_1_10x5_SD1.log
 
-# # python ${TEST_DIR}/test_trained_model.py 	--data_source SD1	\
+# # python ${TEST_DIR}/test_trained_model.py 	--data_sourc`e SD1	\
 # # 				                --model_source SD1	\
 # #     				            --test_data 10x5    \
 # #         			            --test_model 10x5	\
@@ -45,8 +45,7 @@ TEST_DIR=./test_script
 # #                 		        --sample_times 100	\
 # #                             >> train_log/exp1_2_10x5_SD2.log
 
-
-# # 实验2： maml训练10x5 SD1
+# 实验2： maml训练10x5 SD1
 # python ${t}/maml.py            --n_j 10 \
 #                                 --n_m 5 \
 #                                 --data_source SD1 \
@@ -64,7 +63,7 @@ TEST_DIR=./test_script
 # #                 		        --sample_times 100	\
 # #                             >> train_log/exp2_maml_10x5_SD1.log
 
-# # 实验3： 对比maml训练相同env 10x5 SD2
+# 实验3： 对比maml训练相同env 10x5 SD2
 # echo exp3
 # python ${t}/same_env.py    --data_source SD2 \
 #                             --model_suffix maml_sd2_same \
@@ -74,12 +73,30 @@ TEST_DIR=./test_script
 #                             --adapt_nums ${ADAPT_NUMS} \
 #                         > train_log/exp3_same_env_10x5_SD2.log
 
+# echo 实验4： maml模型泛化性测试 10x5 扩展到11x5 SD2
+# python ./test_script/trained_model.py --data_source=10x6 \
+#                                         --test_data 10x6+mix 11x5+mix 11x6+mix \
+#                                         --model_source=SD2 \
+#                                         --test_model 10x5+mix+maml_sd2_same 10x5+mix+maml_sd2_same_
 
-# # 实验4： maml模型泛化性测试 10x5 扩展到11x5 SD2
-python ./test_script/trained_model.py --data_source=10x6 \
-                                        --test_data 10x6+mix 11x5+mix 11x6+mix \
-                                        --model_source=SD2 \
-                                        --test_model 10x5+mix+maml_sd2_same 10x5+mix+maml_sd2_same_
+# echo 试验5： 在不同规模的FJSP任务上进行MAML学习\(8~12\)x\(4~6\)
+# python ${t}/multi_task_maml.py  --logdir ./runs/exp5_multi_task_maml \
+#                                 --meta_iterations ${meta_iterations} \
+#                                 --num_tasks ${num_tasks} \
+#                                 --reset_env_timestep 50
 
+# echo 试验6： 在不同规模的FJSP任务上进行MAML学习,并计算收敛的步数\(8~12\)x\(4~6\)
+# python ${t}/multi_task_maml_.py  --logdir ./runs/exp6_multi_task_maml_count_step \
+#                                 --meta_iterations ${meta_iterations} \
+#                                 --num_tasks ${num_tasks} \
+#                                 > train_log/exp6_multi_task_maml_count_step.log
+
+echo 实验7： 无MAML迁移学习
+python ${t}/multi_task_transfer_learn.py --logdir ./runs/exp7_multi_task_transfer_learn \
+                                        --model_suffix exp7 \
+                                        --meta_iterations ${meta_iterations} \
+                                        --num_tasks ${num_tasks} \
+                                        --max_updates ${max_updates} \
+                                        > train_log/exp7_multi_task_transfer_learn.log
 
 

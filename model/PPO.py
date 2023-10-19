@@ -35,6 +35,7 @@ class Memory:
         self.log_probs = []  # log(p_{\theta_old}(a_t|s_t)) with shape [N, tensor[sz_b]]
 
     def clear_memory(self):
+        # print(f"清除了{len(self.action_seq)}个action！")
         self.clear_state()
         del self.action_seq[:]
         del self.reward_seq[:]
@@ -145,6 +146,7 @@ class PPO:
         self.gae_lambda = config.gae_lambda  # GAE广义优势估计参数
         self.eps_clip = config.eps_clip  # PPO算法中的剪切范围
         self.k_epochs = config.k_epochs  # PPO算法中的迭代次数
+        self.inner_updates = config.inner_updates
         self.tau = config.tau  # 软更新时的更新权重
 
         self.ploss_coef = config.ploss_coef  # 策略损失系数
@@ -231,6 +233,71 @@ class PPO:
 
         return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs
 
+    def inner_update(self,  memory: Memory ):
+        '''
+        :param memory: data used for PPO training
+        :return: total_loss and critic_loss
+        '''
+        # 获取转置后的训练数据，用于策略更新
+        t_data = memory.transpose_data()  # Tensor len 13  pre torch.Size([1000, 50, 10])
+        # 计算广义优势估计（GAE）和目标价值  A_t, G_t
+        t_advantage_seq, v_target_seq = memory.get_gae_advantages()
+
+        full_batch_size = len(t_data[-1])  # 获取完整批次大小 # 1000
+        num_batch = np.ceil(full_batch_size / self.minibatch_size)  # 计算小批次数 1.0
+
+        loss_epochs = 0
+        v_loss_epochs = 0
+
+
+        for _ in range(self.inner_updates):  # 4
+            # 对每个迭代进行小批次的策略更新
+            # Split into multiple batches of updates due to memory limitations
+            
+            for i in range(int(num_batch)):
+                if i + 1 < num_batch:
+                    start_idx = i * self.minibatch_size
+                    end_idx = (i + 1) * self.minibatch_size
+                else:
+                    # the last batch  处理最后一个小批次
+                    start_idx = i * self.minibatch_size
+                    end_idx = full_batch_size
+
+                # 通过策略网络获取动作分布和值函数估计
+                pis, vals = self.policy(fea_j=t_data[0][start_idx:end_idx],
+                                        op_mask=t_data[1][start_idx:end_idx],
+                                        candidate=t_data[6][start_idx:end_idx],
+                                        fea_m=t_data[2][start_idx:end_idx],
+                                        mch_mask=t_data[3][start_idx:end_idx],
+                                        comp_idx=t_data[5][start_idx:end_idx],
+                                        dynamic_pair_mask=t_data[4][start_idx:end_idx],
+                                        fea_pairs=t_data[7][start_idx:end_idx])
+
+                action_batch = t_data[8][start_idx: end_idx]  # 获取动作序列
+                logprobs, ent_loss = eval_actions(pis, action_batch)  # 计算动作的概率和熵损失
+                ratios = torch.exp(logprobs - t_data[12][start_idx: end_idx].detach())  # 计算重要性采样比率
+
+                advantages = t_advantage_seq[start_idx: end_idx]  # 获取优势估计
+                surr1 = ratios * advantages  # 计算第一个损失项
+                surr2 = torch.clamp(ratios, 1 - self.eps_clip, 1 + self.eps_clip) * advantages  # 计算第二个损失项
+
+                v_loss = self.V_loss_2(vals.squeeze(1), v_target_seq[start_idx: end_idx])  # 计算价值损失
+                p_loss = - torch.min(surr1, surr2)  # 计算策略损失   L^PPO-clip(pi_theta)
+                ent_loss = - ent_loss.clone()  # 计算熵损失
+                loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
+                # 梯度清零，进行反向传播和优化
+                loss_grads = torch.autograd.grad(loss.mean(), self.policy.parameters(), retain_graph=True)
+                
+                with torch.no_grad():
+                    for param, grad in zip(self.policy.parameters(), loss_grads):
+                        param -= self.learning_rate * grad
+                
+                loss_epochs += loss.mean().detach()
+                v_loss_epochs += v_loss.mean().detach()
+
+        return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs
+
+
     def fast_adapt(self, memory: Memory, clone: DANIEL):
         '''
         memory: 
@@ -275,11 +342,11 @@ class PPO:
         # loss.mean().backward()
         gradients = autograd.grad(loss.mean(), clone.parameters())
         # 查看哪些参数受到loss的影响
-        for name, param in clone.named_parameters():
-            if param.grad is not None and torch.sum(torch.abs(param.grad)) > 0:
-                print(name, "受到了loss的影响")
-            else:
-                print(name, "没有受到loss的影响")
+        # for name, param in clone.named_parameters():
+        #     if param.grad is not None and torch.sum(torch.abs(param.grad)) > 0:
+        #         print(name, "受到了loss的影响")
+        #     else:
+        #         print(name, "没有受到loss的影响")
         return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs, l2l.algorithms.maml.maml_update(clone, self.adapt_lr, gradients )
 
 

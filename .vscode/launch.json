@@ -15,7 +15,7 @@
                 "--data_source=10x6",
                 "--test_data", "10x6+mix", "11x5+mix", "11x6+mix",
                 "--model_source=SD2",
-                "--test_model", "10x5+mix+maml_sd2_same", "10x5+mix+maml_sd2_same_"
+                "--test_model", "10x5+mix+exp6", "10x5+mix+exp7"
             ]
         }
     ]

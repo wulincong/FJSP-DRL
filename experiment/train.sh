@@ -3,7 +3,7 @@
 # 实验1： 无maml训练10x5  SD1
 
 t=./train
-meta_iterations=1000
+meta_iterations=500
 num_tasks=5
 max_updates=$((meta_iterations * num_tasks))
 ADAPT_NUMS=5
@@ -19,16 +19,16 @@ TEST_DIR=./test_script
 #                                 --max_updates ${max_updates} \
 #                             > train_log/exp1_1_10x5_SD1.log
 
-# # python ${TEST_DIR}/test_trained_model.py 	--data_sourc`e SD1	\
-# # 				                --model_source SD1	\
-# #     				            --test_data 10x5    \
-# #         			            --test_model 10x5	\
-# #             			        --test_mode False	\
-# #                 		        --sample_times 100	\
-# #                             >> train_log/exp1_1_10x5_SD1.log
+# python ${TEST_DIR}/test_trained_model.py 	--data_sourc`e SD1	\
+# 				                --model_source SD1	\
+#     				            --test_data 10x5    \
+#         			            --test_model 10x5	\
+#             			        --test_mode False	\
+#                 		        --sample_times 100	\
+#                             >> train_log/exp1_1_10x5_SD1.log
 
 # # 实验1-2： 无maml训练10x5  SD2
-# echo exp2
+# echo exp2 无maml训练10x5  SD2
 # python ${t}/DAN.py                 --n_j 10 \
 #                                 --n_m 5 \
 #                                 --data_source SD2 \
@@ -37,13 +37,13 @@ TEST_DIR=./test_script
 #                                 --max_updates ${max_updates} \
 #                             > train_log/exp1_2_10x5_SD2.log
 
-# # python ${TEST_DIR}/test_trained_model.py 	--data_source SD2	\
-# # 				                --model_source SD2	\
-# #     				            --test_data 10x5+mix    \
-# #         			            --test_model 10x5+mix	\
-# #             			        --test_mode False	\
-# #                 		        --sample_times 100	\
-# #                             >> train_log/exp1_2_10x5_SD2.log
+# python ${TEST_DIR}/test_trained_model.py 	--data_source SD2	\
+# 				                --model_source SD2	\
+#     				            --test_data 10x5+mix    \
+#         			            --test_model 10x5+mix	\
+#             			        --test_mode False	\
+#                 		        --sample_times 100	\
+#                             >> train_log/exp1_2_10x5_SD2.log
 
 # 实验2： maml训练10x5 SD1
 # python ${t}/maml.py            --n_j 10 \
@@ -86,17 +86,33 @@ TEST_DIR=./test_script
 #                                 --reset_env_timestep 50
 
 # echo 试验6： 在不同规模的FJSP任务上进行MAML学习,并计算收敛的步数\(8~12\)x\(4~6\)
-# python ${t}/multi_task_maml_.py  --logdir ./runs/exp6_multi_task_maml_count_step \
+# python ${t}/multi_task_maml_exp6.py  --logdir ./runs/exp6_multi_task_maml \
 #                                 --meta_iterations ${meta_iterations} \
+#                                 --model_suffix exp6 \
 #                                 --num_tasks ${num_tasks} \
-#                                 > train_log/exp6_multi_task_maml_count_step.log
+#                                 > train_log/exp6.log
 
-echo 实验7： 无MAML迁移学习
-python ${t}/multi_task_transfer_learn.py --logdir ./runs/exp7_multi_task_transfer_learn \
-                                        --model_suffix exp7 \
+# echo 实验7： 无MAML迁移学习
+# python ${t}/multi_task_transfer_learn.py --logdir ./runs/exp7_multi_task_transfer_learn \
+#                                         --model_suffix exp7 \
+#                                         --meta_iterations ${meta_iterations} \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates ${max_updates} \
+#                                         > train_log/exp7.log
+
+
+echo 试验8：epoch内MAML
+
+python ${t}/multi_task_maml_exp8.py --logdir ./runs/exp8_multi_task_maml \
+                                        --model_suffix exp8 \
                                         --meta_iterations ${meta_iterations} \
                                         --num_tasks ${num_tasks} \
-                                        --max_updates ${max_updates} \
-                                        > train_log/exp7_multi_task_transfer_learn.log
+                                        --max_updates ${max_updates} 
+                                        # > train_log/exp8.log
 
-
+echo 试验9：epoch内MAML 使用新的meta_loss函数
+python ${t}/multi_task_maml_exp9.py --logdir ./runs/exp9_multi_task_maml \
+                                        --model_suffix exp9 \
+                                        --meta_iterations ${meta_iterations} \
+                                        --num_tasks ${num_tasks} \
+                                        --max_updates ${max_updates} 

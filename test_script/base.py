@@ -9,6 +9,7 @@ from common_utils import setup_seed
 from fjsp_env_same_op_nums import FJSPEnvForSameOpNums
 from copy import deepcopy
 from model.PPO import Memory
+from train.base import ConvergenceChecker
 
 os.environ["CUDA_VISIBLE_DEVICES"] = configs.device_id
 import torch
@@ -16,6 +17,7 @@ import torch
 device = torch.device(configs.device)
 
 test_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
+convergence_checker = ConvergenceChecker(window_size=20, threshold=0.01)
 
 class Test:
 
@@ -43,22 +45,39 @@ class Test:
         :return: 测试结果，包括完成时间和时间信息
         """
         test_result_list = []
+        # adapt_times = []
+
+        # adapt_cnt = []
         if policy is None: policy=self.ppo.policy
         
         policy.eval()
-
-        for i in range(len(self.data_set[0])):
-            adapt_policy = deepcopy(policy)
-            adapt_policy.train()
+        adapt_policy = deepcopy(policy)
+        
+        for i in tqdm(range(len(self.data_set[0])), file=sys.stdout, desc="progress", colour='blue'):
             state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]])
-            for _ in range(self.adapt_nums):
-                state = self.env.reset()
-                self.memory_generate(self.env, state, adapt_policy)
-                _, _, adapt_policy = self.ppo.fast_adapt(self.memory, adapt_policy)
+            adapt_policy.train()
+            ep_st = time.time()
+            cnt = 0
+            if i==0:
+                for _ in range(1000):
+                    cnt += 1
+                    # print("================== fast adapt =====================")
+                    state = self.env.reset()
+                    self.memory_generate(self.env, state, adapt_policy)
+                    loss, _, adapt_policy = self.ppo.fast_adapt(self.memory, adapt_policy)
+                    convergence_checker.add_data(loss)
+                    
+                    # tqdm.write(f"current_makespan = {self.env.current_makespan}")
+                    if convergence_checker.is_converged():
+                        tqdm.write(f"Finish fast adapt at step:{cnt}" )
+                        convergence_checker.clear()
+                        break
+            ep_et = time.time()
+            # adapt_cnt.append(cnt)
             adapt_policy.eval()
             t1 = time.time()
+            state = self.env.reset()
             while True:
-
                 with torch.no_grad():
                     pi, _ = adapt_policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
                                     op_mask=state.op_mask_tensor,  # [1, N, N]
@@ -74,9 +93,10 @@ class Test:
                 if done:
                     break
             t2 = time.time()
-
-            test_result_list.append([self.env.current_makespan[0], t2 - t1])
-
+            tqdm.write(f"{cnt}, {ep_et - ep_st}")
+            test_result_list.append([self.env.current_makespan[0], t2 - t1, cnt, ep_et - ep_st])
+        # for a_c, a_t, r in zip(adapt_cnt, adapt_times, test_result_list):
+        #     print(f"adapt_cnt={a_c}, adapt_time={a_t}, makespan={r[0]}, time={r[1]}")
         return np.array(test_result_list)
 
 

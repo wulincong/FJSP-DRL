@@ -167,7 +167,7 @@ def main(config, flag_sample):
 
     for model_name in config.test_model:
         test_model.append((f'./trained_network/{config.model_source}/{model_name}.pth', model_name))
-
+    print(test_model)
     # collect the test data
     test_data = pack_data_from_config(config.data_source, config.test_data)
 
@@ -177,6 +177,7 @@ def main(config, flag_sample):
         model_prefix = "DANIELG"
 
     for data in test_data:
+        print("datta[1]: ",data[1])
         print("-" * 25 + "Test Learned Model" + "-" * 25)
         print(f"test data name: {data[1]}")
         print(f"test mode: {model_prefix}")
@@ -193,10 +194,10 @@ def main(config, flag_sample):
                 if not flag_sample:
                     print("Test mode: Greedy")
                     result_5_times = []
-                    fast_adapt_times = []
+                    # fast_adapt_times = []
                     # Greedy mode, test 5 times, record average time.
 
-                    for j in range(5):
+                    for j in range(1):
                         print(j)
                         test = Test(config, data[0], model[0])
 
@@ -212,12 +213,14 @@ def main(config, flag_sample):
                     result_5_times = np.array(result_5_times)
 
                     save_result = np.mean(result_5_times, axis=0)
-                    average_fast_adapt_time = np.mean(fast_adapt_times)
+                    # average_fast_adapt_time = np.mean(fast_adapt_times)
 
-                    print("Average fast_adapt time:", average_fast_adapt_time)
                     print("testing results:")
                     print(f"makespan(greedy): ", save_result[:, 0].mean())
                     print(f"time: ", save_result[:, 1].mean())
+                    print(f"Max fast_adapt cnt:", save_result[:, 2].max())
+                    print(f"Average fast_adapt time:", save_result[:, 3].mean())
+                    print("="*100)
 
                 else:
                     # Sample mode, test once.

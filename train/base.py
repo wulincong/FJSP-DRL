@@ -170,26 +170,29 @@ class Trainer:
         file_writing_obj1 = open(f'./train_log/{self.data_source}/' + 'valiquality_' + self.model_name + '.txt', 'w')
         file_writing_obj1.write(str(self.validation_log))
 
-    def sample_training_instances(self):
+    def sample_training_instances(self, n_j=None,n_m=None ):
         """
             sample training instances following the config, 
             the sampling process of SD1 data is imported from "songwenas12/fjsp-drl" 
         :return: new training instances
         """
-        prepare_JobLength = [random.randint(self.op_per_job_min, self.op_per_job_max) for _ in range(self.n_j)]
+        if n_j is None: n_j = self.n_j
+        if n_m is None: n_m = self.n_m
+
+        prepare_JobLength = [random.randint(self.op_per_job_min, self.op_per_job_max) for _ in range(n_j)]
         # [6, 5, 5, 4, 5, 5, 6, 5, 6, 6]
         dataset_JobLength = []  # array([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])
         dataset_OpPT = []
         for i in range(self.num_envs): # 20
             if self.data_source == 'SD1':
-                case = CaseGenerator(self.n_j, self.n_m, self.op_per_job_min, self.op_per_job_max,
+                case = CaseGenerator(n_j, n_m, self.op_per_job_min, self.op_per_job_max,
                                      nums_ope=prepare_JobLength, path='./test', flag_doc=False)
                 JobLength, OpPT, _ = case.get_case(i)
             
             else:
-                JobLength, OpPT, _ = SD2_instance_generator(config=self.config,n_j = self.n_j, n_m = self.n_m)  
+                JobLength, OpPT, _ = SD2_instance_generator(config=self.config, n_j = n_j, n_m = n_m)  
                 # lines_doc = matrix_to_text(JobLength, OpPT, _)
-                # # print("\n".join(lines_doc))
+                # print("\n".join(lines_doc))
 
                 # JobLength: array([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])
                 # _ = 2.66
@@ -296,8 +299,6 @@ class Trainer:
             self.memory_generate(self.vali_env, state, model)
             _, _, adapt_policy = model.fast_adapt(self.memory, adapt_policy)
 
-
-
         if self.data_source == "SD1":
             vali_result = self.validate_envs_with_various_op_nums(policy=adapt_policy).mean()
         else:
@@ -307,8 +308,33 @@ class Trainer:
             self.save_model()
             self.record = vali_result
 
-        
-        
         self.validation_log.append(vali_result)
         self.save_validation_log()
         return vali_result
+
+
+class ConvergenceChecker:
+    def __init__(self, window_size=20, threshold=0.01):
+        self.window_size = window_size
+        self.threshold = threshold
+        self.data = []
+
+    def add_data(self, value):
+        self.data.append(value)
+        if len(self.data) > self.window_size:
+            self.data.pop(0)
+
+    def is_converged(self):
+        if len(self.data) < self.window_size:
+            return False
+        std_dev = np.std(self.data)
+        
+        # print(f"std_dev = {std_dev}")
+        return std_dev < self.threshold
+
+    def std_dev(self):
+        return np.std(self.data)
+    
+    def clear(self):
+        self.data = []
+

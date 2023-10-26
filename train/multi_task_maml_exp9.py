@@ -57,7 +57,7 @@ class MultiTaskTrainer(Trainer):
                 loss, _ = self.ppo.compute_loss(self.memory)
                 loss_sum += loss
                 makespans.append(np.mean(env.current_makespan))
-            
+
             mean_loss = loss_sum / self.num_tasks
             self.meta_optimizer.zero_grad()
             mean_loss.backward()
@@ -97,3 +97,4 @@ class MultiTaskTrainer(Trainer):
 if __name__ == "__main__":
     trainer = MultiTaskTrainer(configs)
     trainer.train()
+

@@ -104,9 +104,9 @@ class Trainer:
             vali_result = self.validate_envs_with_same_op_nums().mean()
 
         if vali_result < self.record:
-            self.save_model()
             self.record = vali_result
 
+        self.save_model()
         self.validation_log.append(vali_result)
         self.save_validation_log()
         return vali_result

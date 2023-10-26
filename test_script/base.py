@@ -59,7 +59,8 @@ class Test:
             ep_st = time.time()
             cnt = 0
             if i==0:
-                for _ in range(1000):
+                for _ in range(200):
+                    if _ %50 == 0: print(_)
                     cnt += 1
                     # print("================== fast adapt =====================")
                     state = self.env.reset()

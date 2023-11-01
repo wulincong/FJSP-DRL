@@ -61,6 +61,7 @@ class Trainer:
             self.data_name = f'{self.n_j}x{self.n_m}{strToSuffix(config.data_suffix)}'
         
         self.vali_data_path = f'./data/data_train_vali/{self.data_source}/{self.data_name}'
+        print(f"vali_data = {self.vali_data_path}")
         self.test_data_path = f'./data/{self.data_source}/{self.data_name}'
         self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}'
         print("save model name: ",self.model_name)
@@ -111,7 +112,7 @@ class Trainer:
         self.save_validation_log()
         return vali_result
 
-    def memory_generate(self, env, state, inner_ppo):
+    def memory_generate(self, env, state, inner_ppo, params=None):
         '''根据环境生成轨迹'''
         ep_rewards = - deepcopy(env.init_quality)
         self.memory.clear_memory()
@@ -126,7 +127,8 @@ class Trainer:
                                                                 mch_mask=state.mch_mask_tensor,  # [sz_b, M, M]
                                                                 comp_idx=state.comp_idx_tensor,  # [sz_b, M, M, J]
                                                                 dynamic_pair_mask=state.dynamic_pair_mask_tensor,  # [sz_b, J, M]
-                                                                fea_pairs=state.fea_pairs_tensor)  # [sz_b, J, M]
+                                                                fea_pairs=state.fea_pairs_tensor,
+                                                                params=params)  # [sz_b, J, M]
 
                     # sample the action
             action_envs, action_logprob_envs = sample_action(pi_envs)
@@ -333,6 +335,7 @@ class ConvergenceChecker:
         return std_dev < self.threshold
 
     def std_dev(self):
+
         return np.std(self.data)
     
     def clear(self):

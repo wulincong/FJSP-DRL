@@ -233,7 +233,7 @@ class PPO:
 
         return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs
 
-    def inner_update(self,  memory: Memory ):
+    def inner_update_old(self,  memory: Memory ):
         '''
         :param memory: data used for PPO training
         :return: total_loss and critic_loss
@@ -296,6 +296,56 @@ class PPO:
                 v_loss_epochs += v_loss.mean().detach()
 
         return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs
+    
+    def inner_update(self, memory, num_steps=1, inner_lr=0.01):
+        '''
+        :param memory: data used for PPO training
+        :param num_steps: number of gradient updates for inner loop
+        :param inner_lr: learning rate for inner loop updates
+        :return: Updated policy parameters after inner loop
+        '''
+
+        # 获取转置后的训练数据，用于策略更新
+        t_data = memory.transpose_data()
+        t_advantage_seq, v_target_seq = memory.get_gae_advantages()
+
+        full_batch_size = len(t_data[-1])
+        num_batch = np.ceil(full_batch_size / self.minibatch_size)
+
+        updated_params = dict(self.policy.named_parameters())
+        for _ in range(num_steps):
+            for i in range(int(num_batch)):
+                start_idx = i * self.minibatch_size
+                end_idx = min((i + 1) * self.minibatch_size, full_batch_size)
+
+                pis, vals = self.policy(fea_j=t_data[0][start_idx:end_idx],
+                                        op_mask=t_data[1][start_idx:end_idx],
+                                        candidate=t_data[6][start_idx:end_idx],
+                                        fea_m=t_data[2][start_idx:end_idx],
+                                        mch_mask=t_data[3][start_idx:end_idx],
+                                        comp_idx=t_data[5][start_idx:end_idx],
+                                        dynamic_pair_mask=t_data[4][start_idx:end_idx],
+                                        fea_pairs=t_data[7][start_idx:end_idx],
+                                        params=updated_params)
+
+                action_batch = t_data[8][start_idx: end_idx]
+                logprobs, ent_loss = eval_actions(pis, action_batch)
+                ratios = torch.exp(logprobs - t_data[12][start_idx: end_idx].detach())
+
+                advantages = t_advantage_seq[start_idx: end_idx]
+                surr1 = ratios * advantages
+                surr2 = torch.clamp(ratios, 1 - self.eps_clip, 1 + self.eps_clip) * advantages
+
+                v_loss = self.V_loss_2(vals.squeeze(1), v_target_seq[start_idx: end_idx])
+                p_loss = - torch.min(surr1, surr2)
+                ent_loss = - ent_loss.clone()
+                loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss
+                
+                # Compute gradients w.r.t. inner loop parameters
+                grads = torch.autograd.grad(loss.mean(), updated_params.values())
+                updated_params = {name: param - inner_lr * grad for (name, param), grad in zip(updated_params.items(), grads)}
+
+        return updated_params
 
 
     def fast_adapt(self, memory: Memory, clone: DANIEL):
@@ -369,56 +419,47 @@ class PPO:
         loss_list = []
         v_loss_list = []
 
-        for _ in range(self.k_epochs):  
 
-            for i in range(int(num_batch)):
-                if i + 1 < num_batch:
-                    start_idx = i * self.minibatch_size
-                    end_idx = (i + 1) * self.minibatch_size
-                else:
-                    # the last batch  处理最后一个小批次
-                    start_idx = i * self.minibatch_size
-                    end_idx = full_batch_size
+        for i in range(int(num_batch)):
+            if i + 1 < num_batch:
+                start_idx = i * self.minibatch_size
+                end_idx = (i + 1) * self.minibatch_size
+            else:
+                # the last batch  处理最后一个小批次
+                start_idx = i * self.minibatch_size
+                end_idx = full_batch_size
 
-                # 通过策略网络获取动作分布和值函数估计
-                pis, vals = self.policy(fea_j=t_data[0][start_idx:end_idx],
-                                        op_mask=t_data[1][start_idx:end_idx],
-                                        candidate=t_data[6][start_idx:end_idx],
-                                        fea_m=t_data[2][start_idx:end_idx],
-                                        mch_mask=t_data[3][start_idx:end_idx],
-                                        comp_idx=t_data[5][start_idx:end_idx],
-                                        dynamic_pair_mask=t_data[4][start_idx:end_idx],
-                                        fea_pairs=t_data[7][start_idx:end_idx])
+            # 通过策略网络获取动作分布和值函数估计
+            pis, vals = self.policy(fea_j=t_data[0][start_idx:end_idx],
+                                    op_mask=t_data[1][start_idx:end_idx],
+                                    candidate=t_data[6][start_idx:end_idx],
+                                    fea_m=t_data[2][start_idx:end_idx],
+                                    mch_mask=t_data[3][start_idx:end_idx],
+                                    comp_idx=t_data[5][start_idx:end_idx],
+                                    dynamic_pair_mask=t_data[4][start_idx:end_idx],
+                                    fea_pairs=t_data[7][start_idx:end_idx])
 
-                action_batch = t_data[8][start_idx: end_idx]  # 获取动作序列
-                logprobs, ent_loss = eval_actions(pis, action_batch)  # 计算动作的概率和熵损失
-                ratios = torch.exp(logprobs - t_data[12][start_idx: end_idx].detach())  # 计算重要性采样比率
+            action_batch = t_data[8][start_idx: end_idx]  # 获取动作序列
+            logprobs, ent_loss = eval_actions(pis, action_batch)  # 计算动作的概率和熵损失
+            ratios = torch.exp(logprobs - t_data[12][start_idx: end_idx].detach())  # 计算重要性采样比率
 
-                advantages = t_advantage_seq[start_idx: end_idx]  # 获取优势估计
-                surr1 = ratios * advantages  # 计算第一个损失项
-                surr2 = torch.clamp(ratios, 1 - self.eps_clip, 1 + self.eps_clip) * advantages  # 计算第二个损失项
+            advantages = t_advantage_seq[start_idx: end_idx]  # 获取优势估计
+            surr1 = ratios * advantages  # 计算第一个损失项
+            surr2 = torch.clamp(ratios, 1 - self.eps_clip, 1 + self.eps_clip) * advantages  # 计算第二个损失项
 
-                v_loss = self.V_loss_2(vals.squeeze(1), v_target_seq[start_idx: end_idx])  # 计算价值损失
-                p_loss = - torch.min(surr1, surr2)  # 计算策略损失
-                ent_loss = - ent_loss.clone()  # 计算熵损失
-                loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
+            v_loss = self.V_loss_2(vals.squeeze(1), v_target_seq[start_idx: end_idx])  # 计算价值损失
+            p_loss = - torch.min(surr1, surr2)  # 计算策略损失
+            ent_loss = - ent_loss.clone()  # 计算熵损失
+            loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
 
-                loss_epochs += loss.mean().detach()
-                v_loss_epochs += v_loss.mean().detach()
+            loss_epochs += loss.mean().detach()
+            v_loss_epochs += v_loss.mean().detach()
 
             loss_list.append(loss)
             v_loss_list.append(v_loss)
             
         total_loss = torch.stack(loss_list).mean()
         total_v_loss = torch.stack(v_loss_list).mean()
-        
-        # # 梯度清零，进行反向传播和优化
-
-        # self.optimizer.zero_grad()  
-        # loss_epochs += loss.mean().detach()
-        # v_loss_epochs += v_loss.mean().detach()
-        # loss.mean().backward()
-
         return total_loss, total_v_loss
 
 

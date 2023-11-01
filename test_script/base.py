@@ -59,7 +59,7 @@ class Test:
             ep_st = time.time()
             cnt = 0
             if i==0:
-                for _ in range(200):
+                for _ in range(self.adapt_nums):
                     if _ %50 == 0: print(_)
                     cnt += 1
                     # print("================== fast adapt =====================")

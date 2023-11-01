@@ -88,12 +88,12 @@ parser.add_argument('--num_mlp_layers_critic', type=int, default=3, help='Number
 parser.add_argument('--hidden_dim_critic', type=int, default=64, help='Hidden dimension of Critic network')
 
 # args for PPO Algorithm
-parser.add_argument('--num_envs', type=int, default=5, help='Batch size for training environments')
+parser.add_argument('--num_envs', type=int, default=20, help='Batch size for training environments')
 parser.add_argument('--max_updates', type=int, default=1000, help='No. of episodes of each env for training')
 parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
 
 parser.add_argument('--gamma', type=float, default=1, help='Discount factor used in training')
-parser.add_argument('--k_epochs', type=int, default=1, help='Update frequency of each episode')
+parser.add_argument('--k_epochs', type=int, default=4, help='Update frequency of each episode')
 parser.add_argument('--eps_clip', type=float, default=0.2, help='Clip parameter')
 parser.add_argument('--vloss_coef', type=float, default=0.5, help='Critic loss coefficient')
 parser.add_argument('--ploss_coef', type=float, default=1, help='Policy loss coefficient')
@@ -115,6 +115,7 @@ parser.add_argument('--task_lr', type=float, default=0.001, help='任务学习�
 parser.add_argument('--adapt_lr', type=float, default=3e-4, help='任务快速适应学习率')
 parser.add_argument('--adapt_nums', type=int, default=5, help='快速适应迭代次数')
 parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
+parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', help='List of model for testing')
 
 # args for test
 parser.add_argument('--test_data', nargs='+', default=['10x5+mix'], help='List of data for testing')

@@ -26,8 +26,8 @@ class MultiTaskTrainer(Trainer):
         self.history_problem = []
         for iteration in range(self.meta_iterations):
             ep_st = time.time()
-            if change_env:
-                probs = [(random.choice([8, 11, 13, 16, 17]), random.choice([4, 8, 12])) for _ in range(self.num_tasks)]
+            if iteration % self.reset_env_timestep == 0:
+                probs = [(random.choice([8, 11, 13, 16, 17, 21]), random.choice([4, 8, 12])) for _ in range(self.num_tasks)]
                 print(probs)
                 self.envs = [FJSPEnvForSameOpNums(probs[_][0], probs[_][1]) for _ in range(self.num_tasks)]
                 for env in self.envs:
@@ -37,47 +37,50 @@ class MultiTaskTrainer(Trainer):
                 step_count = 0
 
             inner_ppos = []
+            data_primes = []
+            makespans = [[] for _ in range(self.num_tasks)]
+            loss_sum = 0
+
             for task in range(self.num_tasks):
                 env = self.envs[task]
                 state = env.reset()
-                inner_ppo = deepcopy(self.ppo)
-                ep_rewards = self.memory_generate(env, state, inner_ppo)
+                ep_rewards = self.memory_generate(env, state, self.ppo)
 
-                loss, v_loss = inner_ppo.update(self.memory)
+                theta_prime = self.ppo.inner_update(self.memory)
+                state = env.reset()                
+                ep_rewards_ = self.memory_generate(env, state, self.ppo, params=theta_prime)
+                data_prime = deepcopy(self.memory)
+                data_primes.append(data_prime)
                 mean_rewards_all_env = np.mean(ep_rewards)
-                inner_ppos.append(inner_ppo)
+                makespans[task].append(env.current_makespan)
 
-            makespans = []
-            loss_sum = 0
+
             for i in range(self.num_tasks):
-                env = self.envs[i]
-                inner_ppo = inner_ppos[i]
-                state = env.reset()
-                ep_rewards = self.memory_generate(env, state, inner_ppo)
-                loss, _ = self.ppo.compute_loss(self.memory)
+                loss, _ = self.ppo.compute_loss(data_primes[i])
                 loss_sum += loss
-                makespans.append(np.mean(env.current_makespan))
 
             mean_loss = loss_sum / self.num_tasks
             self.meta_optimizer.zero_grad()
             mean_loss.backward()
+            # 查看哪些参数受到loss的影响
+            # for name, param in self.ppo.policy.named_parameters():
+            #     if param.grad is not None and torch.sum(torch.abs(param.grad)) > 0:
+            #         print(name, "受到了loss的影响")
+            #     else:
+            #         print(name, "没有受到loss的影响")
+            
             self.meta_optimizer.step()
-            ep_et = time.time()
-            makespan = np.mean(makespans)
 
-            if iteration < 2: self.record = vali_result = makespan 
+            ep_et = time.time()
+            makespans_mean = [np.mean(lst) for lst in makespans]
+            print(makespans_mean)
+            if iteration < 2: self.record = vali_result = makespans_mean[0] 
 
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
                     iteration + 1, mean_rewards_all_env, mean_loss, ep_et - ep_st))
-            print(makespans)
-            convergence_checker.add_data(mean_loss)
-
-            if convergence_checker.is_converged():
-                print("Converged at step:", step_count)
-                step_counts.append(step_count)
-                convergence_checker.clear()
-                change_env = True
+            convergence_checker.add_data(float(mean_loss))
+            # print(mean_loss.device)
 
             if (iteration + 1) % self.validate_timestep == 0:
                 vali_result = self.valid_model()
@@ -86,7 +89,7 @@ class MultiTaskTrainer(Trainer):
             
             scalars={
                 'Loss/train': loss
-                ,'makespan_train':makespan
+                ,'makespan_train':np.mean(makespans_mean)
                 ,'makespan_validate':vali_result
                 ,"loss_std":convergence_checker.std_dev()
             }
@@ -94,6 +97,8 @@ class MultiTaskTrainer(Trainer):
             step_count += 1
         
         print(step_counts)
+
+
 if __name__ == "__main__":
     trainer = MultiTaskTrainer(configs)
     trainer.train()

@@ -85,7 +85,7 @@ class Actor(nn.Module):
                 init.normal_(linear.weight, mean=0, std=0.1)
                 init.zeros_(linear.bias)
 
-    def forward(self, x):  #(20, 50, 40)
+    def forward_old(self, x):  #(20, 50, 40)
         if self.linear_or_not:
             # If linear model
             return self.linear(x)
@@ -95,7 +95,31 @@ class Actor(nn.Module):
             for layer in range(self.num_layers - 1):
                 h = self.activative((self.linears[layer](h)))
             return self.linears[self.num_layers - 1](h)
+    
+    def forward(self, x, params=None):
+        if params is not None:
+            params = {k: v for k, v in params.items() if 'linears' in k}
 
+        if self.linear_or_not:
+            if params is None:
+                return self.linear(x)
+            else:
+                return F.linear(x, params['linear.weight'], params['linear.bias'])
+        else:
+            h = x
+            for layer in range(self.num_layers - 1):
+                linear = self.linears[layer]
+                weight, bias = linear.weight, linear.bias
+                if params is not None:
+                    weight = params[f'linears.{layer}.weight']
+                    bias = params[f'linears.{layer}.bias']
+                h = self.activative(F.linear(h, weight, bias))
+            linear = self.linears[self.num_layers - 1]
+            weight, bias = linear.weight, linear.bias
+            if params is not None:
+                weight = params[f'linears.{self.num_layers - 1}.weight']
+                bias = params[f'linears.{self.num_layers - 1}.bias']
+            return F.linear(h, weight, bias)
 
 class Critic(nn.Module):
     def __init__(self, num_layers, input_dim, hidden_dim, output_dim):  # 3, 16, 64, 1
@@ -136,7 +160,7 @@ class Critic(nn.Module):
                 init.normal_(linear.weight, mean=0, std=0.1)
                 init.zeros_(linear.bias)
     
-    def forward(self, x): # 20, 16
+    def forward_old(self, x): # 20, 16
         if self.linear_or_not:
             # If linear model
             return self.linear(x)
@@ -146,7 +170,31 @@ class Critic(nn.Module):
             for layer in range(self.num_layers - 1):
                 h = self.activative((self.linears[layer](h)))
             return self.linears[self.num_layers - 1](h)
+        
+    def forward(self, x, params=None):
+        if params is not None:
+            params = {k: v for k, v in params.items() if 'linears' in k}
 
+        if self.linear_or_not:
+            if params is None:
+                return self.linear(x)
+            else:
+                return F.linear(x, params['linear.weight'], params['linear.bias'])
+        else:
+            h = x
+            for layer in range(self.num_layers - 1):
+                linear = self.linears[layer]
+                weight, bias = linear.weight, linear.bias
+                if params is not None:
+                    weight = params[f'linears.{layer}.weight']
+                    bias = params[f'linears.{layer}.bias']
+                h = self.activative(F.linear(h, weight, bias))
+            linear = self.linears[self.num_layers - 1]
+            weight, bias = linear.weight, linear.bias
+            if params is not None:
+                weight = params[f'linears.{self.num_layers - 1}.weight']
+                bias = params[f'linears.{self.num_layers - 1}.bias']
+            return F.linear(h, weight, bias)
 
 class ActorRNN(nn.Module):
 

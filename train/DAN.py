@@ -108,7 +108,7 @@ class DANTrainer(Trainer):
                 ,'makespan_validate':vali_result
             }
             
-            self.iter_log(i_update // self.num_tasks, scalars)
+            self.iter_log(i_update, scalars)
 
         self.train_et = time.time()
 

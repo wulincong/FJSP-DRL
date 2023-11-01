@@ -123,14 +123,12 @@ class DANIEL(nn.Module):
         
         self.actor = Actor(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,
                            config.hidden_dim_actor, 1).to(device)
-        # self.actor = ActorRNN(config.num_mlp_layers_actor, 4 * self.embedding_output_dim + self.pair_input_dim,
-        #             config.hidden_dim_actor, 1).to(device)
+
         self.critic = Critic(config.num_mlp_layers_critic, 2 * self.embedding_output_dim, config.hidden_dim_critic,
                              1).to(device)
-        # self.critic = CriticRNN(config.num_mlp_layers_critic, 2 * self.embedding_output_dim, config.hidden_dim_critic,
-        #                      1).to(device)
 
-    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, dynamic_pair_mask, fea_pairs, params = None, bn_training=True):
+
+    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, dynamic_pair_mask, fea_pairs, params = None):
         """
             :param candidate: 候选操作的索引，形状为[sz_b, J]
             :param fea_j: 输入操作特征向量，形状为[sz_b, N, 8]
@@ -145,6 +143,10 @@ class DANIEL(nn.Module):
             pi: 调度策略，形状为[sz_b, J*M]
             v: 状态值，形状为[sz_b, 1]
         """
+        if params is None:
+            params = {}
+            for name, param in self.named_parameters():
+                params[name] = param
 
         fea_j, fea_m, fea_j_global, fea_m_global = self.feature_exact(fea_j, op_mask, candidate, fea_m, mch_mask,
                                                                       comp_idx) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
@@ -176,7 +178,7 @@ class DANIEL(nn.Module):
                                        Fea_Gm_input, fea_pairs), dim=-1)
         
         # h0 = torch.zeros(1, candidate_feature.size(0), 64).to(candidate_feature.device)
-        candidate_scores = self.actor(candidate_feature) # 20, 50, 1
+        candidate_scores = self.actor(candidate_feature, params=self.get_subdict(params, 'actor')) # 20, 50, 1
         # candidate_scores, h0 = self.actor(candidate_feature, h0)
         candidate_scores = candidate_scores.squeeze(-1) 
 
@@ -185,8 +187,15 @@ class DANIEL(nn.Module):
         pi = F.softmax(candidate_scores, dim=1)
 
         global_feature = torch.cat((fea_j_global, fea_m_global), dim=-1)
-        v = self.critic(global_feature)  # 20,1 
+        v = self.critic(global_feature, params=self.get_subdict(params, 'critic'))  # 20,1 
         return pi, v
+
+    def get_subdict(self, params_dict, prefix):
+        """
+        获取params_dict中以prefix为前缀的子字典
+        """
+        subdict = {k[len(prefix) + 1:]: v for k, v in params_dict.items() if k.startswith(prefix)}
+        return subdict
 
     def get_named_parameters(self):
         for name, param in self.named_parameters():

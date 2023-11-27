@@ -4,7 +4,7 @@
 
 t=./train
 meta_iterations=3000
-num_tasks=7
+num_tasks=5
 max_updates=$((meta_iterations * num_tasks))
 ADAPT_NUMS=5
 TEST_DIR=./test_script
@@ -123,9 +123,9 @@ TEST_DIR=./test_script
 
 # data="10,5 15,10 20,5 20,10"
 
-# data="15,10 20,5 20,10"
-# # for model in 10x5+mix+exp9 10x5+mix+exp9_1w 15x10+mix+SD2 10x5+mix+SD2 
-# for model in 10x5+mix+exp9_1w 10x5+mix+SD2 
+# # data="15,10 20,5 20,10"
+# for model in 10x5+mix+exp9 10x5+mix+exp9_1w 15x10+mix+SD2 10x5+mix+SD2 
+# # for model in 10x5+mix+exp11_3k 
 # do
 #     echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
 #         python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m} \
@@ -134,19 +134,318 @@ TEST_DIR=./test_script
 #                                         --max_updates 500 \
 #                                         --n_j $n_j \
 #                                         --n_m $n_m \
-#                                         --num_envs 3
+#                                         --num_envs 3 \
+#                                         --hidden_dim_actor 128 \
+#                                         --hidden_dim_critic 128 
 #     done
 # done
 
 
-echo 试验11：epoch内MAML 使用相同类型问题训练，
-python ${t}/multi_task_maml_exp9.py --logdir ./runs/exp9_multi_task_maml \
-                                        --model_suffix exp9_1w \
-                                        --meta_iterations ${meta_iterations} \
+# echo 试验11：epoch内MAML 使用相同类型问题训练，增加模型复杂度
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_add_hidden_dim \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates ${max_updates} \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 128 \
+#                                         --hidden_dim_critic 128 \
+#                                         --num_mlp_layers_actor 3 \
+#                                         --num_mlp_layers_critic 3 
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_add_dim256 \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates ${max_updates} \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 3 \
+#                                         --num_mlp_layers_critic 3 
+
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_add_layers5 \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates ${max_updates} \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 64 \
+#                                         --hidden_dim_critic 64 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_add_layers7 \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates ${max_updates} \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 64 \
+#                                         --hidden_dim_critic 64 \
+#                                         --num_mlp_layers_actor 7 \
+#                                         --num_mlp_layers_critic 7 
+
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_add_layers_add_dim \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates ${max_updates} \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 128 \
+#                                         --hidden_dim_critic 128 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 
+
+
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_j_10_15_20_m_5_10 \
+#                                         --maml_model True \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates 1000 \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 \
+#                                         --n_j_options 10 15 20 \
+#                                         --n_m_options 5 10
+
+# data="10,5 15,10 20,5 20,10"
+
+# for model in maml+exp11_1k_j_10_15_20_m_5_10
+# do
+#     echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#         python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m} \
+#                                         --model_suffix exp11_${model}_${n_j}x${n_m} \
+#                                         --finetuning_model $model \
+#                                         --max_updates 500 \
+#                                         --n_j $n_j \
+#                                         --n_m $n_m \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 
+#     done
+# done
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_j_8_21_m_4_12 \
+#                                         --maml_model True \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates 1000 \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 \
+#                                         --n_j_options 8 11 13 16 17 21 \
+#                                         --n_m_options 4 8 12
+
+# data="10,5 15,10 20,5 20,10"
+
+# for model in maml+exp11_1k_j_8_21_m_4_12
+# do
+#     echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#         python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m} \
+#                                         --model_suffix exp11_${model}_${n_j}x${n_m} \
+#                                         --finetuning_model $model \
+#                                         --max_updates 500 \
+#                                         --n_j $n_j \
+#                                         --n_m $n_m \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 
+#     done
+# done
+
+
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_opt \
+#                                         --maml_model True \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates 1000 \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 128 \
+#                                         --hidden_dim_critic 128 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 \
+#                                         --n_j_options 8 10 11 13 15 16 17 20 21 \
+#                                         --n_m_options 4 5 8 10 12
+
+# data="10,5 15,10 20,5 20,10"
+
+# model=maml+exp11_1k_opt
+# for lr in 0.0003 0.003 0.03 0.1
+# do
+#     echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#         python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m}_${lr} \
+#                                         --model_suffix exp11_${model}_${n_j}x${n_m} \
+#                                         --finetuning_model $model \
+#                                         --max_updates 100 \
+#                                         --n_j $n_j \
+#                                         --n_m $n_m \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 \
+#                                         --lr $lr
+#     done
+# done
+
+
+
+
+# data="10,5 15,10 20,5 20,10"
+
+# model=maml+exp11_1k_opt
+
+# echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#     python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m}_${lr} \
+#                                     --model_suffix exp11_${model}_${n_j}x${n_m} \
+#                                     --finetuning_model $model \
+#                                     --max_updates 100 \
+#                                     --n_j $n_j \
+#                                     --n_m $n_m \
+#                                     --num_envs 5 \
+#                                     --hidden_dim_actor 128 \
+#                                     --hidden_dim_critic 128 \
+#                                     --num_mlp_layers_actor 5 \
+#                                     --num_mlp_layers_critic 5 \
+#                                     --lr 0.003
+# done
+
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_opt_dim256_layer5 \
+#                                         --maml_model True \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates 1000 \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 256 \
+#                                         --hidden_dim_critic 256 \
+#                                         --num_mlp_layers_actor 5 \
+#                                         --num_mlp_layers_critic 5 \
+#                                         --n_j_options 8 10 11 13 15 16 17 20 21 \
+#                                         --n_m_options 4 5 8 10 12
+
+# data="10,5 15,10 20,5 20,10"
+
+# model=maml+exp11_1k_opt_dim256_layer5
+
+# echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#     python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m}_${lr} \
+#                                     --model_suffix exp11_${model}_${n_j}x${n_m} \
+#                                     --finetuning_model $model \
+#                                     --max_updates 100 \
+#                                     --n_j $n_j \
+#                                     --n_m $n_m \
+#                                     --num_envs 5 \
+#                                     --hidden_dim_actor 256 \
+#                                     --hidden_dim_critic 256 \
+#                                     --num_mlp_layers_actor 5 \
+#                                     --num_mlp_layers_critic 5 \
+#                                     --lr 0.003
+# done
+
+
+
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_opt_dim512_layer3 \
+#                                         --maml_model True \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates 1000 \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 512 \
+#                                         --hidden_dim_critic 512 \
+#                                         --num_mlp_layers_actor 3 \
+#                                         --num_mlp_layers_critic 3 \
+#                                         --n_j_options 8 10 11 13 15 16 17 20 21 \
+#                                         --n_m_options 4 5 8 10 12
+
+# data="10,5 15,10 20,5 20,10"
+
+# model=maml+exp11_1k_opt_dim512_layer3
+
+# echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#     python "${t}/DAN_finetuning.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m}_${lr} \
+#                                     --model_suffix exp11_${model}_${n_j}x${n_m} \
+#                                     --finetuning_model $model \
+#                                     --max_updates 100 \
+#                                     --n_j $n_j \
+#                                     --n_m $n_m \
+#                                     --num_envs 5 \
+#                                     --hidden_dim_actor 512 \
+#                                     --hidden_dim_critic 512 \
+#                                     --num_mlp_layers_actor 3 \
+#                                     --num_mlp_layers_critic 3 \
+#                                     --lr 0.003
+# done
+
+# python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp11_maml \
+#                                         --model_suffix exp11_1k_opt_dim128_layer4 \
+#                                         --maml_model True \
+#                                         --meta_iterations 1000 \
+#                                         --num_tasks ${num_tasks} \
+#                                         --max_updates 1000 \
+#                                         --num_envs 5 \
+#                                         --hidden_dim_actor 128 \
+#                                         --hidden_dim_critic 128 \
+#                                         --num_mlp_layers_actor 4 \
+#                                         --num_mlp_layers_critic 4 \
+#                                         --n_j_options 8 10 11 13 15 16 17 20 21 \
+#                                         --n_m_options 4 5 8 10 12
+
+
+# echo 试验12：冻结注意力机制层
+
+# data="10,5 15,10 20,5 20,10"
+
+# model=maml+exp11_1k_opt_dim128_layer4
+
+# echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#     python "${t}/DAN_finetuning_freeze.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m}_${lr}_freeze \
+#                                     --model_suffix exp12_${model}_${n_j}x${n_m}_freeze \
+#                                     --finetuning_model $model \
+#                                     --max_updates 100 \
+#                                     --n_j $n_j \
+#                                     --n_m $n_m \
+#                                     --num_envs 5 \
+#                                     --hidden_dim_actor 128 \
+#                                     --hidden_dim_critic 128 \
+#                                     --num_mlp_layers_actor 4 \
+#                                     --num_mlp_layers_critic 4 \
+#                                     --lr 0.003
+# done
+
+
+echo exp13
+python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp13_maml \
+                                        --model_suffix exp13_1k_opt_dim512_layer3 \
+                                        --maml_model True \
+                                        --meta_iterations 300 \
                                         --num_tasks ${num_tasks} \
-                                        --max_updates ${max_updates} \
+                                        --max_updates 1000 \
                                         --num_envs 5 \
-                                        --hidden_dim_actor 128 \
-                                        --hidden_dim_critic 128 
+                                        --hidden_dim_actor 512 \
+                                        --hidden_dim_critic 512 \
+                                        --num_mlp_layers_actor 3 \
+                                        --num_mlp_layers_critic 3 \
+                                        --n_j_options 8 10 11 13 15 16 17 20 21 \
+                                        --n_m_options 4 5 8 10 12
 
 

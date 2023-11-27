@@ -12,10 +12,19 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "--data_source=10x6",
-                "--test_data", "10x6+mix", "11x5+mix", "11x6+mix",
-                "--model_source=SD2",
-                "--test_model", "10x5+mix+exp6", "10x5+mix+exp7"
+                "--logdir", "./runs/exp11_maml",
+                "--model_suffix", "exp11_1k_opt",
+                "--maml_model", "True",
+                "--meta_iterations", "1000",
+                "--num_tasks", "5",
+                "--max_updates", "1000",
+                "--num_envs", "5",
+                "--hidden_dim_actor", "128",
+                "--hidden_dim_critic", "128",
+                "--num_mlp_layers_actor", "5",
+                "--num_mlp_layers_critic", "5",
+                "--n_j_options", "8", "10", "11", "13", "15", "16", "17", "20", "21",
+                "--n_m_options", "4", "5", "8", "10", "12"
             ]
         }
     ]

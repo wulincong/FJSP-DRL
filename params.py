@@ -68,6 +68,8 @@ parser.add_argument('--n_m', type=int, default=5, help='Number of machines of th
 parser.add_argument('--n_op', type=int, default=50, help='Number of operations of the instance')
 parser.add_argument('--low', type=int, default=1, help='Lower Bound of processing time(PT)')
 parser.add_argument('--high', type=int, default=99, help='Upper Bound of processing time')
+parser.add_argument('--n_j_options', nargs='+', type=int, default=[8, 11, 13, 16, 17, 21])
+parser.add_argument('--n_m_options', nargs='+', type=int, default=[4, 8, 12])
 
 # args for network
 parser.add_argument('--fea_j_input_dim', type=int, default=10, help='Dimension of operation raw feature vectors')
@@ -116,6 +118,7 @@ parser.add_argument('--adapt_lr', type=float, default=3e-4, help='任务快速�
 parser.add_argument('--adapt_nums', type=int, default=5, help='快速适应迭代次数')
 parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
 parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', help='List of model for testing')
+parser.add_argument('--maml_model',  type=str2bool, default=False)
 
 # args for test
 parser.add_argument('--test_data', nargs='+', default=['10x5+mix'], help='List of data for testing')

@@ -162,7 +162,7 @@ class PPO:
         self.V_loss_2 = nn.MSELoss()
         self.device = torch.device(config.device)
 
-    def update(self, memory):
+    def update(self, memory, freeze_feature_exact = False):
         '''
         :param memory: data used for PPO training
         :return: total_loss and critic_loss
@@ -178,7 +178,10 @@ class PPO:
 
         loss_epochs = 0
         v_loss_epochs = 0
-
+        if freeze_feature_exact:
+            for name, param in self.policy.named_parameters():
+                if name.startswith('feature_exact'):
+                    param.requires_grad = False
 
         for _ in range(self.k_epochs):  # 4
             # 对每个迭代进行小批次的策略更新
@@ -297,7 +300,7 @@ class PPO:
 
         return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs
     
-    def inner_update(self, memory, num_steps=1, inner_lr=0.01):
+    def inner_update(self, memory, num_steps=1, inner_lr=0.01, params=None):
         '''
         :param memory: data used for PPO training
         :param num_steps: number of gradient updates for inner loop
@@ -311,8 +314,10 @@ class PPO:
 
         full_batch_size = len(t_data[-1])
         num_batch = np.ceil(full_batch_size / self.minibatch_size)
-
-        updated_params = dict(self.policy.named_parameters())
+        if params is None:
+            updated_params = dict(self.policy.named_parameters())
+        else:
+            updated_params = params
         for _ in range(num_steps):
             for i in range(int(num_batch)):
                 start_idx = i * self.minibatch_size
@@ -342,8 +347,15 @@ class PPO:
                 loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss
                 
                 # Compute gradients w.r.t. inner loop parameters
-                grads = torch.autograd.grad(loss.mean(), updated_params.values())
-                updated_params = {name: param - inner_lr * grad for (name, param), grad in zip(updated_params.items(), grads)}
+                grads = torch.autograd.grad(loss.mean(), updated_params.values(),  allow_unused=True)
+                # 检查哪些参数的梯度未被使用
+                # for (name, param), grad in zip(updated_params.items(), grads):
+                #     if grad is None:
+                #         print(f"Gradient for parameter {name} not used in computation.")
+                #     else:
+                #         print(name)
+
+                updated_params = {name: param - inner_lr * grad for (name, param), grad in zip(updated_params.items(), grads) if grad is not None}
 
         return updated_params
 
@@ -455,7 +467,7 @@ class PPO:
             loss_epochs += loss.mean().detach()
             v_loss_epochs += v_loss.mean().detach()
 
-            loss_list.append(loss)
+            loss_list.append(loss.mean())
             v_loss_list.append(v_loss)
             
         total_loss = torch.stack(loss_list).mean()

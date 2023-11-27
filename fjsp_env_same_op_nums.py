@@ -477,16 +477,17 @@ class FJSPEnvForSameOpNums:
         """
             construct operation raw features
         """
-        self.fea_j = np.stack((self.op_scheduled_flag,
-                               self.op_ct_lb,
-                               self.op_min_pt,
-                               self.pt_span,
-                               self.op_mean_pt,
-                               self.op_waiting_time,
-                               self.op_remain_work,
-                               self.op_match_job_left_op_nums,
-                               self.op_match_job_remain_work,
-                               self.op_available_mch_nums), axis=2)
+        self.fea_j = np.stack((self.op_scheduled_flag, # 操作是否已被调度
+                               self.op_ct_lb,##操作的完工时间的估计下限
+                               self.op_min_pt, ###操作的最小处理时间，最短的
+                               self.pt_span, ##操作的处理时间变化范围。
+                               self.op_mean_pt,#操作的平均处理时间
+                               self.op_waiting_time,##操作的等待时间
+                               self.op_remain_work,###操作剩余的工作量
+                               self.op_match_job_left_op_nums,##与操作匹配的作业中剩余的操作数量
+                               self.op_match_job_remain_work,#与操作匹配的作业中剩余的工作量
+                               self.op_available_mch_nums#可用于该操作的机器数量
+                               ), axis=2)
 
         if self.step_count != self.number_of_ops:
             self.norm_op_features()
@@ -512,14 +513,15 @@ class FJSPEnvForSameOpNums:
         """
             construct machine raw features
         """
-        self.fea_m = np.stack((self.mch_current_available_jc_nums,
-                               self.mch_current_available_op_nums,
-                               self.mch_min_pt,
-                               self.mch_mean_pt,
-                               self.mch_waiting_time,
-                               self.mch_remain_work,
-                               self.mch_free_time,
-                               self.mch_working_flag), axis=2)
+        self.fea_m = np.stack((self.mch_current_available_jc_nums, #当前可用于机器的作业计数（job count）数量
+                               self.mch_current_available_op_nums, #当前机器可用的操作（operation）数量
+                               self.mch_min_pt, ##机器上操作的最小处理时间
+                               self.mch_mean_pt, # 机器上操作的平均处理时间
+                               self.mch_waiting_time, # 机器的等待时间
+                               self.mch_remain_work, # 机器上剩余的工作量
+                               self.mch_free_time, ### 机器的空闲时间，可能与等待时间有所不同，更多地关注于机器的可用性。
+                               self.mch_working_flag # 标志机器是否正在工作
+                               ), axis=2)
 
         if self.step_count != self.number_of_ops:
             self.norm_machine_features()

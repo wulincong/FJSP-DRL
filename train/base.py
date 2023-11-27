@@ -64,6 +64,8 @@ class Trainer:
         print(f"vali_data = {self.vali_data_path}")
         self.test_data_path = f'./data/{self.data_source}/{self.data_name}'
         self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}'
+        if config.maml_model:
+            self.model_name = f'maml{strToSuffix(config.model_suffix)}'
         print("save model name: ",self.model_name)
 
         # seed
@@ -179,6 +181,7 @@ class Trainer:
         :return: new training instances
         """
         if n_j is None: n_j = self.n_j
+        # else:print("diff n_j :", n_j)
         if n_m is None: n_m = self.n_m
 
         prepare_JobLength = [random.randint(self.op_per_job_min, self.op_per_job_max) for _ in range(n_j)]

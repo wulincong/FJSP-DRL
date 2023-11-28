@@ -434,7 +434,7 @@ TEST_DIR=./test_script
 
 
 echo exp13
-python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp13_maml \
+python ${t}/multi_task_maml_exp13.py --logdir ./runs/exp13_maml \
                                         --model_suffix exp13_1k_opt_dim512_layer3 \
                                         --maml_model True \
                                         --meta_iterations 300 \
@@ -448,4 +448,41 @@ python ${t}/multi_task_maml_exp11.py --logdir ./runs/exp13_maml \
                                         --n_j_options 8 10 11 13 15 16 17 20 21 \
                                         --n_m_options 4 5 8 10 12
 
+
+
+echo 试验13测试
+
+data="10,5 15,10 20,5 20,10"
+
+model=maml+exp13_1k_opt_dim512_layer3
+
+echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+    python "${t}/DAN_finetuning_freeze.py" --logdir ./runs/transfer_${model}_${n_j}x${n_m}_${lr}_freeze \
+                                    --model_suffix exp12_${model}_${n_j}x${n_m}_freeze \
+                                    --finetuning_model $model \
+                                    --max_updates 100 \
+                                    --n_j $n_j \
+                                    --n_m $n_m \
+                                    --num_envs 5 \
+                                    --hidden_dim_actor 512 \
+                                    --hidden_dim_critic 512 \
+                                    --num_mlp_layers_actor 3 \
+                                    --num_mlp_layers_critic 3 \
+                                    --lr 0.003
+done
+
+echo exp13 fast_adapt5
+python ${t}/multi_task_maml_exp13.py --logdir ./runs/exp13_maml \
+                                        --model_suffix exp13_1k_opt_dim512_layer3_ap5 \
+                                        --maml_model True \
+                                        --meta_iterations 300 \
+                                        --num_tasks ${num_tasks} \
+                                        --max_updates 1000 \
+                                        --num_envs 5 \
+                                        --hidden_dim_actor 512 \
+                                        --hidden_dim_critic 512 \
+                                        --num_mlp_layers_actor 3 \
+                                        --num_mlp_layers_critic 3 \
+                                        --n_j_options 8 10 11 13 15 16 17 20 21 \
+                                        --n_m_options 4 5 8 10 12
 

@@ -193,3 +193,11 @@ model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+exp12_maml+exp11_1k_opt_d
 model path: ./DANIEL_FJSP/trained_network/SD2/15x10+mix+exp12_maml+exp11_1k_opt_dim128_layer4_15x10_freeze		training time: 137.49		 local time: 20231116_152038
 model path: ./DANIEL_FJSP/trained_network/SD2/20x5+mix+exp12_maml+exp11_1k_opt_dim128_layer4_20x5_freeze		training time: 82.32		 local time: 20231116_152259
 model path: ./DANIEL_FJSP/trained_network/SD2/20x10+mix+exp12_maml+exp11_1k_opt_dim128_layer4_20x10_freeze		training time: 196.22		 local time: 20231116_152424
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+exp12_maml+exp13_1k_opt_dim512_layer3_10x5_freeze		training time: 42.96		 local time: 20231127_104859
+model path: ./DANIEL_FJSP/trained_network/SD2/15x10+mix+exp12_maml+exp13_1k_opt_dim512_layer3_15x10_freeze		training time: 146.39		 local time: 20231127_104945
+model path: ./DANIEL_FJSP/trained_network/SD2/20x5+mix+exp12_maml+exp13_1k_opt_dim512_layer3_20x5_freeze		training time: 86.49		 local time: 20231127_105215
+model path: ./DANIEL_FJSP/trained_network/SD2/20x10+mix+exp12_maml+exp13_1k_opt_dim512_layer3_20x10_freeze		training time: 213.7		 local time: 20231127_105344
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+exp12_maml+exp13_1k_opt_dim512_layer3_10x5_freeze		training time: 43.13		 local time: 20231127_185557
+model path: ./DANIEL_FJSP/trained_network/SD2/15x10+mix+exp12_maml+exp13_1k_opt_dim512_layer3_15x10_freeze		training time: 147.34		 local time: 20231127_185643
+model path: ./DANIEL_FJSP/trained_network/SD2/20x5+mix+exp12_maml+exp13_1k_opt_dim512_layer3_20x5_freeze		training time: 86.47		 local time: 20231127_185914
+model path: ./DANIEL_FJSP/trained_network/SD2/20x10+mix+exp12_maml+exp13_1k_opt_dim512_layer3_20x10_freeze		training time: 213.43		 local time: 20231127_190043

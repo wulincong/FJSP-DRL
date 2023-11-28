@@ -60,7 +60,7 @@ class MultiTaskTrainer(Trainer):
                     state = env.reset()
                     ep_rewards = self.memory_generate(env, state, self.ppo, params=theta_prime)
                     theta_prime = self.ppo.inner_update(self.memory,num_steps=1, inner_lr=0.01, params=theta_prime)
-                
+                state = env.reset()
                 self.memory_generate(env, state, self.ppo, params=theta_prime)
                 loss, _ = self.ppo.compute_loss(self.memory)
                 loss_sum += loss

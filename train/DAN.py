@@ -1,3 +1,4 @@
+###从头训练
 from train.base import *
 
 class DANTrainer(Trainer):

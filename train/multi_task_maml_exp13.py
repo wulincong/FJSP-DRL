@@ -56,22 +56,20 @@ class MultiTaskTrainer(Trainer):
                 env = self.envs[task]
                
                 theta_prime = None
-                for i in range(3):
+                for i in range(5):
                     state = env.reset()
                     ep_rewards = self.memory_generate(env, state, self.ppo, params=theta_prime)
                     theta_prime = self.ppo.inner_update(self.memory,num_steps=1, inner_lr=0.01, params=theta_prime)
                 state = env.reset()
                 self.memory_generate(env, state, self.ppo, params=theta_prime)
                 loss, _ = self.ppo.compute_loss(self.memory)
-                loss_sum += loss
+                loss.backward()
+
                 mean_rewards_all_env = np.mean(ep_rewards)
                 makespans[task].append(env.current_makespan)
 
-            mean_loss = loss_sum / self.num_tasks
-            self.meta_optimizer.zero_grad()
-            mean_loss.backward()
-
             self.meta_optimizer.step()
+            self.meta_optimizer.zero_grad()
             # 查看哪些参数受到loss的影响
             # for name, param in self.ppo.policy.named_parameters():
             #     if param.grad is not None and torch.sum(torch.abs(param.grad)) > 0:
@@ -85,8 +83,8 @@ class MultiTaskTrainer(Trainer):
 
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
-                    iteration + 1, mean_rewards_all_env, mean_loss, ep_et - ep_st))
-            convergence_checker.add_data(float(mean_loss))
+                    iteration + 1, mean_rewards_all_env, loss, ep_et - ep_st))
+            # convergence_checker.add_data(float(mean_loss))
             # print(mean_loss.device)
 
             if (iteration + 1) % self.validate_timestep == 0:

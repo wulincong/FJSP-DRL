@@ -33,11 +33,8 @@ class MultiTaskTrainer(Trainer):
             if iteration % self.reset_env_timestep == 0:
                 
                 probs = [(random.choice(self.n_j_options), random.choice(self.n_m_options)) for _ in range(self.num_tasks)]
+                # probs = [(self.n_j_options[_], self.n_m_options[_]) for _ in range(self.num_tasks)]
                 print(probs)
-                # self.envs = [FJSPEnvForSameOpNums(probs[_][0], probs[_][1])
-                #              .set_initial_data(*self.sample_training_instances(
-                #                  n_j=probs[_][0],n_m=probs[_][1] 
-                #              )) for _ in range(self.num_tasks)]
                 self.envs = []
                 for _ in range(self.num_tasks):
                     self.n_j, self.n_m = probs[_]
@@ -48,7 +45,6 @@ class MultiTaskTrainer(Trainer):
                 step_count = 0
 
             inner_ppos = []
-            data_primes = []
             makespans = [[] for _ in range(self.num_tasks)]
             loss_sum = 0
 
@@ -57,15 +53,15 @@ class MultiTaskTrainer(Trainer):
                 state = env.reset()
                 ep_rewards = self.memory_generate(env, state, self.ppo)
 
-                theta_prime = self.ppo.inner_update(self.memory)
+                theta_prime = self.ppo.inner_update(self.memory, 1, 0.001)
                 state = env.reset()
                 
-                ep_rewards_ = self.memory_generate(env, state, self.ppo, params=theta_prime)
-                # data_prime = deepcopy(self.memory)
-                # print("compute loss")
+                self.memory_generate(env, state, self.ppo, params=theta_prime)
+
                 loss, _ = self.ppo.compute_loss(self.memory)
+                # loss = loss / self.num_tasks
+                # loss.backward()
                 loss_sum += loss
-                # data_primes.append(data_prime)
                 mean_rewards_all_env = np.mean(ep_rewards)
                 makespans[task].append(env.current_makespan)
 
@@ -75,10 +71,10 @@ class MultiTaskTrainer(Trainer):
             #     loss_sum += loss
 
             mean_loss = loss_sum / self.num_tasks
-            self.meta_optimizer.zero_grad()
             mean_loss.backward()
 
             self.meta_optimizer.step()
+            self.meta_optimizer.zero_grad()
             # 查看哪些参数受到loss的影响
             # for name, param in self.ppo.policy.named_parameters():
             #     if param.grad is not None and torch.sum(torch.abs(param.grad)) > 0:
@@ -92,14 +88,13 @@ class MultiTaskTrainer(Trainer):
 
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
-                    iteration + 1, mean_rewards_all_env, mean_loss, ep_et - ep_st))
-            convergence_checker.add_data(float(mean_loss))
+                    iteration + 1, mean_rewards_all_env, loss, ep_et - ep_st))
+            # convergence_checker.add_data(float(mean_loss))
             # print(mean_loss.device)
 
             if (iteration + 1) % self.validate_timestep == 0:
                 vali_result = self.valid_model()
                 tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
-            del inner_ppos
 
             scalars={
                 'Loss/train': loss
@@ -109,6 +104,9 @@ class MultiTaskTrainer(Trainer):
             }
             self.iter_log(iteration, scalars)
             step_count += 1
+            del inner_ppos
+            del makespans
+            self.memory.clear_memory()
 
         print(step_counts)
 

@@ -1,3 +1,4 @@
+#从已有模型finetuning
 from train.base import *
 
 class DANTrainer(Trainer):

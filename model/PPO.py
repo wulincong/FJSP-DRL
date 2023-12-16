@@ -300,14 +300,13 @@ class PPO:
 
         return loss_epochs.item() / self.k_epochs, v_loss_epochs.item() / self.k_epochs
     
-    def inner_update(self, memory, num_steps=1, inner_lr=0.01, params=None):
+    def inner_update(self, memory, num_steps=4, inner_lr=0.01, params=None):
         '''
         :param memory: data used for PPO training
         :param num_steps: number of gradient updates for inner loop
         :param inner_lr: learning rate for inner loop updates
         :return: Updated policy parameters after inner loop
         '''
-
         # 获取转置后的训练数据，用于策略更新
         t_data = memory.transpose_data()
         t_advantage_seq, v_target_seq = memory.get_gae_advantages()
@@ -319,6 +318,7 @@ class PPO:
         else:
             updated_params = params
         for _ in range(num_steps):
+            torch.cuda.empty_cache()
             for i in range(int(num_batch)):
                 start_idx = i * self.minibatch_size
                 end_idx = min((i + 1) * self.minibatch_size, full_batch_size)
@@ -348,12 +348,6 @@ class PPO:
                 
                 # Compute gradients w.r.t. inner loop parameters
                 grads = torch.autograd.grad(loss.mean(), updated_params.values(),  allow_unused=True)
-                # 检查哪些参数的梯度未被使用
-                # for (name, param), grad in zip(updated_params.items(), grads):
-                #     if grad is None:
-                #         print(f"Gradient for parameter {name} not used in computation.")
-                #     else:
-                #         print(name)
 
                 updated_params = {name: param - inner_lr * grad for (name, param), grad in zip(updated_params.items(), grads) if grad is not None}
 

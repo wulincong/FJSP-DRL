@@ -32,8 +32,17 @@
 
 echo 改变机器数量
 
-for n_m in 5 7 9 10 11 13 15; do
-    python ./data_utils.py --n_j=20 \
+# for n_m in 5 7 9 10 11 13 15; do
+#     python ./data_utils.py --n_j=20 \
+#                             --n_m=$n_m \
+#                             --op_per_mch_max=5 \
+#                             --cover_data_flag=True
+# done
+
+
+
+for n_m in 5 7 9 10; do
+    python ./data_utils.py --n_j=15 \
                             --n_m=$n_m \
                             --op_per_mch_max=5 \
                             --cover_data_flag=True

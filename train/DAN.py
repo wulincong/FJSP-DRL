@@ -84,18 +84,20 @@ class DANTrainer(Trainer):
 
             # validate the trained model
             if (i_update + 1) % self.validate_timestep == 0:
-                if self.data_source == "SD1":
-                    vali_result = self.validate_envs_with_various_op_nums().mean()
-                else:
-                    vali_result = self.validate_envs_with_same_op_nums().mean()
+                self.save_model()
 
-                if vali_result < self.record:
-                    self.save_model()
-                    self.record = vali_result
+                # if self.data_source == "SD1":
+                #     vali_result = self.validate_envs_with_various_op_nums().mean()
+                # else:
+                #     vali_result = self.validate_envs_with_same_op_nums().mean()
 
-                self.validation_log.append(vali_result)
-                self.save_validation_log()
-                tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
+                # if vali_result < self.record:
+                #     self.save_model()
+                #     self.record = vali_result
+
+                # self.validation_log.append(vali_result)
+                # self.save_validation_log()
+                # tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
 
             ep_et = time.time()
             # print the reward, makespan, loss and training time of the current episode
@@ -106,7 +108,7 @@ class DANTrainer(Trainer):
             scalars={
                 'Loss/train': loss
                 ,'makespan_train':mean_makespan_all_env
-                ,'makespan_validate':vali_result
+                # ,'makespan_validate':vali_result
             }
             
             self.iter_log(i_update, scalars)

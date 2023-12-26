@@ -4,7 +4,7 @@
 #SBATCH -N 1
 #SBATCH -n 16
 #SBATCH --gres=gpu:1
-
+set -x
 source ~/.bashrc
 module load nvidia/cuda/11.6
 conda activate RL-torch
@@ -190,18 +190,18 @@ echo $exp
 # 定义通用参数
 logdir="./runs/exp11_maml"
 
-hidden_dim_actor=256
-hidden_dim_critic=256
+hidden_dim_actor=64
+hidden_dim_critic=64
 num_mlp_layers_actor=3
 num_mlp_layers_critic=3
 num_envs=5
 # multi_task_maml_exp11.py 脚本的特定参数
-meta_iterations=2000
-max_updates_maml=2000
+meta_iterations=200
+max_updates_maml=200
 model_suffix=${exp}_${meta_iterations}_${hidden_dim_actor}_${num_mlp_layers_actor}
-n_j_options="20 20 20 20 20 20"
-n_m_options="5  7  9  10 11 13"
-num_tasks=6
+n_j_options="15 15 15"
+n_m_options="5  7  9  10"
+num_tasks=5
 # n_j_options="20 20 20"
 # n_m_options="15 15 15"
 # DAN_finetuning.py 脚本的特定参数
@@ -209,8 +209,8 @@ max_updates_finetune=100
 lr=0.003
 
 # 需要迭代的数据
-data="20,5 20,7 20,9 20,10 20,11 20,13 20,15"
-
+# data="20,5 20,7 20,9 20,10 20,11 20,13 20,15"
+data="15,5 15,7 15,9 15,10"
 # 执行 multi_task_maml_exp11.py
 python ${t}/multi_task_maml_exp11.py --logdir $logdir \
                                      --model_suffix $model_suffix \

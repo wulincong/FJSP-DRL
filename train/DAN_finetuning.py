@@ -35,7 +35,7 @@ class DANTrainer(Trainer):
 
             # resampling the training data
             if i_update  == 0:
-                dataset_job_length, dataset_op_pt = self.sample_training_instances()
+                dataset_job_length, dataset_op_pt = self.sample_training_instances(op_per_job=self.config.op_per_job)
                 state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
             else:
                 state = self.env.reset()
@@ -87,19 +87,19 @@ class DANTrainer(Trainer):
             self.log.append([i_update, mean_rewards_all_env])
 
             # validate the trained model
-            if (i_update + 1) % self.validate_timestep == 0:
-                if self.data_source == "SD1":
-                    vali_result = self.validate_envs_with_various_op_nums().mean()
-                else:
-                    vali_result = self.validate_envs_with_same_op_nums().mean()
+            # if (i_update + 1) % self.validate_timestep == 0:
+            #     if self.data_source == "SD1":
+            #         vali_result = self.validate_envs_with_various_op_nums().mean()
+            #     else:
+            #         vali_result = self.validate_envs_with_same_op_nums().mean()
 
-                if vali_result < self.record:
-                    self.save_model()
-                    self.record = vali_result
+            #     if vali_result < self.record:
+            #         self.save_model()
+            #         self.record = vali_result
 
-                self.validation_log.append(vali_result)
-                self.save_validation_log()
-                tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
+            #     self.validation_log.append(vali_result)
+            #     self.save_validation_log()
+            #     tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
 
             ep_et = time.time()
             # print the reward, makespan, loss and training time of the current episode

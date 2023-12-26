@@ -93,8 +93,7 @@ class MultiTaskTrainer(Trainer):
             # print(mean_loss.device)
 
             if (iteration + 1) % self.validate_timestep == 0:
-                vali_result = self.valid_model()
-                tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
+                self.save_model()
 
             scalars={
                 'Loss/train': loss

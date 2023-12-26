@@ -70,7 +70,7 @@ parser.add_argument('--low', type=int, default=1, help='Lower Bound of processin
 parser.add_argument('--high', type=int, default=99, help='Upper Bound of processing time')
 parser.add_argument('--n_j_options', nargs='+', type=int, default=[8, 11, 13, 16, 17, 21])
 parser.add_argument('--n_m_options', nargs='+', type=int, default=[4, 8, 12])
-
+parser.add_argument('--op_per_job_options', nargs='+', type=int, default=[6, 8, 10])
 # args for network
 parser.add_argument('--fea_j_input_dim', type=int, default=10, help='Dimension of operation raw feature vectors')
 parser.add_argument('--fea_m_input_dim', type=int, default=8, help='Dimension of machine raw feature vectors')

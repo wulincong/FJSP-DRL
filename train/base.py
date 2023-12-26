@@ -82,7 +82,7 @@ class Trainer:
         elif self.data_source == 'SD2':
             self.vali_env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
 
-        self.vali_env.set_initial_data(vali_data[0], vali_data[1])
+        # self.vali_env.set_initial_data(vali_data[0], vali_data[1])
 
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
         self.writer = SummaryWriter(configs.logdir)  # 创建一个SummaryWriter对象，用于记录日志
@@ -174,7 +174,7 @@ class Trainer:
         file_writing_obj1 = open(f'./train_log/{self.data_source}/' + 'valiquality_' + self.model_name + '.txt', 'w')
         file_writing_obj1.write(str(self.validation_log))
 
-    def sample_training_instances(self, n_j=None,n_m=None ):
+    def sample_training_instances(self, n_j=None,n_m=None, op_per_job=None ):
         """
             sample training instances following the config, 
             the sampling process of SD1 data is imported from "songwenas12/fjsp-drl" 
@@ -195,7 +195,7 @@ class Trainer:
                 JobLength, OpPT, _ = case.get_case(i)
             
             else:
-                JobLength, OpPT, _ = SD2_instance_generator(config=self.config, n_j = n_j, n_m = n_m)  
+                JobLength, OpPT, _ = SD2_instance_generator(config=self.config, n_j = n_j, n_m = n_m, op_per_job=op_per_job)  
                 # lines_doc = matrix_to_text(JobLength, OpPT, _)
                 # print("\n".join(lines_doc))
 

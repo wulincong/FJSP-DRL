@@ -333,3 +333,14 @@ model path: ./DANIEL_FJSP/trained_network/SD2/20x10+mix+exp11_maml+exp11_2000_51
 model path: ./DANIEL_FJSP/trained_network/SD2/20x11+mix+exp11_maml+exp11_2000_512_3_20x11		training time: 274.71		 local time: 20231208_125605
 model path: ./DANIEL_FJSP/trained_network/SD2/20x13+mix+exp11_maml+exp11_2000_512_3_20x13		training time: 343.79		 local time: 20231208_130043
 model path: ./DANIEL_FJSP/trained_network/SD2/20x15+mix+exp11_maml+exp11_2000_512_3_20x15		training time: 440.8		 local time: 20231208_130630
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+exp11_maml+exp11_2000_256_3_15x5		training time: 60.42		 local time: 20231216_152204
+model path: ./DANIEL_FJSP/trained_network/SD2/15x7+mix+exp11_maml+exp11_2000_256_3_15x7		training time: 79.92		 local time: 20231216_152307
+model path: ./DANIEL_FJSP/trained_network/SD2/15x9+mix+exp11_maml+exp11_2000_256_3_15x9		training time: 103.71		 local time: 20231216_152430
+model path: ./DANIEL_FJSP/trained_network/SD2/15x10+mix+exp11_maml+exp11_2000_256_3_15x10		training time: 118.0		 local time: 20231216_152616
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+SD2_operjob4		training time: 33.66		 local time: 20231221_222829
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+SD2_operjob6		training time: 46.82		 local time: 20231221_222906
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+SD2_operjob8		training time: 68.23		 local time: 20231221_222956
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+SD2_operjob10		training time: 86.1		 local time: 20231221_223107
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+SD2_operjob12		training time: 112.64		 local time: 20231221_223236
+model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+free		training time: 30.93		 local time: 20231221_223504
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+exp13_maml+exp15_1000_64_3_15x5		training time: 22.46		 local time: 20231221_230307

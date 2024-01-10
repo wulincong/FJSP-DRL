@@ -111,14 +111,16 @@ parser.add_argument('--minibatch_size', type=int, default=1024, help='Batch size
 
 # args for Meta-Learning
 parser.add_argument('--meta_iterations', type=int, default=1000, help='外部循环次数')
-parser.add_argument('--inner_updates', type=int, default=4, help='内部训练次数')
-parser.add_argument('--meta_lr', type=float, default=0.0001, help='元学习率Outer-loop学习率')
-parser.add_argument('--task_lr', type=float, default=0.001, help='任务学习率Inner-loop学习率')
+parser.add_argument('--meta_lr', type=float, default=3e-4, help='训练时元学习率Outer-loop学习率')
+parser.add_argument('--task_lr', type=float, default=3e-4, help='任务学习率Inner-loop学习率')
 parser.add_argument('--adapt_lr', type=float, default=3e-4, help='任务快速适应学习率')
-parser.add_argument('--adapt_nums', type=int, default=5, help='快速适应迭代次数')
+parser.add_argument('--adapt_steps', type=int, default=4, help='内部更新适应次数')
+parser.add_argument('--adapt_nums', type=int, default=5, help='验证时快速适应迭代次数')
 parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
-parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', help='List of model for testing')
 parser.add_argument('--maml_model',  type=str2bool, default=False)
+
+# args for Meta model finetuning
+parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', help='List of model for testing')
 
 # args for test
 parser.add_argument('--test_data', nargs='+', default=['10x5+mix'], help='List of data for testing')

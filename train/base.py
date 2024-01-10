@@ -39,12 +39,12 @@ class Trainer:
         self.validate_timestep = config.validate_timestep
         self.num_envs = config.num_envs # Batch size for training environments
         self.meta_iterations = config.meta_iterations
-        self.inner_updates = config.inner_updates
         self.meta_lr = config.meta_lr
         self.task_lr = config.task_lr
         self.num_tasks = config.num_tasks
         self.adapt_lr = config.adapt_lr
         self.adapt_nums = config.adapt_nums
+        self.adapt_steps = config.adapt_steps
         if not os.path.exists(f'./trained_network/{self.data_source}'):
             os.makedirs(f'./trained_network/{self.data_source}')
         if not os.path.exists(f'./train_log/{self.data_source}'):
@@ -137,6 +137,7 @@ class Trainer:
 
                     # state transition
             state, reward, done = env.step(actions=action_envs.cpu().numpy())
+            # print("state.fea_j_tensor.shape:",state.fea_j_tensor.shape)
             ep_rewards += reward
             reward = torch.from_numpy(reward).to(device)
 
@@ -183,7 +184,7 @@ class Trainer:
         if n_j is None: n_j = self.n_j
         # else:print("diff n_j :", n_j)
         if n_m is None: n_m = self.n_m
-
+        if op_per_job is None: op_per_job = self.config.op_per_job
         prepare_JobLength = [random.randint(self.op_per_job_min, self.op_per_job_max) for _ in range(n_j)]
         # [6, 5, 5, 4, 5, 5, 6, 5, 6, 6]
         dataset_JobLength = []  # array([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])

@@ -12,16 +12,15 @@ conda activate RL-torch
 
 t=train
 
-exp=exp14
+exp=exp16
 echo $exp
 cat << EOL
-寻找最好的MAML训练
-用固定的几个问题训练MAML
+改变操作数的MAML训练
 EOL
 
 # 本试验特殊参数
-n_j_options="15 15 15 15"
-n_m_options="5  7  9  10"
+n_j_options="10 13 15 17"
+n_m_options="5  5  5  5"
 
 # 定义通用参数
 logdir=./runs/$exp
@@ -32,8 +31,8 @@ num_mlp_layers_critic=3
 num_envs=4
 
 # multi_task_maml_exp11.py 脚本的特定参数
-meta_iterations=1000
-max_updates_maml=1000
+meta_iterations=500
+max_updates_maml=500
 
 num_tasks=4
 # DAN_finetuning.py 脚本的特定参数
@@ -41,7 +40,7 @@ max_updates_finetune=50
 lr=0.003
 
 # 需要迭代的数据
-data="15,5 15,7 15,9 15,10"
+data="10,5 13,5 15,5 17,5"
 
 logdir_dan=$logdir/DAN
 
@@ -55,26 +54,26 @@ logdir_dan=$logdir/DAN
 # done
 
 
-for model in 15x5+mix+SD2 15x10+mix+SD2
-do
-    echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
-        python "${t}/DAN_finetuning.py" --logdir $logdir_dan/finetuning/${model}/${n_j}x${n_m} \
-                                        --model_suffix free \
-                                        --finetuning_model $model \
-                                        --max_updates $max_updates_finetune \
-                                        --n_j $n_j \
-                                        --n_m $n_m \
-                                        --num_envs $num_envs \
-                                        --lr 0.003
-    done
-done
+# for model in 10x5+mix+SD2 17x5+mix+SD2
+# do
+#     echo $data | tr ' ' '\n' | while IFS=, read n_j n_m; do
+#         python "${t}/DAN_finetuning.py" --logdir $logdir_dan/finetuning/${model}/${n_j}x${n_m} \
+#                                         --model_suffix free \
+#                                         --finetuning_model $model \
+#                                         --max_updates $max_updates_finetune \
+#                                         --n_j $n_j \
+#                                         --n_m $n_m \
+#                                         --num_envs $num_envs \
+#                                         --lr 0.003
+#     done
+# done
 
 
 
 model_suffix=${exp}_${meta_iterations}_${hidden_dim_actor}_${num_mlp_layers_actor}
 logdir_maml=$logdir/maml
 
-python ${t}/multi_task_maml_$exp.py --logdir $logdir_maml/train_model \
+python ${t}/multi_task_maml_exp14.py --logdir $logdir_maml/train_model \
                                      --model_suffix $model_suffix \
                                      --maml_model True \
                                      --meta_iterations $meta_iterations \

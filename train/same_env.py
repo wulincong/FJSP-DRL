@@ -75,7 +75,7 @@ class SameEnvTrainer(Trainer):
             if (iteration + 1) % self.validate_timestep == 0:
                 vali_result = self.valid_model()
                 tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
-            
+
             # validate the trained model of ppo_
             if (iteration + 1) % self.validate_timestep == 0:
                 if self.data_source == "SD1":

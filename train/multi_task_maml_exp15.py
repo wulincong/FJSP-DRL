@@ -24,8 +24,8 @@ class MultiTaskTrainer(Trainer):
         self.history_problem = []
         for iteration in range(self.meta_iterations):
             ep_st = time.time()
+            
             if iteration % self.reset_env_timestep == 0:
-                
                 self.envs = []
                 for _ in range(self.num_tasks):
                     env = FJSPEnvForSameOpNums(self.n_j, self.n_m)

@@ -35,7 +35,7 @@ class DANTrainer(Trainer):
 
             # resampling the training data
             if i_update  == 0:
-                dataset_job_length, dataset_op_pt = self.sample_training_instances(op_per_job=self.config.op_per_job)
+                dataset_job_length, dataset_op_pt = self.sample_training_instances()
                 state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
             else:
                 state = self.env.reset()

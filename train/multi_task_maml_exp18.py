@@ -17,7 +17,7 @@ class MultiTaskTrainer(Trainer):
         self.n_j_options = config.n_j_options        
         self.n_m_options = config.n_m_options
         self.op_per_job_options = config.op_per_job_options
-        
+        self.valid_memorys = [Memory(gamma=config.gamma, gae_lambda=config.gae_lambda) for _ in range(self.num_tasks)]
         print("self.n_js: ", self.n_j_options)
         print("self.n_m_options: ",self.n_m_options)
         print("self.op_per_job_options: ",self.op_per_job_options)
@@ -27,7 +27,7 @@ class MultiTaskTrainer(Trainer):
         self.log = []
         self.record = float('inf')
         self.train_st = time.time()
-
+        # time.sleep(1000)
         assert self.num_tasks == len(self.n_j_options)
 
         for iteration in range(self.meta_iterations):
@@ -47,9 +47,9 @@ class MultiTaskTrainer(Trainer):
 
             makespans = [[] for _ in range(self.num_tasks)]
             loss_sum = 0
-
-            for task in range(self.num_tasks):
-                env = self.tasks[task]
+            iteration_policies = []
+            for task_idx in range(self.num_tasks):
+                env = self.tasks[task_idx]
                 state = env.reset()
                 theta_prime = None
 
@@ -57,36 +57,34 @@ class MultiTaskTrainer(Trainer):
                 theta_prime = self.ppo.inner_update(self.memory, 1, self.task_lr)
                 state = env.reset()
 
-                self.memory_generate(env, state, self.ppo, params=theta_prime)
+                self.memory_generate(env, state, self.ppo, params=theta_prime, memory=self.valid_memorys[task_idx]) #搜集query set
 
-                loss, _ = self.ppo.compute_loss(self.memory)
-                loss_sum += loss
                 mean_rewards_all_env = np.mean(ep_rewards)
-                makespans[task].append(env.current_makespan)
+                makespans[task_idx].append(env.current_makespan)
+                iteration_policies.append(theta_prime)
 
-            mean_loss = loss_sum / self.num_tasks
-            mean_loss.backward()
-
-            self.meta_optimizer.step()
-            self.meta_optimizer.zero_grad()
+            #计算meta损失
+            loss = self.ppo.meta_optimize(self.valid_memorys, iteration_policies)
+            # self.meta_optimizer.step()
+            # self.meta_optimizer.zero_grad()
 
             ep_et = time.time()
-            makespans_mean = np.max([np.mean(lst) for lst in makespans])
-            print(makespans_mean)
-            if iteration < 2: self.record = makespan_min = makespans_mean
+            makespan_sum = np.sum([np.mean(lst) for lst in makespans])
+            print(makespan_sum)
+            if iteration < 2: self.record = makespan_min = makespan_sum
 
             tqdm.write(
                 'Episode {}\t reward: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
                     iteration + 1, mean_rewards_all_env, loss, ep_et - ep_st))
 
-            if makespans_mean< makespan_min:
-                makespan_min = makespans_mean
+            if makespan_sum < makespan_min:
+                makespan_min = makespan_sum
                 self.save_model()
             #     tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
 
             scalars={
                 'Loss/train': loss
-                ,'makespan_train':np.mean(makespans_mean)
+                ,'makespan_train':np.mean(makespan_sum)
                 # ,'makespan_validate':vali_result
             }
             self.iter_log(iteration, scalars)

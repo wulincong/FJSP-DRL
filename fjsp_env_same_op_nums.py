@@ -62,6 +62,21 @@ class EnvState:
         print(self.dynamic_pair_mask_tensor.shape)
         print(self.fea_pairs_tensor.shape)
 
+    def print_first(self):
+        """
+        返回对象的字符串表示，用于调试和日志记录。
+        """
+        return (f"EnvState(\n"
+                f"  fea_j_tensor 形状: {self.fea_j_tensor[0]},\n"
+                f"  op_mask_tensor 形状: {self.op_mask_tensor[0]},\n"
+                f"  candidate_tensor 形状: {self.candidate_tensor[0]},\n"
+                f"  fea_m_tensor 形状: {self.fea_m_tensor[0]},\n"
+                f"  mch_mask_tensor 形状: {self.mch_mask_tensor[0]},\n"
+                f"  comp_idx_tensor 形状: {self.comp_idx_tensor[0]},\n"
+                f"  dynamic_pair_mask_tensor 形状: {self.dynamic_pair_mask_tensor[0]},\n"
+                f"  fea_pairs_tensor 形状: {self.fea_pairs_tensor[0]}\n"
+                f")")
+
 
 class FJSPEnvForSameOpNums:
     """
@@ -542,41 +557,44 @@ class FJSPEnvForSameOpNums:
 
         self.fea_m = (temp - mean_fea_m[:, np.newaxis, :]) / \
                      (std_fea_m[:, np.newaxis, :] + 1e-8)
-
+        
     def construct_pair_features(self):
         """
-            construct pair features
+            构建成对特征
         """
+        # 对于每个作业中的每个操作，计算其剩余加工时间。如果操作已完成，则掩盖其加工时间。
         remain_op_pt = ma.array(self.op_pt, mask=~self.remain_process_relation)
 
+        # 选定作业中的最大加工时间
         chosen_op_max_pt = np.expand_dims(self.op_max_pt[self.env_job_idx, self.candidate], axis=-1)
 
-        max_remain_op_pt = np.max(np.max(remain_op_pt, axis=1, keepdims=True), axis=2, keepdims=True) \
-            .filled(0 + 1e-8)
+        # 计算所有剩余操作中的最大加工时间
+        max_remain_op_pt = np.max(np.max(remain_op_pt, axis=1, keepdims=True), axis=2, keepdims=True).filled(0 + 1e-8)
 
-        mch_max_remain_op_pt = np.max(remain_op_pt, axis=1, keepdims=True). \
-            filled(0 + 1e-8)
+        # 计算每台机器上剩余操作的最大加工时间
+        mch_max_remain_op_pt = np.max(remain_op_pt, axis=1, keepdims=True).filled(0 + 1e-8)
 
-        pair_max_pt = np.max(np.max(self.candidate_pt, axis=1, keepdims=True),
-                             axis=2, keepdims=True) + 1e-8
+        # 计算候选操作中的最大加工时间
+        pair_max_pt = np.max(np.max(self.candidate_pt, axis=1, keepdims=True), axis=2, keepdims=True) + 1e-8
 
+        # 计算每台机器上候选操作的最大加工时间
         mch_max_candidate_pt = np.max(self.candidate_pt, axis=1, keepdims=True) + 1e-8
 
-        pair_wait_time = self.op_waiting_time[self.env_job_idx, self.candidate][:, :,
-                         np.newaxis] + self.mch_waiting_time[:, np.newaxis, :]
+        # 计算候选操作的等待时间，考虑作业和机器的等待时间
+        pair_wait_time = self.op_waiting_time[self.env_job_idx, self.candidate][:, :, np.newaxis] + self.mch_waiting_time[:, np.newaxis, :]
 
-        chosen_job_remain_work = np.expand_dims(self.op_match_job_remain_work
-                                                [self.env_job_idx, self.candidate],
-                                                axis=-1) + 1e-8
+        # 计算选定作业的剩余工作量
+        chosen_job_remain_work = np.expand_dims(self.op_match_job_remain_work[self.env_job_idx, self.candidate], axis=-1) + 1e-8
 
+        # 将所有计算出的特征堆叠成一个特征数组，以便后续处理
         self.fea_pairs = np.stack((self.candidate_pt,
-                                   self.candidate_pt / chosen_op_max_pt,
-                                   self.candidate_pt / mch_max_candidate_pt,
-                                   self.candidate_pt / max_remain_op_pt,
-                                   self.candidate_pt / mch_max_remain_op_pt,
-                                   self.candidate_pt / pair_max_pt,
-                                   self.candidate_pt / chosen_job_remain_work,
-                                   pair_wait_time), axis=-1)
+                                self.candidate_pt / chosen_op_max_pt,
+                                self.candidate_pt / mch_max_candidate_pt,
+                                self.candidate_pt / max_remain_op_pt,
+                                self.candidate_pt / mch_max_remain_op_pt,
+                                self.candidate_pt / pair_max_pt,
+                                self.candidate_pt / chosen_job_remain_work,
+                                pair_wait_time), axis=-1)
 
     def update_mch_mask(self):
         """

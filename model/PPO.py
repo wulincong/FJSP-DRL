@@ -7,6 +7,7 @@ from params import configs
 import numpy as np
 import learn2learn as l2l
 from torch import autograd
+from torch.utils.tensorboard import SummaryWriter
 
 class Memory:
     def __init__(self, gamma, gae_lambda):
@@ -61,6 +62,8 @@ class Memory:
         :param state: the MDP state
         :return:
         """
+        # print(state.fea_j_tensor)
+        # print(state.fea_j_tensor.shape)
         self.fea_j_seq.append(state.fea_j_tensor)
         self.op_mask_seq.append(state.op_mask_tensor)
         self.fea_m_seq.append(state.fea_m_tensor)
@@ -135,7 +138,7 @@ class Memory:
 
 
 class PPO:
-    def __init__(self, config,):
+    def __init__(self, config):
         """
             The implementation of PPO algorithm
         :param config: a package of parameters
@@ -147,6 +150,7 @@ class PPO:
         self.eps_clip = config.eps_clip  # PPO算法中的剪切范围
         self.k_epochs = config.k_epochs  # PPO算法中的迭代次数
         self.tau = config.tau  # 软更新时的更新权重
+        self.ppo_steps = 1
 
         self.ploss_coef = config.ploss_coef  # 策略损失系数
         self.vloss_coef = config.vloss_coef  # 价值损失系数
@@ -404,13 +408,130 @@ class PPO:
         return total_loss, total_v_loss
 
 
-    def clone_policy(self):
-        return deepcopy(self.policy)
-    
-    def meta_loss(self, iterations_replays, iteration_policies, policy):
-        ...
 
+    def outer_ppo_loss(self, valid_replays, valid_advantage_seq, valid_v_target_seq, old_policy, new_policy):
+
+        pis_old, vals_old = self.policy(fea_j=valid_replays[0][:],
+                                    op_mask=valid_replays[1][:],
+                                    candidate=valid_replays[6][:],
+                                    fea_m=valid_replays[2][:],
+                                    mch_mask=valid_replays[3][:],
+                                    comp_idx=valid_replays[5][:],
+                                    dynamic_pair_mask=valid_replays[4][:],
+                                    fea_pairs=valid_replays[7][:],
+                                    params=old_policy
+                                    )
+
+        action_batch = valid_replays[8]
+        logprobs_old, ent_loss = eval_actions(pis_old, action_batch)
+
+        pis, vals = self.policy(fea_j=valid_replays[0][:],
+                                    op_mask=valid_replays[1][:],
+                                    candidate=valid_replays[6][:],
+                                    fea_m=valid_replays[2][:],
+                                    mch_mask=valid_replays[3][:],
+                                    comp_idx=valid_replays[5][:],
+                                    dynamic_pair_mask=valid_replays[4][:],
+                                    fea_pairs=valid_replays[7][:],
+                                    params=new_policy
+                                    )
+
+        logprobs, ent_loss = eval_actions(pis, action_batch)
+        #ratio
+        ratio = torch.exp(logprobs - valid_replays[12].detach())  # 计算重要性采样比率
+        # print("ratio:", ratio)
+
+        surr1 = ratio * valid_advantage_seq  # 计算第一个损失项
+        surr2 = torch.clamp(ratio, 1 - self.eps_clip, 1 + self.eps_clip) * valid_advantage_seq  # 计算第二个损失项
+        v_loss = self.V_loss_2(vals.squeeze(1), valid_v_target_seq)  # 计算价值损失
+        p_loss = - torch.min(surr1, surr2)  # 计算策略损失
+
+        ent_loss = - ent_loss.clone()  # 计算熵损失
+        loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
+
+        return loss
+
+    def meta_loss(self, iteration_replays, iteration_policies):
+        '''
+        iteration_replays: 任务回放
+        iteration_policies: 每个任务对应的策略
+        '''
+        mean_loss = 0.00
+        for _ in range(len(iteration_replays)):
+
+            task_replays:Memory = iteration_replays[_]
+            old_policy = iteration_policies[_]
+            t_data = task_replays.transpose_data()
+            t_advantage_seq, v_target_seq = task_replays.get_gae_advantages()
+            # print(t_advantage_seq.shape)
+            # 确定训练集和验证集的分割比例
+            train_ratio = 0.8
+
+            # 计算分割点
+            # 假设所有张量的第一维长度是一样的，我们可以用任何一个张量来计算分割点
+            split_idx = int(len(t_data[0]) * train_ratio)
+
+            # 分割数据
+            train_replays = tuple(data[:split_idx] for data in t_data)
+            valid_replays = tuple(data[split_idx:] for data in t_data)
+            train_advantage_seq = t_advantage_seq[:split_idx]
+            valid_advantage_seq = t_advantage_seq[split_idx:]
+            train_v_target_seq = v_target_seq[:split_idx]
+            valid_v_target_seq = v_target_seq[split_idx:]
+
+            # print(" len(train_replays[0])", len(train_replays[0]))
+
+            #fast_adapt
+            # cloned_model = l2l.clone_module(self.policy)
+            updated_params = dict(self.policy.named_parameters())
+            # with torch.no_grad():
+            pis, vals = self.policy(fea_j=train_replays[0][:],
+                                    op_mask=train_replays[1][:],
+                                    candidate=train_replays[6][:],
+                                    fea_m=train_replays[2][:],
+                                    mch_mask=train_replays[3][:],
+                                    comp_idx=train_replays[5][:],
+                                    dynamic_pair_mask=train_replays[4][:],
+                                    fea_pairs=train_replays[7][:])
+            action_batch = train_replays[8]
+            logprobs, ent_loss = eval_actions(pis, action_batch)
+            ratios = torch.exp(logprobs - train_replays[12].detach())  # 计算重要性采样比率
+            
+            surr1 = ratios * train_advantage_seq  # 计算第一个损失项
+            surr2 = torch.clamp(ratios, 1 - self.eps_clip, 1 + self.eps_clip) * train_advantage_seq  # 计算第二个损失项
+            v_loss = self.V_loss_2(vals.squeeze(1), train_v_target_seq)  # 计算价值损失
+            p_loss = - torch.min(surr1, surr2)  # 计算策略损失
+
+            ent_loss = - ent_loss.clone()  # 计算熵损失
+            loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
+            
+            grads = torch.autograd.grad(loss.mean(), updated_params.values(),  allow_unused=True)
+
+            new_policy = {name: param - 0.0003 * grad for (name, param), grad in zip(updated_params.items(), grads) if grad is not None}
+
+            loss = self.outer_ppo_loss(valid_replays, valid_advantage_seq, valid_v_target_seq, old_policy, new_policy)
+            # print("loss.shape:   ", loss.shape)
+
+            mean_loss += loss.mean()
+        
+        mean_loss /= len(iteration_replays)
+
+        return mean_loss
+
+    def meta_optimize(self, iteration_replays, iteration_policies):
+        for _ in range(self.ppo_steps):
+            loss = self.meta_loss(iteration_replays, iteration_policies)
+            loss.backward()
+            self.optimizer.step()
+            self.optimizer.zero_grad()
+
+        return loss
 
 def PPO_initialize():
     ppo = PPO(configs)
+    
+    # writer = SummaryWriter(log_dir=configs.logdir, flush_secs=180)
+
+    # writer.add_graph(dict(ppo.policy.named_parameters()))
+    # writer.close()
     return ppo

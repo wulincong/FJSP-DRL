@@ -131,5 +131,15 @@ parser.add_argument('--test_method', nargs='+', default=[], help='List of heuris
 
 # args for log
 parser.add_argument('--logdir', type=str, default="./runs/"+str_time, help='Suffix of the data')
+parser.add_argument('--save_instance', type=str2bool, default=True, help='Whether SAVE instance in finetuning stage')
 
-configs = parser.parse_args()
+import os
+
+if os.getenv('NOTEBOOK', 0) : # 如果环境变量不存在，则默认为0
+    configs = parser.parse_args(args=[
+        "--logdir", "./runs/model_test/main_model",
+        "--model_suffix", "free",
+        "--max_updates", "21",
+        ])
+else:
+    configs = parser.parse_args()

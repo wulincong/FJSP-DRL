@@ -10,8 +10,18 @@ class DANTrainer(Trainer):
         self.ppo = PPO_initialize()
         self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
         self.ppo.policy_old = deepcopy(self.ppo.policy)
-        print(self.finetuning_model)
 
+        print(f"finetuning model name :{self.finetuning_model}")
+
+    def check_file_count(self):
+        # 列出 instance_dir 目录中的所有文件
+        files = [f for f in os.listdir(self.instance_dir) if os.path.isfile(os.path.join(self.instance_dir, f))]
+
+        # 计算文件数量
+        file_count = len(files)
+
+        # 比较文件数量和 num_envs
+        return file_count == self.num_envs
 
     def train(self):
         """
@@ -21,12 +31,9 @@ class DANTrainer(Trainer):
         self.log = []
         self.validation_log = []
         self.record = float('inf')
-        print("-" * 25 + "Training Setting" + "-" * 25)
-        print(f"source : {self.data_source}")
-    
-        print(f"model name :{self.finetuning_model}")
-        print(f"vali data :{self.vali_data_path}")
-        print("\n")
+
+        self.makespan_log = []
+        self.loss_log = []
 
         self.train_st = time.time()
 
@@ -35,7 +42,16 @@ class DANTrainer(Trainer):
 
             # resampling the training data
             if i_update  == 0:
-                dataset_job_length, dataset_op_pt = self.sample_training_instances()
+                data_path = f"{self.instance_dir}/"
+
+                if self.check_file_count():
+                    dataset_job_length, dataset_op_pt = load_data_from_files(data_path)
+                else:
+                    import logging
+                    logging.info("实例数量与环境数不同，将重新生成实例！")
+
+                    dataset_job_length, dataset_op_pt = self.sample_training_instances()
+                
                 state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
             else:
                 state = self.env.reset()
@@ -85,21 +101,8 @@ class DANTrainer(Trainer):
 
             # save the mean rewards of all instances in current training data
             self.log.append([i_update, mean_rewards_all_env])
-
-            # validate the trained model
-            # if (i_update + 1) % self.validate_timestep == 0:
-            #     if self.data_source == "SD1":
-            #         vali_result = self.validate_envs_with_various_op_nums().mean()
-            #     else:
-            #         vali_result = self.validate_envs_with_same_op_nums().mean()
-
-            #     if vali_result < self.record:
-            #         self.save_model()
-            #         self.record = vali_result
-
-            #     self.validation_log.append(vali_result)
-            #     self.save_validation_log()
-            #     tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
+            self.makespan_log.append([i_update, list(self.env.current_makespan)])
+            self.loss_log.append([i_update, loss])
 
             ep_et = time.time()
             # print the reward, makespan, loss and training time of the current episode
@@ -118,8 +121,8 @@ class DANTrainer(Trainer):
         self.train_et = time.time()
 
         # log results
-        self.save_training_log()
-
+        # self.save_training_log()
+        self.save_finetuning_log()
 
 
 def main():

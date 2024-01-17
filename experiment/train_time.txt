@@ -1,0 +1,5 @@
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+free		training time: 10.7		 local time: 20240116_161821
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+free		training time: 10.73		 local time: 20240116_161821
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+free		training time: 10.78		 local time: 20240116_161821
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+free		training time: 10.53		 local time: 20240116_161821
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5+mix+free		training time: 10.61		 local time: 20240116_161821

@@ -179,6 +179,7 @@ class DANIEL(nn.Module):
         
         # h0 = torch.zeros(1, candidate_feature.size(0), 64).to(candidate_feature.device)
         candidate_scores = self.actor(candidate_feature, params=self.get_subdict(params, 'actor')) # 20, 50, 1
+        # print(candidate_scores[0])
         # candidate_scores, h0 = self.actor(candidate_feature, h0)
         candidate_scores = candidate_scores.squeeze(-1) 
 

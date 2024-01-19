@@ -1,0 +1,69 @@
+exp1 无maml训练
+试验10：用原论文的模型模型进行finetuning
+exp11
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/multi_task_maml_exp11.py", line 3, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 18, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+exp13
+测试同步

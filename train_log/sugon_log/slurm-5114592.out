@@ -1,0 +1,162 @@
+exp11
+寻找最好的MAML训练
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/10x5+mix
+save model name:  maml+exp11_2000_512_3
+self.n_js [20]
+[5, 7, 9, 10, 11, 13]
+[(20, 9), (20, 10), (20, 5), (20, 10), (20, 9)]
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/multi_task_maml_exp11.py", line 119, in <module>
+    trainer.train()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/multi_task_maml_exp11.py", line 59, in train
+    theta_prime = self.ppo.inner_update(self.memory)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 326, in inner_update
+    pis, vals = self.policy(fea_j=t_data[0][start_idx:end_idx],
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 181, in forward
+    candidate_scores = self.actor(candidate_feature, params=self.get_subdict(params, 'actor')) # 20, 50, 1
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/sub_layers.py", line 116, in forward
+    h = self.activative(F.linear(h, weight, bias))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacty of 9.77 GiB of which 130.69 MiB is free. Including non-PyTorch memory, this process has 9.64 GiB memory in use. Of the allocated memory 8.55 GiB is allocated by PyTorch, and 50.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x5+mix
+save model name:  20x5+mix+exp11_maml+exp11_2000_512_3_20x5
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x7+mix
+save model name:  20x7+mix+exp11_maml+exp11_2000_512_3_20x7
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x9+mix
+save model name:  20x9+mix+exp11_maml+exp11_2000_512_3_20x9
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x10+mix
+save model name:  20x10+mix+exp11_maml+exp11_2000_512_3_20x10
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x11+mix
+save model name:  20x11+mix+exp11_maml+exp11_2000_512_3_20x11
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x13+mix
+save model name:  20x13+mix+exp11_maml+exp11_2000_512_3_20x13
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/20x15+mix
+save model name:  20x15+mix+exp11_maml+exp11_2000_512_3_20x15
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DANIEL:
+	size mismatch for critic.linears.0.weight: copying a param with shape torch.Size([512, 16]) from checkpoint, the shape in current model is torch.Size([256, 16]).
+	size mismatch for critic.linears.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.1.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for critic.linears.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for critic.linears.2.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).

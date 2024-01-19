@@ -1,0 +1,124 @@
+exp1 无maml训练
+试验10：用原论文的模型模型进行finetuning
+exp11
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/numpy/core/_methods.py:163: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+vali_data = ./data/data_train_vali/SD2/10x5+mix
+save model name:  maml+exp11_200_64_3
+self.n_js [15, 15, 15]
+[5, 7, 9, 10]
+[(15, 9), (15, 10), (15, 5), (15, 10), (15, 9)]
+[819.8, 915.4, 930.8, 985.0, 960.4]
+Episode 1	 reward: -9.87	 Mean_loss: 2.27437401,  training time: 21.52
+[882.4, 923.8, 855.4, 973.2, 931.0]
+Episode 2	 reward: -9.38	 Mean_loss: 1.36531818,  training time: 19.18
+[936.2, 912.0, 911.6, 972.2, 887.4]
+Episode 3	 reward: -9.35	 Mean_loss: 1.27594936,  training time: 18.91
+[908.0, 913.6, 853.4, 934.4, 890.0]
+Episode 4	 reward: -9.50	 Mean_loss: 1.26018143,  training time: 18.92
+[903.4, 953.8, 813.2, 1012.0, 919.0]
+Episode 5	 reward: -8.63	 Mean_loss: 1.34684324,  training time: 18.84
+[903.0, 904.4, 888.4, 975.8, 916.4]
+Episode 6	 reward: -8.87	 Mean_loss: 1.35906649,  training time: 18.80
+[898.2, 957.6, 921.6, 931.0, 973.4]
+Episode 7	 reward: -9.31	 Mean_loss: 1.81161821,  training time: 18.83
+[903.2, 893.8, 844.2, 976.2, 903.0]
+Episode 8	 reward: -9.31	 Mean_loss: 1.41805685,  training time: 18.72
+[927.4, 919.0, 918.0, 968.0, 874.8]
+Episode 9	 reward: -9.43	 Mean_loss: 1.15719748,  training time: 18.80
+[941.8, 924.4, 866.8, 915.0, 1001.0]
+Episode 10	 reward: -8.86	 Mean_loss: 2.35849190,  training time: 18.76
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/multi_task_maml_exp11.py", line 116, in <module>
+    trainer.train()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/multi_task_maml_exp11.py", line 96, in train
+    vali_result = self.valid_model()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 107, in valid_model
+    vali_result = self.validate_envs_with_same_op_nums().mean()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 223, in validate_envs_with_same_op_nums
+    state = self.vali_env.reset()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/fjsp_env_same_op_nums.py", line 265, in reset
+    self.initial_vars()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/fjsp_env_same_op_nums.py", line 289, in initial_vars
+    self.current_makespan = np.full(self.number_of_envs, float("-inf")) # 
+AttributeError: 'FJSPEnvForSameOpNums' object has no attribute 'number_of_envs'. Did you mean: 'number_of_jobs'?
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+exp11_maml+exp11_200_64_3_15x5
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp11_200_64_3.pth'
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+exp11_maml+exp11_200_64_3_15x7
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp11_200_64_3.pth'
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/15x9+mix
+save model name:  15x9+mix+exp11_maml+exp11_200_64_3_15x9
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp11_200_64_3.pth'
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+exp11_maml+exp11_200_64_3_15x10
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp11_200_64_3.pth'
+exp13
+测试同步

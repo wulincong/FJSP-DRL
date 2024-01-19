@@ -1,0 +1,69 @@
+exp1 无maml训练10x5 SD1
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'libc10_cuda.so: cannot open shared object file: No such file or directory'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /croot/pytorch-select_1700158693612/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 127, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 122, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 7, in __init__
+    super().__init__(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 54, in __init__
+    torch.set_default_tensor_type('torch.cuda.FloatTensor')
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py", line 614, in set_default_tensor_type
+    _C._set_default_tensor_type(t)
+TypeError: type torch.cuda.FloatTensor not available. Torch not compiled with CUDA enabled.
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'libc10_cuda.so: cannot open shared object file: No such file or directory'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /croot/pytorch-select_1700158693612/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 127, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 122, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 7, in __init__
+    super().__init__(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 54, in __init__
+    torch.set_default_tensor_type('torch.cuda.FloatTensor')
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py", line 614, in set_default_tensor_type
+    _C._set_default_tensor_type(t)
+TypeError: type torch.cuda.FloatTensor not available. Torch not compiled with CUDA enabled.
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'libc10_cuda.so: cannot open shared object file: No such file or directory'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /croot/pytorch-select_1700158693612/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 127, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 122, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 7, in __init__
+    super().__init__(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 54, in __init__
+    torch.set_default_tensor_type('torch.cuda.FloatTensor')
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py", line 614, in set_default_tensor_type
+    _C._set_default_tensor_type(t)
+TypeError: type torch.cuda.FloatTensor not available. Torch not compiled with CUDA enabled.
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'libc10_cuda.so: cannot open shared object file: No such file or directory'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /croot/pytorch-select_1700158693612/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 127, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 122, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 7, in __init__
+    super().__init__(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 54, in __init__
+    torch.set_default_tensor_type('torch.cuda.FloatTensor')
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py", line 614, in set_default_tensor_type
+    _C._set_default_tensor_type(t)
+TypeError: type torch.cuda.FloatTensor not available. Torch not compiled with CUDA enabled.
+试验10：用原论文的模型和元学习的模型进行finetuning
+exp11
+exp13
+测试同步

@@ -1,0 +1,2067 @@
++ source /work/home/lxx_hzau/.bashrc
+++ export CUDA_HOME=/usr/local/cuda-11.1/
+++ CUDA_HOME=/usr/local/cuda-11.1/
+++ export PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++ PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++ '[' -f /etc/bashrc ']'
+++ . /etc/bashrc
++++ '[' '' ']'
++++ shopt -q login_shell
++++ '[' 5235 -gt 199 ']'
+++++ /usr/bin/id -gn
+++++ /usr/bin/id -un
++++ '[' ac6owqc808 = lxx_hzau ']'
++++ umask 022
++++ SHELL=/bin/bash
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/256term.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/256term.sh
+++++ local256=truecolor
+++++ '[' -n truecolor ']'
+++++ case "$TERM" in
+++++ export TERM
+++++ '[' -n '' ']'
+++++ unset local256
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/abrt-console-notification.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/abrt-console-notification.sh
+++++ tty -s
+++++ return 0
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/bash_completion.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/bash_completion.sh
+++++ '[' -z '4.2.46(2)-release' -o -z '' -o -n '' ']'
+++++ return
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/check.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/check.sh
+++++ export CHECK_HOME=/opt/hpc/setfreq/
+++++ CHECK_HOME=/opt/hpc/setfreq/
+++++ export PATH=/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/clusconf-env.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/clusconf-env.sh
+++++ export CLUSCONF_HOME=/opt/clusconf
+++++ CLUSCONF_HOME=/opt/clusconf
+++++ export PATH=/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export PATH=/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export NFSCONF=/opt/clusconf/etc/nfs.cfg
+++++ NFSCONF=/opt/clusconf/etc/nfs.cfg
+++++ export IPMICONF=/opt/clusconf/etc/ipmi.cfg
+++++ IPMICONF=/opt/clusconf/etc/ipmi.cfg
+++++ export AUTOCLUSCONF=/opt/clusconf/etc/autoconf.cfg
+++++ AUTOCLUSCONF=/opt/clusconf/etc/autoconf.cfg
+++++ export STARTWAITTIME=300
+++++ STARTWAITTIME=300
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/colorgrep.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorgrep.sh
+++++ /usr/libexec/grepconf.sh -c
+++++ alias 'grep=grep --color=auto'
+++++ alias 'egrep=egrep --color=auto'
+++++ alias 'fgrep=fgrep --color=auto'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/colorls.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorls.sh
+++++ '[' '!' -t 0 ']'
+++++ return
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/dawning.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/dawning.sh
+++++ export GRIDVIEW_HOME=/opt/gridview
+++++ GRIDVIEW_HOME=/opt/gridview
+++++ export MUNGE_HOME=/opt/gridview/munge
+++++ MUNGE_HOME=/opt/gridview/munge
+++++ export PATH=/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export LD_LIBRARY_PATH=/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ LD_LIBRARY_PATH=/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ export MANPATH=/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ MANPATH=/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ export C_INCLUDE_PATH=/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ C_INCLUDE_PATH=/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ export SLURM_HOME=/opt/gridview/slurm
+++++ SLURM_HOME=/opt/gridview/slurm
+++++ export PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export LD_LIBRARY_PATH=/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ LD_LIBRARY_PATH=/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ export MANPATH=/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ MANPATH=/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ export C_INCLUDE_PATH=/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ C_INCLUDE_PATH=/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ export SLURM_PMIX_DIRECT_CONN=true
+++++ SLURM_PMIX_DIRECT_CONN=true
+++++ export SLURM_PMIX_DIRECT_CONN_UCX=true
+++++ SLURM_PMIX_DIRECT_CONN_UCX=true
+++++ export SLURM_PMIX_DIRECT_CONN_EARLY=true
+++++ SLURM_PMIX_DIRECT_CONN_EARLY=true
+++++ export SLURM_PMIX_TIMEOUT=3000
+++++ SLURM_PMIX_TIMEOUT=3000
+++++ '[' lxx_hzau '!=' root ']'
+++++ export SQUEUE_USERS=lxx_hzau
+++++ SQUEUE_USERS=lxx_hzau
+++++ export SCONTROL_JOB_USERS=lxx_hzau
+++++ SCONTROL_JOB_USERS=lxx_hzau
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/flatpak.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/flatpak.sh
+++++ '[' /exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share = /work/home/lxx_hzau/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share ']'
+++++ export XDG_DATA_DIRS
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/kde.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/kde.sh
+++++ '[' -z /usr ']'
+++++ '[' -z '' ']'
+++++ grep --color=auto -qs '^PRELINKING=yes' /etc/sysconfig/prelink
+++++ for libdir in /usr/lib64 /usr/lib
+++++ '[' -n /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins ']'
+++++ echo /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+++++ /bin/grep -q /usr/lib64/kde4/plugins
+++++ for libdir in /usr/lib64 /usr/lib
+++++ '[' -n /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins ']'
+++++ echo /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+++++ /bin/grep -q /usr/lib/kde4/plugins
+++++ '[' '!' -d /work/home/lxx_hzau/.local/share ']'
+++++ unset libdir
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/lang.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/lang.sh
+++++ sourced=0
+++++ '[' -n en_US.UTF-8 ']'
+++++ saved_lang=en_US.UTF-8
+++++ '[' -f /work/home/lxx_hzau/.i18n ']'
+++++ LANG=en_US.UTF-8
+++++ unset saved_lang
+++++ '[' 0 = 1 ']'
+++++ unset sourced
+++++ unset langfile
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/less.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/less.sh
+++++ '[' -x /usr/bin/lesspipe.sh ']'
+++++ export 'LESSOPEN=||/usr/bin/lesspipe.sh %s'
+++++ LESSOPEN='||/usr/bin/lesspipe.sh %s'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/modules.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/modules.sh
+++++++ /bin/ps -p 662 -ocomm=
++++++ /bin/basename slurm_script
+++++ shell=slurm_script
+++++ '[' -f /usr/share/Modules/init/slurm_script ']'
+++++ . /usr/share/Modules/init/sh
++++++ MODULESHOME=/usr/share/Modules
++++++ export MODULESHOME
++++++ '[' compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1 = '' ']'
++++++ '[' /public/software/modules/base:/public/software/modules/apps = '' ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/mpi-selector.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/mpi-selector.sh
+++++ mpi_selector_dir=/var/mpi-selector/data
+++++ mpi_selector_homefile=/work/home/lxx_hzau/.mpi-selector
+++++ mpi_selector_sysfile=/etc/sysconfig/mpi-selector
+++++ mpi_selection=
+++++ test -f /work/home/lxx_hzau/.mpi-selector
+++++ test -f /etc/sysconfig/mpi-selector
+++++ test '' '!=' '' -a -f /var/mpi-selector/data/.sh
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/PackageKit.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/PackageKit.sh
+++++ [[ -n '' ]]
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/perl-homedir.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/perl-homedir.sh
+++++ PERL_HOMEDIR=1
+++++ '[' -f /etc/sysconfig/perl-homedir ']'
+++++ '[' -f /work/home/lxx_hzau/.perl-homedir ']'
+++++ alias 'perlll=eval `perl -Mlocal::lib`'
+++++ '[' x1 = x1 ']'
++++++ perl -Mlocal::lib
+++++ eval
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/qt-graphicssystem.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/qt-graphicssystem.sh
+++++ '[' -z 1 -a -z '' ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/qt.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/qt.sh
+++++ '[' -z /usr/lib64/qt-3.3 ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/rocm-gcc-mpi-default.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/rocm-gcc-mpi-default.sh
+++++ [[ lxx_hzau =~ root|xhadmin ]]
+++++ module use /public/software/modules/apps
++++++ /usr/bin/modulecmd sh use /public/software/modules/apps
+++++ eval
+++++ module use /public/software/modules/base
++++++ /usr/bin/modulecmd sh use /public/software/modules/base
+++++ eval
+++++ module unuse /opt/hpc/software/modules
++++++ /usr/bin/modulecmd sh unuse /opt/hpc/software/modules
+++++ eval
+++++ module load compiler/devtoolset/7.3.1
++++++ /usr/bin/modulecmd sh load compiler/devtoolset/7.3.1
+++++ eval
+++++ module load mpi/hpcx/gcc-7.3.1
++++++ /usr/bin/modulecmd sh load mpi/hpcx/gcc-7.3.1
+++++ eval
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/vim.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vim.sh
+++++ '[' -n '4.2.46(2)-release' -o -n '' -o -n '' ']'
+++++ '[' -x /usr/bin/id ']'
++++++ /usr/bin/id -u
+++++ ID=5235
+++++ '[' -n 5235 -a 5235 -le 200 ']'
+++++ alias vi
+++++ alias vi=vim
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/vte.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vte.sh
+++++ '[' -n '4.2.46(2)-release' -o -n '' ']'
+++++ [[ hxB == *i* ]]
+++++ return 0
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/which2.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/which2.sh
+++++ alias 'which=alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
++++ unset i
++++ unset -f pathmunge
++++ /work/home/lxx_hzau/miniconda3/bin/conda shell.bash hook
+++ __conda_setup='export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
+++ '[' 0 -eq 0 ']'
+++ eval 'export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
++++ export CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
++++ CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++++ '[' -z x ']'
++++ conda activate base
++++ local cmd=activate
++++ case "$cmd" in
++++ __conda_activate activate base
++++ '[' -n '' ']'
++++ local ask_conda
+++++ PS1=
+++++ __conda_exe shell.posix activate base
+++++ /work/home/lxx_hzau/miniconda3/bin/conda shell.posix activate base
++++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\'''
++++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\'''
+++++ PS1='(base) '
+++++ export PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++++ PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++++ export CONDA_SHLVL=1
+++++ CONDA_SHLVL=1
+++++ export 'CONDA_PROMPT_MODIFIER=(base) '
+++++ CONDA_PROMPT_MODIFIER='(base) '
+++++ export PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++++ PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
++++ __conda_hashr
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
+++ unset __conda_setup
+++ export PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
++ module load nvidia/cuda/11.6
+++ /usr/bin/modulecmd sh load nvidia/cuda/11.6
++ eval CUDA_HOME=/public/software/compiler/nvidia/cuda/11.6.0:/usr/local/cuda-11.1/ ';export' 'CUDA_HOME;CUDA_ROOT=/public/software/compiler/nvidia/cuda/11.6.0' ';export' 'CUDA_ROOT;INCLUDE=/public/software/compiler/nvidia/cuda/11.6.0/include:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/include:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/include:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/include:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/include' ';export' 'INCLUDE;LD_LIBRARY_PATH=/public/software/compiler/nvidia/cuda/11.6.0/lib64:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:' ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1:nvidia/cuda/11.6' ';export' 'LOADEDMODULES;PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin' ';export' 'PATH;_LMFILES_=/public/software/modules/base/compiler/devtoolset/7.3.1:/public/software/modules/base/mpi/hpcx/gcc-7.3.1:/public/software/modules/base/nvidia/cuda/11.6' ';export' '_LMFILES_;'
+++ CUDA_HOME=/public/software/compiler/nvidia/cuda/11.6.0:/usr/local/cuda-11.1/
+++ export CUDA_HOME
+++ CUDA_ROOT=/public/software/compiler/nvidia/cuda/11.6.0
+++ export CUDA_ROOT
+++ INCLUDE=/public/software/compiler/nvidia/cuda/11.6.0/include:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/include:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/include:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/include:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/include
+++ export INCLUDE
+++ LD_LIBRARY_PATH=/public/software/compiler/nvidia/cuda/11.6.0/lib64:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1:nvidia/cuda/11.6
+++ export LOADEDMODULES
+++ PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ export PATH
+++ _LMFILES_=/public/software/modules/base/compiler/devtoolset/7.3.1:/public/software/modules/base/mpi/hpcx/gcc-7.3.1:/public/software/modules/base/nvidia/cuda/11.6
+++ export _LMFILES_
++ conda activate RL-torch
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate RL-torch
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate RL-torch
+++ /work/home/lxx_hzau/miniconda3/bin/conda shell.posix activate RL-torch
++ ask_conda='PS1='\''(RL-torch) '\''
+export PATH='\''/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_PREFIX='\''/work/home/lxx_hzau/miniconda3/envs/RL-torch'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''RL-torch'\''
+export CONDA_PROMPT_MODIFIER='\''(RL-torch) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\''
+export CONDA_PREFIX_1='\''/work/home/lxx_hzau/miniconda3'\''
+export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\'''
++ eval 'PS1='\''(RL-torch) '\''
+export PATH='\''/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_PREFIX='\''/work/home/lxx_hzau/miniconda3/envs/RL-torch'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''RL-torch'\''
+export CONDA_PROMPT_MODIFIER='\''(RL-torch) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\''
+export CONDA_PREFIX_1='\''/work/home/lxx_hzau/miniconda3'\''
+export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\'''
+++ PS1='(RL-torch) '
+++ export PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ export CONDA_PREFIX=/work/home/lxx_hzau/miniconda3/envs/RL-torch
+++ CONDA_PREFIX=/work/home/lxx_hzau/miniconda3/envs/RL-torch
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=RL-torch
+++ CONDA_DEFAULT_ENV=RL-torch
+++ export 'CONDA_PROMPT_MODIFIER=(RL-torch) '
+++ CONDA_PROMPT_MODIFIER='(RL-torch) '
+++ export PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++ PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++ export CONDA_PREFIX_1=/work/home/lxx_hzau/miniconda3
+++ CONDA_PREFIX_1=/work/home/lxx_hzau/miniconda3
+++ export CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
+++ CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ t=train
++ exp=exp17_1
++ echo exp17_1
+exp17_1
++ cat
+机器数和工件数同时改变
+机器数多->少 结合 op_per_job 少->多
++ n_j_options='15 15 15 15'
++ n_m_options='13 10 7 5'
++ op_per_job_options='4 7 10 12'
++ logdir=./runs/exp17_1
++ hidden_dim_actor=512
++ hidden_dim_critic=512
++ num_mlp_layers_actor=3
++ num_mlp_layers_critic=3
++ num_envs=4
++ meta_iterations=500
++ max_updates_maml=500
++ num_tasks=4
++ max_updates_finetune=50
++ lr=0.003
++ data='13,4 10,7 7,10 5,12'
++ logdir_dan=./runs/exp17_1/DAN
++ python train/DAN.py --n_j 15 --n_m 13 --op_per_job 4 --data_source SD2 --model_suffix SD2_4 --logdir ./runs/exp17_1/DAN/train_model/15x13x4 --max_updates 500
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+SD2_4
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 129, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 124, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 8, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ python train/DAN.py --n_j 15 --n_m 5 --op_per_job 12 --data_source SD2 --model_suffix SD2_12 --logdir ./runs/exp17_1/DAN/train_model/15x5x12 --max_updates 500
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+SD2_12
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 129, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 124, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN.py", line 8, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ n_j=15
++ for model in 15x13+mix+SD2_4 15x5+mix+SD2_12
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x13_4 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x13_7 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x13_10 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x13_12 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x10_4 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x10_7 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x10_10 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x10_12 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x7_4 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x7_7 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x7_10 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x7_12 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x5_4 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x5_7 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x5_10 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x13+mix+SD2_4/15x5_12 --model_suffix free --finetuning_model 15x13+mix+SD2_4 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for model in 15x13+mix+SD2_4 15x5+mix+SD2_12
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x13_4 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x13_7 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x13_10 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x13_12 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 13 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x13+mix
+save model name:  15x13+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x10_4 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x10_7 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x10_10 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x10_12 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 10 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x10+mix
+save model name:  15x10+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x7_4 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x7_7 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x7_10 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x7_12 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 7 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x7+mix
+save model name:  15x7+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for n_m in '$n_m_options'
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x5_4 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 4
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x5_7 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 7
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x5_10 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 10
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127
++ for op_per_job in '$op_per_job_options'
++ python train/DAN_finetuning.py --logdir ./runs/exp17_1/DAN/finetuning/15x5+mix+SD2_12/15x5_12 --model_suffix free --finetuning_model 15x5+mix+SD2_12 --max_updates 50 --n_j 15 --n_m 5 --op_per_job 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 10, in __init__
+    self.ppo = PPO_initialize()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 415, in PPO_initialize
+    ppo = PPO(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 156, in __init__
+    self.policy = DANIEL(config)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 121, in __init__
+    self.feature_exact = DualAttentionNetwork(config).to(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/main_model.py", line 46, in __init__
+    MultiHeadOpAttnBlock(
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 76, in __init__
+    self.attentions = [
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 77, in <listcomp>
+    SingleOpAttnBlock(input_dim, output_dim, dropout_prob) for
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/attention_layer.py", line 20, in __init__
+    self.W = nn.Parameter(torch.empty(size=(input_dim, output_dim)))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/cuda/__init__.py", line 298, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
++ --num_envs 4 --lr 0.003
++ local runcnf=1
++ local retval=127
++ [[ hxB =~ i ]]
++ runcnf=0
++ [[ ! -S /run/dbus/system_bus_socket ]]
++ [[ ! -x /usr/libexec/packagekitd ]]
++ [[ -n '' ]]
++ '[' 0 -eq 1 ']'
++ [[ -n 4.2.46(2)-release ]]
++ printf 'bash: %scommand not found\n' '--num_envs: '
+bash: --num_envs: command not found
++ return 127

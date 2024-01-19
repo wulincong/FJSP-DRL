@@ -1,0 +1,1828 @@
++ source /work/home/lxx_hzau/.bashrc
+++ export CUDA_HOME=/usr/local/cuda-11.1/
+++ CUDA_HOME=/usr/local/cuda-11.1/
+++ export PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++ PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++ '[' -f /etc/bashrc ']'
+++ . /etc/bashrc
++++ '[' '' ']'
++++ shopt -q login_shell
++++ '[' 5235 -gt 199 ']'
+++++ /usr/bin/id -gn
+++++ /usr/bin/id -un
++++ '[' ac6owqc808 = lxx_hzau ']'
++++ umask 022
++++ SHELL=/bin/bash
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/256term.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/256term.sh
+++++ local256=truecolor
+++++ '[' -n truecolor ']'
+++++ case "$TERM" in
+++++ export TERM
+++++ '[' -n '' ']'
+++++ unset local256
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/abrt-console-notification.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/abrt-console-notification.sh
+++++ tty -s
+++++ return 0
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/bash_completion.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/bash_completion.sh
+++++ '[' -z '4.2.46(2)-release' -o -z '' -o -n '' ']'
+++++ return
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/check.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/check.sh
+++++ export CHECK_HOME=/opt/hpc/setfreq/
+++++ CHECK_HOME=/opt/hpc/setfreq/
+++++ export PATH=/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/clusconf-env.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/clusconf-env.sh
+++++ export CLUSCONF_HOME=/opt/clusconf
+++++ CLUSCONF_HOME=/opt/clusconf
+++++ export PATH=/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export PATH=/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export NFSCONF=/opt/clusconf/etc/nfs.cfg
+++++ NFSCONF=/opt/clusconf/etc/nfs.cfg
+++++ export IPMICONF=/opt/clusconf/etc/ipmi.cfg
+++++ IPMICONF=/opt/clusconf/etc/ipmi.cfg
+++++ export AUTOCLUSCONF=/opt/clusconf/etc/autoconf.cfg
+++++ AUTOCLUSCONF=/opt/clusconf/etc/autoconf.cfg
+++++ export STARTWAITTIME=300
+++++ STARTWAITTIME=300
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/colorgrep.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorgrep.sh
+++++ /usr/libexec/grepconf.sh -c
+++++ alias 'grep=grep --color=auto'
+++++ alias 'egrep=egrep --color=auto'
+++++ alias 'fgrep=fgrep --color=auto'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/colorls.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorls.sh
+++++ '[' '!' -t 0 ']'
+++++ return
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/dawning.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/dawning.sh
+++++ export GRIDVIEW_HOME=/opt/gridview
+++++ GRIDVIEW_HOME=/opt/gridview
+++++ export MUNGE_HOME=/opt/gridview/munge
+++++ MUNGE_HOME=/opt/gridview/munge
+++++ export PATH=/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export LD_LIBRARY_PATH=/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ LD_LIBRARY_PATH=/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ export MANPATH=/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ MANPATH=/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ export C_INCLUDE_PATH=/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ C_INCLUDE_PATH=/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ export SLURM_HOME=/opt/gridview/slurm
+++++ SLURM_HOME=/opt/gridview/slurm
+++++ export PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq/:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export LD_LIBRARY_PATH=/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ LD_LIBRARY_PATH=/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ export MANPATH=/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ MANPATH=/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ export C_INCLUDE_PATH=/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ C_INCLUDE_PATH=/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ export SLURM_PMIX_DIRECT_CONN=true
+++++ SLURM_PMIX_DIRECT_CONN=true
+++++ export SLURM_PMIX_DIRECT_CONN_UCX=true
+++++ SLURM_PMIX_DIRECT_CONN_UCX=true
+++++ export SLURM_PMIX_DIRECT_CONN_EARLY=true
+++++ SLURM_PMIX_DIRECT_CONN_EARLY=true
+++++ export SLURM_PMIX_TIMEOUT=3000
+++++ SLURM_PMIX_TIMEOUT=3000
+++++ '[' lxx_hzau '!=' root ']'
+++++ export SQUEUE_USERS=lxx_hzau
+++++ SQUEUE_USERS=lxx_hzau
+++++ export SCONTROL_JOB_USERS=lxx_hzau
+++++ SCONTROL_JOB_USERS=lxx_hzau
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/flatpak.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/flatpak.sh
+++++ '[' /exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share = /work/home/lxx_hzau/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share ']'
+++++ export XDG_DATA_DIRS
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/kde.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/kde.sh
+++++ '[' -z /usr ']'
+++++ '[' -z '' ']'
+++++ grep --color=auto -qs '^PRELINKING=yes' /etc/sysconfig/prelink
+++++ for libdir in /usr/lib64 /usr/lib
+++++ '[' -n /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins ']'
+++++ echo /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+++++ /bin/grep -q /usr/lib64/kde4/plugins
+++++ for libdir in /usr/lib64 /usr/lib
+++++ '[' -n /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins ']'
+++++ echo /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+++++ /bin/grep -q /usr/lib/kde4/plugins
+++++ '[' '!' -d /work/home/lxx_hzau/.local/share ']'
+++++ unset libdir
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/lang.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/lang.sh
+++++ sourced=0
+++++ '[' -n en_US.UTF-8 ']'
+++++ saved_lang=en_US.UTF-8
+++++ '[' -f /work/home/lxx_hzau/.i18n ']'
+++++ LANG=en_US.UTF-8
+++++ unset saved_lang
+++++ '[' 0 = 1 ']'
+++++ unset sourced
+++++ unset langfile
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/less.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/less.sh
+++++ '[' -x /usr/bin/lesspipe.sh ']'
+++++ export 'LESSOPEN=||/usr/bin/lesspipe.sh %s'
+++++ LESSOPEN='||/usr/bin/lesspipe.sh %s'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/modules.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/modules.sh
+++++++ /bin/ps -p 26896 -ocomm=
++++++ /bin/basename slurm_script
+++++ shell=slurm_script
+++++ '[' -f /usr/share/Modules/init/slurm_script ']'
+++++ . /usr/share/Modules/init/sh
++++++ MODULESHOME=/usr/share/Modules
++++++ export MODULESHOME
++++++ '[' compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1 = '' ']'
++++++ '[' /public/software/modules/base:/public/software/modules/apps = '' ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/mpi-selector.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/mpi-selector.sh
+++++ mpi_selector_dir=/var/mpi-selector/data
+++++ mpi_selector_homefile=/work/home/lxx_hzau/.mpi-selector
+++++ mpi_selector_sysfile=/etc/sysconfig/mpi-selector
+++++ mpi_selection=
+++++ test -f /work/home/lxx_hzau/.mpi-selector
+++++ test -f /etc/sysconfig/mpi-selector
+++++ test '' '!=' '' -a -f /var/mpi-selector/data/.sh
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/PackageKit.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/PackageKit.sh
+++++ [[ -n '' ]]
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/perl-homedir.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/perl-homedir.sh
+++++ PERL_HOMEDIR=1
+++++ '[' -f /etc/sysconfig/perl-homedir ']'
+++++ '[' -f /work/home/lxx_hzau/.perl-homedir ']'
+++++ alias 'perlll=eval `perl -Mlocal::lib`'
+++++ '[' x1 = x1 ']'
++++++ perl -Mlocal::lib
+++++ eval
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/qt-graphicssystem.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/qt-graphicssystem.sh
+++++ '[' -z 1 -a -z '' ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/qt.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/qt.sh
+++++ '[' -z /usr/lib64/qt-3.3 ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/rocm-gcc-mpi-default.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/rocm-gcc-mpi-default.sh
+++++ [[ lxx_hzau =~ root|xhadmin ]]
+++++ module use /public/software/modules/apps
++++++ /usr/bin/modulecmd sh use /public/software/modules/apps
+++++ eval
+++++ module use /public/software/modules/base
++++++ /usr/bin/modulecmd sh use /public/software/modules/base
+++++ eval
+++++ module unuse /opt/hpc/software/modules
++++++ /usr/bin/modulecmd sh unuse /opt/hpc/software/modules
+++++ eval
+++++ module load compiler/devtoolset/7.3.1
++++++ /usr/bin/modulecmd sh load compiler/devtoolset/7.3.1
+++++ eval
+++++ module load mpi/hpcx/gcc-7.3.1
++++++ /usr/bin/modulecmd sh load mpi/hpcx/gcc-7.3.1
+++++ eval
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/vim.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vim.sh
+++++ '[' -n '4.2.46(2)-release' -o -n '' -o -n '' ']'
+++++ '[' -x /usr/bin/id ']'
++++++ /usr/bin/id -u
+++++ ID=5235
+++++ '[' -n 5235 -a 5235 -le 200 ']'
+++++ alias vi
+++++ alias vi=vim
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/vte.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vte.sh
+++++ '[' -n '4.2.46(2)-release' -o -n '' ']'
+++++ [[ hxB == *i* ]]
+++++ return 0
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/which2.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/which2.sh
+++++ alias 'which=alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
++++ unset i
++++ unset -f pathmunge
++++ /work/home/lxx_hzau/miniconda3/bin/conda shell.bash hook
+++ __conda_setup='export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
+++ '[' 0 -eq 0 ']'
+++ eval 'export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
++++ export CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
++++ CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++++ '[' -z x ']'
++++ conda activate base
++++ local cmd=activate
++++ case "$cmd" in
++++ __conda_activate activate base
++++ '[' -n '' ']'
++++ local ask_conda
+++++ PS1=
+++++ __conda_exe shell.posix activate base
+++++ /work/home/lxx_hzau/miniconda3/bin/conda shell.posix activate base
++++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\'''
++++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\'''
+++++ PS1='(base) '
+++++ export PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++++ PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++++ export CONDA_SHLVL=1
+++++ CONDA_SHLVL=1
+++++ export 'CONDA_PROMPT_MODIFIER=(base) '
+++++ CONDA_PROMPT_MODIFIER='(base) '
+++++ export PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++++ PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
++++ __conda_hashr
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
+++ unset __conda_setup
+++ export PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
++ module load nvidia/cuda/11.6
+++ /usr/bin/modulecmd sh load nvidia/cuda/11.6
++ eval CUDA_HOME=/public/software/compiler/nvidia/cuda/11.6.0:/usr/local/cuda-11.1/ ';export' 'CUDA_HOME;CUDA_ROOT=/public/software/compiler/nvidia/cuda/11.6.0' ';export' 'CUDA_ROOT;INCLUDE=/public/software/compiler/nvidia/cuda/11.6.0/include:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/include:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/include:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/include:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/include' ';export' 'INCLUDE;LD_LIBRARY_PATH=/public/software/compiler/nvidia/cuda/11.6.0/lib64:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:' ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1:nvidia/cuda/11.6' ';export' 'LOADEDMODULES;PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin' ';export' 'PATH;_LMFILES_=/public/software/modules/base/compiler/devtoolset/7.3.1:/public/software/modules/base/mpi/hpcx/gcc-7.3.1:/public/software/modules/base/nvidia/cuda/11.6' ';export' '_LMFILES_;'
+++ CUDA_HOME=/public/software/compiler/nvidia/cuda/11.6.0:/usr/local/cuda-11.1/
+++ export CUDA_HOME
+++ CUDA_ROOT=/public/software/compiler/nvidia/cuda/11.6.0
+++ export CUDA_ROOT
+++ INCLUDE=/public/software/compiler/nvidia/cuda/11.6.0/include:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/include:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/include:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/include:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/include
+++ export INCLUDE
+++ LD_LIBRARY_PATH=/public/software/compiler/nvidia/cuda/11.6.0/lib64:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1:nvidia/cuda/11.6
+++ export LOADEDMODULES
+++ PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ export PATH
+++ _LMFILES_=/public/software/modules/base/compiler/devtoolset/7.3.1:/public/software/modules/base/mpi/hpcx/gcc-7.3.1:/public/software/modules/base/nvidia/cuda/11.6
+++ export _LMFILES_
++ conda activate RL-torch
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate RL-torch
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate RL-torch
+++ /work/home/lxx_hzau/miniconda3/bin/conda shell.posix activate RL-torch
++ ask_conda='PS1='\''(RL-torch) '\''
+export PATH='\''/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_PREFIX='\''/work/home/lxx_hzau/miniconda3/envs/RL-torch'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''RL-torch'\''
+export CONDA_PROMPT_MODIFIER='\''(RL-torch) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\''
+export CONDA_PREFIX_1='\''/work/home/lxx_hzau/miniconda3'\''
+export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\'''
++ eval 'PS1='\''(RL-torch) '\''
+export PATH='\''/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_PREFIX='\''/work/home/lxx_hzau/miniconda3/envs/RL-torch'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''RL-torch'\''
+export CONDA_PROMPT_MODIFIER='\''(RL-torch) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\''
+export CONDA_PREFIX_1='\''/work/home/lxx_hzau/miniconda3'\''
+export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\'''
+++ PS1='(RL-torch) '
+++ export PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/opt/hpc/setfreq:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ export CONDA_PREFIX=/work/home/lxx_hzau/miniconda3/envs/RL-torch
+++ CONDA_PREFIX=/work/home/lxx_hzau/miniconda3/envs/RL-torch
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=RL-torch
+++ CONDA_DEFAULT_ENV=RL-torch
+++ export 'CONDA_PROMPT_MODIFIER=(RL-torch) '
+++ CONDA_PROMPT_MODIFIER='(RL-torch) '
+++ export PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++ PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++ export CONDA_PREFIX_1=/work/home/lxx_hzau/miniconda3
+++ CONDA_PREFIX_1=/work/home/lxx_hzau/miniconda3
+++ export CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
+++ CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ t=train
++ exp=exp17
++ echo exp17
+exp17
++ cat
+机器数和工件数同时改变
+机器数多->少 结合 op_per_job 多->少
++ n_j_options='15 15 15 15'
++ n_m_options='13 10 7 5'
++ op_per_job_options='4 7 10 12'
++ logdir=./runs/exp17
++ hidden_dim_actor=512
++ hidden_dim_critic=512
++ num_mlp_layers_actor=3
++ num_mlp_layers_critic=3
++ num_envs=4
++ meta_iterations=500
++ max_updates_maml=500
++ num_tasks=4
++ max_updates_finetune=50
++ lr=0.003
++ data='10,5 13,5 15,5 17,5'
++ model_suffix=exp17_500_512_3
++ logdir_maml=./runs/exp17/maml
++ python train/multi_task_maml_exp17.py --logdir ./runs/exp17/maml/train_model --model_suffix exp17_500_512_3 --maml_model True --meta_iterations 500 --num_tasks 4 --max_updates 500 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --n_j_options 15 15 15 15 --n_m_options 13 10 7 5 --op_per_job_options 4 7 10 12
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/10x5+mix
+save model name:  maml+exp17_500_512_3
+self.n_js:  [15, 15, 15, 15]
+self.n_m_options:  [13, 10, 7, 5]
+self.op_per_job_options:  [4, 7, 10, 12]
+[344.5, 678.0, 1249.0, 1941.5]
+Episode 1	 reward: -20.27	 Mean_loss: 6.37914085,  training time: 19.04
+[370.5, 620.5, 1195.25, 1876.5]
+Episode 2	 reward: -20.96	 Mean_loss: 5.28221655,  training time: 14.14
+[332.5, 692.5, 1194.0, 1903.25]
+Episode 3	 reward: -18.73	 Mean_loss: 5.47049522,  training time: 14.20
+[353.75, 650.75, 1204.25, 1872.75]
+Episode 4	 reward: -19.42	 Mean_loss: 5.15514994,  training time: 14.19
+[371.0, 601.75, 1195.5, 1815.75]
+Episode 5	 reward: -20.84	 Mean_loss: 4.84726906,  training time: 14.20
+[316.75, 670.5, 1215.25, 1813.0]
+Episode 6	 reward: -19.59	 Mean_loss: 4.45610428,  training time: 14.17
+[361.25, 623.0, 1090.75, 1720.5]
+Episode 7	 reward: -19.02	 Mean_loss: 3.72135687,  training time: 14.11
+[362.0, 612.0, 1081.0, 1691.5]
+Episode 8	 reward: -20.16	 Mean_loss: 3.65234041,  training time: 14.15
+[334.25, 594.0, 1046.5, 1647.25]
+Episode 9	 reward: -20.40	 Mean_loss: 3.10000539,  training time: 14.08
+[347.25, 563.0, 1056.75, 1691.75]
+Episode 10	 reward: -19.21	 Mean_loss: 3.38380337,  training time: 14.09
+[330.75, 594.0, 1047.5, 1751.25]
+Episode 11	 reward: -19.39	 Mean_loss: 3.85720897,  training time: 14.09
+[342.5, 594.5, 1101.75, 1649.25]
+Episode 12	 reward: -18.63	 Mean_loss: 2.81482625,  training time: 14.09
+[324.0, 596.75, 1030.5, 1637.75]
+Episode 13	 reward: -18.83	 Mean_loss: 2.66800308,  training time: 14.12
+[344.25, 574.75, 1088.0, 1669.25]
+Episode 14	 reward: -19.54	 Mean_loss: 2.51099658,  training time: 14.13
+[332.25, 593.75, 1051.25, 1620.25]
+Episode 15	 reward: -19.21	 Mean_loss: 2.36872792,  training time: 14.12
+[317.25, 565.5, 1008.25, 1600.5]
+Episode 16	 reward: -20.57	 Mean_loss: 2.22909117,  training time: 14.12
+[314.0, 549.5, 1000.25, 1681.75]
+Episode 17	 reward: -19.33	 Mean_loss: 2.57216597,  training time: 14.07
+[274.0, 581.0, 1068.0, 1711.75]
+Episode 18	 reward: -19.72	 Mean_loss: 2.47941494,  training time: 14.13
+[313.75, 590.0, 1066.75, 1640.0]
+Episode 19	 reward: -20.70	 Mean_loss: 2.35369134,  training time: 14.13
+[308.0, 632.5, 1004.0, 1588.0]
+Episode 20	 reward: -19.92	 Mean_loss: 2.06305456,  training time: 14.12
+[329.0, 594.75, 1033.5, 1566.5]
+Episode 21	 reward: -19.35	 Mean_loss: 1.67295909,  training time: 14.16
+[342.25, 559.5, 1016.75, 1646.5]
+Episode 22	 reward: -19.54	 Mean_loss: 1.99377859,  training time: 14.08
+[334.5, 657.5, 1047.5, 1565.25]
+Episode 23	 reward: -19.97	 Mean_loss: 1.81254232,  training time: 14.10
+[309.25, 576.25, 975.5, 1642.75]
+Episode 24	 reward: -19.59	 Mean_loss: 1.83559644,  training time: 14.20
+[348.25, 586.5, 998.0, 1566.5]
+Episode 25	 reward: -19.28	 Mean_loss: 1.54262280,  training time: 14.10
+[298.75, 597.5, 980.0, 1576.25]
+Episode 26	 reward: -18.59	 Mean_loss: 1.53378165,  training time: 14.11
+[337.75, 628.0, 1000.25, 1578.75]
+Episode 27	 reward: -19.45	 Mean_loss: 1.65155506,  training time: 14.10
+[308.5, 575.75, 983.5, 1532.5]
+Episode 28	 reward: -19.84	 Mean_loss: 1.58191264,  training time: 14.09
+[308.0, 593.25, 1015.25, 1532.0]
+Episode 29	 reward: -19.52	 Mean_loss: 1.55674136,  training time: 14.12
+[342.5, 592.25, 993.0, 1597.5]
+Episode 30	 reward: -20.40	 Mean_loss: 1.72392356,  training time: 14.14
+[347.75, 529.25, 1041.5, 1553.0]
+Episode 31	 reward: -20.12	 Mean_loss: 1.39967990,  training time: 14.11
+[348.75, 599.75, 971.25, 1556.75]
+Episode 32	 reward: -19.80	 Mean_loss: 1.59795260,  training time: 14.10
+[302.75, 582.25, 1033.0, 1598.75]
+Episode 33	 reward: -19.69	 Mean_loss: 1.70639157,  training time: 14.12
+[331.5, 599.25, 976.75, 1543.75]
+Episode 34	 reward: -19.28	 Mean_loss: 1.55870366,  training time: 14.09
+[333.5, 592.25, 981.5, 1541.5]
+Episode 35	 reward: -19.16	 Mean_loss: 1.60426509,  training time: 14.12
+[312.25, 591.25, 1012.5, 1543.25]
+Episode 36	 reward: -18.95	 Mean_loss: 1.55806315,  training time: 14.10
+[322.75, 567.75, 960.5, 1578.25]
+Episode 37	 reward: -19.87	 Mean_loss: 1.53146636,  training time: 14.11
+[314.75, 587.75, 1006.0, 1551.0]
+Episode 38	 reward: -19.69	 Mean_loss: 1.53578806,  training time: 14.18
+[331.75, 560.25, 974.5, 1555.25]
+Episode 39	 reward: -20.05	 Mean_loss: 1.52013659,  training time: 14.08
+[305.25, 573.0, 948.75, 1564.75]
+Episode 40	 reward: -18.94	 Mean_loss: 1.63268232,  training time: 14.12
+[318.0, 596.5, 979.75, 1512.25]
+Episode 41	 reward: -19.33	 Mean_loss: 1.63526595,  training time: 14.22
+[295.75, 527.5, 994.0, 1573.5]
+Episode 42	 reward: -19.05	 Mean_loss: 1.44089222,  training time: 14.14
+[295.75, 507.5, 1065.25, 1520.0]
+Episode 43	 reward: -19.42	 Mean_loss: 1.48372030,  training time: 14.17
+[345.0, 549.75, 1065.25, 1499.25]
+Episode 44	 reward: -19.23	 Mean_loss: 1.48405254,  training time: 14.24
+[350.0, 558.75, 1002.5, 1554.0]
+Episode 45	 reward: -18.85	 Mean_loss: 1.53239179,  training time: 14.16
+[304.75, 550.75, 1066.75, 1555.75]
+Episode 46	 reward: -18.92	 Mean_loss: 1.50106764,  training time: 14.17
+[342.5, 509.5, 1009.0, 1506.75]
+Episode 47	 reward: -18.79	 Mean_loss: 1.21780312,  training time: 14.16
+[320.75, 533.25, 1022.75, 1536.75]
+Episode 48	 reward: -18.89	 Mean_loss: 1.45355415,  training time: 14.16
+[334.25, 537.75, 1004.5, 1465.25]
+Episode 49	 reward: -18.85	 Mean_loss: 1.25406229,  training time: 14.14
+[335.75, 519.0, 1029.0, 1488.5]
+Episode 50	 reward: -18.78	 Mean_loss: 1.23576272,  training time: 14.16
+[299.5, 541.75, 958.25, 1548.0]
+Episode 51	 reward: -18.67	 Mean_loss: 1.33857763,  training time: 14.15
+[340.25, 541.0, 958.0, 1487.5]
+Episode 52	 reward: -20.18	 Mean_loss: 1.34200287,  training time: 14.17
+[353.0, 589.5, 1027.25, 1508.25]
+Episode 53	 reward: -18.70	 Mean_loss: 1.24282479,  training time: 14.16
+[332.5, 543.5, 1003.75, 1608.0]
+Episode 54	 reward: -19.59	 Mean_loss: 1.72534156,  training time: 14.17
+[348.25, 496.25, 976.5, 1549.75]
+Episode 55	 reward: -19.97	 Mean_loss: 1.54713583,  training time: 14.18
+[297.75, 582.5, 1020.75, 1516.0]
+Episode 56	 reward: -18.26	 Mean_loss: 1.37785161,  training time: 14.14
+[330.75, 541.75, 1005.75, 1496.5]
+Episode 57	 reward: -19.02	 Mean_loss: 1.11834204,  training time: 14.15
+[296.0, 532.75, 998.75, 1558.0]
+Episode 58	 reward: -18.91	 Mean_loss: 1.20255244,  training time: 14.16
+[316.75, 532.25, 1007.0, 1460.75]
+Episode 59	 reward: -19.02	 Mean_loss: 0.96922392,  training time: 14.13
+[362.75, 526.75, 983.25, 1515.75]
+Episode 60	 reward: -18.98	 Mean_loss: 1.10585487,  training time: 14.24
+[278.25, 531.0, 961.75, 1506.25]
+Episode 61	 reward: -19.11	 Mean_loss: 0.98432392,  training time: 14.18
+[288.0, 584.25, 965.75, 1435.5]
+Episode 62	 reward: -18.95	 Mean_loss: 0.92067337,  training time: 14.17
+[263.25, 561.5, 945.5, 1465.0]
+Episode 63	 reward: -19.28	 Mean_loss: 0.94138068,  training time: 14.17
+[303.0, 536.0, 954.25, 1479.25]
+Episode 64	 reward: -19.67	 Mean_loss: 0.98113710,  training time: 14.15
+[271.75, 587.75, 1013.0, 1511.5]
+Episode 65	 reward: -19.18	 Mean_loss: 0.98252636,  training time: 14.24
+[265.0, 548.75, 988.5, 1422.0]
+Episode 66	 reward: -19.85	 Mean_loss: 0.78050286,  training time: 14.13
+[271.25, 546.0, 949.0, 1503.0]
+Episode 67	 reward: -19.22	 Mean_loss: 1.02723897,  training time: 14.12
+[281.5, 584.0, 967.0, 1453.5]
+Episode 68	 reward: -19.76	 Mean_loss: 0.96754503,  training time: 14.18
+[268.5, 522.75, 973.75, 1467.0]
+Episode 69	 reward: -20.07	 Mean_loss: 0.80353636,  training time: 14.15
+[290.5, 546.0, 976.0, 1467.75]
+Episode 70	 reward: -20.21	 Mean_loss: 0.87292010,  training time: 14.17
+[297.0, 551.0, 903.75, 1502.75]
+Episode 71	 reward: -20.58	 Mean_loss: 0.91000468,  training time: 14.11
+[301.75, 552.75, 970.25, 1476.5]
+Episode 72	 reward: -19.12	 Mean_loss: 0.95043880,  training time: 14.15
+[280.5, 562.5, 940.0, 1440.0]
+Episode 73	 reward: -19.13	 Mean_loss: 0.82724762,  training time: 14.10
+[292.5, 551.0, 1019.5, 1433.5]
+Episode 74	 reward: -19.04	 Mean_loss: 0.82408261,  training time: 14.04
+[269.75, 549.0, 935.5, 1396.75]
+Episode 75	 reward: -18.58	 Mean_loss: 0.75937247,  training time: 14.07
+[264.75, 538.25, 975.0, 1421.25]
+Episode 76	 reward: -19.14	 Mean_loss: 0.77263862,  training time: 14.05
+[283.5, 525.25, 964.0, 1431.5]
+Episode 77	 reward: -19.62	 Mean_loss: 0.75851512,  training time: 14.06
+[271.0, 525.25, 962.5, 1429.25]
+Episode 78	 reward: -20.04	 Mean_loss: 0.72588706,  training time: 14.06
+[250.5, 518.75, 970.75, 1432.25]
+Episode 79	 reward: -19.24	 Mean_loss: 0.72884822,  training time: 14.04
+[272.5, 524.75, 946.5, 1469.75]
+Episode 80	 reward: -18.70	 Mean_loss: 0.73188335,  training time: 14.10
+[265.25, 535.25, 898.5, 1392.75]
+Episode 81	 reward: -19.32	 Mean_loss: 0.71984231,  training time: 14.16
+[266.25, 531.0, 894.0, 1403.5]
+Episode 82	 reward: -18.93	 Mean_loss: 0.67057830,  training time: 14.10
+[276.5, 506.25, 966.75, 1405.5]
+Episode 83	 reward: -18.58	 Mean_loss: 0.74529147,  training time: 14.10
+[266.5, 581.5, 915.0, 1377.0]
+Episode 84	 reward: -19.09	 Mean_loss: 0.70938045,  training time: 14.06
+[274.0, 552.25, 901.5, 1370.0]
+Episode 85	 reward: -18.72	 Mean_loss: 0.66560310,  training time: 14.16
+[283.25, 509.0, 897.75, 1412.25]
+Episode 86	 reward: -18.64	 Mean_loss: 0.70050931,  training time: 14.06
+[276.75, 528.5, 958.5, 1366.75]
+Episode 87	 reward: -18.76	 Mean_loss: 0.47818911,  training time: 14.16
+[257.0, 519.0, 893.75, 1390.75]
+Episode 88	 reward: -19.34	 Mean_loss: 0.64533049,  training time: 14.10
+[298.75, 574.25, 931.25, 1352.25]
+Episode 89	 reward: -18.22	 Mean_loss: 0.54258519,  training time: 14.20
+[299.25, 560.5, 900.75, 1418.0]
+Episode 90	 reward: -19.21	 Mean_loss: 0.57883245,  training time: 14.13
+[270.0, 545.75, 942.25, 1376.0]
+Episode 91	 reward: -18.33	 Mean_loss: 0.56251627,  training time: 14.20
+[258.25, 566.5, 858.25, 1404.5]
+Episode 92	 reward: -18.82	 Mean_loss: 0.53420281,  training time: 14.16
+[285.75, 589.75, 961.5, 1338.5]
+Episode 93	 reward: -18.29	 Mean_loss: 0.50449234,  training time: 14.15
+[297.75, 554.0, 912.0, 1387.75]
+Episode 94	 reward: -18.11	 Mean_loss: 0.54847848,  training time: 14.33
+[273.0, 576.25, 910.75, 1388.75]
+Episode 95	 reward: -18.24	 Mean_loss: 0.57302487,  training time: 14.19
+[250.75, 527.0, 918.0, 1418.75]
+Episode 96	 reward: -18.36	 Mean_loss: 0.56742299,  training time: 14.23
+[293.0, 531.0, 918.5, 1450.5]
+Episode 97	 reward: -19.38	 Mean_loss: 0.65876150,  training time: 14.26
+[281.75, 555.25, 899.0, 1356.75]
+Episode 98	 reward: -19.07	 Mean_loss: 0.52154374,  training time: 14.11
+[237.0, 512.0, 921.25, 1388.0]
+Episode 99	 reward: -18.74	 Mean_loss: 0.53684402,  training time: 14.10
+[254.75, 541.5, 900.5, 1356.75]
+Episode 100	 reward: -18.95	 Mean_loss: 0.52437466,  training time: 14.12
+[258.75, 528.5, 925.25, 1467.5]
+Episode 101	 reward: -19.76	 Mean_loss: 0.58142793,  training time: 14.16
+[263.25, 559.5, 941.25, 1472.25]
+Episode 102	 reward: -18.99	 Mean_loss: 0.61286777,  training time: 14.12
+[276.75, 577.5, 899.5, 1430.75]
+Episode 103	 reward: -19.52	 Mean_loss: 0.56866038,  training time: 14.19
+[280.0, 520.0, 904.0, 1399.0]
+Episode 104	 reward: -19.04	 Mean_loss: 0.52808404,  training time: 14.18
+[249.75, 539.25, 976.25, 1447.25]
+Episode 105	 reward: -18.72	 Mean_loss: 0.52976984,  training time: 14.17
+[261.5, 538.75, 957.5, 1451.5]
+Episode 106	 reward: -18.83	 Mean_loss: 0.58863127,  training time: 14.18
+[248.0, 523.75, 923.0, 1420.0]
+Episode 107	 reward: -19.59	 Mean_loss: 0.51096767,  training time: 14.31
+[233.25, 519.5, 968.5, 1462.0]
+Episode 108	 reward: -19.76	 Mean_loss: 0.55838382,  training time: 14.16
+[256.75, 490.75, 1000.25, 1398.75]
+Episode 109	 reward: -20.04	 Mean_loss: 0.41016576,  training time: 14.18
+[262.0, 521.25, 927.0, 1404.0]
+Episode 110	 reward: -19.36	 Mean_loss: 0.53147894,  training time: 14.21
+[259.25, 482.75, 957.0, 1398.5]
+Episode 111	 reward: -19.05	 Mean_loss: 0.47851810,  training time: 14.21
+[248.75, 518.75, 914.0, 1394.5]
+Episode 112	 reward: -20.07	 Mean_loss: 0.47580016,  training time: 14.28
+[268.75, 503.75, 979.5, 1439.75]
+Episode 113	 reward: -18.85	 Mean_loss: 0.65350026,  training time: 14.20
+[259.5, 573.0, 960.75, 1417.75]
+Episode 114	 reward: -18.88	 Mean_loss: 0.49894622,  training time: 14.05
+[274.25, 517.75, 944.25, 1395.5]
+Episode 115	 reward: -19.35	 Mean_loss: 0.46671623,  training time: 14.09
+[287.5, 517.25, 907.75, 1418.0]
+Episode 116	 reward: -18.84	 Mean_loss: 0.49409088,  training time: 14.31
+[251.75, 527.5, 929.25, 1380.75]
+Episode 117	 reward: -19.12	 Mean_loss: 0.49443543,  training time: 14.12
+[252.25, 498.25, 893.75, 1436.75]
+Episode 118	 reward: -19.96	 Mean_loss: 0.55394936,  training time: 14.23
+[266.75, 506.5, 888.25, 1440.5]
+Episode 119	 reward: -18.85	 Mean_loss: 0.56209421,  training time: 14.09
+[283.5, 536.25, 921.0, 1419.5]
+Episode 120	 reward: -19.32	 Mean_loss: 0.49790066,  training time: 14.26
+[245.25, 521.0, 875.25, 1417.75]
+Episode 121	 reward: -19.88	 Mean_loss: 0.40599316,  training time: 14.52
+[250.0, 486.75, 900.0, 1421.0]
+Episode 122	 reward: -21.35	 Mean_loss: 0.53150499,  training time: 14.16
+[275.5, 508.5, 857.5, 1410.5]
+Episode 123	 reward: -19.91	 Mean_loss: 0.46025756,  training time: 14.08
+[259.0, 505.75, 872.5, 1391.0]
+Episode 124	 reward: -19.38	 Mean_loss: 0.49707076,  training time: 14.22
+[279.25, 521.5, 871.75, 1414.5]
+Episode 125	 reward: -19.59	 Mean_loss: 0.45535991,  training time: 14.13
+[270.75, 540.0, 908.5, 1431.5]
+Episode 126	 reward: -19.55	 Mean_loss: 0.59022194,  training time: 14.10
+[257.25, 490.75, 888.0, 1412.5]
+Episode 127	 reward: -20.56	 Mean_loss: 0.58844578,  training time: 14.08
+[259.75, 488.25, 919.5, 1385.25]
+Episode 128	 reward: -19.35	 Mean_loss: 0.38993964,  training time: 14.24
+[262.5, 513.75, 848.5, 1425.75]
+Episode 129	 reward: -19.73	 Mean_loss: 0.46615696,  training time: 14.13
+[259.0, 511.75, 850.5, 1431.5]
+Episode 130	 reward: -20.10	 Mean_loss: 0.54232264,  training time: 14.07
+[253.25, 479.75, 890.5, 1447.75]
+Episode 131	 reward: -19.68	 Mean_loss: 0.51252818,  training time: 14.10
+[266.0, 506.25, 850.75, 1405.75]
+Episode 132	 reward: -19.77	 Mean_loss: 0.50765020,  training time: 14.14
+[239.5, 514.75, 872.0, 1396.25]
+Episode 133	 reward: -20.24	 Mean_loss: 0.43243054,  training time: 14.16
+[270.75, 519.0, 879.25, 1399.5]
+Episode 134	 reward: -20.16	 Mean_loss: 0.40191850,  training time: 14.14
+[273.25, 493.25, 886.25, 1391.75]
+Episode 135	 reward: -20.41	 Mean_loss: 0.42937586,  training time: 14.11
+[262.25, 517.25, 872.75, 1388.25]
+Episode 136	 reward: -19.12	 Mean_loss: 0.43318093,  training time: 14.13
+[254.0, 459.75, 859.5, 1386.0]
+Episode 137	 reward: -19.77	 Mean_loss: 0.47695127,  training time: 14.12
+[271.5, 486.5, 875.25, 1415.75]
+Episode 138	 reward: -18.85	 Mean_loss: 0.38352722,  training time: 14.15
+[257.0, 474.0, 865.5, 1413.75]
+Episode 139	 reward: -19.74	 Mean_loss: 0.48870334,  training time: 14.23
+[269.75, 507.75, 843.75, 1421.5]
+Episode 140	 reward: -19.31	 Mean_loss: 0.52982539,  training time: 14.15
+[233.5, 471.25, 914.25, 1425.5]
+Episode 141	 reward: -19.53	 Mean_loss: 0.48306012,  training time: 14.18
+[245.0, 485.75, 911.75, 1463.0]
+Episode 142	 reward: -20.12	 Mean_loss: 0.60910934,  training time: 14.16
+[244.5, 456.0, 908.25, 1370.25]
+Episode 143	 reward: -19.82	 Mean_loss: 0.49414062,  training time: 14.15
+[233.0, 502.0, 897.25, 1453.75]
+Episode 144	 reward: -19.89	 Mean_loss: 0.58503723,  training time: 14.20
+[244.25, 477.75, 925.5, 1390.5]
+Episode 145	 reward: -19.26	 Mean_loss: 0.46258369,  training time: 14.11
+[252.0, 504.5, 875.0, 1387.5]
+Episode 146	 reward: -20.39	 Mean_loss: 0.39720079,  training time: 14.11
+[233.25, 446.75, 928.0, 1394.25]
+Episode 147	 reward: -19.63	 Mean_loss: 0.41197807,  training time: 14.14
+[249.5, 478.25, 910.5, 1400.5]
+Episode 148	 reward: -20.11	 Mean_loss: 0.55287349,  training time: 14.15
+[265.0, 481.25, 899.75, 1401.5]
+Episode 149	 reward: -18.89	 Mean_loss: 0.34886739,  training time: 14.10
+[222.75, 452.5, 941.25, 1369.75]
+Episode 150	 reward: -19.74	 Mean_loss: 0.36331257,  training time: 14.13
+[231.25, 461.75, 930.5, 1369.0]
+Episode 151	 reward: -19.84	 Mean_loss: 0.35178712,  training time: 14.14
+[262.0, 465.75, 917.5, 1368.75]
+Episode 152	 reward: -19.08	 Mean_loss: 0.41157240,  training time: 14.11
+[273.75, 494.5, 903.75, 1443.25]
+Episode 153	 reward: -19.85	 Mean_loss: 0.64178526,  training time: 14.12
+[242.0, 477.0, 915.0, 1380.0]
+Episode 154	 reward: -19.74	 Mean_loss: 0.43996787,  training time: 14.10
+[214.25, 494.25, 894.25, 1434.25]
+Episode 155	 reward: -21.01	 Mean_loss: 0.47022769,  training time: 14.15
+[241.0, 493.25, 894.5, 1396.0]
+Episode 156	 reward: -20.31	 Mean_loss: 0.58702993,  training time: 14.10
+[242.0, 511.5, 925.25, 1398.75]
+Episode 157	 reward: -19.59	 Mean_loss: 0.30430123,  training time: 14.17
+[268.25, 488.0, 898.5, 1391.25]
+Episode 158	 reward: -19.41	 Mean_loss: 0.41930065,  training time: 14.10
+[230.0, 489.5, 947.25, 1443.75]
+Episode 159	 reward: -19.34	 Mean_loss: 0.47688472,  training time: 14.12
+[218.5, 482.25, 889.75, 1382.5]
+Episode 160	 reward: -19.98	 Mean_loss: 0.43256706,  training time: 14.08
+[218.0, 487.25, 878.0, 1394.25]
+Episode 161	 reward: -19.34	 Mean_loss: 0.40368399,  training time: 14.18
+[282.25, 488.25, 856.75, 1353.75]
+Episode 162	 reward: -20.05	 Mean_loss: 0.39495534,  training time: 14.15
+[253.25, 446.5, 886.5, 1375.5]
+Episode 163	 reward: -19.02	 Mean_loss: 0.42830870,  training time: 14.10
+[257.5, 501.5, 877.5, 1394.75]
+Episode 164	 reward: -19.66	 Mean_loss: 0.41918874,  training time: 14.12
+[279.25, 487.0, 905.75, 1353.5]
+Episode 165	 reward: -18.54	 Mean_loss: 0.35123214,  training time: 14.20
+[249.25, 481.25, 893.5, 1367.5]
+Episode 166	 reward: -18.90	 Mean_loss: 0.42875358,  training time: 14.13
+[247.75, 490.75, 866.5, 1361.25]
+Episode 167	 reward: -19.30	 Mean_loss: 0.35549107,  training time: 14.12
+[229.75, 468.5, 940.75, 1374.75]
+Episode 168	 reward: -19.22	 Mean_loss: 0.44148314,  training time: 14.10
+[260.25, 441.75, 901.5, 1367.5]
+Episode 169	 reward: -19.28	 Mean_loss: 0.32104239,  training time: 14.11
+[242.5, 446.75, 883.75, 1379.75]
+Episode 170	 reward: -19.87	 Mean_loss: 0.36055270,  training time: 14.12
+[252.5, 482.25, 858.25, 1306.25]
+Episode 171	 reward: -19.86	 Mean_loss: 0.31408378,  training time: 14.19
+[260.0, 473.0, 882.0, 1386.75]
+Episode 172	 reward: -19.02	 Mean_loss: 0.47846979,  training time: 14.06
+[282.25, 486.25, 883.25, 1393.5]
+Episode 173	 reward: -19.43	 Mean_loss: 0.44079608,  training time: 14.11
+[242.25, 482.75, 901.25, 1351.75]
+Episode 174	 reward: -18.81	 Mean_loss: 0.41118810,  training time: 14.06
+[278.75, 488.5, 891.75, 1344.5]
+Episode 175	 reward: -19.83	 Mean_loss: 0.32084030,  training time: 14.08
+[263.0, 466.5, 893.25, 1394.5]
+Episode 176	 reward: -19.05	 Mean_loss: 0.45129293,  training time: 14.07
+[242.75, 456.75, 865.5, 1378.25]
+Episode 177	 reward: -19.74	 Mean_loss: 0.42433998,  training time: 14.04
+[262.25, 458.5, 868.75, 1365.75]
+Episode 178	 reward: -19.70	 Mean_loss: 0.32113817,  training time: 14.07
+[254.25, 467.75, 908.25, 1389.75]
+Episode 179	 reward: -19.45	 Mean_loss: 0.43040273,  training time: 14.09
+[242.5, 482.5, 882.75, 1401.75]
+Episode 180	 reward: -19.61	 Mean_loss: 0.46978971,  training time: 14.07
+[262.25, 489.75, 847.5, 1386.75]
+Episode 181	 reward: -19.73	 Mean_loss: 0.33632293,  training time: 14.15
+[262.75, 460.5, 806.5, 1320.5]
+Episode 182	 reward: -18.78	 Mean_loss: 0.16228594,  training time: 14.09
+[264.5, 475.25, 876.25, 1383.25]
+Episode 183	 reward: -19.22	 Mean_loss: 0.29242149,  training time: 14.11
+[277.5, 494.25, 831.0, 1393.0]
+Episode 184	 reward: -19.79	 Mean_loss: 0.27156571,  training time: 14.11
+[245.5, 455.25, 825.25, 1356.25]
+Episode 185	 reward: -20.28	 Mean_loss: 0.27293724,  training time: 14.07
+[234.0, 471.25, 825.0, 1367.0]
+Episode 186	 reward: -20.18	 Mean_loss: 0.28598851,  training time: 14.10
+[251.25, 468.75, 838.5, 1352.5]
+Episode 187	 reward: -20.36	 Mean_loss: 0.23908669,  training time: 14.09
+[261.0, 453.5, 782.5, 1406.75]
+Episode 188	 reward: -19.62	 Mean_loss: 0.46489826,  training time: 14.12
+[272.25, 484.5, 860.5, 1427.75]
+Episode 189	 reward: -19.24	 Mean_loss: 0.44546926,  training time: 14.38
+[252.25, 476.75, 807.0, 1365.0]
+Episode 190	 reward: -19.84	 Mean_loss: 0.31945801,  training time: 14.15
+[254.25, 513.25, 805.0, 1361.75]
+Episode 191	 reward: -19.23	 Mean_loss: 0.28672576,  training time: 14.26
+[252.75, 495.0, 847.75, 1416.5]
+Episode 192	 reward: -19.03	 Mean_loss: 0.40680018,  training time: 14.20
+[259.75, 467.0, 837.5, 1350.0]
+Episode 193	 reward: -18.74	 Mean_loss: 0.26485923,  training time: 14.09
+[253.75, 536.0, 852.0, 1364.5]
+Episode 194	 reward: -20.11	 Mean_loss: 0.24039277,  training time: 14.13
+[265.25, 464.75, 832.25, 1431.5]
+Episode 195	 reward: -19.18	 Mean_loss: 0.36955658,  training time: 14.13
+[293.25, 495.0, 828.5, 1330.25]
+Episode 196	 reward: -19.41	 Mean_loss: 0.26490796,  training time: 14.12
+[262.5, 512.75, 833.0, 1384.25]
+Episode 197	 reward: -18.93	 Mean_loss: 0.29237267,  training time: 14.11
+[252.75, 468.0, 824.25, 1344.75]
+Episode 198	 reward: -20.36	 Mean_loss: 0.26097217,  training time: 14.12
+[296.5, 464.75, 839.25, 1321.5]
+Episode 199	 reward: -19.59	 Mean_loss: 0.20621963,  training time: 14.13
+[262.5, 548.75, 859.25, 1397.5]
+Episode 200	 reward: -19.88	 Mean_loss: 0.22687696,  training time: 14.12
+[272.75, 519.0, 883.5, 1426.5]
+Episode 201	 reward: -19.54	 Mean_loss: 0.47001573,  training time: 14.18
+[261.5, 513.0, 856.25, 1446.75]
+Episode 202	 reward: -19.26	 Mean_loss: 0.48501155,  training time: 14.10
+[247.25, 481.0, 917.25, 1409.25]
+Episode 203	 reward: -19.83	 Mean_loss: 0.45131803,  training time: 14.16
+[246.25, 554.5, 924.0, 1469.0]
+Episode 204	 reward: -20.03	 Mean_loss: 0.42598179,  training time: 14.06
+[252.25, 518.25, 926.5, 1401.5]
+Episode 205	 reward: -20.03	 Mean_loss: 0.55586922,  training time: 14.06
+[259.0, 508.75, 903.75, 1456.5]
+Episode 206	 reward: -20.14	 Mean_loss: 0.58582979,  training time: 14.10
+[272.25, 488.75, 920.5, 1469.25]
+Episode 207	 reward: -19.93	 Mean_loss: 0.49064994,  training time: 14.10
+[246.5, 535.75, 933.25, 1461.25]
+Episode 208	 reward: -18.86	 Mean_loss: 0.57724822,  training time: 14.19
+[270.75, 541.75, 951.75, 1575.0]
+Episode 209	 reward: -19.18	 Mean_loss: 0.79771018,  training time: 14.16
+[261.25, 578.75, 937.5, 1494.75]
+Episode 210	 reward: -19.51	 Mean_loss: 0.52824730,  training time: 14.17
+[267.0, 521.75, 984.5, 1527.75]
+Episode 211	 reward: -18.87	 Mean_loss: 0.66390228,  training time: 14.17
+[259.75, 533.0, 935.5, 1521.5]
+Episode 212	 reward: -20.24	 Mean_loss: 0.66822439,  training time: 14.17
+[267.75, 547.75, 974.75, 1577.5]
+Episode 213	 reward: -18.94	 Mean_loss: 0.63303733,  training time: 14.13
+[260.5, 514.75, 983.0, 1569.5]
+Episode 214	 reward: -18.60	 Mean_loss: 0.94813371,  training time: 14.18
+[266.5, 533.25, 1002.75, 1571.5]
+Episode 215	 reward: -20.42	 Mean_loss: 0.70905668,  training time: 14.17
+[274.0, 514.25, 970.25, 1554.5]
+Episode 216	 reward: -19.89	 Mean_loss: 0.79109752,  training time: 14.16
+[250.5, 486.5, 1009.0, 1667.75]
+Episode 217	 reward: -19.35	 Mean_loss: 0.85798556,  training time: 14.27
+[224.5, 524.75, 1019.75, 1611.5]
+Episode 218	 reward: -19.16	 Mean_loss: 0.84157175,  training time: 14.18
+[265.0, 580.5, 973.75, 1576.0]
+Episode 219	 reward: -20.47	 Mean_loss: 0.75895846,  training time: 14.22
+[299.0, 560.0, 1018.75, 1544.25]
+Episode 220	 reward: -19.06	 Mean_loss: 0.68159562,  training time: 14.22
+[267.75, 559.25, 1029.75, 1707.0]
+Episode 221	 reward: -20.05	 Mean_loss: 1.28077650,  training time: 14.25
+[256.75, 566.25, 1009.0, 1696.25]
+Episode 222	 reward: -19.04	 Mean_loss: 1.09090066,  training time: 14.25
+[260.75, 528.75, 1093.25, 1670.75]
+Episode 223	 reward: -20.08	 Mean_loss: 1.06094110,  training time: 14.20
+[279.5, 591.75, 1054.0, 1765.25]
+Episode 224	 reward: -19.17	 Mean_loss: 1.54830134,  training time: 14.25
+[269.0, 587.5, 1063.5, 1716.0]
+Episode 225	 reward: -19.72	 Mean_loss: 1.17949510,  training time: 14.36
+[275.75, 572.75, 1073.0, 1780.5]
+Episode 226	 reward: -19.70	 Mean_loss: 1.24845004,  training time: 14.09
+[282.25, 587.25, 1129.0, 1847.0]
+Episode 227	 reward: -19.56	 Mean_loss: 1.42675519,  training time: 14.11
+[303.5, 593.25, 1071.75, 1778.25]
+Episode 228	 reward: -20.31	 Mean_loss: 1.24707699,  training time: 14.12
+[261.5, 578.75, 1136.0, 1755.75]
+Episode 229	 reward: -19.37	 Mean_loss: 1.20860553,  training time: 14.11
+[263.5, 584.75, 1078.0, 1753.0]
+Episode 230	 reward: -19.79	 Mean_loss: 1.32958615,  training time: 14.14
+[246.25, 586.25, 1079.5, 1714.25]
+Episode 231	 reward: -19.55	 Mean_loss: 1.17809939,  training time: 14.21
+[293.5, 573.0, 1111.75, 1827.25]
+Episode 232	 reward: -20.02	 Mean_loss: 1.22856247,  training time: 14.11
+[261.75, 635.25, 1105.5, 1787.75]
+Episode 233	 reward: -19.16	 Mean_loss: 0.88985473,  training time: 14.12
+[294.25, 600.75, 1089.25, 1746.5]
+Episode 234	 reward: -19.24	 Mean_loss: 1.10522819,  training time: 14.21
+[275.5, 615.75, 1080.75, 1778.5]
+Episode 235	 reward: -19.28	 Mean_loss: 0.83945960,  training time: 14.11
+[283.5, 576.0, 1126.25, 1771.5]
+Episode 236	 reward: -19.27	 Mean_loss: 0.80977607,  training time: 14.10
+[264.0, 598.5, 1101.0, 1768.0]
+Episode 237	 reward: -19.25	 Mean_loss: 1.05302858,  training time: 14.07
+[302.75, 605.25, 1097.5, 1758.25]
+Episode 238	 reward: -19.23	 Mean_loss: 0.94598156,  training time: 14.07
+[282.25, 578.0, 1142.75, 1777.75]
+Episode 239	 reward: -19.58	 Mean_loss: 1.02895939,  training time: 14.10
+[265.0, 540.25, 1029.25, 1875.25]
+Episode 240	 reward: -19.44	 Mean_loss: 1.40903926,  training time: 14.07
+[329.25, 594.0, 1151.25, 1767.5]
+Episode 241	 reward: -19.33	 Mean_loss: 0.97968751,  training time: 14.23
+[310.25, 591.75, 1135.0, 1873.75]
+Episode 242	 reward: -19.31	 Mean_loss: 1.17800474,  training time: 14.13
+[290.75, 611.25, 1139.25, 1766.0]
+Episode 243	 reward: -19.28	 Mean_loss: 0.87746519,  training time: 14.20
+[268.0, 581.5, 1102.75, 1874.25]
+Episode 244	 reward: -20.13	 Mean_loss: 1.20046020,  training time: 14.11
+[323.5, 566.25, 1126.75, 1797.75]
+Episode 245	 reward: -19.04	 Mean_loss: 1.04001701,  training time: 14.05
+[322.0, 601.75, 1136.5, 1897.5]
+Episode 246	 reward: -19.33	 Mean_loss: 1.20542586,  training time: 14.07
+[286.75, 584.5, 1124.75, 1794.5]
+Episode 247	 reward: -19.05	 Mean_loss: 0.97049952,  training time: 14.19
+[304.75, 597.25, 1179.5, 1782.25]
+Episode 248	 reward: -18.96	 Mean_loss: 0.80719876,  training time: 14.09
+[325.25, 570.75, 1075.5, 1899.0]
+Episode 249	 reward: -19.67	 Mean_loss: 1.02259052,  training time: 14.09
+[274.0, 617.25, 1264.5, 1852.75]
+Episode 250	 reward: -19.38	 Mean_loss: 1.19685185,  training time: 14.10
+[285.75, 537.5, 1130.25, 1732.75]
+Episode 251	 reward: -19.79	 Mean_loss: 0.84649372,  training time: 14.21
+[281.75, 574.0, 1148.5, 1922.5]
+Episode 252	 reward: -19.50	 Mean_loss: 1.26476395,  training time: 14.10
+[312.0, 603.75, 1252.75, 1832.5]
+Episode 253	 reward: -20.05	 Mean_loss: 0.89710069,  training time: 14.20
+[311.0, 629.25, 1211.25, 1796.25]
+Episode 254	 reward: -19.19	 Mean_loss: 1.05437553,  training time: 14.14
+[301.5, 623.0, 1135.5, 1809.5]
+Episode 255	 reward: -19.00	 Mean_loss: 0.92409790,  training time: 14.11
+[327.75, 621.0, 1191.0, 1802.0]
+Episode 256	 reward: -19.71	 Mean_loss: 1.04862821,  training time: 14.15
+[300.25, 554.0, 1138.0, 1759.5]
+Episode 257	 reward: -20.62	 Mean_loss: 0.94759643,  training time: 14.21
+[327.5, 608.5, 1145.0, 1778.5]
+Episode 258	 reward: -19.09	 Mean_loss: 1.04216385,  training time: 14.16
+[291.0, 584.75, 1189.0, 1851.5]
+Episode 259	 reward: -20.06	 Mean_loss: 0.95754302,  training time: 14.15
+[291.5, 672.75, 1149.25, 1769.0]
+Episode 260	 reward: -19.58	 Mean_loss: 0.78875512,  training time: 14.11
+[267.5, 671.5, 1290.25, 1887.5]
+Episode 261	 reward: -18.58	 Mean_loss: 1.27295470,  training time: 14.22
+[307.75, 610.75, 1261.25, 1920.75]
+Episode 262	 reward: -18.42	 Mean_loss: 1.28817117,  training time: 14.16
+[315.0, 597.75, 1245.75, 1881.25]
+Episode 263	 reward: -18.37	 Mean_loss: 1.06354022,  training time: 14.16
+[301.5, 565.25, 1216.5, 1769.25]
+Episode 264	 reward: -19.62	 Mean_loss: 1.00167871,  training time: 14.15
+[334.75, 643.0, 1096.25, 1848.5]
+Episode 265	 reward: -19.14	 Mean_loss: 1.04175806,  training time: 14.19
+[293.75, 615.25, 1194.25, 1803.5]
+Episode 266	 reward: -20.08	 Mean_loss: 0.87645000,  training time: 14.16
+[315.0, 599.25, 1181.5, 1761.25]
+Episode 267	 reward: -19.38	 Mean_loss: 0.87374938,  training time: 14.17
+[258.5, 676.75, 1194.25, 1794.0]
+Episode 268	 reward: -19.04	 Mean_loss: 0.84875619,  training time: 14.12
+[294.5, 654.25, 1228.5, 1975.25]
+Episode 269	 reward: -18.91	 Mean_loss: 1.15706766,  training time: 14.25
+[258.25, 678.0, 1256.0, 1852.75]
+Episode 270	 reward: -19.13	 Mean_loss: 0.96757501,  training time: 14.24
+[314.0, 663.5, 1261.75, 1714.25]
+Episode 271	 reward: -18.89	 Mean_loss: 0.76166612,  training time: 14.09
+[309.0, 637.0, 1219.0, 1823.5]
+Episode 272	 reward: -18.84	 Mean_loss: 1.03348231,  training time: 14.08
+[296.0, 604.0, 1236.0, 1862.0]
+Episode 273	 reward: -18.83	 Mean_loss: 0.86015439,  training time: 14.17
+[286.25, 706.5, 1312.75, 1833.25]
+Episode 274	 reward: -18.92	 Mean_loss: 0.71448487,  training time: 14.13
+[260.0, 638.5, 1265.0, 1704.25]
+Episode 275	 reward: -19.10	 Mean_loss: 0.76960623,  training time: 14.16
+[276.75, 731.0, 1221.75, 1872.0]
+Episode 276	 reward: -19.91	 Mean_loss: 0.83308327,  training time: 14.13
+[306.5, 638.75, 1199.0, 1721.75]
+Episode 277	 reward: -20.13	 Mean_loss: 0.78841132,  training time: 14.13
+[292.5, 615.75, 1200.0, 1791.0]
+Episode 278	 reward: -19.17	 Mean_loss: 0.80431098,  training time: 14.16
+[258.25, 632.0, 1229.0, 1672.75]
+Episode 279	 reward: -19.64	 Mean_loss: 0.54124463,  training time: 14.12
+[260.0, 589.0, 1256.5, 1849.25]
+Episode 280	 reward: -18.15	 Mean_loss: 0.69960111,  training time: 14.16
+[261.25, 524.25, 1127.5, 1843.75]
+Episode 281	 reward: -19.42	 Mean_loss: 1.10698366,  training time: 14.17
+[259.25, 533.75, 1132.25, 1836.25]
+Episode 282	 reward: -19.91	 Mean_loss: 0.96112877,  training time: 14.14
+[276.5, 564.0, 1129.75, 1867.75]
+Episode 283	 reward: -19.74	 Mean_loss: 0.99360275,  training time: 14.16
+[239.25, 582.75, 1125.25, 1876.75]
+Episode 284	 reward: -19.80	 Mean_loss: 0.79816437,  training time: 14.12
+[248.75, 519.0, 1142.75, 1893.0]
+Episode 285	 reward: -19.26	 Mean_loss: 1.01991272,  training time: 14.15
+[264.25, 510.75, 1109.75, 1937.75]
+Episode 286	 reward: -18.63	 Mean_loss: 0.88288593,  training time: 14.17
+[279.75, 537.5, 1061.25, 1966.25]
+Episode 287	 reward: -20.57	 Mean_loss: 1.32441926,  training time: 14.16
+[268.25, 547.5, 1075.5, 1862.0]
+Episode 288	 reward: -19.98	 Mean_loss: 0.75068718,  training time: 14.17
+[251.25, 526.75, 1179.25, 1842.25]
+Episode 289	 reward: -19.27	 Mean_loss: 0.95991284,  training time: 14.18
+[296.25, 530.5, 1073.5, 1880.0]
+Episode 290	 reward: -19.11	 Mean_loss: 1.08482409,  training time: 14.16
+[244.75, 505.75, 1079.0, 1864.75]
+Episode 291	 reward: -19.46	 Mean_loss: 0.87199414,  training time: 14.15
+[241.25, 541.0, 1116.5, 1810.25]
+Episode 292	 reward: -18.89	 Mean_loss: 0.77560645,  training time: 14.18
+[246.0, 556.25, 1108.75, 1737.25]
+Episode 293	 reward: -19.60	 Mean_loss: 0.79552615,  training time: 14.17
+[257.5, 554.5, 1124.5, 1804.25]
+Episode 294	 reward: -19.03	 Mean_loss: 0.68926030,  training time: 14.17
+[245.0, 552.75, 1080.0, 1937.75]
+Episode 295	 reward: -19.14	 Mean_loss: 1.09187281,  training time: 14.25
+[235.0, 554.25, 1121.5, 1829.5]
+Episode 296	 reward: -19.02	 Mean_loss: 0.72492468,  training time: 14.20
+[286.75, 608.25, 1133.75, 1771.5]
+Episode 297	 reward: -20.29	 Mean_loss: 0.76314443,  training time: 14.15
+[264.0, 509.0, 1066.5, 1728.0]
+Episode 298	 reward: -19.97	 Mean_loss: 0.84870201,  training time: 14.18
+[253.0, 559.0, 1118.25, 1797.0]
+Episode 299	 reward: -19.45	 Mean_loss: 0.77863383,  training time: 17.41
+[246.75, 527.25, 1063.5, 1746.0]
+Episode 300	 reward: -20.25	 Mean_loss: 0.62681520,  training time: 14.27
+[256.25, 580.5, 959.5, 1786.5]
+Episode 301	 reward: -19.98	 Mean_loss: 0.72163683,  training time: 14.61
+[284.25, 581.25, 1030.0, 1772.5]
+Episode 302	 reward: -19.38	 Mean_loss: 0.67370278,  training time: 14.46
+[259.0, 569.75, 1029.0, 1752.0]
+Episode 303	 reward: -19.37	 Mean_loss: 0.62153244,  training time: 16.36
+[248.0, 619.25, 1049.0, 1751.0]
+Episode 304	 reward: -20.04	 Mean_loss: 0.62894541,  training time: 14.17
+[260.0, 581.5, 1057.25, 1738.75]
+Episode 305	 reward: -19.42	 Mean_loss: 0.60545748,  training time: 14.14
+[278.5, 546.25, 1098.5, 1725.75]
+Episode 306	 reward: -20.04	 Mean_loss: 0.67855573,  training time: 14.36
+[232.5, 587.0, 929.0, 1725.25]
+Episode 307	 reward: -19.84	 Mean_loss: 0.70504963,  training time: 15.88
+[266.25, 583.75, 1098.75, 1603.0]
+Episode 308	 reward: -19.70	 Mean_loss: 0.56592256,  training time: 14.17
+[313.75, 594.5, 1005.25, 1678.75]
+Episode 309	 reward: -19.67	 Mean_loss: 0.52137077,  training time: 15.18
+[281.0, 516.75, 1036.25, 1709.0]
+Episode 310	 reward: -19.26	 Mean_loss: 0.65171081,  training time: 14.16
+[292.0, 570.0, 1017.0, 1678.0]
+Episode 311	 reward: -19.92	 Mean_loss: 0.60962552,  training time: 15.56
+[266.5, 572.25, 964.25, 1633.25]
+Episode 312	 reward: -19.29	 Mean_loss: 0.37011024,  training time: 14.53
+[271.75, 586.5, 994.25, 1729.25]
+Episode 313	 reward: -19.94	 Mean_loss: 0.64677113,  training time: 14.73
+[265.5, 523.5, 1037.5, 1739.75]
+Episode 314	 reward: -19.10	 Mean_loss: 0.64238709,  training time: 15.74
+[254.5, 584.5, 951.75, 1731.0]
+Episode 315	 reward: -19.83	 Mean_loss: 0.61892843,  training time: 15.34
+[249.0, 574.0, 1048.0, 1741.25]
+Episode 316	 reward: -20.31	 Mean_loss: 0.78317297,  training time: 15.54
+[296.0, 584.75, 997.75, 1644.0]
+Episode 317	 reward: -19.54	 Mean_loss: 0.64041674,  training time: 14.82
+[297.75, 542.75, 1048.0, 1792.5]
+Episode 318	 reward: -20.46	 Mean_loss: 0.72074127,  training time: 15.46
+[256.25, 590.25, 999.5, 1600.75]
+Episode 319	 reward: -19.42	 Mean_loss: 0.49825016,  training time: 14.96
+[278.0, 550.25, 977.25, 1608.75]
+Episode 320	 reward: -19.46	 Mean_loss: 0.47622404,  training time: 15.29
+[240.5, 552.25, 986.25, 1755.75]
+Episode 321	 reward: -18.86	 Mean_loss: 0.62662488,  training time: 19.66
+[264.0, 545.25, 1084.0, 1788.75]
+Episode 322	 reward: -20.11	 Mean_loss: 0.69721538,  training time: 14.40
+[266.75, 542.0, 1037.5, 1708.25]
+Episode 323	 reward: -19.29	 Mean_loss: 0.54981411,  training time: 15.09
+[268.5, 541.75, 964.75, 1649.75]
+Episode 324	 reward: -19.27	 Mean_loss: 0.46521589,  training time: 15.63
+[286.25, 540.25, 1065.75, 1687.25]
+Episode 325	 reward: -18.90	 Mean_loss: 0.55958408,  training time: 15.15
+[266.5, 541.5, 1038.75, 1744.0]
+Episode 326	 reward: -19.84	 Mean_loss: 0.56941998,  training time: 14.81
+[291.0, 529.25, 996.5, 1745.5]
+Episode 327	 reward: -19.59	 Mean_loss: 0.54421794,  training time: 14.82
+[289.0, 486.0, 1064.25, 1685.0]
+Episode 328	 reward: -18.67	 Mean_loss: 0.50781447,  training time: 14.01
+[264.75, 532.25, 933.75, 1686.25]
+Episode 329	 reward: -18.69	 Mean_loss: 0.50715387,  training time: 15.88
+[245.75, 555.0, 1066.5, 1722.25]
+Episode 330	 reward: -18.96	 Mean_loss: 0.56671190,  training time: 15.10
+[283.0, 486.25, 1027.0, 1706.75]
+Episode 331	 reward: -19.78	 Mean_loss: 0.57324409,  training time: 15.37
+[279.5, 510.25, 1022.5, 1769.75]
+Episode 332	 reward: -20.22	 Mean_loss: 0.62502772,  training time: 14.11
+[244.75, 560.25, 1049.0, 1702.5]
+Episode 333	 reward: -19.59	 Mean_loss: 0.56595516,  training time: 15.46
+[259.75, 524.5, 1018.5, 1725.5]
+Episode 334	 reward: -19.93	 Mean_loss: 0.57056326,  training time: 15.01
+[247.75, 538.75, 1039.25, 1670.5]
+Episode 335	 reward: -19.02	 Mean_loss: 0.55271935,  training time: 14.73
+[279.5, 506.75, 989.0, 1719.75]
+Episode 336	 reward: -19.19	 Mean_loss: 0.64093459,  training time: 14.99
+[249.5, 542.25, 1007.75, 1693.25]
+Episode 337	 reward: -19.21	 Mean_loss: 0.50476813,  training time: 15.21
+[275.25, 530.5, 1012.5, 1692.5]
+Episode 338	 reward: -20.30	 Mean_loss: 0.51613528,  training time: 15.28
+[244.0, 514.5, 985.75, 1669.5]
+Episode 339	 reward: -19.68	 Mean_loss: 0.45802516,  training time: 15.42
+[308.5, 579.75, 1043.5, 1690.75]
+Episode 340	 reward: -19.57	 Mean_loss: 0.57365263,  training time: 14.60
+[301.0, 505.25, 1138.0, 1601.75]
+Episode 341	 reward: -19.71	 Mean_loss: 0.50880623,  training time: 15.79
+[281.75, 562.0, 1113.5, 1677.25]
+Episode 342	 reward: -19.57	 Mean_loss: 0.50117064,  training time: 14.59
+[278.25, 556.5, 1130.5, 1788.0]
+Episode 343	 reward: -19.37	 Mean_loss: 0.71028954,  training time: 14.81
+[287.25, 546.75, 1125.75, 1648.75]
+Episode 344	 reward: -19.03	 Mean_loss: 0.61267924,  training time: 16.38
+[272.75, 587.5, 1090.75, 1680.0]
+Episode 345	 reward: -19.20	 Mean_loss: 0.59449679,  training time: 15.06
+[271.0, 568.5, 1152.5, 1729.25]
+Episode 346	 reward: -18.98	 Mean_loss: 0.78896594,  training time: 14.74
+[293.75, 562.5, 1149.25, 1714.5]
+Episode 347	 reward: -19.54	 Mean_loss: 0.51025540,  training time: 17.60
+[266.25, 562.25, 1013.25, 1705.5]
+Episode 348	 reward: -19.67	 Mean_loss: 0.70152426,  training time: 15.74
+[275.25, 547.25, 1092.5, 1704.75]
+Episode 349	 reward: -19.91	 Mean_loss: 0.66900235,  training time: 15.28
+[266.0, 498.5, 1022.75, 1683.75]
+Episode 350	 reward: -19.81	 Mean_loss: 0.53950757,  training time: 15.17
+[263.25, 536.5, 1053.25, 1679.25]
+Episode 351	 reward: -18.96	 Mean_loss: 0.69326949,  training time: 15.77
+[256.5, 586.5, 1199.75, 1722.5]
+Episode 352	 reward: -20.55	 Mean_loss: 0.80243415,  training time: 15.12
+[266.0, 539.25, 1104.75, 1715.25]
+Episode 353	 reward: -19.13	 Mean_loss: 0.82707345,  training time: 14.60
+[280.5, 590.0, 1199.5, 1700.25]
+Episode 354	 reward: -19.84	 Mean_loss: 0.64831674,  training time: 14.87
+[258.5, 581.0, 1111.5, 1667.75]
+Episode 355	 reward: -19.11	 Mean_loss: 0.65791500,  training time: 15.95
+[280.75, 580.0, 1100.75, 1671.75]
+Episode 356	 reward: -19.66	 Mean_loss: 0.64035672,  training time: 15.53
+[258.25, 546.75, 1102.0, 1759.25]
+Episode 357	 reward: -19.32	 Mean_loss: 0.83486909,  training time: 14.11
+[262.5, 526.25, 1094.0, 1684.25]
+Episode 358	 reward: -19.75	 Mean_loss: 0.67566222,  training time: 15.51
+[247.5, 610.25, 1118.5, 1691.5]
+Episode 359	 reward: -19.66	 Mean_loss: 0.67696989,  training time: 15.12
+[278.25, 571.75, 1107.75, 1665.5]
+Episode 360	 reward: -19.51	 Mean_loss: 0.64040482,  training time: 15.53
+[321.75, 550.25, 1018.25, 1707.5]
+Episode 361	 reward: -19.90	 Mean_loss: 0.67126530,  training time: 15.07
+[264.25, 605.75, 998.75, 1642.5]
+Episode 362	 reward: -19.96	 Mean_loss: 0.61518788,  training time: 14.12
+[297.0, 612.25, 1041.5, 1749.0]
+Episode 363	 reward: -19.49	 Mean_loss: 0.70037472,  training time: 14.11
+[303.75, 563.0, 1032.25, 1691.0]
+Episode 364	 reward: -19.76	 Mean_loss: 0.44860926,  training time: 14.11
+[278.0, 540.25, 1071.0, 1651.25]
+Episode 365	 reward: -20.20	 Mean_loss: 0.47285411,  training time: 14.14
+[294.5, 613.5, 1017.25, 1702.0]
+Episode 366	 reward: -18.95	 Mean_loss: 0.64280528,  training time: 14.06
+[283.75, 560.0, 1051.75, 1611.25]
+Episode 367	 reward: -19.49	 Mean_loss: 0.45443189,  training time: 14.10
+[320.5, 521.5, 978.5, 1743.5]
+Episode 368	 reward: -20.00	 Mean_loss: 0.51040530,  training time: 14.14
+[292.25, 595.25, 1021.25, 1719.0]
+Episode 369	 reward: -20.10	 Mean_loss: 0.58503115,  training time: 14.49
+[274.25, 594.25, 1005.25, 1650.0]
+Episode 370	 reward: -20.08	 Mean_loss: 0.55259490,  training time: 14.89
+[280.25, 548.0, 1015.75, 1658.5]
+Episode 371	 reward: -19.84	 Mean_loss: 0.58246344,  training time: 14.11
+[264.0, 509.75, 986.25, 1701.5]
+Episode 372	 reward: -19.58	 Mean_loss: 0.55693781,  training time: 23.89
+[262.25, 534.5, 1072.5, 1745.5]
+Episode 373	 reward: -20.05	 Mean_loss: 0.68230057,  training time: 27.96
+[289.75, 559.5, 1009.75, 1637.0]
+Episode 374	 reward: -19.35	 Mean_loss: 0.49122787,  training time: 19.14
+[298.0, 578.75, 973.75, 1664.5]
+Episode 375	 reward: -18.98	 Mean_loss: 0.52179378,  training time: 17.39
+[275.75, 549.0, 1058.25, 1669.25]
+Episode 376	 reward: -19.65	 Mean_loss: 0.62390715,  training time: 15.06
+[280.0, 530.5, 1050.0, 1690.75]
+Episode 377	 reward: -19.47	 Mean_loss: 0.50207680,  training time: 14.52
+[273.75, 562.75, 971.75, 1639.25]
+Episode 378	 reward: -18.75	 Mean_loss: 0.42729184,  training time: 14.23
+[263.0, 570.25, 1039.25, 1725.25]
+Episode 379	 reward: -20.39	 Mean_loss: 0.74381435,  training time: 14.16
+[287.75, 562.5, 970.75, 1691.75]
+Episode 380	 reward: -19.60	 Mean_loss: 0.55425352,  training time: 14.33
+[315.75, 491.25, 1011.25, 1725.0]
+Episode 381	 reward: -19.84	 Mean_loss: 0.55220062,  training time: 16.22
+[296.75, 590.0, 1016.0, 1627.75]
+Episode 382	 reward: -20.05	 Mean_loss: 0.47691476,  training time: 19.78
+[293.25, 558.75, 998.5, 1644.0]
+Episode 383	 reward: -19.86	 Mean_loss: 0.40413481,  training time: 21.46
+[309.75, 512.5, 985.0, 1607.5]
+Episode 384	 reward: -18.96	 Mean_loss: 0.39538991,  training time: 19.00
+[290.75, 554.0, 1004.0, 1634.0]
+Episode 385	 reward: -18.10	 Mean_loss: 0.48903179,  training time: 15.76
+[291.75, 532.0, 1007.25, 1633.25]
+Episode 386	 reward: -19.97	 Mean_loss: 0.52690142,  training time: 14.73
+[288.75, 586.5, 998.0, 1596.25]
+Episode 387	 reward: -20.64	 Mean_loss: 0.40281200,  training time: 14.50
+[294.0, 556.0, 1027.75, 1570.75]
+Episode 388	 reward: -20.12	 Mean_loss: 0.42395729,  training time: 14.08
+[285.25, 486.0, 1006.0, 1601.75]
+Episode 389	 reward: -19.77	 Mean_loss: 0.52018464,  training time: 14.98
+[299.5, 561.75, 955.0, 1617.75]
+Episode 390	 reward: -19.20	 Mean_loss: 0.41531932,  training time: 14.10
+[279.0, 543.25, 1021.0, 1537.75]
+Episode 391	 reward: -19.13	 Mean_loss: 0.46193382,  training time: 15.73
+[294.5, 519.5, 980.5, 1609.5]
+Episode 392	 reward: -19.29	 Mean_loss: 0.42748871,  training time: 26.98
+[249.25, 549.25, 996.0, 1617.0]
+Episode 393	 reward: -20.03	 Mean_loss: 0.48570612,  training time: 24.95
+[280.5, 533.75, 1010.25, 1514.25]
+Episode 394	 reward: -19.39	 Mean_loss: 0.46836299,  training time: 20.26
+[281.5, 528.5, 951.5, 1578.75]
+Episode 395	 reward: -19.31	 Mean_loss: 0.55802619,  training time: 15.09
+[290.0, 516.5, 1013.0, 1623.0]
+Episode 396	 reward: -19.41	 Mean_loss: 0.57621312,  training time: 14.44
+[294.75, 590.5, 942.75, 1539.5]
+Episode 397	 reward: -19.58	 Mean_loss: 0.44711068,  training time: 14.18
+[304.25, 502.5, 968.5, 1551.75]
+Episode 398	 reward: -20.23	 Mean_loss: 0.40566590,  training time: 14.36
+[294.75, 573.25, 1016.75, 1551.0]
+Episode 399	 reward: -19.59	 Mean_loss: 0.48275602,  training time: 17.98
+[301.75, 527.25, 964.75, 1557.75]
+Episode 400	 reward: -20.03	 Mean_loss: 0.41532958,  training time: 14.67
+[247.25, 519.5, 918.75, 1464.5]
+Episode 401	 reward: -18.48	 Mean_loss: 0.38835326,  training time: 14.59
+[257.25, 560.0, 959.25, 1508.5]
+Episode 402	 reward: -19.91	 Mean_loss: 0.43710777,  training time: 14.11
+[250.0, 524.25, 950.75, 1401.0]
+Episode 403	 reward: -18.83	 Mean_loss: 0.28733656,  training time: 14.22
+[296.5, 492.5, 952.0, 1466.0]
+Episode 404	 reward: -19.19	 Mean_loss: 0.30605769,  training time: 14.17
+[248.75, 547.25, 946.75, 1513.75]
+Episode 405	 reward: -19.25	 Mean_loss: 0.51722908,  training time: 14.13
+[241.0, 510.5, 952.25, 1475.5]
+Episode 406	 reward: -19.12	 Mean_loss: 0.32642582,  training time: 14.16
+[252.0, 509.5, 985.5, 1437.25]
+Episode 407	 reward: -18.76	 Mean_loss: 0.27792245,  training time: 14.21
+[249.25, 561.75, 949.0, 1410.25]
+Episode 408	 reward: -19.30	 Mean_loss: 0.41501653,  training time: 14.15
+[231.25, 524.0, 919.75, 1406.25]
+Episode 409	 reward: -19.52	 Mean_loss: 0.30363417,  training time: 14.15
+[261.75, 515.25, 1049.5, 1456.5]
+Episode 410	 reward: -18.70	 Mean_loss: 0.34756711,  training time: 14.15
+[271.0, 529.0, 979.0, 1465.75]
+Episode 411	 reward: -19.12	 Mean_loss: 0.41528881,  training time: 14.16
+[252.0, 513.25, 926.0, 1542.5]
+Episode 412	 reward: -18.94	 Mean_loss: 0.45657235,  training time: 14.19
+[253.25, 495.5, 906.25, 1406.5]
+Episode 413	 reward: -18.59	 Mean_loss: 0.35921314,  training time: 14.17
+[257.25, 509.0, 972.5, 1481.25]
+Episode 414	 reward: -18.77	 Mean_loss: 0.36936277,  training time: 14.20
+[232.25, 553.0, 957.5, 1477.0]
+Episode 415	 reward: -19.19	 Mean_loss: 0.47761783,  training time: 14.16
+[241.0, 550.0, 897.25, 1427.5]
+Episode 416	 reward: -18.49	 Mean_loss: 0.32571730,  training time: 14.12
+[234.5, 526.25, 918.25, 1432.5]
+Episode 417	 reward: -19.43	 Mean_loss: 0.29761484,  training time: 14.15
+[237.25, 529.0, 978.5, 1478.75]
+Episode 418	 reward: -18.77	 Mean_loss: 0.36347952,  training time: 14.13
+[253.25, 510.75, 941.5, 1454.5]
+Episode 419	 reward: -19.64	 Mean_loss: 0.35873795,  training time: 14.13
+[249.5, 510.25, 963.0, 1546.25]
+Episode 420	 reward: -18.97	 Mean_loss: 0.39988828,  training time: 14.16
+[261.5, 559.0, 910.0, 1566.0]
+Episode 421	 reward: -19.20	 Mean_loss: 0.41066447,  training time: 14.31
+[281.0, 542.25, 949.75, 1551.75]
+Episode 422	 reward: -19.57	 Mean_loss: 0.58579391,  training time: 14.69
+[276.25, 570.75, 916.5, 1609.0]
+Episode 423	 reward: -18.44	 Mean_loss: 0.52034873,  training time: 16.02
+[269.75, 518.75, 981.25, 1579.5]
+Episode 424	 reward: -19.43	 Mean_loss: 0.51178139,  training time: 17.00
+[295.0, 550.25, 957.25, 1570.75]
+Episode 425	 reward: -19.36	 Mean_loss: 0.47159466,  training time: 21.92
+[277.75, 571.5, 1007.0, 1611.0]
+Episode 426	 reward: -19.37	 Mean_loss: 0.57205713,  training time: 15.91
+[288.5, 573.25, 974.25, 1560.5]
+Episode 427	 reward: -19.64	 Mean_loss: 0.45775172,  training time: 14.33
+[277.75, 572.5, 971.0, 1571.0]
+Episode 428	 reward: -18.49	 Mean_loss: 0.53855425,  training time: 17.26
+[268.5, 529.5, 990.0, 1599.5]
+Episode 429	 reward: -19.18	 Mean_loss: 0.53229684,  training time: 14.83
+[272.25, 582.25, 939.75, 1632.5]
+Episode 430	 reward: -18.77	 Mean_loss: 0.56747645,  training time: 16.61
+[256.25, 576.25, 946.25, 1561.25]
+Episode 431	 reward: -19.11	 Mean_loss: 0.30684367,  training time: 14.75
+[261.25, 555.75, 959.0, 1478.75]
+Episode 432	 reward: -19.53	 Mean_loss: 0.28749868,  training time: 16.06
+[253.5, 556.25, 961.5, 1445.75]
+Episode 433	 reward: -20.02	 Mean_loss: 0.33073968,  training time: 15.37
+[260.0, 577.5, 947.0, 1571.25]
+Episode 434	 reward: -19.39	 Mean_loss: 0.41444713,  training time: 16.61
+[239.75, 568.0, 963.25, 1489.0]
+Episode 435	 reward: -18.96	 Mean_loss: 0.34965166,  training time: 16.34
+[252.75, 571.5, 952.75, 1607.5]
+Episode 436	 reward: -19.25	 Mean_loss: 0.43672261,  training time: 15.09
+[276.0, 579.5, 908.0, 1539.0]
+Episode 437	 reward: -19.32	 Mean_loss: 0.48457050,  training time: 16.65
+[279.25, 518.25, 950.0, 1538.25]
+Episode 438	 reward: -18.85	 Mean_loss: 0.49019751,  training time: 15.90
+[291.25, 584.5, 951.5, 1536.25]
+Episode 439	 reward: -18.98	 Mean_loss: 0.44960272,  training time: 15.79
+[300.25, 603.0, 948.25, 1544.5]
+Episode 440	 reward: -19.69	 Mean_loss: 0.50626957,  training time: 17.26
+[271.5, 508.5, 1002.0, 1552.5]
+Episode 441	 reward: -19.77	 Mean_loss: 0.51517349,  training time: 14.95
+[249.25, 517.5, 955.5, 1574.75]
+Episode 442	 reward: -19.58	 Mean_loss: 0.46752596,  training time: 16.09
+[251.75, 517.5, 983.0, 1596.5]
+Episode 443	 reward: -19.33	 Mean_loss: 0.40201265,  training time: 15.16
+[250.75, 518.25, 1024.0, 1606.5]
+Episode 444	 reward: -19.88	 Mean_loss: 0.51665318,  training time: 16.00
+[275.5, 480.75, 993.0, 1608.5]
+Episode 445	 reward: -19.37	 Mean_loss: 0.45597637,  training time: 15.33
+[263.75, 519.5, 989.5, 1564.25]
+Episode 446	 reward: -20.00	 Mean_loss: 0.40872946,  training time: 15.48
+[241.75, 505.0, 983.75, 1574.75]
+Episode 447	 reward: -19.78	 Mean_loss: 0.39117518,  training time: 15.65
+[245.25, 495.0, 967.25, 1539.5]
+Episode 448	 reward: -19.56	 Mean_loss: 0.42375150,  training time: 14.03
+[238.0, 542.5, 945.75, 1578.75]
+Episode 449	 reward: -21.59	 Mean_loss: 0.46555305,  training time: 17.43
+[261.25, 484.0, 989.25, 1512.75]
+Episode 450	 reward: -19.56	 Mean_loss: 0.47451317,  training time: 15.46
+[259.75, 519.75, 999.5, 1655.75]
+Episode 451	 reward: -19.60	 Mean_loss: 0.49924797,  training time: 18.92
+[263.25, 503.0, 917.25, 1539.0]
+Episode 452	 reward: -19.36	 Mean_loss: 0.37144822,  training time: 15.30
+[271.25, 522.5, 956.0, 1518.75]
+Episode 453	 reward: -19.28	 Mean_loss: 0.45773003,  training time: 15.52
+[242.5, 504.0, 973.25, 1519.25]
+Episode 454	 reward: -20.13	 Mean_loss: 0.35343248,  training time: 15.68
+[252.0, 519.5, 923.5, 1552.75]
+Episode 455	 reward: -20.29	 Mean_loss: 0.43848968,  training time: 15.41
+[245.5, 485.0, 1006.25, 1587.0]
+Episode 456	 reward: -20.08	 Mean_loss: 0.51195991,  training time: 14.30
+[261.25, 526.75, 943.0, 1527.0]
+Episode 457	 reward: -20.21	 Mean_loss: 0.38445097,  training time: 16.58
+[264.5, 520.25, 924.5, 1613.0]
+Episode 458	 reward: -19.80	 Mean_loss: 0.46487904,  training time: 15.16
+[247.75, 521.0, 959.0, 1575.0]
+Episode 459	 reward: -20.41	 Mean_loss: 0.53353822,  training time: 15.20
+[254.5, 492.5, 959.75, 1543.0]
+Episode 460	 reward: -20.65	 Mean_loss: 0.42932016,  training time: 15.18
+[266.25, 507.5, 994.25, 1432.75]
+Episode 461	 reward: -18.78	 Mean_loss: 0.28480077,  training time: 14.36
+[274.75, 532.0, 957.5, 1499.75]
+Episode 462	 reward: -18.95	 Mean_loss: 0.25958955,  training time: 16.34
+[279.25, 493.5, 953.25, 1422.0]
+Episode 463	 reward: -19.20	 Mean_loss: 0.26878917,  training time: 17.39
+[268.75, 537.25, 1015.0, 1478.25]
+Episode 464	 reward: -18.92	 Mean_loss: 0.22301139,  training time: 14.11
+[277.75, 510.25, 956.25, 1432.75]
+Episode 465	 reward: -19.06	 Mean_loss: 0.27163333,  training time: 17.32
+[263.75, 497.75, 969.25, 1426.5]
+Episode 466	 reward: -19.13	 Mean_loss: 0.27535400,  training time: 15.37
+[282.5, 495.75, 971.0, 1523.75]
+Episode 467	 reward: -19.26	 Mean_loss: 0.28169918,  training time: 15.76
+[280.0, 556.75, 964.75, 1447.75]
+Episode 468	 reward: -18.84	 Mean_loss: 0.29768592,  training time: 16.06
+[277.25, 516.25, 1002.25, 1472.75]
+Episode 469	 reward: -18.36	 Mean_loss: 0.18026674,  training time: 14.12
+[318.5, 474.75, 931.5, 1422.75]
+Episode 470	 reward: -20.11	 Mean_loss: 0.18161061,  training time: 15.70
+[321.5, 519.75, 972.0, 1399.75]
+Episode 471	 reward: -18.98	 Mean_loss: 0.25189045,  training time: 14.77
+[263.75, 528.75, 934.0, 1462.25]
+Episode 472	 reward: -20.22	 Mean_loss: 0.30249631,  training time: 14.51
+[256.75, 527.75, 969.0, 1426.75]
+Episode 473	 reward: -19.23	 Mean_loss: 0.21944410,  training time: 14.94
+[277.0, 531.0, 937.75, 1479.75]
+Episode 474	 reward: -18.71	 Mean_loss: 0.26061526,  training time: 14.98
+[264.5, 500.75, 974.5, 1482.25]
+Episode 475	 reward: -18.49	 Mean_loss: 0.31448513,  training time: 15.32
+[303.5, 522.0, 969.75, 1484.75]
+Episode 476	 reward: -19.42	 Mean_loss: 0.30233249,  training time: 15.74
+[265.0, 496.0, 917.25, 1476.5]
+Episode 477	 reward: -19.18	 Mean_loss: 0.27457669,  training time: 17.57
+[278.5, 483.75, 977.75, 1438.5]
+Episode 478	 reward: -19.57	 Mean_loss: 0.23024197,  training time: 14.03
+[274.5, 525.0, 967.0, 1392.75]
+Episode 479	 reward: -19.65	 Mean_loss: 0.27360213,  training time: 14.20
+[318.75, 515.5, 953.75, 1468.75]
+Episode 480	 reward: -18.72	 Mean_loss: 0.20319088,  training time: 14.45
+[278.5, 558.5, 962.0, 1491.0]
+Episode 481	 reward: -19.04	 Mean_loss: 0.43931037,  training time: 14.27
+[293.25, 554.0, 937.75, 1496.0]
+Episode 482	 reward: -19.44	 Mean_loss: 0.38677853,  training time: 14.23
+[248.25, 510.0, 948.5, 1491.25]
+Episode 483	 reward: -19.52	 Mean_loss: 0.35060075,  training time: 14.01
+[254.0, 561.5, 1022.5, 1508.5]
+Episode 484	 reward: -20.09	 Mean_loss: 0.42070356,  training time: 14.76
+[271.0, 543.5, 1018.25, 1516.5]
+Episode 485	 reward: -19.71	 Mean_loss: 0.42684373,  training time: 14.77
+[249.25, 554.75, 961.5, 1498.25]
+Episode 486	 reward: -19.77	 Mean_loss: 0.32966650,  training time: 13.92
+[252.0, 518.0, 934.0, 1538.75]
+Episode 487	 reward: -19.55	 Mean_loss: 0.35030606,  training time: 29.17
+[277.0, 586.0, 947.5, 1523.75]
+Episode 488	 reward: -19.48	 Mean_loss: 0.41150954,  training time: 32.92
+[267.25, 523.75, 923.0, 1550.0]
+Episode 489	 reward: -19.30	 Mean_loss: 0.41987145,  training time: 35.21
+[267.0, 525.75, 947.5, 1521.75]
+Episode 490	 reward: -20.94	 Mean_loss: 0.35060117,  training time: 34.43
+[254.0, 522.5, 933.75, 1528.25]
+Episode 491	 reward: -19.43	 Mean_loss: 0.37692422,  training time: 31.79
+[238.25, 501.0, 944.25, 1521.75]
+Episode 492	 reward: -19.24	 Mean_loss: 0.36076450,  training time: 29.77
+[253.75, 542.25, 936.5, 1561.0]
+Episode 493	 reward: -18.52	 Mean_loss: 0.44416368,  training time: 29.46
+[248.5, 518.5, 915.25, 1569.75]
+Episode 494	 reward: -19.29	 Mean_loss: 0.33407512,  training time: 24.03
+[273.5, 553.75, 934.25, 1542.0]
+Episode 495	 reward: -19.89	 Mean_loss: 0.42538670,  training time: 24.70
+[255.0, 540.5, 883.75, 1507.5]
+Episode 496	 reward: -18.90	 Mean_loss: 0.33037859,  training time: 24.68
+[247.75, 523.0, 949.0, 1556.5]
+Episode 497	 reward: -18.82	 Mean_loss: 0.45362413,  training time: 22.88
+[258.25, 589.5, 965.25, 1502.75]
+Episode 498	 reward: -20.35	 Mean_loss: 0.33691013,  training time: 20.59
+[251.25, 510.25, 940.75, 1540.5]
+Episode 499	 reward: -19.15	 Mean_loss: 0.40899542,  training time: 21.12
+[252.5, 512.0, 946.5, 1550.25]
+Episode 500	 reward: -19.21	 Mean_loss: 0.28756827,  training time: 19.43
++ for model in 'maml+$model_suffix'
++ echo 10,5 13,5 15,5 17,5
++ tr ' ' '\n'
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp17/maml/finetuning/maml+exp17_500_512_3/10x5 --model_suffix free --finetuning_model maml+exp17_500_512_3 --max_updates 50 --n_j 10 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/10x5+mix
+save model name:  10x5+mix+free
+./trained_network/SD2/maml+exp17_500_512_3.pth
+-------------------------Training Setting-------------------------
+source : SD2
+model name :./trained_network/SD2/maml+exp17_500_512_3.pth
+vali data :./data/data_train_vali/SD2/10x5+mix
+
+
+progress:   0%|[34m          [0m| 0/50 [00:00<?, ?it/s]                                                Episode 1	 reward: -4.89	 makespan: 484.00	 Mean_loss: 4.43811321,  training time: 5.93
+progress:   0%|[34m          [0m| 0/50 [00:05<?, ?it/s]progress:   2%|[34m▏         [0m| 1/50 [00:05<04:50,  5.94s/it]                                                        Episode 2	 reward: -4.97	 makespan: 492.25	 Mean_loss: 1.33951735,  training time: 0.93
+progress:   2%|[34m▏         [0m| 1/50 [00:06<04:50,  5.94s/it]progress:   4%|[34m▍         [0m| 2/50 [00:06<02:23,  2.99s/it]                                                        Episode 3	 reward: -5.81	 makespan: 574.75	 Mean_loss: 0.97699261,  training time: 1.24
+progress:   4%|[34m▍         [0m| 2/50 [00:08<02:23,  2.99s/it]progress:   6%|[34m▌         [0m| 3/50 [00:08<01:43,  2.20s/it]                                                        Episode 4	 reward: -6.04	 makespan: 598.00	 Mean_loss: 0.85891873,  training time: 0.97
+progress:   6%|[34m▌         [0m| 3/50 [00:09<01:43,  2.20s/it]progress:   8%|[34m▊         [0m| 4/50 [00:09<01:19,  1.72s/it]                                                        Episode 5	 reward: -6.23	 makespan: 616.75	 Mean_loss: 0.36474064,  training time: 1.04
+progress:   8%|[34m▊         [0m| 4/50 [00:10<01:19,  1.72s/it]progress:  10%|[34m█         [0m| 5/50 [00:10<01:06,  1.48s/it]                                                        Episode 6	 reward: -6.38	 makespan: 631.25	 Mean_loss: 0.47510341,  training time: 1.45
+progress:  10%|[34m█         [0m| 5/50 [00:11<01:06,  1.48s/it]progress:  12%|[34m█▏        [0m| 6/50 [00:11<01:05,  1.49s/it]                                                        Episode 7	 reward: -6.19	 makespan: 612.50	 Mean_loss: 0.23939572,  training time: 1.08
+progress:  12%|[34m█▏        [0m| 6/50 [00:12<01:05,  1.49s/it]progress:  14%|[34m█▍        [0m| 7/50 [00:12<00:58,  1.35s/it]                                                        Episode 8	 reward: -6.38	 makespan: 632.00	 Mean_loss: 0.26416096,  training time: 1.08
+progress:  14%|[34m█▍        [0m| 7/50 [00:13<00:58,  1.35s/it]progress:  16%|[34m█▌        [0m| 8/50 [00:13<00:53,  1.27s/it]                                                        Episode 9	 reward: -6.09	 makespan: 603.25	 Mean_loss: 0.35230029,  training time: 1.26
+progress:  16%|[34m█▌        [0m| 8/50 [00:15<00:53,  1.27s/it]progress:  18%|[34m█▊        [0m| 9/50 [00:15<00:52,  1.27s/it]                                                        Episode 10	 reward: -6.94	 makespan: 686.75	 Mean_loss: 0.57430261,  training time: 1.17
+progress:  18%|[34m█▊        [0m| 9/50 [00:16<00:52,  1.27s/it]progress:  20%|[34m██        [0m| 10/50 [00:16<00:49,  1.24s/it]                                                         Episode 11	 reward: -6.97	 makespan: 689.75	 Mean_loss: 0.32418829,  training time: 1.06
+progress:  20%|[34m██        [0m| 10/50 [00:17<00:49,  1.24s/it]progress:  22%|[34m██▏       [0m| 11/50 [00:17<00:46,  1.19s/it]                                                         Episode 12	 reward: -6.81	 makespan: 673.75	 Mean_loss: 0.26247311,  training time: 0.99
+progress:  22%|[34m██▏       [0m| 11/50 [00:18<00:46,  1.19s/it]progress:  24%|[34m██▍       [0m| 12/50 [00:18<00:42,  1.13s/it]                                                         Episode 13	 reward: -6.80	 makespan: 672.75	 Mean_loss: 0.48022938,  training time: 0.94
+progress:  24%|[34m██▍       [0m| 12/50 [00:19<00:42,  1.13s/it]progress:  26%|[34m██▌       [0m| 13/50 [00:19<00:39,  1.07s/it]                                                         Episode 14	 reward: -6.76	 makespan: 669.50	 Mean_loss: 0.63042694,  training time: 0.99
+progress:  26%|[34m██▌       [0m| 13/50 [00:20<00:39,  1.07s/it]progress:  28%|[34m██▊       [0m| 14/50 [00:20<00:37,  1.05s/it]                                                         Episode 15	 reward: -6.54	 makespan: 647.50	 Mean_loss: 0.32686704,  training time: 0.98
+progress:  28%|[34m██▊       [0m| 14/50 [00:21<00:37,  1.05s/it]progress:  30%|[34m███       [0m| 15/50 [00:21<00:35,  1.03s/it]                                                         Episode 16	 reward: -5.74	 makespan: 568.75	 Mean_loss: 0.39738166,  training time: 0.97
+progress:  30%|[34m███       [0m| 15/50 [00:22<00:35,  1.03s/it]progress:  32%|[34m███▏      [0m| 16/50 [00:22<00:34,  1.01s/it]                                                         Episode 17	 reward: -6.17	 makespan: 610.75	 Mean_loss: 0.36633962,  training time: 1.10
+progress:  32%|[34m███▏      [0m| 16/50 [00:23<00:34,  1.01s/it]progress:  34%|[34m███▍      [0m| 17/50 [00:23<00:34,  1.04s/it]                                                         Episode 18	 reward: -6.36	 makespan: 629.75	 Mean_loss: 0.32517728,  training time: 0.97
+progress:  34%|[34m███▍      [0m| 17/50 [00:24<00:34,  1.04s/it]progress:  36%|[34m███▌      [0m| 18/50 [00:24<00:32,  1.02s/it]                                                         Episode 19	 reward: -5.98	 makespan: 591.75	 Mean_loss: 0.16929054,  training time: 0.99
+progress:  36%|[34m███▌      [0m| 18/50 [00:25<00:32,  1.02s/it]progress:  38%|[34m███▊      [0m| 19/50 [00:25<00:31,  1.01s/it]                                                         Episode 20	 reward: -6.28	 makespan: 621.75	 Mean_loss: 0.13871139,  training time: 1.18
+progress:  38%|[34m███▊      [0m| 19/50 [00:26<00:31,  1.01s/it]progress:  40%|[34m████      [0m| 20/50 [00:26<00:31,  1.06s/it]                                                         Episode 21	 reward: -5.55	 makespan: 549.50	 Mean_loss: 0.20381096,  training time: 1.14
+progress:  40%|[34m████      [0m| 20/50 [00:27<00:31,  1.06s/it]progress:  42%|[34m████▏     [0m| 21/50 [00:27<00:31,  1.09s/it]                                                         Episode 22	 reward: -5.99	 makespan: 593.00	 Mean_loss: 0.18109390,  training time: 0.95
+progress:  42%|[34m████▏     [0m| 21/50 [00:28<00:31,  1.09s/it]progress:  44%|[34m████▍     [0m| 22/50 [00:28<00:29,  1.05s/it]                                                         Episode 23	 reward: -6.22	 makespan: 616.25	 Mean_loss: 0.28691751,  training time: 1.41
+progress:  44%|[34m████▍     [0m| 22/50 [00:29<00:29,  1.05s/it]progress:  46%|[34m████▌     [0m| 23/50 [00:29<00:31,  1.15s/it]                                                         Episode 24	 reward: -6.31	 makespan: 624.75	 Mean_loss: 0.13352033,  training time: 1.09
+progress:  46%|[34m████▌     [0m| 23/50 [00:31<00:31,  1.15s/it]progress:  48%|[34m████▊     [0m| 24/50 [00:31<00:29,  1.14s/it]                                                         Episode 25	 reward: -6.51	 makespan: 644.75	 Mean_loss: 0.33884901,  training time: 1.16
+progress:  48%|[34m████▊     [0m| 24/50 [00:32<00:29,  1.14s/it]progress:  50%|[34m█████     [0m| 25/50 [00:32<00:28,  1.15s/it]                                                         Episode 26	 reward: -6.32	 makespan: 625.50	 Mean_loss: 0.21290112,  training time: 1.00
+progress:  50%|[34m█████     [0m| 25/50 [00:33<00:28,  1.15s/it]progress:  52%|[34m█████▏    [0m| 26/50 [00:33<00:26,  1.10s/it]                                                         Episode 27	 reward: -6.62	 makespan: 655.75	 Mean_loss: 0.17144120,  training time: 1.10
+progress:  52%|[34m█████▏    [0m| 26/50 [00:34<00:26,  1.10s/it]progress:  54%|[34m█████▍    [0m| 27/50 [00:34<00:25,  1.11s/it]                                                         Episode 28	 reward: -6.09	 makespan: 603.00	 Mean_loss: 0.20913695,  training time: 1.19
+progress:  54%|[34m█████▍    [0m| 27/50 [00:35<00:25,  1.11s/it]progress:  56%|[34m█████▌    [0m| 28/50 [00:35<00:24,  1.13s/it]                                                         Episode 29	 reward: -5.87	 makespan: 581.00	 Mean_loss: 0.15579262,  training time: 1.19
+progress:  56%|[34m█████▌    [0m| 28/50 [00:36<00:24,  1.13s/it]progress:  58%|[34m█████▊    [0m| 29/50 [00:36<00:24,  1.15s/it]                                                         Episode 30	 reward: -5.90	 makespan: 584.50	 Mean_loss: 0.23900673,  training time: 1.20
+progress:  58%|[34m█████▊    [0m| 29/50 [00:37<00:24,  1.15s/it]progress:  60%|[34m██████    [0m| 30/50 [00:37<00:23,  1.17s/it]                                                         Episode 31	 reward: -5.60	 makespan: 554.75	 Mean_loss: 0.11953290,  training time: 1.05
+progress:  60%|[34m██████    [0m| 30/50 [00:38<00:23,  1.17s/it]progress:  62%|[34m██████▏   [0m| 31/50 [00:38<00:21,  1.13s/it]                                                         Episode 32	 reward: -5.62	 makespan: 556.75	 Mean_loss: 0.09613913,  training time: 1.10
+progress:  62%|[34m██████▏   [0m| 31/50 [00:40<00:21,  1.13s/it]progress:  64%|[34m██████▍   [0m| 32/50 [00:40<00:20,  1.12s/it]                                                         Episode 33	 reward: -5.91	 makespan: 585.25	 Mean_loss: 0.14231506,  training time: 0.99
+progress:  64%|[34m██████▍   [0m| 32/50 [00:41<00:20,  1.12s/it]progress:  66%|[34m██████▌   [0m| 33/50 [00:41<00:18,  1.08s/it]                                                         Episode 34	 reward: -5.51	 makespan: 545.75	 Mean_loss: 0.22609803,  training time: 1.11
+progress:  66%|[34m██████▌   [0m| 33/50 [00:42<00:18,  1.08s/it]progress:  68%|[34m██████▊   [0m| 34/50 [00:42<00:17,  1.09s/it]                                                         Episode 35	 reward: -5.66	 makespan: 560.00	 Mean_loss: 0.20997049,  training time: 1.06
+progress:  68%|[34m██████▊   [0m| 34/50 [00:43<00:17,  1.09s/it]progress:  70%|[34m███████   [0m| 35/50 [00:43<00:16,  1.08s/it]                                                         Episode 36	 reward: -5.08	 makespan: 503.25	 Mean_loss: 0.10728912,  training time: 0.95
+progress:  70%|[34m███████   [0m| 35/50 [00:44<00:16,  1.08s/it]progress:  72%|[34m███████▏  [0m| 36/50 [00:44<00:14,  1.04s/it]                                                         Episode 37	 reward: -5.57	 makespan: 551.00	 Mean_loss: 0.12467012,  training time: 0.96
+progress:  72%|[34m███████▏  [0m| 36/50 [00:45<00:14,  1.04s/it]progress:  74%|[34m███████▍  [0m| 37/50 [00:45<00:13,  1.02s/it]                                                         Episode 38	 reward: -6.32	 makespan: 625.25	 Mean_loss: 0.23495944,  training time: 0.95
+progress:  74%|[34m███████▍  [0m| 37/50 [00:46<00:13,  1.02s/it]progress:  76%|[34m███████▌  [0m| 38/50 [00:46<00:11,  1.00it/s]                                                         Episode 39	 reward: -5.22	 makespan: 517.00	 Mean_loss: 0.26021314,  training time: 0.96
+progress:  76%|[34m███████▌  [0m| 38/50 [00:47<00:11,  1.00it/s]progress:  78%|[34m███████▊  [0m| 39/50 [00:47<00:10,  1.01it/s]                                                         Episode 40	 reward: -5.38	 makespan: 532.25	 Mean_loss: 0.13476494,  training time: 0.98
+progress:  78%|[34m███████▊  [0m| 39/50 [00:48<00:10,  1.01it/s]progress:  80%|[34m████████  [0m| 40/50 [00:48<00:09,  1.01it/s]                                                         Episode 41	 reward: -5.16	 makespan: 511.25	 Mean_loss: 0.06500050,  training time: 0.97
+progress:  80%|[34m████████  [0m| 40/50 [00:49<00:09,  1.01it/s]progress:  82%|[34m████████▏ [0m| 41/50 [00:49<00:08,  1.02it/s]                                                         Episode 42	 reward: -4.81	 makespan: 476.50	 Mean_loss: 0.09784421,  training time: 0.98
+progress:  82%|[34m████████▏ [0m| 41/50 [00:50<00:08,  1.02it/s]progress:  84%|[34m████████▍ [0m| 42/50 [00:50<00:07,  1.02it/s]                                                         Episode 43	 reward: -4.78	 makespan: 473.00	 Mean_loss: 0.04590286,  training time: 0.96
+progress:  84%|[34m████████▍ [0m| 42/50 [00:50<00:07,  1.02it/s]progress:  86%|[34m████████▌ [0m| 43/50 [00:51<00:06,  1.02it/s]                                                         Episode 44	 reward: -4.70	 makespan: 465.75	 Mean_loss: 0.09262346,  training time: 0.98
+progress:  86%|[34m████████▌ [0m| 43/50 [00:51<00:06,  1.02it/s]progress:  88%|[34m████████▊ [0m| 44/50 [00:51<00:05,  1.02it/s]                                                         Episode 45	 reward: -4.60	 makespan: 455.00	 Mean_loss: 0.04081575,  training time: 0.94
+progress:  88%|[34m████████▊ [0m| 44/50 [00:52<00:05,  1.02it/s]progress:  90%|[34m█████████ [0m| 45/50 [00:52<00:04,  1.03it/s]                                                         Episode 46	 reward: -4.80	 makespan: 474.75	 Mean_loss: 0.08361821,  training time: 1.06
+progress:  90%|[34m█████████ [0m| 45/50 [00:53<00:04,  1.03it/s]progress:  92%|[34m█████████▏[0m| 46/50 [00:53<00:03,  1.00it/s]                                                         Episode 47	 reward: -4.63	 makespan: 458.25	 Mean_loss: 0.04835856,  training time: 1.05
+progress:  92%|[34m█████████▏[0m| 46/50 [00:55<00:03,  1.00it/s]progress:  94%|[34m█████████▍[0m| 47/50 [00:55<00:03,  1.01s/it]                                                         Episode 48	 reward: -5.65	 makespan: 559.00	 Mean_loss: 0.12665634,  training time: 0.91
+progress:  94%|[34m█████████▍[0m| 47/50 [00:55<00:03,  1.01s/it]progress:  96%|[34m█████████▌[0m| 48/50 [00:55<00:01,  1.02it/s]                                                         Episode 49	 reward: -5.41	 makespan: 535.50	 Mean_loss: 0.13717499,  training time: 0.99
+progress:  96%|[34m█████████▌[0m| 48/50 [00:56<00:01,  1.02it/s]progress:  98%|[34m█████████▊[0m| 49/50 [00:56<00:00,  1.01it/s]                                                         Episode 50	 reward: -5.08	 makespan: 502.50	 Mean_loss: 0.07694244,  training time: 0.99
+progress:  98%|[34m█████████▊[0m| 49/50 [00:57<00:00,  1.01it/s]progress: 100%|[34m██████████[0m| 50/50 [00:57<00:00,  1.01it/s]progress: 100%|[34m██████████[0m| 50/50 [00:57<00:00,  1.16s/it]
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp17/maml/finetuning/maml+exp17_500_512_3/13x5 --model_suffix free --finetuning_model maml+exp17_500_512_3 --max_updates 50 --n_j 13 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/13x5+mix
+save model name:  13x5+mix+free
+./trained_network/SD2/maml+exp17_500_512_3.pth
+-------------------------Training Setting-------------------------
+source : SD2
+model name :./trained_network/SD2/maml+exp17_500_512_3.pth
+vali data :./data/data_train_vali/SD2/13x5+mix
+
+
+progress:   0%|[34m          [0m| 0/50 [00:00<?, ?it/s]                                                Episode 1	 reward: -6.16	 makespan: 610.00	 Mean_loss: 4.39683867,  training time: 3.89
+progress:   0%|[34m          [0m| 0/50 [00:03<?, ?it/s]progress:   2%|[34m▏         [0m| 1/50 [00:03<03:10,  3.89s/it]                                                        Episode 2	 reward: -6.45	 makespan: 638.25	 Mean_loss: 2.25342035,  training time: 1.06
+progress:   2%|[34m▏         [0m| 1/50 [00:04<03:10,  3.89s/it]progress:   4%|[34m▍         [0m| 2/50 [00:04<01:46,  2.23s/it]                                                        Episode 3	 reward: -7.02	 makespan: 695.25	 Mean_loss: 0.85493886,  training time: 1.07
+progress:   4%|[34m▍         [0m| 2/50 [00:06<01:46,  2.23s/it]progress:   6%|[34m▌         [0m| 3/50 [00:06<01:19,  1.70s/it]                                                        Episode 4	 reward: -6.59	 makespan: 652.00	 Mean_loss: 0.66976911,  training time: 1.06
+progress:   6%|[34m▌         [0m| 3/50 [00:07<01:19,  1.70s/it]progress:   8%|[34m▊         [0m| 4/50 [00:07<01:06,  1.45s/it]                                                        Episode 5	 reward: -6.55	 makespan: 648.50	 Mean_loss: 0.53061044,  training time: 1.12
+progress:   8%|[34m▊         [0m| 4/50 [00:08<01:06,  1.45s/it]progress:  10%|[34m█         [0m| 5/50 [00:08<00:59,  1.33s/it]                                                        Episode 6	 reward: -6.99	 makespan: 692.50	 Mean_loss: 0.35418054,  training time: 1.08
+progress:  10%|[34m█         [0m| 5/50 [00:09<00:59,  1.33s/it]progress:  12%|[34m█▏        [0m| 6/50 [00:09<00:54,  1.25s/it]                                                        Episode 7	 reward: -6.75	 makespan: 668.00	 Mean_loss: 0.37728226,  training time: 1.09
+progress:  12%|[34m█▏        [0m| 6/50 [00:10<00:54,  1.25s/it]progress:  14%|[34m█▍        [0m| 7/50 [00:10<00:51,  1.19s/it]                                                        Episode 8	 reward: -6.52	 makespan: 645.50	 Mean_loss: 0.31783834,  training time: 1.05
+progress:  14%|[34m█▍        [0m| 7/50 [00:11<00:51,  1.19s/it]progress:  16%|[34m█▌        [0m| 8/50 [00:11<00:48,  1.15s/it]                                                        Episode 9	 reward: -6.59	 makespan: 652.25	 Mean_loss: 0.34073666,  training time: 1.05
+progress:  16%|[34m█▌        [0m| 8/50 [00:12<00:48,  1.15s/it]progress:  18%|[34m█▊        [0m| 9/50 [00:12<00:45,  1.12s/it]                                                        Episode 10	 reward: -7.01	 makespan: 694.25	 Mean_loss: 0.29647711,  training time: 1.17
+progress:  18%|[34m█▊        [0m| 9/50 [00:13<00:45,  1.12s/it]progress:  20%|[34m██        [0m| 10/50 [00:13<00:45,  1.14s/it]                                                         Episode 11	 reward: -6.95	 makespan: 687.75	 Mean_loss: 0.25446534,  training time: 1.19
+progress:  20%|[34m██        [0m| 10/50 [00:14<00:45,  1.14s/it]progress:  22%|[34m██▏       [0m| 11/50 [00:14<00:44,  1.15s/it]                                                         Episode 12	 reward: -6.81	 makespan: 674.25	 Mean_loss: 0.25577098,  training time: 1.24
+progress:  22%|[34m██▏       [0m| 11/50 [00:16<00:44,  1.15s/it]progress:  24%|[34m██▍       [0m| 12/50 [00:16<00:44,  1.18s/it]                                                         Episode 13	 reward: -6.43	 makespan: 636.50	 Mean_loss: 0.26349339,  training time: 1.24
+progress:  24%|[34m██▍       [0m| 12/50 [00:17<00:44,  1.18s/it]progress:  26%|[34m██▌       [0m| 13/50 [00:17<00:44,  1.20s/it]                                                         Episode 14	 reward: -6.60	 makespan: 653.75	 Mean_loss: 0.15366796,  training time: 1.14
+progress:  26%|[34m██▌       [0m| 13/50 [00:18<00:44,  1.20s/it]progress:  28%|[34m██▊       [0m| 14/50 [00:18<00:42,  1.18s/it]                                                         Episode 15	 reward: -6.76	 makespan: 669.00	 Mean_loss: 0.19186457,  training time: 1.16
+progress:  28%|[34m██▊       [0m| 14/50 [00:19<00:42,  1.18s/it]progress:  30%|[34m███       [0m| 15/50 [00:19<00:41,  1.17s/it]                                                         Episode 16	 reward: -6.15	 makespan: 608.75	 Mean_loss: 0.18368347,  training time: 1.45
+progress:  30%|[34m███       [0m| 15/50 [00:21<00:41,  1.17s/it]progress:  32%|[34m███▏      [0m| 16/50 [00:21<00:42,  1.26s/it]                                                         Episode 17	 reward: -6.61	 makespan: 654.75	 Mean_loss: 0.24646543,  training time: 1.19
+progress:  32%|[34m███▏      [0m| 16/50 [00:22<00:42,  1.26s/it]progress:  34%|[34m███▍      [0m| 17/50 [00:22<00:40,  1.24s/it]                                                         Episode 18	 reward: -6.21	 makespan: 615.25	 Mean_loss: 0.14982057,  training time: 1.14
+progress:  34%|[34m███▍      [0m| 17/50 [00:23<00:40,  1.24s/it]progress:  36%|[34m███▌      [0m| 18/50 [00:23<00:38,  1.21s/it]                                                         Episode 19	 reward: -6.56	 makespan: 649.50	 Mean_loss: 0.14217283,  training time: 1.11
+progress:  36%|[34m███▌      [0m| 18/50 [00:24<00:38,  1.21s/it]progress:  38%|[34m███▊      [0m| 19/50 [00:24<00:36,  1.18s/it]                                                         Episode 20	 reward: -6.51	 makespan: 644.00	 Mean_loss: 0.12163264,  training time: 1.11
+progress:  38%|[34m███▊      [0m| 19/50 [00:25<00:36,  1.18s/it]progress:  40%|[34m████      [0m| 20/50 [00:25<00:34,  1.16s/it]                                                         Episode 21	 reward: -5.54	 makespan: 548.25	 Mean_loss: 0.17612481,  training time: 1.09
+progress:  40%|[34m████      [0m| 20/50 [00:26<00:34,  1.16s/it]progress:  42%|[34m████▏     [0m| 21/50 [00:26<00:33,  1.14s/it]                                                         Episode 22	 reward: -6.01	 makespan: 595.00	 Mean_loss: 0.10380666,  training time: 1.12
+progress:  42%|[34m████▏     [0m| 21/50 [00:27<00:33,  1.14s/it]progress:  44%|[34m████▍     [0m| 22/50 [00:27<00:31,  1.13s/it]                                                         Episode 23	 reward: -6.04	 makespan: 597.50	 Mean_loss: 0.13319650,  training time: 1.09
+progress:  44%|[34m████▍     [0m| 22/50 [00:28<00:31,  1.13s/it]progress:  46%|[34m████▌     [0m| 23/50 [00:28<00:30,  1.12s/it]                                                         Episode 24	 reward: -5.65	 makespan: 559.25	 Mean_loss: 0.08675512,  training time: 1.14
+progress:  46%|[34m████▌     [0m| 23/50 [00:30<00:30,  1.12s/it]progress:  48%|[34m████▊     [0m| 24/50 [00:30<00:29,  1.13s/it]                                                         Episode 25	 reward: -5.77	 makespan: 571.25	 Mean_loss: 0.06979302,  training time: 1.11
+progress:  48%|[34m████▊     [0m| 24/50 [00:31<00:29,  1.13s/it]progress:  50%|[34m█████     [0m| 25/50 [00:31<00:28,  1.12s/it]                                                         Episode 26	 reward: -5.97	 makespan: 590.75	 Mean_loss: 0.09806179,  training time: 1.11
+progress:  50%|[34m█████     [0m| 25/50 [00:32<00:28,  1.12s/it]progress:  52%|[34m█████▏    [0m| 26/50 [00:32<00:26,  1.12s/it]                                                         Episode 27	 reward: -5.84	 makespan: 578.25	 Mean_loss: 0.06665152,  training time: 1.12
+progress:  52%|[34m█████▏    [0m| 26/50 [00:33<00:26,  1.12s/it]progress:  54%|[34m█████▍    [0m| 27/50 [00:33<00:25,  1.12s/it]                                                         Episode 28	 reward: -5.39	 makespan: 534.00	 Mean_loss: 0.03607608,  training time: 1.12
+progress:  54%|[34m█████▍    [0m| 27/50 [00:34<00:25,  1.12s/it]progress:  56%|[34m█████▌    [0m| 28/50 [00:34<00:24,  1.12s/it]                                                         Episode 29	 reward: -5.54	 makespan: 548.75	 Mean_loss: 0.04351012,  training time: 1.13
+progress:  56%|[34m█████▌    [0m| 28/50 [00:35<00:24,  1.12s/it]progress:  58%|[34m█████▊    [0m| 29/50 [00:35<00:23,  1.12s/it]                                                         Episode 30	 reward: -5.62	 makespan: 556.00	 Mean_loss: 0.05206360,  training time: 1.11
+progress:  58%|[34m█████▊    [0m| 29/50 [00:36<00:23,  1.12s/it]progress:  60%|[34m██████    [0m| 30/50 [00:36<00:22,  1.12s/it]                                                         Episode 31	 reward: -5.66	 makespan: 560.50	 Mean_loss: 0.01996781,  training time: 1.11
+progress:  60%|[34m██████    [0m| 30/50 [00:37<00:22,  1.12s/it]progress:  62%|[34m██████▏   [0m| 31/50 [00:37<00:21,  1.12s/it]                                                         Episode 32	 reward: -5.44	 makespan: 538.25	 Mean_loss: 0.03848462,  training time: 1.27
+progress:  62%|[34m██████▏   [0m| 31/50 [00:39<00:21,  1.12s/it]progress:  64%|[34m██████▍   [0m| 32/50 [00:39<00:20,  1.16s/it]                                                         Episode 33	 reward: -5.43	 makespan: 537.75	 Mean_loss: 0.03281651,  training time: 1.20
+progress:  64%|[34m██████▍   [0m| 32/50 [00:40<00:20,  1.16s/it]progress:  66%|[34m██████▌   [0m| 33/50 [00:40<00:19,  1.17s/it]                                                         Episode 34	 reward: -5.35	 makespan: 529.25	 Mean_loss: 0.03545226,  training time: 1.09
+progress:  66%|[34m██████▌   [0m| 33/50 [00:41<00:19,  1.17s/it]progress:  68%|[34m██████▊   [0m| 34/50 [00:41<00:18,  1.15s/it]                                                         Episode 35	 reward: -5.56	 makespan: 550.75	 Mean_loss: 0.02522044,  training time: 1.12
+progress:  68%|[34m██████▊   [0m| 34/50 [00:42<00:18,  1.15s/it]progress:  70%|[34m███████   [0m| 35/50 [00:42<00:17,  1.14s/it]                                                         Episode 36	 reward: -5.31	 makespan: 526.00	 Mean_loss: 0.03076770,  training time: 1.22
+progress:  70%|[34m███████   [0m| 35/50 [00:43<00:17,  1.14s/it]progress:  72%|[34m███████▏  [0m| 36/50 [00:43<00:16,  1.18s/it]                                                         Episode 37	 reward: -5.44	 makespan: 539.00	 Mean_loss: 0.03844787,  training time: 1.30
+progress:  72%|[34m███████▏  [0m| 36/50 [00:45<00:16,  1.18s/it]progress:  74%|[34m███████▍  [0m| 37/50 [00:45<00:15,  1.22s/it]                                                         Episode 38	 reward: -5.41	 makespan: 535.50	 Mean_loss: 0.03661983,  training time: 1.23
+progress:  74%|[34m███████▍  [0m| 37/50 [00:46<00:15,  1.22s/it]progress:  76%|[34m███████▌  [0m| 38/50 [00:46<00:14,  1.22s/it]                                                         Episode 39	 reward: -5.18	 makespan: 513.25	 Mean_loss: 0.02122693,  training time: 1.14
+progress:  76%|[34m███████▌  [0m| 38/50 [00:47<00:14,  1.22s/it]progress:  78%|[34m███████▊  [0m| 39/50 [00:47<00:13,  1.20s/it]                                                         Episode 40	 reward: -5.69	 makespan: 563.25	 Mean_loss: 0.02498456,  training time: 1.12
+progress:  78%|[34m███████▊  [0m| 39/50 [00:48<00:13,  1.20s/it]progress:  80%|[34m████████  [0m| 40/50 [00:48<00:11,  1.17s/it]                                                         Episode 41	 reward: -5.35	 makespan: 529.50	 Mean_loss: 0.02640155,  training time: 2.42
+progress:  80%|[34m████████  [0m| 40/50 [00:51<00:11,  1.17s/it]progress:  82%|[34m████████▏ [0m| 41/50 [00:51<00:13,  1.55s/it]                                                         Episode 42	 reward: -5.36	 makespan: 530.25	 Mean_loss: 0.02016333,  training time: 1.26
+progress:  82%|[34m████████▏ [0m| 41/50 [00:52<00:13,  1.55s/it]progress:  84%|[34m████████▍ [0m| 42/50 [00:52<00:11,  1.46s/it]                                                         Episode 43	 reward: -5.53	 makespan: 547.50	 Mean_loss: 0.03518151,  training time: 1.49
+progress:  84%|[34m████████▍ [0m| 42/50 [00:53<00:11,  1.46s/it]progress:  86%|[34m████████▌ [0m| 43/50 [00:53<00:10,  1.47s/it]                                                         Episode 44	 reward: -5.46	 makespan: 540.50	 Mean_loss: 0.03873393,  training time: 1.17
+progress:  86%|[34m████████▌ [0m| 43/50 [00:55<00:10,  1.47s/it]progress:  88%|[34m████████▊ [0m| 44/50 [00:55<00:08,  1.38s/it]                                                         Episode 45	 reward: -5.30	 makespan: 524.25	 Mean_loss: 0.02777112,  training time: 1.36
+progress:  88%|[34m████████▊ [0m| 44/50 [00:56<00:08,  1.38s/it]progress:  90%|[34m█████████ [0m| 45/50 [00:56<00:06,  1.38s/it]                                                         Episode 46	 reward: -5.31	 makespan: 525.25	 Mean_loss: 0.01383711,  training time: 1.43
+progress:  90%|[34m█████████ [0m| 45/50 [00:57<00:06,  1.38s/it]progress:  92%|[34m█████████▏[0m| 46/50 [00:57<00:05,  1.39s/it]                                                         Episode 47	 reward: -5.38	 makespan: 532.25	 Mean_loss: 0.01038732,  training time: 1.47
+progress:  92%|[34m█████████▏[0m| 46/50 [00:59<00:05,  1.39s/it]progress:  94%|[34m█████████▍[0m| 47/50 [00:59<00:04,  1.42s/it]                                                         Episode 48	 reward: -5.57	 makespan: 551.25	 Mean_loss: 0.05236382,  training time: 1.33
+progress:  94%|[34m█████████▍[0m| 47/50 [01:00<00:04,  1.42s/it]progress:  96%|[34m█████████▌[0m| 48/50 [01:00<00:02,  1.39s/it]                                                         Episode 49	 reward: -5.35	 makespan: 529.25	 Mean_loss: 0.02469961,  training time: 1.41
+progress:  96%|[34m█████████▌[0m| 48/50 [01:02<00:02,  1.39s/it]progress:  98%|[34m█████████▊[0m| 49/50 [01:02<00:01,  1.40s/it]                                                         Episode 50	 reward: -5.65	 makespan: 559.25	 Mean_loss: 0.02992937,  training time: 1.17
+progress:  98%|[34m█████████▊[0m| 49/50 [01:03<00:01,  1.40s/it]progress: 100%|[34m██████████[0m| 50/50 [01:03<00:00,  1.33s/it]progress: 100%|[34m██████████[0m| 50/50 [01:03<00:00,  1.26s/it]
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp17/maml/finetuning/maml+exp17_500_512_3/15x5 --model_suffix free --finetuning_model maml+exp17_500_512_3 --max_updates 50 --n_j 15 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+./trained_network/SD2/maml+exp17_500_512_3.pth
+-------------------------Training Setting-------------------------
+source : SD2
+model name :./trained_network/SD2/maml+exp17_500_512_3.pth
+vali data :./data/data_train_vali/SD2/15x5+mix
+
+
+progress:   0%|[34m          [0m| 0/50 [00:00<?, ?it/s]                                                Episode 1	 reward: -5.96	 makespan: 590.25	 Mean_loss: 5.28693962,  training time: 5.42
+progress:   0%|[34m          [0m| 0/50 [00:05<?, ?it/s]progress:   2%|[34m▏         [0m| 1/50 [00:05<04:26,  5.45s/it]                                                        Episode 2	 reward: -7.21	 makespan: 714.25	 Mean_loss: 1.39573693,  training time: 1.60
+progress:   2%|[34m▏         [0m| 1/50 [00:07<04:26,  5.45s/it]progress:   4%|[34m▍         [0m| 2/50 [00:07<02:33,  3.19s/it]                                                        Episode 3	 reward: -7.25	 makespan: 717.75	 Mean_loss: 1.29394555,  training time: 1.25
+progress:   4%|[34m▍         [0m| 2/50 [00:08<02:33,  3.19s/it]progress:   6%|[34m▌         [0m| 3/50 [00:08<01:48,  2.31s/it]                                                        Episode 4	 reward: -7.20	 makespan: 713.00	 Mean_loss: 0.89830202,  training time: 1.57
+progress:   6%|[34m▌         [0m| 3/50 [00:09<01:48,  2.31s/it]progress:   8%|[34m▊         [0m| 4/50 [00:09<01:33,  2.02s/it]                                                        Episode 5	 reward: -7.35	 makespan: 728.00	 Mean_loss: 0.50541651,  training time: 1.31
+progress:   8%|[34m▊         [0m| 4/50 [00:11<01:33,  2.02s/it]progress:  10%|[34m█         [0m| 5/50 [00:11<01:19,  1.77s/it]                                                        Episode 6	 reward: -6.83	 makespan: 676.50	 Mean_loss: 0.39589220,  training time: 1.27
+progress:  10%|[34m█         [0m| 5/50 [00:12<01:19,  1.77s/it]progress:  12%|[34m█▏        [0m| 6/50 [00:12<01:10,  1.60s/it]                                                        Episode 7	 reward: -7.57	 makespan: 749.00	 Mean_loss: 0.35474056,  training time: 1.37
+progress:  12%|[34m█▏        [0m| 6/50 [00:13<01:10,  1.60s/it]progress:  14%|[34m█▍        [0m| 7/50 [00:13<01:05,  1.53s/it]                                                        Episode 8	 reward: -7.16	 makespan: 709.00	 Mean_loss: 0.38172299,  training time: 1.31
+progress:  14%|[34m█▍        [0m| 7/50 [00:15<01:05,  1.53s/it]progress:  16%|[34m█▌        [0m| 8/50 [00:15<01:01,  1.46s/it]                                                        Episode 9	 reward: -7.02	 makespan: 694.75	 Mean_loss: 0.28675666,  training time: 1.36
+progress:  16%|[34m█▌        [0m| 8/50 [00:16<01:01,  1.46s/it]progress:  18%|[34m█▊        [0m| 9/50 [00:16<00:58,  1.43s/it]                                                        Episode 10	 reward: -6.99	 makespan: 692.00	 Mean_loss: 0.29259294,  training time: 1.31
+progress:  18%|[34m█▊        [0m| 9/50 [00:17<00:58,  1.43s/it]progress:  20%|[34m██        [0m| 10/50 [00:17<00:55,  1.39s/it]                                                         Episode 11	 reward: -7.13	 makespan: 706.25	 Mean_loss: 0.29419640,  training time: 1.42
+progress:  20%|[34m██        [0m| 10/50 [00:19<00:55,  1.39s/it]progress:  22%|[34m██▏       [0m| 11/50 [00:19<00:54,  1.40s/it]                                                         Episode 12	 reward: -6.81	 makespan: 674.00	 Mean_loss: 0.20299721,  training time: 1.76
+progress:  22%|[34m██▏       [0m| 11/50 [00:21<00:54,  1.40s/it]progress:  24%|[34m██▍       [0m| 12/50 [00:21<00:57,  1.51s/it]                                                         Episode 13	 reward: -7.11	 makespan: 704.25	 Mean_loss: 0.19986062,  training time: 1.35
+progress:  24%|[34m██▍       [0m| 12/50 [00:22<00:57,  1.51s/it]progress:  26%|[34m██▌       [0m| 13/50 [00:22<00:54,  1.46s/it]                                                         Episode 14	 reward: -7.41	 makespan: 733.25	 Mean_loss: 0.24481140,  training time: 1.32
+progress:  26%|[34m██▌       [0m| 13/50 [00:23<00:54,  1.46s/it]progress:  28%|[34m██▊       [0m| 14/50 [00:23<00:51,  1.42s/it]                                                         Episode 15	 reward: -6.74	 makespan: 667.75	 Mean_loss: 0.23876613,  training time: 1.29
+progress:  28%|[34m██▊       [0m| 14/50 [00:24<00:51,  1.42s/it]progress:  30%|[34m███       [0m| 15/50 [00:24<00:48,  1.38s/it]                                                         Episode 16	 reward: -7.01	 makespan: 693.50	 Mean_loss: 0.17924245,  training time: 1.31
+progress:  30%|[34m███       [0m| 15/50 [00:26<00:48,  1.38s/it]progress:  32%|[34m███▏      [0m| 16/50 [00:26<00:46,  1.36s/it]                                                         Episode 17	 reward: -6.65	 makespan: 658.25	 Mean_loss: 0.15703976,  training time: 1.91
+progress:  32%|[34m███▏      [0m| 16/50 [00:28<00:46,  1.36s/it]progress:  34%|[34m███▍      [0m| 17/50 [00:28<00:50,  1.54s/it]                                                         Episode 18	 reward: -6.59	 makespan: 652.00	 Mean_loss: 0.18110381,  training time: 1.34
+progress:  34%|[34m███▍      [0m| 17/50 [00:29<00:50,  1.54s/it]progress:  36%|[34m███▌      [0m| 18/50 [00:29<00:47,  1.48s/it]                                                         Episode 19	 reward: -6.98	 makespan: 691.50	 Mean_loss: 0.25546071,  training time: 1.45
+progress:  36%|[34m███▌      [0m| 18/50 [00:31<00:47,  1.48s/it]progress:  38%|[34m███▊      [0m| 19/50 [00:31<00:45,  1.47s/it]                                                         Episode 20	 reward: -6.76	 makespan: 669.25	 Mean_loss: 0.11890481,  training time: 1.41
+progress:  38%|[34m███▊      [0m| 19/50 [00:32<00:45,  1.47s/it]progress:  40%|[34m████      [0m| 20/50 [00:32<00:43,  1.45s/it]                                                         Episode 21	 reward: -6.95	 makespan: 688.00	 Mean_loss: 0.22164056,  training time: 1.63
+progress:  40%|[34m████      [0m| 20/50 [00:34<00:43,  1.45s/it]progress:  42%|[34m████▏     [0m| 21/50 [00:34<00:43,  1.52s/it]                                                         Episode 22	 reward: -7.67	 makespan: 759.25	 Mean_loss: 0.20762230,  training time: 1.49
+progress:  42%|[34m████▏     [0m| 21/50 [00:35<00:43,  1.52s/it]progress:  44%|[34m████▍     [0m| 22/50 [00:35<00:42,  1.51s/it]                                                         Episode 23	 reward: -7.42	 makespan: 734.25	 Mean_loss: 0.22030260,  training time: 1.55
+progress:  44%|[34m████▍     [0m| 22/50 [00:37<00:42,  1.51s/it]progress:  46%|[34m████▌     [0m| 23/50 [00:37<00:41,  1.53s/it]                                                         Episode 24	 reward: -7.21	 makespan: 714.00	 Mean_loss: 0.24819387,  training time: 1.51
+progress:  46%|[34m████▌     [0m| 23/50 [00:38<00:41,  1.53s/it]progress:  48%|[34m████▊     [0m| 24/50 [00:38<00:39,  1.53s/it]                                                         Episode 25	 reward: -7.00	 makespan: 693.00	 Mean_loss: 0.19253731,  training time: 1.37
+progress:  48%|[34m████▊     [0m| 24/50 [00:40<00:39,  1.53s/it]progress:  50%|[34m█████     [0m| 25/50 [00:40<00:36,  1.48s/it]                                                         Episode 26	 reward: -7.37	 makespan: 730.00	 Mean_loss: 0.17000660,  training time: 1.34
+progress:  50%|[34m█████     [0m| 25/50 [00:41<00:36,  1.48s/it]progress:  52%|[34m█████▏    [0m| 26/50 [00:41<00:34,  1.44s/it]                                                         Episode 27	 reward: -7.31	 makespan: 723.25	 Mean_loss: 0.18704629,  training time: 1.40
+progress:  52%|[34m█████▏    [0m| 26/50 [00:42<00:34,  1.44s/it]progress:  54%|[34m█████▍    [0m| 27/50 [00:42<00:32,  1.43s/it]                                                         Episode 28	 reward: -7.04	 makespan: 697.25	 Mean_loss: 0.15589432,  training time: 1.33
+progress:  54%|[34m█████▍    [0m| 27/50 [00:44<00:32,  1.43s/it]progress:  56%|[34m█████▌    [0m| 28/50 [00:44<00:30,  1.40s/it]                                                         Episode 29	 reward: -7.62	 makespan: 754.50	 Mean_loss: 0.17935701,  training time: 1.31
+progress:  56%|[34m█████▌    [0m| 28/50 [00:45<00:30,  1.40s/it]progress:  58%|[34m█████▊    [0m| 29/50 [00:45<00:28,  1.37s/it]                                                         Episode 30	 reward: -7.46	 makespan: 738.50	 Mean_loss: 0.17304228,  training time: 1.29
+progress:  58%|[34m█████▊    [0m| 29/50 [00:46<00:28,  1.37s/it]progress:  60%|[34m██████    [0m| 30/50 [00:46<00:26,  1.35s/it]                                                         Episode 31	 reward: -7.68	 makespan: 760.50	 Mean_loss: 0.19096102,  training time: 1.31
+progress:  60%|[34m██████    [0m| 30/50 [00:48<00:26,  1.35s/it]progress:  62%|[34m██████▏   [0m| 31/50 [00:48<00:25,  1.34s/it]                                                         Episode 32	 reward: -7.13	 makespan: 705.50	 Mean_loss: 0.16373694,  training time: 1.66
+progress:  62%|[34m██████▏   [0m| 31/50 [00:49<00:25,  1.34s/it]progress:  64%|[34m██████▍   [0m| 32/50 [00:49<00:25,  1.43s/it]                                                         Episode 33	 reward: -7.47	 makespan: 739.50	 Mean_loss: 0.13664682,  training time: 1.39
+progress:  64%|[34m██████▍   [0m| 32/50 [00:51<00:25,  1.43s/it]progress:  66%|[34m██████▌   [0m| 33/50 [00:51<00:24,  1.42s/it]                                                         Episode 34	 reward: -7.29	 makespan: 721.25	 Mean_loss: 0.13401553,  training time: 1.34
+progress:  66%|[34m██████▌   [0m| 33/50 [00:52<00:24,  1.42s/it]progress:  68%|[34m██████▊   [0m| 34/50 [00:52<00:22,  1.40s/it]                                                         Episode 35	 reward: -6.60	 makespan: 653.00	 Mean_loss: 0.11826476,  training time: 1.28
+progress:  68%|[34m██████▊   [0m| 34/50 [00:53<00:22,  1.40s/it]progress:  70%|[34m███████   [0m| 35/50 [00:53<00:20,  1.37s/it]                                                         Episode 36	 reward: -6.34	 makespan: 627.50	 Mean_loss: 0.11344437,  training time: 1.43
+progress:  70%|[34m███████   [0m| 35/50 [00:55<00:20,  1.37s/it]progress:  72%|[34m███████▏  [0m| 36/50 [00:55<00:19,  1.38s/it]                                                         Episode 37	 reward: -6.40	 makespan: 634.00	 Mean_loss: 0.12609705,  training time: 1.33
+progress:  72%|[34m███████▏  [0m| 36/50 [00:56<00:19,  1.38s/it]progress:  74%|[34m███████▍  [0m| 37/50 [00:56<00:17,  1.37s/it]                                                         Episode 38	 reward: -6.40	 makespan: 634.00	 Mean_loss: 0.12103081,  training time: 1.36
+progress:  74%|[34m███████▍  [0m| 37/50 [00:57<00:17,  1.37s/it]progress:  76%|[34m███████▌  [0m| 38/50 [00:57<00:16,  1.37s/it]                                                         Episode 39	 reward: -6.44	 makespan: 638.00	 Mean_loss: 0.11495809,  training time: 1.31
+progress:  76%|[34m███████▌  [0m| 38/50 [00:59<00:16,  1.37s/it]progress:  78%|[34m███████▊  [0m| 39/50 [00:59<00:14,  1.35s/it]                                                         Episode 40	 reward: -6.41	 makespan: 635.00	 Mean_loss: 0.14549771,  training time: 1.35
+progress:  78%|[34m███████▊  [0m| 39/50 [01:00<00:14,  1.35s/it]progress:  80%|[34m████████  [0m| 40/50 [01:00<00:13,  1.35s/it]                                                         Episode 41	 reward: -6.64	 makespan: 657.75	 Mean_loss: 0.09344956,  training time: 1.30
+progress:  80%|[34m████████  [0m| 40/50 [01:01<00:13,  1.35s/it]progress:  82%|[34m████████▏ [0m| 41/50 [01:01<00:12,  1.34s/it]                                                         Episode 42	 reward: -6.32	 makespan: 625.50	 Mean_loss: 0.07527406,  training time: 1.27
+progress:  82%|[34m████████▏ [0m| 41/50 [01:03<00:12,  1.34s/it]progress:  84%|[34m████████▍ [0m| 42/50 [01:03<00:10,  1.32s/it]                                                         Episode 43	 reward: -6.47	 makespan: 640.50	 Mean_loss: 0.08816938,  training time: 1.30
+progress:  84%|[34m████████▍ [0m| 42/50 [01:04<00:10,  1.32s/it]progress:  86%|[34m████████▌ [0m| 43/50 [01:04<00:09,  1.31s/it]                                                         Episode 44	 reward: -6.52	 makespan: 645.00	 Mean_loss: 0.09655045,  training time: 1.33
+progress:  86%|[34m████████▌ [0m| 43/50 [01:05<00:09,  1.31s/it]progress:  88%|[34m████████▊ [0m| 44/50 [01:05<00:07,  1.32s/it]                                                         Episode 45	 reward: -6.48	 makespan: 642.00	 Mean_loss: 0.07258051,  training time: 1.32
+progress:  88%|[34m████████▊ [0m| 44/50 [01:07<00:07,  1.32s/it]progress:  90%|[34m█████████ [0m| 45/50 [01:07<00:06,  1.32s/it]                                                         Episode 46	 reward: -6.40	 makespan: 633.75	 Mean_loss: 0.09325366,  training time: 1.42
+progress:  90%|[34m█████████ [0m| 45/50 [01:08<00:06,  1.32s/it]progress:  92%|[34m█████████▏[0m| 46/50 [01:08<00:05,  1.35s/it]                                                         Episode 47	 reward: -6.05	 makespan: 599.00	 Mean_loss: 0.07460184,  training time: 1.40
+progress:  92%|[34m█████████▏[0m| 46/50 [01:09<00:05,  1.35s/it]progress:  94%|[34m█████████▍[0m| 47/50 [01:09<00:04,  1.36s/it]                                                         Episode 48	 reward: -6.27	 makespan: 620.25	 Mean_loss: 0.12403387,  training time: 1.35
+progress:  94%|[34m█████████▍[0m| 47/50 [01:11<00:04,  1.36s/it]progress:  96%|[34m█████████▌[0m| 48/50 [01:11<00:02,  1.36s/it]                                                         Episode 49	 reward: -5.76	 makespan: 570.50	 Mean_loss: 0.08254378,  training time: 1.31
+progress:  96%|[34m█████████▌[0m| 48/50 [01:12<00:02,  1.36s/it]progress:  98%|[34m█████████▊[0m| 49/50 [01:12<00:01,  1.35s/it]                                                         Episode 50	 reward: -5.86	 makespan: 579.75	 Mean_loss: 0.09553757,  training time: 1.32
+progress:  98%|[34m█████████▊[0m| 49/50 [01:13<00:01,  1.35s/it]progress: 100%|[34m██████████[0m| 50/50 [01:13<00:00,  1.34s/it]progress: 100%|[34m██████████[0m| 50/50 [01:13<00:00,  1.48s/it]
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp17/maml/finetuning/maml+exp17_500_512_3/17x5 --model_suffix free --finetuning_model maml+exp17_500_512_3 --max_updates 50 --n_j 17 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/17x5+mix
+save model name:  17x5+mix+free
+./trained_network/SD2/maml+exp17_500_512_3.pth
+-------------------------Training Setting-------------------------
+source : SD2
+model name :./trained_network/SD2/maml+exp17_500_512_3.pth
+vali data :./data/data_train_vali/SD2/17x5+mix
+
+
+progress:   0%|[34m          [0m| 0/50 [00:00<?, ?it/s]                                                Episode 1	 reward: -7.51	 makespan: 743.00	 Mean_loss: 5.82330513,  training time: 3.46
+progress:   0%|[34m          [0m| 0/50 [00:03<?, ?it/s]progress:   2%|[34m▏         [0m| 1/50 [00:03<02:49,  3.46s/it]                                                        Episode 2	 reward: -8.35	 makespan: 826.25	 Mean_loss: 1.55796230,  training time: 1.50
+progress:   2%|[34m▏         [0m| 1/50 [00:04<02:49,  3.46s/it]progress:   4%|[34m▍         [0m| 2/50 [00:04<01:51,  2.31s/it]                                                        Episode 3	 reward: -7.69	 makespan: 761.00	 Mean_loss: 1.83266044,  training time: 1.45
+progress:   4%|[34m▍         [0m| 2/50 [00:06<01:51,  2.31s/it]progress:   6%|[34m▌         [0m| 3/50 [00:06<01:30,  1.93s/it]                                                        Episode 4	 reward: -7.96	 makespan: 787.75	 Mean_loss: 1.45657754,  training time: 1.55
+progress:   6%|[34m▌         [0m| 3/50 [00:07<01:30,  1.93s/it]progress:   8%|[34m▊         [0m| 4/50 [00:07<01:21,  1.78s/it]                                                        Episode 5	 reward: -7.52	 makespan: 744.75	 Mean_loss: 1.18430150,  training time: 1.67
+progress:   8%|[34m▊         [0m| 4/50 [00:09<01:21,  1.78s/it]progress:  10%|[34m█         [0m| 5/50 [00:09<01:18,  1.74s/it]                                                        Episode 6	 reward: -8.06	 makespan: 798.25	 Mean_loss: 0.57725477,  training time: 1.46
+progress:  10%|[34m█         [0m| 5/50 [00:11<01:18,  1.74s/it]progress:  12%|[34m█▏        [0m| 6/50 [00:11<01:12,  1.65s/it]                                                        Episode 7	 reward: -7.85	 makespan: 777.00	 Mean_loss: 0.46605060,  training time: 1.42
+progress:  12%|[34m█▏        [0m| 6/50 [00:12<01:12,  1.65s/it]progress:  14%|[34m█▍        [0m| 7/50 [00:12<01:07,  1.57s/it]                                                        Episode 8	 reward: -8.00	 makespan: 791.75	 Mean_loss: 0.45144978,  training time: 1.40
+progress:  14%|[34m█▍        [0m| 7/50 [00:13<01:07,  1.57s/it]progress:  16%|[34m█▌        [0m| 8/50 [00:13<01:03,  1.52s/it]                                                        Episode 9	 reward: -8.40	 makespan: 831.25	 Mean_loss: 0.35814279,  training time: 1.57
+progress:  16%|[34m█▌        [0m| 8/50 [00:15<01:03,  1.52s/it]progress:  18%|[34m█▊        [0m| 9/50 [00:15<01:03,  1.55s/it]                                                        Episode 10	 reward: -8.20	 makespan: 811.75	 Mean_loss: 0.39903772,  training time: 2.11
+progress:  18%|[34m█▊        [0m| 9/50 [00:17<01:03,  1.55s/it]progress:  20%|[34m██        [0m| 10/50 [00:17<01:08,  1.72s/it]                                                         Episode 11	 reward: -7.59	 makespan: 751.00	 Mean_loss: 0.42167425,  training time: 1.38
+progress:  20%|[34m██        [0m| 10/50 [00:19<01:08,  1.72s/it]progress:  22%|[34m██▏       [0m| 11/50 [00:19<01:03,  1.62s/it]                                                         Episode 12	 reward: -8.03	 makespan: 795.00	 Mean_loss: 0.26143128,  training time: 1.50
+progress:  22%|[34m██▏       [0m| 11/50 [00:20<01:03,  1.62s/it]progress:  24%|[34m██▍       [0m| 12/50 [00:20<01:00,  1.58s/it]                                                         Episode 13	 reward: -8.14	 makespan: 805.50	 Mean_loss: 0.23005785,  training time: 1.38
+progress:  24%|[34m██▍       [0m| 12/50 [00:21<01:00,  1.58s/it]progress:  26%|[34m██▌       [0m| 13/50 [00:21<00:56,  1.52s/it]                                                         Episode 14	 reward: -8.68	 makespan: 859.00	 Mean_loss: 0.29440394,  training time: 1.39
+progress:  26%|[34m██▌       [0m| 13/50 [00:23<00:56,  1.52s/it]progress:  28%|[34m██▊       [0m| 14/50 [00:23<00:53,  1.48s/it]                                                         Episode 15	 reward: -8.65	 makespan: 856.50	 Mean_loss: 0.37961850,  training time: 1.38
+progress:  28%|[34m██▊       [0m| 14/50 [00:24<00:53,  1.48s/it]progress:  30%|[34m███       [0m| 15/50 [00:24<00:50,  1.45s/it]                                                         Episode 16	 reward: -9.05	 makespan: 895.75	 Mean_loss: 0.39849776,  training time: 1.39
+progress:  30%|[34m███       [0m| 15/50 [00:26<00:50,  1.45s/it]progress:  32%|[34m███▏      [0m| 16/50 [00:26<00:48,  1.43s/it]                                                         Episode 17	 reward: -7.72	 makespan: 764.75	 Mean_loss: 0.27927637,  training time: 1.38
+progress:  32%|[34m███▏      [0m| 16/50 [00:27<00:48,  1.43s/it]progress:  34%|[34m███▍      [0m| 17/50 [00:27<00:46,  1.42s/it]                                                         Episode 18	 reward: -9.34	 makespan: 925.00	 Mean_loss: 0.49272484,  training time: 1.38
+progress:  34%|[34m███▍      [0m| 17/50 [00:28<00:46,  1.42s/it]progress:  36%|[34m███▌      [0m| 18/50 [00:28<00:45,  1.41s/it]                                                         Episode 19	 reward: -8.35	 makespan: 826.25	 Mean_loss: 0.35588330,  training time: 1.38
+progress:  36%|[34m███▌      [0m| 18/50 [00:30<00:45,  1.41s/it]progress:  38%|[34m███▊      [0m| 19/50 [00:30<00:43,  1.40s/it]                                                         Episode 20	 reward: -8.97	 makespan: 888.00	 Mean_loss: 0.40608802,  training time: 1.38
+progress:  38%|[34m███▊      [0m| 19/50 [00:31<00:43,  1.40s/it]progress:  40%|[34m████      [0m| 20/50 [00:31<00:41,  1.39s/it]                                                         Episode 21	 reward: -7.93	 makespan: 785.25	 Mean_loss: 0.30705053,  training time: 1.39
+progress:  40%|[34m████      [0m| 20/50 [00:33<00:41,  1.39s/it]progress:  42%|[34m████▏     [0m| 21/50 [00:33<00:40,  1.39s/it]                                                         Episode 22	 reward: -8.91	 makespan: 882.50	 Mean_loss: 0.30643779,  training time: 1.52
+progress:  42%|[34m████▏     [0m| 21/50 [00:34<00:40,  1.39s/it]progress:  44%|[34m████▍     [0m| 22/50 [00:34<00:40,  1.43s/it]                                                         Episode 23	 reward: -9.02	 makespan: 893.25	 Mean_loss: 0.21180946,  training time: 1.55
+progress:  44%|[34m████▍     [0m| 22/50 [00:36<00:40,  1.43s/it]progress:  46%|[34m████▌     [0m| 23/50 [00:36<00:39,  1.47s/it]                                                         Episode 24	 reward: -8.19	 makespan: 810.50	 Mean_loss: 0.23372197,  training time: 1.39
+progress:  46%|[34m████▌     [0m| 23/50 [00:37<00:39,  1.47s/it]progress:  48%|[34m████▊     [0m| 24/50 [00:37<00:37,  1.45s/it]                                                         Episode 25	 reward: -8.06	 makespan: 797.50	 Mean_loss: 0.21498075,  training time: 1.43
+progress:  48%|[34m████▊     [0m| 24/50 [00:38<00:37,  1.45s/it]progress:  50%|[34m█████     [0m| 25/50 [00:38<00:35,  1.44s/it]                                                         Episode 26	 reward: -8.00	 makespan: 791.75	 Mean_loss: 0.28301734,  training time: 1.55
+progress:  50%|[34m█████     [0m| 25/50 [00:40<00:35,  1.44s/it]progress:  52%|[34m█████▏    [0m| 26/50 [00:40<00:35,  1.47s/it]                                                         Episode 27	 reward: -8.21	 makespan: 813.25	 Mean_loss: 0.27071133,  training time: 1.88
+progress:  52%|[34m█████▏    [0m| 26/50 [00:42<00:35,  1.47s/it]progress:  54%|[34m█████▍    [0m| 27/50 [00:42<00:36,  1.61s/it]                                                         Episode 28	 reward: -7.36	 makespan: 728.75	 Mean_loss: 0.24338901,  training time: 1.44
+progress:  54%|[34m█████▍    [0m| 27/50 [00:43<00:36,  1.61s/it]progress:  56%|[34m█████▌    [0m| 28/50 [00:43<00:34,  1.56s/it]                                                         Episode 29	 reward: -8.67	 makespan: 858.25	 Mean_loss: 0.24808787,  training time: 1.40
+progress:  56%|[34m█████▌    [0m| 28/50 [00:45<00:34,  1.56s/it]progress:  58%|[34m█████▊    [0m| 29/50 [00:45<00:31,  1.51s/it]                                                         Episode 30	 reward: -7.77	 makespan: 769.00	 Mean_loss: 0.24038069,  training time: 1.39
+progress:  58%|[34m█████▊    [0m| 29/50 [00:46<00:31,  1.51s/it]progress:  60%|[34m██████    [0m| 30/50 [00:46<00:29,  1.47s/it]                                                         Episode 31	 reward: -8.70	 makespan: 861.00	 Mean_loss: 0.25929427,  training time: 1.41
+progress:  60%|[34m██████    [0m| 30/50 [00:48<00:29,  1.47s/it]progress:  62%|[34m██████▏   [0m| 31/50 [00:48<00:27,  1.45s/it]                                                         Episode 32	 reward: -7.92	 makespan: 784.00	 Mean_loss: 0.23058569,  training time: 1.38
+progress:  62%|[34m██████▏   [0m| 31/50 [00:49<00:27,  1.45s/it]progress:  64%|[34m██████▍   [0m| 32/50 [00:49<00:25,  1.43s/it]                                                         Episode 33	 reward: -8.12	 makespan: 804.25	 Mean_loss: 0.20872201,  training time: 1.40
+progress:  64%|[34m██████▍   [0m| 32/50 [00:50<00:25,  1.43s/it]progress:  66%|[34m██████▌   [0m| 33/50 [00:50<00:24,  1.42s/it]                                                         Episode 34	 reward: -8.52	 makespan: 843.25	 Mean_loss: 0.25587046,  training time: 1.41
+progress:  66%|[34m██████▌   [0m| 33/50 [00:52<00:24,  1.42s/it]progress:  68%|[34m██████▊   [0m| 34/50 [00:52<00:22,  1.42s/it]                                                         Episode 35	 reward: -8.38	 makespan: 829.75	 Mean_loss: 0.27559114,  training time: 1.37
+progress:  68%|[34m██████▊   [0m| 34/50 [00:53<00:22,  1.42s/it]progress:  70%|[34m███████   [0m| 35/50 [00:53<00:21,  1.40s/it]                                                         Episode 36	 reward: -8.30	 makespan: 821.50	 Mean_loss: 0.14825901,  training time: 1.37
+progress:  70%|[34m███████   [0m| 35/50 [00:54<00:21,  1.40s/it]progress:  72%|[34m███████▏  [0m| 36/50 [00:54<00:19,  1.39s/it]                                                         Episode 37	 reward: -8.39	 makespan: 831.00	 Mean_loss: 0.24834774,  training time: 1.38
+progress:  72%|[34m███████▏  [0m| 36/50 [00:56<00:19,  1.39s/it]progress:  74%|[34m███████▍  [0m| 37/50 [00:56<00:18,  1.39s/it]                                                         Episode 38	 reward: -8.04	 makespan: 795.75	 Mean_loss: 0.26846251,  training time: 1.37
+progress:  74%|[34m███████▍  [0m| 37/50 [00:57<00:18,  1.39s/it]progress:  76%|[34m███████▌  [0m| 38/50 [00:57<00:16,  1.39s/it]                                                         Episode 39	 reward: -8.08	 makespan: 799.75	 Mean_loss: 0.15226826,  training time: 1.37
+progress:  76%|[34m███████▌  [0m| 38/50 [00:59<00:16,  1.39s/it]progress:  78%|[34m███████▊  [0m| 39/50 [00:59<00:15,  1.38s/it]                                                         Episode 40	 reward: -8.02	 makespan: 794.00	 Mean_loss: 0.13420233,  training time: 1.37
+progress:  78%|[34m███████▊  [0m| 39/50 [01:00<00:15,  1.38s/it]progress:  80%|[34m████████  [0m| 40/50 [01:00<00:13,  1.38s/it]                                                         Episode 41	 reward: -8.52	 makespan: 843.25	 Mean_loss: 0.15219735,  training time: 1.37
+progress:  80%|[34m████████  [0m| 40/50 [01:01<00:13,  1.38s/it]progress:  82%|[34m████████▏ [0m| 41/50 [01:01<00:12,  1.38s/it]                                                         Episode 42	 reward: -7.98	 makespan: 789.75	 Mean_loss: 0.09514247,  training time: 1.36
+progress:  82%|[34m████████▏ [0m| 41/50 [01:03<00:12,  1.38s/it]progress:  84%|[34m████████▍ [0m| 42/50 [01:03<00:10,  1.37s/it]                                                         Episode 43	 reward: -7.98	 makespan: 790.50	 Mean_loss: 0.18212563,  training time: 1.36
+progress:  84%|[34m████████▍ [0m| 42/50 [01:04<00:10,  1.37s/it]progress:  86%|[34m████████▌ [0m| 43/50 [01:04<00:09,  1.37s/it]                                                         Episode 44	 reward: -8.44	 makespan: 835.75	 Mean_loss: 0.15261793,  training time: 1.37
+progress:  86%|[34m████████▌ [0m| 43/50 [01:05<00:09,  1.37s/it]progress:  88%|[34m████████▊ [0m| 44/50 [01:05<00:08,  1.37s/it]                                                         Episode 45	 reward: -8.33	 makespan: 824.75	 Mean_loss: 0.15023285,  training time: 1.37
+progress:  88%|[34m████████▊ [0m| 44/50 [01:07<00:08,  1.37s/it]progress:  90%|[34m█████████ [0m| 45/50 [01:07<00:06,  1.37s/it]                                                         Episode 46	 reward: -8.50	 makespan: 841.75	 Mean_loss: 0.19733883,  training time: 1.37
+progress:  90%|[34m█████████ [0m| 45/50 [01:08<00:06,  1.37s/it]progress:  92%|[34m█████████▏[0m| 46/50 [01:08<00:05,  1.37s/it]                                                         Episode 47	 reward: -8.39	 makespan: 831.00	 Mean_loss: 0.22717559,  training time: 1.36
+progress:  92%|[34m█████████▏[0m| 46/50 [01:10<00:05,  1.37s/it]progress:  94%|[34m█████████▍[0m| 47/50 [01:10<00:04,  1.37s/it]                                                         Episode 48	 reward: -7.86	 makespan: 778.50	 Mean_loss: 0.12067251,  training time: 1.37
+progress:  94%|[34m█████████▍[0m| 47/50 [01:11<00:04,  1.37s/it]progress:  96%|[34m█████████▌[0m| 48/50 [01:11<00:02,  1.37s/it]                                                         Episode 49	 reward: -7.24	 makespan: 716.50	 Mean_loss: 0.15969631,  training time: 1.37
+progress:  96%|[34m█████████▌[0m| 48/50 [01:12<00:02,  1.37s/it]progress:  98%|[34m█████████▊[0m| 49/50 [01:12<00:01,  1.37s/it]                                                         Episode 50	 reward: -7.39	 makespan: 731.50	 Mean_loss: 0.16767666,  training time: 1.43
+progress:  98%|[34m█████████▊[0m| 49/50 [01:14<00:01,  1.37s/it]progress: 100%|[34m██████████[0m| 50/50 [01:14<00:00,  1.39s/it]progress: 100%|[34m██████████[0m| 50/50 [01:14<00:00,  1.48s/it]
++ IFS=,
++ read n_j n_m

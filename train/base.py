@@ -60,7 +60,7 @@ class Trainer:
         if self.data_source == 'SD1':
             self.data_name = f'{self.n_j}x{self.n_m}'
         elif self.data_source == 'SD2':
-            self.data_name = f'{self.n_j}x{self.n_m}x{config.op_per_job}{strToSuffix(config.data_suffix)}'
+            self.data_name = f'{self.n_j}x{self.n_m}x{int(config.op_per_job)}{strToSuffix(config.data_suffix)}'
         
         self.vali_data_path = f'./data/data_train_vali/{self.data_source}/{self.data_name}'
         self.save_instance = config.save_instance
@@ -207,21 +207,21 @@ class Trainer:
         Save the finetuning log to a file.
         """
         # 构建日志目录路径
-        log_dir = f"./train_log/{self.data_source}/{self.model_name}"
+        log_dir = f"./train_log/{self.data_source}/{self.config.exp_dim}/{self.model_name}"
         # 创建日志目录
         self.create_directory(log_dir)
 
         # 写入日志文件
         # 构建 makespan 日志文件的完整路径
-        makespan_log_file_path = os.path.join(log_dir, f"{self.config.finetuning_model}_makespan.txt")
+        makespan_log_file_path = os.path.join(log_dir, f"makespan.txt")
         # 写入 makespan 日志
         with open(makespan_log_file_path, "a+") as f:
-            f.write(f"\n\n{self.finetuning_model} -->>> {self.data_name}\n")
+            f.write(f"\n{self.finetuning_model}\n")
             f.write("\n".join([str(_) for _ in self.makespan_log]))
             
 
         # 构建 loss 日志文件的完整路径
-        loss_log_file_path = os.path.join(log_dir, f"{self.config.finetuning_model}_loss.txt")
+        loss_log_file_path = os.path.join(log_dir, f"loss.txt")
         # 写入 loss 日志
         with open(loss_log_file_path, "a+") as f:
             f.write(f"\n\n{self.finetuning_model} -->>> {self.data_name}\n")

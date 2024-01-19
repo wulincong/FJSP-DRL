@@ -101,8 +101,8 @@ class DANTrainer(Trainer):
 
             # save the mean rewards of all instances in current training data
             self.log.append([i_update, mean_rewards_all_env])
-            self.makespan_log.append([i_update, list(self.env.current_makespan)])
-            self.loss_log.append([i_update, loss])
+            self.makespan_log.append(list(self.env.current_makespan))
+            self.loss_log.append(loss)
 
             ep_et = time.time()
             # print the reward, makespan, loss and training time of the current episode

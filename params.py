@@ -132,6 +132,7 @@ parser.add_argument('--test_method', nargs='+', default=[], help='List of heuris
 # args for log
 parser.add_argument('--logdir', type=str, default="./runs/"+str_time, help='Suffix of the data')
 parser.add_argument('--save_instance', type=str2bool, default=True, help='Whether SAVE instance in finetuning stage')
+parser.add_argument('--exp_dim', type=str, default="m", help='试验在哪个维度改变')
 
 import os
 

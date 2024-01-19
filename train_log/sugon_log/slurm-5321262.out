@@ -1,0 +1,1643 @@
++ source /work/home/lxx_hzau/.bashrc
+++ export CUDA_HOME=/usr/local/cuda-11.1/
+++ CUDA_HOME=/usr/local/cuda-11.1/
+++ export PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++ PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++ '[' -f /etc/bashrc ']'
+++ . /etc/bashrc
++++ '[' '' ']'
++++ shopt -q login_shell
++++ '[' 5235 -gt 199 ']'
+++++ /usr/bin/id -gn
+++++ /usr/bin/id -un
++++ '[' ac6owqc808 = lxx_hzau ']'
++++ umask 022
++++ SHELL=/bin/bash
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/256term.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/256term.sh
+++++ local256=truecolor
+++++ '[' -n truecolor ']'
+++++ case "$TERM" in
+++++ export TERM
+++++ '[' -n '' ']'
+++++ unset local256
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/abrt-console-notification.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/abrt-console-notification.sh
+++++ tty -s
+++++ return 0
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/bash_completion.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/bash_completion.sh
+++++ '[' -z '4.2.46(2)-release' -o -z '' -o -n '' ']'
+++++ return
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/clusconf-env.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/clusconf-env.sh
+++++ export CLUSCONF_HOME=/opt/clusconf
+++++ CLUSCONF_HOME=/opt/clusconf
+++++ export PATH=/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export PATH=/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export NFSCONF=/opt/clusconf/etc/nfs.cfg
+++++ NFSCONF=/opt/clusconf/etc/nfs.cfg
+++++ export IPMICONF=/opt/clusconf/etc/ipmi.cfg
+++++ IPMICONF=/opt/clusconf/etc/ipmi.cfg
+++++ export AUTOCLUSCONF=/opt/clusconf/etc/autoconf.cfg
+++++ AUTOCLUSCONF=/opt/clusconf/etc/autoconf.cfg
+++++ export STARTWAITTIME=300
+++++ STARTWAITTIME=300
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/colorgrep.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorgrep.sh
+++++ /usr/libexec/grepconf.sh -c
+++++ alias 'grep=grep --color=auto'
+++++ alias 'egrep=egrep --color=auto'
+++++ alias 'fgrep=fgrep --color=auto'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/colorls.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/colorls.sh
+++++ '[' '!' -t 0 ']'
+++++ return
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/dawning.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/dawning.sh
+++++ export GRIDVIEW_HOME=/opt/gridview
+++++ GRIDVIEW_HOME=/opt/gridview
+++++ export MUNGE_HOME=/opt/gridview/munge
+++++ MUNGE_HOME=/opt/gridview/munge
+++++ export PATH=/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export LD_LIBRARY_PATH=/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ LD_LIBRARY_PATH=/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ export MANPATH=/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ MANPATH=/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ export C_INCLUDE_PATH=/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ C_INCLUDE_PATH=/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ export SLURM_HOME=/opt/gridview/slurm
+++++ SLURM_HOME=/opt/gridview/slurm
+++++ export PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin/
+++++ export LD_LIBRARY_PATH=/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ LD_LIBRARY_PATH=/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++++ export MANPATH=/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ MANPATH=/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/share/man:/opt/rh/devtoolset-7/root/usr/share/man:/opt/gridview/slurm/share/man:/opt/gridview/munge/share/man:
+++++ export C_INCLUDE_PATH=/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ C_INCLUDE_PATH=/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/gridview/slurm/include:/opt/gridview/munge/include:/opt/rh/devtoolset-7/root/usr/include/c++/7:/opt/rh/devtoolset-7/root/usr/include/c++/7/x86_64-redhat-linux:/opt/gridview/slurm/include:/opt/gridview/munge/include:
+++++ export SLURM_PMIX_DIRECT_CONN=true
+++++ SLURM_PMIX_DIRECT_CONN=true
+++++ export SLURM_PMIX_DIRECT_CONN_UCX=true
+++++ SLURM_PMIX_DIRECT_CONN_UCX=true
+++++ export SLURM_PMIX_DIRECT_CONN_EARLY=true
+++++ SLURM_PMIX_DIRECT_CONN_EARLY=true
+++++ export SLURM_PMIX_TIMEOUT=3000
+++++ SLURM_PMIX_TIMEOUT=3000
+++++ '[' lxx_hzau '!=' root ']'
+++++ export SQUEUE_USERS=lxx_hzau
+++++ SQUEUE_USERS=lxx_hzau
+++++ export SCONTROL_JOB_USERS=lxx_hzau
+++++ SCONTROL_JOB_USERS=lxx_hzau
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/flatpak.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/flatpak.sh
+++++ '[' /exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share = /work/home/lxx_hzau/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share ']'
+++++ export XDG_DATA_DIRS
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/kde.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/kde.sh
+++++ '[' -z /usr ']'
+++++ '[' -z '' ']'
+++++ grep --color=auto -qs '^PRELINKING=yes' /etc/sysconfig/prelink
+++++ for libdir in /usr/lib64 /usr/lib
+++++ '[' -n /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins ']'
+++++ echo /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+++++ /bin/grep -q /usr/lib64/kde4/plugins
+++++ for libdir in /usr/lib64 /usr/lib
+++++ '[' -n /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins ']'
+++++ echo /usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+++++ /bin/grep -q /usr/lib/kde4/plugins
+++++ '[' '!' -d /work/home/lxx_hzau/.local/share ']'
+++++ unset libdir
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/lang.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/lang.sh
+++++ sourced=0
+++++ '[' -n en_US.UTF-8 ']'
+++++ saved_lang=en_US.UTF-8
+++++ '[' -f /work/home/lxx_hzau/.i18n ']'
+++++ LANG=en_US.UTF-8
+++++ unset saved_lang
+++++ '[' 0 = 1 ']'
+++++ unset sourced
+++++ unset langfile
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/less.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/less.sh
+++++ '[' -x /usr/bin/lesspipe.sh ']'
+++++ export 'LESSOPEN=||/usr/bin/lesspipe.sh %s'
+++++ LESSOPEN='||/usr/bin/lesspipe.sh %s'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/modules.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/modules.sh
+++++++ /bin/ps -p 1045 -ocomm=
++++++ /bin/basename slurm_script
+++++ shell=slurm_script
+++++ '[' -f /usr/share/Modules/init/slurm_script ']'
+++++ . /usr/share/Modules/init/sh
++++++ MODULESHOME=/usr/share/Modules
++++++ export MODULESHOME
++++++ '[' compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1 = '' ']'
++++++ '[' /public/software/modules/base:/public/software/modules/apps = '' ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/mpi-selector.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/mpi-selector.sh
+++++ mpi_selector_dir=/var/mpi-selector/data
+++++ mpi_selector_homefile=/work/home/lxx_hzau/.mpi-selector
+++++ mpi_selector_sysfile=/etc/sysconfig/mpi-selector
+++++ mpi_selection=
+++++ test -f /work/home/lxx_hzau/.mpi-selector
+++++ test -f /etc/sysconfig/mpi-selector
+++++ test '' '!=' '' -a -f /var/mpi-selector/data/.sh
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/PackageKit.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/PackageKit.sh
+++++ [[ -n '' ]]
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/perl-homedir.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/perl-homedir.sh
+++++ PERL_HOMEDIR=1
+++++ '[' -f /etc/sysconfig/perl-homedir ']'
+++++ '[' -f /work/home/lxx_hzau/.perl-homedir ']'
+++++ alias 'perlll=eval `perl -Mlocal::lib`'
+++++ '[' x1 = x1 ']'
++++++ perl -Mlocal::lib
+++++ eval
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/qt-graphicssystem.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/qt-graphicssystem.sh
+++++ '[' -z 1 -a -z '' ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/qt.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/qt.sh
+++++ '[' -z /usr/lib64/qt-3.3 ']'
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/rocm-gcc-mpi-default.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/rocm-gcc-mpi-default.sh
+++++ [[ lxx_hzau =~ root|xhadmin ]]
+++++ module use /public/software/modules/apps
++++++ /usr/bin/modulecmd sh use /public/software/modules/apps
+++++ eval
+++++ module use /public/software/modules/base
++++++ /usr/bin/modulecmd sh use /public/software/modules/base
+++++ eval
+++++ module unuse /opt/hpc/software/modules
++++++ /usr/bin/modulecmd sh unuse /opt/hpc/software/modules
+++++ eval
+++++ module load compiler/devtoolset/7.3.1
++++++ /usr/bin/modulecmd sh load compiler/devtoolset/7.3.1
+++++ eval
+++++ module load mpi/hpcx/gcc-7.3.1
++++++ /usr/bin/modulecmd sh load mpi/hpcx/gcc-7.3.1
+++++ eval
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/vim.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vim.sh
+++++ '[' -n '4.2.46(2)-release' -o -n '' -o -n '' ']'
+++++ '[' -x /usr/bin/id ']'
++++++ /usr/bin/id -u
+++++ ID=5235
+++++ '[' -n 5235 -a 5235 -le 200 ']'
+++++ alias vi
+++++ alias vi=vim
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/vte.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/vte.sh
+++++ '[' -n '4.2.46(2)-release' -o -n '' ']'
+++++ [[ hxB == *i* ]]
+++++ return 0
++++ for i in '/etc/profile.d/*.sh'
++++ '[' -r /etc/profile.d/which2.sh ']'
++++ '[' '' ']'
++++ . /etc/profile.d/which2.sh
+++++ alias 'which=alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
++++ unset i
++++ unset -f pathmunge
++++ /work/home/lxx_hzau/miniconda3/bin/conda shell.bash hook
+++ __conda_setup='export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
+++ '[' 0 -eq 0 ']'
+++ eval 'export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
++++ export CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
++++ CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++++ '[' -z x ']'
++++ conda activate base
++++ local cmd=activate
++++ case "$cmd" in
++++ __conda_activate activate base
++++ '[' -n '' ']'
++++ local ask_conda
+++++ PS1=
+++++ __conda_exe shell.posix activate base
+++++ /work/home/lxx_hzau/miniconda3/bin/conda shell.posix activate base
++++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\'''
++++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\'''
+++++ PS1='(base) '
+++++ export PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++++ PATH=/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++++ export CONDA_SHLVL=1
+++++ CONDA_SHLVL=1
+++++ export 'CONDA_PROMPT_MODIFIER=(base) '
+++++ CONDA_PROMPT_MODIFIER='(base) '
+++++ export PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++++ PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
++++ __conda_hashr
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
+++ unset __conda_setup
+++ export PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ PATH=/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
++ module load nvidia/cuda/11.6
+++ /usr/bin/modulecmd sh load nvidia/cuda/11.6
++ eval CUDA_HOME=/public/software/compiler/nvidia/cuda/11.6.0:/usr/local/cuda-11.1/ ';export' 'CUDA_HOME;CUDA_ROOT=/public/software/compiler/nvidia/cuda/11.6.0' ';export' 'CUDA_ROOT;INCLUDE=/public/software/compiler/nvidia/cuda/11.6.0/include:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/include:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/include:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/include:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/include' ';export' 'INCLUDE;LD_LIBRARY_PATH=/public/software/compiler/nvidia/cuda/11.6.0/lib64:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:' ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1:nvidia/cuda/11.6' ';export' 'LOADEDMODULES;PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin' ';export' 'PATH;_LMFILES_=/public/software/modules/base/compiler/devtoolset/7.3.1:/public/software/modules/base/mpi/hpcx/gcc-7.3.1:/public/software/modules/base/nvidia/cuda/11.6' ';export' '_LMFILES_;'
+++ CUDA_HOME=/public/software/compiler/nvidia/cuda/11.6.0:/usr/local/cuda-11.1/
+++ export CUDA_HOME
+++ CUDA_ROOT=/public/software/compiler/nvidia/cuda/11.6.0
+++ export CUDA_ROOT
+++ INCLUDE=/public/software/compiler/nvidia/cuda/11.6.0/include:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/include:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/include:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/include:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/include
+++ export INCLUDE
+++ LD_LIBRARY_PATH=/public/software/compiler/nvidia/cuda/11.6.0/lib64:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/sharp/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/lib:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/lib:/opt/rh/devtoolset-7/root/usr/lib64:/opt/rh/devtoolset-7/root/usr/lib:/opt/gridview/slurm/lib:/opt/gridview/slurm/lib64:/opt/gridview/munge/lib:
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=compiler/devtoolset/7.3.1:mpi/hpcx/gcc-7.3.1:nvidia/cuda/11.6
+++ export LOADEDMODULES
+++ PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ export PATH
+++ _LMFILES_=/public/software/modules/base/compiler/devtoolset/7.3.1:/public/software/modules/base/mpi/hpcx/gcc-7.3.1:/public/software/modules/base/nvidia/cuda/11.6
+++ export _LMFILES_
++ conda activate RL-torch
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate RL-torch
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate RL-torch
+++ /work/home/lxx_hzau/miniconda3/bin/conda shell.posix activate RL-torch
++ ask_conda='PS1='\''(RL-torch) '\''
+export PATH='\''/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_PREFIX='\''/work/home/lxx_hzau/miniconda3/envs/RL-torch'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''RL-torch'\''
+export CONDA_PROMPT_MODIFIER='\''(RL-torch) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\''
+export CONDA_PREFIX_1='\''/work/home/lxx_hzau/miniconda3'\''
+export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\'''
++ eval 'PS1='\''(RL-torch) '\''
+export PATH='\''/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin'\''
+export CONDA_PREFIX='\''/work/home/lxx_hzau/miniconda3/envs/RL-torch'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''RL-torch'\''
+export CONDA_PROMPT_MODIFIER='\''(RL-torch) '\''
+export PYTHONPATH='\''/work/home/lxx_hzau/project/FJSP-DRL-main'\''
+export CONDA_PREFIX_1='\''/work/home/lxx_hzau/miniconda3'\''
+export CONDA_EXE='\''/work/home/lxx_hzau/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/work/home/lxx_hzau/miniconda3/bin/python'\'''
+++ PS1='(RL-torch) '
+++ export PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ PATH=/public/software/compiler/nvidia/cuda/11.6.0/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/bin/remote-cli:/work/home/lxx_hzau/local/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/work/home/lxx_hzau/local/bin:/work/home/lxx_hzau/miniconda3/envs/RL-torch/bin:/work/home/lxx_hzau/miniconda3/condabin:/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/hcoll/bin:/opt/hpc/software/mpi/hpcx/v2.11.0/ucx_without_rocm/bin:/opt/rh/devtoolset-7/root/usr/bin:/usr/lib64/qt-3.3/bin:/work/home/lxx_hzau/perl5/bin:/opt/gridview/slurm/bin:/opt/gridview/slurm/sbin:/opt/gridview/munge/bin:/opt/gridview/munge/sbin:/opt/clusconf/sbin:/opt/clusconf/bin:/usr/local/bin:/usr/bin:/usr/local/cuda-11.1/bin:/usr/local/sbin:/usr/sbin:/usr/local/cuda-11.1/bin:/work/home/lxx_hzau/.local/bin:/work/home/lxx_hzau/bin:/usr/local/cuda-11.1/bin:/usr/local/cuda-11.1/bin
+++ export CONDA_PREFIX=/work/home/lxx_hzau/miniconda3/envs/RL-torch
+++ CONDA_PREFIX=/work/home/lxx_hzau/miniconda3/envs/RL-torch
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=RL-torch
+++ CONDA_DEFAULT_ENV=RL-torch
+++ export 'CONDA_PROMPT_MODIFIER=(RL-torch) '
+++ CONDA_PROMPT_MODIFIER='(RL-torch) '
+++ export PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++ PYTHONPATH=/work/home/lxx_hzau/project/FJSP-DRL-main
+++ export CONDA_PREFIX_1=/work/home/lxx_hzau/miniconda3
+++ CONDA_PREFIX_1=/work/home/lxx_hzau/miniconda3
+++ export CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
+++ CONDA_EXE=/work/home/lxx_hzau/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/work/home/lxx_hzau/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ t=train
++ exp=exp16
++ echo exp16
+exp16
++ cat
+改变操作数的MAML训练
++ n_j_options='10 13 15 17'
++ n_m_options='5  5  5  5'
++ logdir=./runs/exp16
++ hidden_dim_actor=512
++ hidden_dim_critic=512
++ num_mlp_layers_actor=3
++ num_mlp_layers_critic=3
++ num_envs=4
++ meta_iterations=500
++ max_updates_maml=1000
++ num_tasks=4
++ max_updates_finetune=50
++ lr=0.003
++ data='10,5 13,5 15,5 17,5'
++ logdir_dan=./runs/exp16/DAN
++ model_suffix=exp16_500_512_3
++ logdir_maml=./runs/exp16/maml
++ python train/multi_task_maml_exp14.py --logdir ./runs/exp16/maml/train_model --model_suffix exp16_500_512_3 --maml_model True --meta_iterations 500 --num_tasks 4 --max_updates 1000 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --n_j_options 10 13 15 17 --n_m_options 5 5 5 5
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/10x5+mix
+save model name:  maml+exp16_500_512_3
+self.n_js [10, 13, 15, 17]
+[5, 5, 5, 5]
+[(10, 5), (13, 5), (15, 5), (17, 5)]
+[628.0, 838.0, 841.25, 1001.5]
+Episode 1	 reward: -9.39	 Mean_loss: 3.88001728,  training time: 9.07
+[581.75, 747.0, 808.5, 993.0]
+Episode 2	 reward: -9.59	 Mean_loss: 3.63485551,  training time: 8.09
+[603.25, 759.75, 813.75, 947.0]
+Episode 3	 reward: -10.56	 Mean_loss: 3.14254880,  training time: 8.03
+[638.75, 747.25, 810.25, 939.5]
+Episode 4	 reward: -9.91	 Mean_loss: 3.03644800,  training time: 8.04
+[619.25, 789.0, 784.0, 912.25]
+Episode 5	 reward: -9.81	 Mean_loss: 2.92242885,  training time: 8.11
+[575.75, 757.5, 824.5, 864.5]
+Episode 6	 reward: -9.82	 Mean_loss: 2.29371858,  training time: 8.03
+[584.75, 753.0, 764.0, 910.0]
+Episode 7	 reward: -9.86	 Mean_loss: 2.41876554,  training time: 8.03
+[543.5, 760.5, 784.5, 871.5]
+Episode 8	 reward: -10.30	 Mean_loss: 2.08340430,  training time: 8.03
+[588.25, 711.5, 785.5, 924.75]
+Episode 9	 reward: -10.61	 Mean_loss: 2.29535747,  training time: 8.04
+[548.5, 705.0, 737.5, 897.25]
+Episode 10	 reward: -10.03	 Mean_loss: 2.16300774,  training time: 8.04
+[556.75, 694.5, 750.0, 843.25]
+Episode 11	 reward: -10.08	 Mean_loss: 1.62946928,  training time: 8.03
+[521.75, 734.0, 760.75, 881.5]
+Episode 12	 reward: -9.86	 Mean_loss: 1.76850390,  training time: 8.03
+[641.75, 705.5, 796.5, 872.25]
+Episode 13	 reward: -9.78	 Mean_loss: 1.57510233,  training time: 8.04
+[513.75, 696.25, 739.5, 868.25]
+Episode 14	 reward: -9.65	 Mean_loss: 1.55271792,  training time: 8.04
+[509.0, 683.75, 776.5, 809.0]
+Episode 15	 reward: -10.45	 Mean_loss: 1.26628363,  training time: 8.04
+[542.75, 695.5, 753.5, 874.75]
+Episode 16	 reward: -9.65	 Mean_loss: 1.48032665,  training time: 8.02
+[619.0, 691.0, 781.5, 842.0]
+Episode 17	 reward: -10.41	 Mean_loss: 1.24813390,  training time: 8.02
+[569.75, 711.25, 756.5, 860.75]
+Episode 18	 reward: -9.24	 Mean_loss: 1.52104294,  training time: 8.00
+[552.75, 722.25, 752.25, 834.25]
+Episode 19	 reward: -10.02	 Mean_loss: 1.35385478,  training time: 8.03
+[522.0, 724.75, 773.75, 857.0]
+Episode 20	 reward: -9.95	 Mean_loss: 1.21357822,  training time: 8.05
+[528.75, 691.75, 715.25, 884.5]
+Episode 21	 reward: -10.13	 Mean_loss: 1.16306615,  training time: 8.11
+[564.0, 693.75, 739.75, 844.25]
+Episode 22	 reward: -10.12	 Mean_loss: 0.92156965,  training time: 8.09
+[542.25, 704.5, 763.5, 903.5]
+Episode 23	 reward: -10.13	 Mean_loss: 1.18410885,  training time: 8.03
+[502.25, 705.75, 774.25, 869.25]
+Episode 24	 reward: -10.70	 Mean_loss: 1.16347539,  training time: 8.03
+[581.0, 639.25, 738.25, 874.0]
+Episode 25	 reward: -10.34	 Mean_loss: 1.12047756,  training time: 8.04
+[539.0, 697.25, 675.5, 930.0]
+Episode 26	 reward: -10.20	 Mean_loss: 1.24000823,  training time: 8.04
+[534.0, 626.0, 780.0, 897.5]
+Episode 27	 reward: -10.34	 Mean_loss: 1.33836901,  training time: 8.05
+[582.25, 679.5, 770.75, 930.0]
+Episode 28	 reward: -10.01	 Mean_loss: 1.27893162,  training time: 8.01
+[572.5, 652.0, 731.25, 930.75]
+Episode 29	 reward: -10.03	 Mean_loss: 1.42297411,  training time: 8.03
+[552.25, 713.75, 764.25, 977.5]
+Episode 30	 reward: -10.41	 Mean_loss: 1.59569061,  training time: 8.03
+[555.25, 666.0, 713.0, 855.0]
+Episode 31	 reward: -10.51	 Mean_loss: 1.21433437,  training time: 8.02
+[560.75, 670.25, 729.75, 883.25]
+Episode 32	 reward: -11.37	 Mean_loss: 1.30288589,  training time: 8.02
+[582.25, 678.25, 755.75, 897.25]
+Episode 33	 reward: -9.44	 Mean_loss: 1.24765861,  training time: 8.05
+[531.5, 728.25, 756.5, 942.75]
+Episode 34	 reward: -10.47	 Mean_loss: 1.33884728,  training time: 8.03
+[593.0, 656.5, 744.25, 894.0]
+Episode 35	 reward: -10.91	 Mean_loss: 1.20724654,  training time: 8.12
+[555.0, 674.5, 759.0, 953.25]
+Episode 36	 reward: -9.84	 Mean_loss: 1.30399668,  training time: 8.01
+[515.0, 729.0, 684.0, 890.25]
+Episode 37	 reward: -10.87	 Mean_loss: 1.31926322,  training time: 8.02
+[577.5, 726.0, 753.75, 955.75]
+Episode 38	 reward: -10.28	 Mean_loss: 1.23713720,  training time: 8.01
+[571.75, 708.25, 718.25, 934.25]
+Episode 39	 reward: -10.85	 Mean_loss: 1.21590126,  training time: 8.02
+[547.75, 737.5, 715.25, 863.25]
+Episode 40	 reward: -10.58	 Mean_loss: 1.14323997,  training time: 8.02
+[543.25, 686.75, 718.5, 825.0]
+Episode 41	 reward: -10.12	 Mean_loss: 1.02821910,  training time: 8.06
+[594.5, 709.25, 752.5, 829.75]
+Episode 42	 reward: -9.96	 Mean_loss: 0.78458613,  training time: 8.00
+[572.0, 600.75, 752.75, 809.75]
+Episode 43	 reward: -9.57	 Mean_loss: 0.88706928,  training time: 8.01
+[604.0, 657.0, 729.75, 819.0]
+Episode 44	 reward: -9.84	 Mean_loss: 0.91123998,  training time: 8.04
+[628.0, 675.5, 740.5, 858.75]
+Episode 45	 reward: -10.25	 Mean_loss: 0.98698407,  training time: 8.01
+[702.25, 654.25, 742.75, 841.5]
+Episode 46	 reward: -9.44	 Mean_loss: 0.97993815,  training time: 8.04
+[586.5, 650.0, 701.25, 804.75]
+Episode 47	 reward: -9.45	 Mean_loss: 0.91485757,  training time: 8.06
+[614.75, 664.25, 734.75, 847.5]
+Episode 48	 reward: -9.80	 Mean_loss: 0.82930046,  training time: 8.01
+[593.5, 687.75, 751.5, 780.25]
+Episode 49	 reward: -9.79	 Mean_loss: 0.82893175,  training time: 8.03
+[565.25, 669.25, 734.5, 815.25]
+Episode 50	 reward: -9.20	 Mean_loss: 0.84804004,  training time: 8.06
+[598.0, 614.75, 737.5, 791.5]
+Episode 51	 reward: -9.60	 Mean_loss: 0.71448457,  training time: 8.07
+[638.75, 691.25, 738.5, 852.0]
+Episode 52	 reward: -9.78	 Mean_loss: 0.87360501,  training time: 8.08
+[611.0, 672.25, 724.75, 830.0]
+Episode 53	 reward: -9.07	 Mean_loss: 0.76599610,  training time: 8.07
+[590.25, 654.25, 678.5, 796.0]
+Episode 54	 reward: -9.80	 Mean_loss: 0.74717021,  training time: 8.01
+[555.5, 667.25, 722.75, 808.0]
+Episode 55	 reward: -9.59	 Mean_loss: 0.66199917,  training time: 8.06
+[608.75, 664.75, 740.0, 806.75]
+Episode 56	 reward: -9.92	 Mean_loss: 0.76044863,  training time: 8.07
+[581.75, 644.0, 732.5, 796.5]
+Episode 57	 reward: -9.83	 Mean_loss: 0.67277449,  training time: 8.03
+[608.25, 611.25, 746.5, 787.25]
+Episode 58	 reward: -10.78	 Mean_loss: 0.65345180,  training time: 8.05
+[558.0, 621.75, 702.25, 797.25]
+Episode 59	 reward: -9.29	 Mean_loss: 0.60039270,  training time: 8.06
+[583.25, 666.0, 689.0, 807.25]
+Episode 60	 reward: -9.16	 Mean_loss: 0.64227021,  training time: 8.09
+[555.0, 654.5, 686.25, 845.0]
+Episode 61	 reward: -10.31	 Mean_loss: 0.58031785,  training time: 8.26
+[552.75, 690.25, 677.0, 840.0]
+Episode 62	 reward: -9.79	 Mean_loss: 0.63754797,  training time: 8.10
+[552.5, 658.0, 661.25, 852.0]
+Episode 63	 reward: -9.58	 Mean_loss: 0.63291341,  training time: 8.13
+[578.0, 721.5, 724.0, 825.0]
+Episode 64	 reward: -10.07	 Mean_loss: 0.52995187,  training time: 8.10
+[530.5, 646.0, 671.25, 795.75]
+Episode 65	 reward: -9.82	 Mean_loss: 0.51794827,  training time: 8.15
+[560.5, 672.75, 705.25, 835.0]
+Episode 66	 reward: -10.10	 Mean_loss: 0.73733878,  training time: 8.11
+[544.0, 694.25, 687.5, 867.75]
+Episode 67	 reward: -10.01	 Mean_loss: 0.60861737,  training time: 8.13
+[535.0, 685.25, 675.25, 801.0]
+Episode 68	 reward: -10.47	 Mean_loss: 0.43288979,  training time: 8.13
+[535.25, 643.75, 692.5, 785.25]
+Episode 69	 reward: -10.56	 Mean_loss: 0.66352630,  training time: 8.12
+[531.75, 691.75, 729.0, 789.0]
+Episode 70	 reward: -10.06	 Mean_loss: 0.52043331,  training time: 8.13
+[501.25, 684.0, 676.0, 823.5]
+Episode 71	 reward: -10.41	 Mean_loss: 0.67138004,  training time: 8.11
+[580.0, 622.5, 721.25, 801.75]
+Episode 72	 reward: -10.00	 Mean_loss: 0.60312647,  training time: 8.17
+[541.25, 650.5, 678.5, 841.75]
+Episode 73	 reward: -10.15	 Mean_loss: 0.59755081,  training time: 8.19
+[527.75, 644.0, 679.25, 808.25]
+Episode 74	 reward: -9.78	 Mean_loss: 0.62323636,  training time: 8.14
+[558.75, 644.25, 683.5, 826.75]
+Episode 75	 reward: -10.17	 Mean_loss: 0.66319078,  training time: 8.15
+[577.25, 668.5, 656.75, 824.75]
+Episode 76	 reward: -10.01	 Mean_loss: 0.55452013,  training time: 8.09
+[541.0, 685.0, 676.75, 796.75]
+Episode 77	 reward: -9.69	 Mean_loss: 0.48622984,  training time: 8.11
+[552.5, 679.5, 664.5, 792.25]
+Episode 78	 reward: -10.53	 Mean_loss: 0.54717994,  training time: 8.13
+[539.75, 622.75, 669.25, 780.0]
+Episode 79	 reward: -9.61	 Mean_loss: 0.57891595,  training time: 8.13
+[530.25, 658.75, 683.0, 767.75]
+Episode 80	 reward: -10.16	 Mean_loss: 0.38253546,  training time: 8.13
+[583.0, 603.5, 674.75, 718.5]
+Episode 81	 reward: -10.00	 Mean_loss: 0.44687915,  training time: 8.13
+[599.75, 616.75, 694.0, 713.25]
+Episode 82	 reward: -9.89	 Mean_loss: 0.42812192,  training time: 8.09
+[552.75, 628.75, 661.0, 714.0]
+Episode 83	 reward: -9.41	 Mean_loss: 0.38940191,  training time: 8.13
+[551.75, 577.5, 706.75, 688.25]
+Episode 84	 reward: -9.47	 Mean_loss: 0.35896760,  training time: 8.10
+[510.5, 585.75, 693.0, 754.0]
+Episode 85	 reward: -8.95	 Mean_loss: 0.42907998,  training time: 8.11
+[548.0, 577.25, 676.5, 699.0]
+Episode 86	 reward: -9.57	 Mean_loss: 0.43065262,  training time: 8.16
+[525.75, 593.5, 702.0, 707.75]
+Episode 87	 reward: -9.57	 Mean_loss: 0.37742481,  training time: 8.11
+[522.75, 631.25, 673.25, 698.0]
+Episode 88	 reward: -9.54	 Mean_loss: 0.29319006,  training time: 8.15
+[539.25, 614.75, 694.75, 707.0]
+Episode 89	 reward: -9.06	 Mean_loss: 0.43002337,  training time: 8.14
+[507.25, 592.25, 689.75, 675.0]
+Episode 90	 reward: -9.90	 Mean_loss: 0.33367303,  training time: 8.16
+[496.25, 539.75, 689.0, 739.5]
+Episode 91	 reward: -9.37	 Mean_loss: 0.54791456,  training time: 8.15
+[577.75, 611.75, 687.5, 680.75]
+Episode 92	 reward: -9.33	 Mean_loss: 0.39301360,  training time: 8.11
+[520.0, 628.5, 696.5, 718.0]
+Episode 93	 reward: -8.92	 Mean_loss: 0.49506533,  training time: 8.11
+[504.5, 606.75, 652.5, 703.0]
+Episode 94	 reward: -9.26	 Mean_loss: 0.40698096,  training time: 8.13
+[514.5, 623.75, 713.75, 698.25]
+Episode 95	 reward: -9.13	 Mean_loss: 0.36855206,  training time: 8.21
+[548.5, 604.25, 696.0, 705.25]
+Episode 96	 reward: -9.84	 Mean_loss: 0.40152356,  training time: 8.12
+[536.0, 580.75, 711.25, 696.5]
+Episode 97	 reward: -9.18	 Mean_loss: 0.30549374,  training time: 8.14
+[515.5, 619.75, 718.5, 717.75]
+Episode 98	 reward: -9.26	 Mean_loss: 0.47025743,  training time: 8.12
+[507.75, 611.5, 696.0, 690.25]
+Episode 99	 reward: -9.09	 Mean_loss: 0.44157454,  training time: 8.11
+[558.5, 589.25, 711.5, 704.75]
+Episode 100	 reward: -9.21	 Mean_loss: 0.37573776,  training time: 8.15
+[496.75, 689.25, 665.25, 762.0]
+Episode 101	 reward: -10.53	 Mean_loss: 0.31049114,  training time: 8.16
+[530.75, 622.25, 655.0, 750.25]
+Episode 102	 reward: -9.70	 Mean_loss: 0.33219418,  training time: 8.12
+[483.25, 649.5, 639.5, 745.25]
+Episode 103	 reward: -9.64	 Mean_loss: 0.28833359,  training time: 8.10
+[500.75, 718.0, 618.75, 803.0]
+Episode 104	 reward: -10.03	 Mean_loss: 0.46366936,  training time: 8.11
+[545.0, 614.0, 688.75, 746.5]
+Episode 105	 reward: -10.02	 Mean_loss: 0.28687635,  training time: 8.12
+[482.25, 613.5, 647.25, 765.25]
+Episode 106	 reward: -9.49	 Mean_loss: 0.33966655,  training time: 8.10
+[523.5, 655.5, 663.5, 724.0]
+Episode 107	 reward: -9.64	 Mean_loss: 0.25283784,  training time: 8.08
+[510.5, 695.0, 659.5, 774.5]
+Episode 108	 reward: -9.45	 Mean_loss: 0.33443955,  training time: 8.09
+[496.25, 614.0, 630.25, 740.0]
+Episode 109	 reward: -9.36	 Mean_loss: 0.22517739,  training time: 8.10
+[497.5, 634.5, 636.25, 802.5]
+Episode 110	 reward: -8.83	 Mean_loss: 0.45989951,  training time: 8.14
+[489.0, 653.0, 635.25, 765.75]
+Episode 111	 reward: -10.06	 Mean_loss: 0.35202441,  training time: 8.11
+[477.75, 615.25, 621.75, 747.25]
+Episode 112	 reward: -9.39	 Mean_loss: 0.25285140,  training time: 8.16
+[476.0, 679.75, 599.5, 727.0]
+Episode 113	 reward: -9.73	 Mean_loss: 0.25700784,  training time: 8.07
+[533.5, 606.75, 660.25, 782.25]
+Episode 114	 reward: -9.51	 Mean_loss: 0.26604238,  training time: 8.08
+[501.5, 622.5, 647.5, 736.5]
+Episode 115	 reward: -10.09	 Mean_loss: 0.27991983,  training time: 8.06
+[519.5, 683.75, 657.25, 754.5]
+Episode 116	 reward: -9.78	 Mean_loss: 0.37977281,  training time: 8.08
+[524.75, 669.75, 649.5, 729.0]
+Episode 117	 reward: -9.52	 Mean_loss: 0.34649166,  training time: 8.09
+[470.75, 646.0, 662.25, 774.75]
+Episode 118	 reward: -9.62	 Mean_loss: 0.31706759,  training time: 8.08
+[475.75, 665.0, 606.25, 733.75]
+Episode 119	 reward: -9.28	 Mean_loss: 0.27875909,  training time: 8.14
+[533.75, 591.75, 654.0, 736.25]
+Episode 120	 reward: -9.80	 Mean_loss: 0.27159941,  training time: 8.12
+[469.0, 576.75, 687.25, 822.5]
+Episode 121	 reward: -10.06	 Mean_loss: 0.46393514,  training time: 8.14
+[465.0, 571.0, 648.25, 804.5]
+Episode 122	 reward: -9.96	 Mean_loss: 0.45147812,  training time: 8.16
+[445.5, 560.5, 665.25, 796.5]
+Episode 123	 reward: -10.22	 Mean_loss: 0.43756104,  training time: 8.09
+[466.0, 606.5, 666.75, 790.5]
+Episode 124	 reward: -10.19	 Mean_loss: 0.35378906,  training time: 8.10
+[466.5, 550.25, 628.25, 779.75]
+Episode 125	 reward: -10.14	 Mean_loss: 0.38552919,  training time: 8.12
+[466.0, 549.5, 636.5, 770.75]
+Episode 126	 reward: -9.74	 Mean_loss: 0.30329946,  training time: 8.11
+[417.5, 609.75, 614.75, 767.25]
+Episode 127	 reward: -10.08	 Mean_loss: 0.27636287,  training time: 8.09
+[431.5, 570.5, 647.75, 746.0]
+Episode 128	 reward: -9.74	 Mean_loss: 0.32640430,  training time: 8.11
+[432.25, 523.0, 625.5, 740.25]
+Episode 129	 reward: -9.72	 Mean_loss: 0.33542553,  training time: 8.08
+[467.5, 557.25, 621.25, 752.25]
+Episode 130	 reward: -10.26	 Mean_loss: 0.31146860,  training time: 8.06
+[436.0, 576.0, 662.25, 766.75]
+Episode 131	 reward: -9.92	 Mean_loss: 0.33141571,  training time: 8.11
+[411.25, 552.75, 666.75, 733.25]
+Episode 132	 reward: -9.73	 Mean_loss: 0.30074283,  training time: 8.10
+[454.0, 534.0, 642.5, 765.75]
+Episode 133	 reward: -10.16	 Mean_loss: 0.37726051,  training time: 8.11
+[453.5, 524.75, 670.75, 781.5]
+Episode 134	 reward: -9.79	 Mean_loss: 0.41662747,  training time: 8.11
+[419.75, 545.5, 629.25, 725.5]
+Episode 135	 reward: -10.43	 Mean_loss: 0.32990015,  training time: 8.08
+[420.5, 585.75, 650.5, 772.5]
+Episode 136	 reward: -10.19	 Mean_loss: 0.41434515,  training time: 8.12
+[416.5, 541.5, 659.0, 775.5]
+Episode 137	 reward: -9.99	 Mean_loss: 0.42998353,  training time: 8.09
+[418.25, 552.5, 648.25, 723.0]
+Episode 138	 reward: -9.62	 Mean_loss: 0.29562023,  training time: 8.09
+[415.0, 557.75, 659.25, 723.75]
+Episode 139	 reward: -10.01	 Mean_loss: 0.28422934,  training time: 8.11
+[432.75, 561.0, 622.75, 717.5]
+Episode 140	 reward: -10.05	 Mean_loss: 0.27397403,  training time: 8.11
+[524.25, 532.0, 646.5, 676.25]
+Episode 141	 reward: -10.08	 Mean_loss: 0.25035232,  training time: 8.13
+[526.0, 541.75, 608.5, 729.5]
+Episode 142	 reward: -9.57	 Mean_loss: 0.29404131,  training time: 8.08
+[496.25, 520.25, 631.5, 698.0]
+Episode 143	 reward: -10.51	 Mean_loss: 0.23218770,  training time: 8.10
+[486.25, 580.75, 615.0, 703.5]
+Episode 144	 reward: -9.95	 Mean_loss: 0.23726776,  training time: 8.12
+[521.75, 579.0, 637.75, 720.0]
+Episode 145	 reward: -9.91	 Mean_loss: 0.27223328,  training time: 8.12
+[494.75, 592.25, 650.25, 702.5]
+Episode 146	 reward: -10.59	 Mean_loss: 0.23516694,  training time: 8.11
+[501.25, 558.75, 658.25, 722.75]
+Episode 147	 reward: -9.97	 Mean_loss: 0.33504030,  training time: 8.07
+[532.5, 562.25, 628.5, 721.25]
+Episode 148	 reward: -9.54	 Mean_loss: 0.26899409,  training time: 8.12
+[476.5, 556.5, 605.75, 722.25]
+Episode 149	 reward: -10.67	 Mean_loss: 0.23904714,  training time: 8.07
+[507.5, 575.0, 616.0, 714.5]
+Episode 150	 reward: -9.40	 Mean_loss: 0.29997405,  training time: 8.10
+[515.5, 542.25, 620.5, 716.5]
+Episode 151	 reward: -9.91	 Mean_loss: 0.23111878,  training time: 8.08
+[512.0, 520.0, 613.0, 715.0]
+Episode 152	 reward: -10.14	 Mean_loss: 0.17858292,  training time: 8.11
+[516.5, 577.25, 590.75, 702.25]
+Episode 153	 reward: -9.95	 Mean_loss: 0.16403660,  training time: 8.10
+[524.5, 536.25, 641.5, 706.0]
+Episode 154	 reward: -9.88	 Mean_loss: 0.18291478,  training time: 8.08
+[489.5, 567.5, 636.0, 710.0]
+Episode 155	 reward: -10.21	 Mean_loss: 0.20113726,  training time: 8.11
+[511.75, 557.75, 658.25, 709.75]
+Episode 156	 reward: -10.09	 Mean_loss: 0.24308342,  training time: 8.09
+[497.5, 530.5, 629.75, 707.25]
+Episode 157	 reward: -10.29	 Mean_loss: 0.20171306,  training time: 8.15
+[560.25, 546.5, 634.5, 715.0]
+Episode 158	 reward: -10.08	 Mean_loss: 0.19521251,  training time: 8.08
+[547.5, 553.5, 621.75, 706.0]
+Episode 159	 reward: -10.72	 Mean_loss: 0.19476277,  training time: 8.09
+[536.5, 538.75, 622.25, 728.25]
+Episode 160	 reward: -9.79	 Mean_loss: 0.20734087,  training time: 8.14
+[468.5, 622.75, 653.25, 730.25]
+Episode 161	 reward: -10.33	 Mean_loss: 0.26540059,  training time: 8.17
+[465.75, 560.0, 655.75, 731.75]
+Episode 162	 reward: -9.94	 Mean_loss: 0.23376912,  training time: 8.10
+[444.25, 587.5, 613.75, 710.75]
+Episode 163	 reward: -9.75	 Mean_loss: 0.17241891,  training time: 8.09
+[480.5, 575.5, 664.5, 714.0]
+Episode 164	 reward: -9.38	 Mean_loss: 0.19803765,  training time: 8.11
+[448.75, 560.5, 667.5, 701.25]
+Episode 165	 reward: -9.59	 Mean_loss: 0.21328576,  training time: 8.09
+[447.5, 577.5, 662.75, 733.75]
+Episode 166	 reward: -9.78	 Mean_loss: 0.23834570,  training time: 8.16
+[441.75, 569.75, 651.25, 739.0]
+Episode 167	 reward: -10.07	 Mean_loss: 0.22506137,  training time: 8.10
+[450.75, 599.25, 641.0, 714.5]
+Episode 168	 reward: -9.22	 Mean_loss: 0.17586508,  training time: 8.09
+[457.0, 588.25, 693.75, 715.75]
+Episode 169	 reward: -9.86	 Mean_loss: 0.17958397,  training time: 8.12
+[443.5, 561.25, 647.75, 733.75]
+Episode 170	 reward: -9.59	 Mean_loss: 0.18165316,  training time: 8.03
+[424.5, 559.25, 661.0, 732.75]
+Episode 171	 reward: -9.65	 Mean_loss: 0.18988486,  training time: 8.04
+[471.75, 596.0, 639.0, 759.75]
+Episode 172	 reward: -10.04	 Mean_loss: 0.25911772,  training time: 8.07
+[451.75, 570.75, 622.25, 719.25]
+Episode 173	 reward: -9.84	 Mean_loss: 0.20915475,  training time: 8.11
+[449.25, 548.25, 624.0, 730.75]
+Episode 174	 reward: -9.33	 Mean_loss: 0.16823733,  training time: 8.05
+[433.0, 535.75, 657.75, 706.25]
+Episode 175	 reward: -9.53	 Mean_loss: 0.15425272,  training time: 8.04
+[443.0, 587.0, 646.5, 732.75]
+Episode 176	 reward: -9.97	 Mean_loss: 0.18695875,  training time: 8.07
+[441.75, 550.5, 652.25, 712.0]
+Episode 177	 reward: -9.71	 Mean_loss: 0.15754570,  training time: 8.10
+[453.5, 577.25, 618.0, 738.75]
+Episode 178	 reward: -9.68	 Mean_loss: 0.21435253,  training time: 8.08
+[447.75, 552.5, 635.75, 713.5]
+Episode 179	 reward: -9.30	 Mean_loss: 0.15738896,  training time: 8.07
+[449.0, 574.0, 626.25, 712.25]
+Episode 180	 reward: -10.07	 Mean_loss: 0.17561823,  training time: 8.08
+[499.0, 563.25, 628.0, 688.75]
+Episode 181	 reward: -9.58	 Mean_loss: 0.13297175,  training time: 8.12
+[505.75, 545.75, 677.5, 729.75]
+Episode 182	 reward: -9.47	 Mean_loss: 0.19017015,  training time: 8.09
+[462.75, 552.5, 671.25, 726.25]
+Episode 183	 reward: -9.22	 Mean_loss: 0.18204035,  training time: 8.05
+[485.0, 525.5, 665.0, 712.5]
+Episode 184	 reward: -9.51	 Mean_loss: 0.19996338,  training time: 8.05
+[509.5, 532.25, 676.75, 678.0]
+Episode 185	 reward: -10.18	 Mean_loss: 0.13313660,  training time: 8.09
+[519.75, 553.5, 679.5, 697.0]
+Episode 186	 reward: -9.17	 Mean_loss: 0.24013931,  training time: 8.05
+[491.25, 542.75, 668.75, 703.5]
+Episode 187	 reward: -9.75	 Mean_loss: 0.14028393,  training time: 8.06
+[474.25, 564.5, 638.25, 673.5]
+Episode 188	 reward: -8.91	 Mean_loss: 0.15148216,  training time: 8.04
+[496.75, 533.0, 642.5, 703.25]
+Episode 189	 reward: -9.68	 Mean_loss: 0.16979893,  training time: 8.05
+[485.75, 530.0, 651.0, 688.75]
+Episode 190	 reward: -9.97	 Mean_loss: 0.15294987,  training time: 8.06
+[457.0, 527.25, 656.25, 701.75]
+Episode 191	 reward: -9.95	 Mean_loss: 0.14466153,  training time: 8.04
+[467.25, 518.25, 685.0, 697.0]
+Episode 192	 reward: -9.73	 Mean_loss: 0.14266340,  training time: 8.04
+[479.0, 547.5, 660.25, 696.75]
+Episode 193	 reward: -9.15	 Mean_loss: 0.16770279,  training time: 8.06
+[483.25, 506.0, 659.5, 708.25]
+Episode 194	 reward: -9.65	 Mean_loss: 0.12693721,  training time: 8.05
+[460.25, 510.75, 633.0, 720.75]
+Episode 195	 reward: -9.56	 Mean_loss: 0.19470015,  training time: 8.04
+[473.75, 544.5, 655.5, 678.0]
+Episode 196	 reward: -9.83	 Mean_loss: 0.08995976,  training time: 8.05
+[477.25, 544.0, 663.0, 677.25]
+Episode 197	 reward: -10.26	 Mean_loss: 0.11100583,  training time: 8.04
+[502.25, 546.25, 664.5, 747.5]
+Episode 198	 reward: -9.94	 Mean_loss: 0.20828156,  training time: 8.14
+[485.25, 546.0, 686.5, 708.75]
+Episode 199	 reward: -9.49	 Mean_loss: 0.16809821,  training time: 8.05
+[471.5, 547.0, 641.25, 704.5]
+Episode 200	 reward: -10.37	 Mean_loss: 0.14857219,  training time: 8.04
+[496.0, 571.0, 663.5, 717.0]
+Episode 201	 reward: -9.35	 Mean_loss: 0.18366140,  training time: 8.07
+[458.5, 617.5, 637.0, 682.25]
+Episode 202	 reward: -9.33	 Mean_loss: 0.11279542,  training time: 8.03
+[478.25, 595.5, 642.75, 670.25]
+Episode 203	 reward: -9.74	 Mean_loss: 0.14170295,  training time: 8.06
+[470.75, 581.75, 619.75, 674.25]
+Episode 204	 reward: -9.61	 Mean_loss: 0.14547050,  training time: 8.08
+[483.75, 585.0, 639.5, 667.25]
+Episode 205	 reward: -9.51	 Mean_loss: 0.11573680,  training time: 8.05
+[464.25, 579.0, 664.25, 675.25]
+Episode 206	 reward: -8.94	 Mean_loss: 0.10030413,  training time: 8.02
+[459.75, 578.25, 633.0, 669.25]
+Episode 207	 reward: -9.63	 Mean_loss: 0.09060303,  training time: 8.04
+[472.0, 577.25, 617.75, 659.0]
+Episode 208	 reward: -9.85	 Mean_loss: 0.12261638,  training time: 8.05
+[465.5, 605.75, 628.0, 666.5]
+Episode 209	 reward: -9.30	 Mean_loss: 0.10154951,  training time: 8.01
+[500.0, 570.5, 640.0, 674.75]
+Episode 210	 reward: -9.83	 Mean_loss: 0.14107682,  training time: 8.02
+[484.0, 570.25, 631.25, 673.5]
+Episode 211	 reward: -10.15	 Mean_loss: 0.10443065,  training time: 8.04
+[473.5, 576.0, 657.0, 675.0]
+Episode 212	 reward: -9.27	 Mean_loss: 0.11255430,  training time: 8.05
+[476.0, 567.5, 645.25, 685.25]
+Episode 213	 reward: -9.47	 Mean_loss: 0.09828749,  training time: 8.04
+[546.25, 586.5, 629.25, 729.25]
+Episode 214	 reward: -9.03	 Mean_loss: 0.23474470,  training time: 8.03
+[494.5, 579.5, 643.0, 720.5]
+Episode 215	 reward: -10.17	 Mean_loss: 0.14832667,  training time: 8.03
+[467.0, 603.5, 647.5, 687.5]
+Episode 216	 reward: -9.19	 Mean_loss: 0.08967781,  training time: 8.02
+[476.5, 576.0, 645.5, 695.25]
+Episode 217	 reward: -9.59	 Mean_loss: 0.11091731,  training time: 8.04
+[480.0, 585.25, 663.5, 711.0]
+Episode 218	 reward: -9.34	 Mean_loss: 0.13406952,  training time: 8.03
+[457.25, 585.75, 615.75, 683.25]
+Episode 219	 reward: -9.97	 Mean_loss: 0.12974690,  training time: 8.09
+[473.0, 595.5, 675.25, 661.0]
+Episode 220	 reward: -9.61	 Mean_loss: 0.08581773,  training time: 8.07
+[434.5, 585.75, 658.5, 697.25]
+Episode 221	 reward: -9.18	 Mean_loss: 0.14278167,  training time: 8.10
+[428.5, 566.25, 641.0, 718.5]
+Episode 222	 reward: -9.64	 Mean_loss: 0.15335272,  training time: 8.09
+[440.75, 583.25, 629.75, 720.25]
+Episode 223	 reward: -9.50	 Mean_loss: 0.16983378,  training time: 8.11
+[425.5, 576.75, 622.25, 734.5]
+Episode 224	 reward: -10.20	 Mean_loss: 0.16183867,  training time: 8.09
+[437.5, 576.5, 650.5, 739.75]
+Episode 225	 reward: -10.23	 Mean_loss: 0.21565773,  training time: 8.06
+[443.25, 571.25, 669.25, 739.5]
+Episode 226	 reward: -10.02	 Mean_loss: 0.22398472,  training time: 8.10
+[436.25, 574.75, 658.0, 715.5]
+Episode 227	 reward: -10.39	 Mean_loss: 0.15246038,  training time: 8.08
+[441.25, 568.25, 643.0, 722.0]
+Episode 228	 reward: -10.31	 Mean_loss: 0.15602465,  training time: 8.10
+[420.25, 577.75, 636.75, 710.5]
+Episode 229	 reward: -9.79	 Mean_loss: 0.13927743,  training time: 8.09
+[425.5, 559.25, 650.25, 702.5]
+Episode 230	 reward: -9.77	 Mean_loss: 0.14745326,  training time: 8.10
+[432.25, 562.25, 630.75, 720.5]
+Episode 231	 reward: -9.68	 Mean_loss: 0.17011407,  training time: 8.11
+[399.0, 580.5, 649.5, 700.75]
+Episode 232	 reward: -8.98	 Mean_loss: 0.16324812,  training time: 8.07
+[450.75, 566.0, 636.0, 695.0]
+Episode 233	 reward: -10.17	 Mean_loss: 0.16114672,  training time: 8.11
+[439.25, 566.25, 664.5, 713.5]
+Episode 234	 reward: -9.87	 Mean_loss: 0.17893156,  training time: 8.10
+[456.0, 575.75, 674.0, 712.0]
+Episode 235	 reward: -9.94	 Mean_loss: 0.14928372,  training time: 8.10
+[425.0, 594.0, 651.5, 721.25]
+Episode 236	 reward: -9.78	 Mean_loss: 0.16746338,  training time: 8.10
+[436.25, 595.0, 649.25, 726.0]
+Episode 237	 reward: -9.85	 Mean_loss: 0.18649362,  training time: 8.08
+[435.0, 559.5, 644.0, 717.0]
+Episode 238	 reward: -9.66	 Mean_loss: 0.17097141,  training time: 8.07
+[466.75, 577.25, 649.25, 709.0]
+Episode 239	 reward: -9.69	 Mean_loss: 0.11769933,  training time: 8.09
+[424.75, 591.25, 630.25, 686.25]
+Episode 240	 reward: -9.76	 Mean_loss: 0.12597173,  training time: 8.07
+[486.5, 549.75, 638.5, 631.5]
+Episode 241	 reward: -10.06	 Mean_loss: 0.08626370,  training time: 8.11
+[465.5, 551.75, 607.75, 657.5]
+Episode 242	 reward: -10.06	 Mean_loss: 0.11051993,  training time: 8.08
+[474.0, 560.0, 598.25, 662.0]
+Episode 243	 reward: -9.58	 Mean_loss: 0.10063688,  training time: 8.05
+[478.75, 566.75, 607.0, 646.5]
+Episode 244	 reward: -9.61	 Mean_loss: 0.09035806,  training time: 8.09
+[450.75, 552.25, 579.75, 706.25]
+Episode 245	 reward: -10.19	 Mean_loss: 0.16313058,  training time: 8.08
+[457.5, 536.5, 601.0, 664.0]
+Episode 246	 reward: -10.51	 Mean_loss: 0.13647757,  training time: 8.09
+[474.25, 551.75, 609.75, 671.5]
+Episode 247	 reward: -9.19	 Mean_loss: 0.09405658,  training time: 8.08
+[474.0, 552.75, 604.25, 646.25]
+Episode 248	 reward: -10.15	 Mean_loss: 0.12047938,  training time: 8.08
+[488.75, 539.75, 581.0, 643.25]
+Episode 249	 reward: -9.99	 Mean_loss: 0.12994426,  training time: 8.07
+[458.0, 524.75, 607.5, 658.0]
+Episode 250	 reward: -9.21	 Mean_loss: 0.12869157,  training time: 8.11
+[440.25, 526.0, 607.0, 669.5]
+Episode 251	 reward: -9.66	 Mean_loss: 0.12443808,  training time: 8.04
+[460.75, 506.25, 610.75, 681.25]
+Episode 252	 reward: -9.72	 Mean_loss: 0.12293645,  training time: 8.05
+[440.75, 532.75, 598.5, 672.0]
+Episode 253	 reward: -10.01	 Mean_loss: 0.13543732,  training time: 8.06
+[447.5, 559.0, 606.25, 637.5]
+Episode 254	 reward: -9.64	 Mean_loss: 0.10180254,  training time: 8.08
+[459.75, 539.75, 610.25, 674.25]
+Episode 255	 reward: -10.74	 Mean_loss: 0.14679202,  training time: 8.08
+[462.0, 539.25, 615.25, 643.0]
+Episode 256	 reward: -9.99	 Mean_loss: 0.12239289,  training time: 8.03
+[452.0, 553.25, 621.25, 668.5]
+Episode 257	 reward: -9.59	 Mean_loss: 0.11337025,  training time: 8.06
+[475.5, 543.5, 614.0, 697.0]
+Episode 258	 reward: -9.58	 Mean_loss: 0.17864735,  training time: 8.07
+[455.0, 543.75, 616.0, 669.0]
+Episode 259	 reward: -10.03	 Mean_loss: 0.13307634,  training time: 8.05
+[470.5, 532.25, 626.0, 674.5]
+Episode 260	 reward: -9.93	 Mean_loss: 0.13693240,  training time: 8.08
+[499.25, 566.25, 578.0, 691.0]
+Episode 261	 reward: -9.92	 Mean_loss: 0.15007213,  training time: 8.12
+[453.5, 526.25, 571.75, 679.75]
+Episode 262	 reward: -9.92	 Mean_loss: 0.13134645,  training time: 8.07
+[473.0, 567.0, 573.5, 690.5]
+Episode 263	 reward: -10.71	 Mean_loss: 0.13998832,  training time: 8.06
+[492.25, 536.25, 563.25, 720.75]
+Episode 264	 reward: -9.65	 Mean_loss: 0.15480946,  training time: 8.10
+[485.5, 547.75, 553.75, 677.5]
+Episode 265	 reward: -10.02	 Mean_loss: 0.13998032,  training time: 8.06
+[492.0, 568.25, 568.75, 678.75]
+Episode 266	 reward: -9.91	 Mean_loss: 0.17113833,  training time: 8.07
+[459.5, 559.0, 557.5, 703.0]
+Episode 267	 reward: -9.65	 Mean_loss: 0.15776260,  training time: 8.04
+[481.5, 550.25, 603.75, 693.75]
+Episode 268	 reward: -9.87	 Mean_loss: 0.17178254,  training time: 8.05
+[480.5, 525.75, 572.0, 679.25]
+Episode 269	 reward: -9.85	 Mean_loss: 0.12284389,  training time: 8.05
+[496.5, 526.0, 566.75, 709.0]
+Episode 270	 reward: -10.19	 Mean_loss: 0.19055706,  training time: 8.04
+[502.25, 541.75, 587.25, 678.25]
+Episode 271	 reward: -10.06	 Mean_loss: 0.12978286,  training time: 8.03
+[505.5, 579.0, 567.5, 694.25]
+Episode 272	 reward: -9.69	 Mean_loss: 0.14674604,  training time: 8.14
+[451.5, 523.75, 549.5, 688.0]
+Episode 273	 reward: -9.44	 Mean_loss: 0.13677861,  training time: 8.18
+[516.25, 579.0, 563.75, 672.75]
+Episode 274	 reward: -9.73	 Mean_loss: 0.11746147,  training time: 8.12
+[470.5, 531.0, 576.0, 683.0]
+Episode 275	 reward: -10.18	 Mean_loss: 0.11493678,  training time: 8.10
+[484.0, 525.5, 541.5, 676.75]
+Episode 276	 reward: -10.15	 Mean_loss: 0.14047524,  training time: 8.10
+[476.75, 524.75, 553.0, 670.5]
+Episode 277	 reward: -9.91	 Mean_loss: 0.13481294,  training time: 8.10
+[499.0, 536.75, 587.75, 693.0]
+Episode 278	 reward: -10.26	 Mean_loss: 0.15231659,  training time: 8.09
+[503.5, 545.25, 539.25, 691.5]
+Episode 279	 reward: -9.59	 Mean_loss: 0.15141845,  training time: 8.08
+[488.25, 514.25, 572.75, 671.75]
+Episode 280	 reward: -11.03	 Mean_loss: 0.13582551,  training time: 8.07
+[459.0, 561.0, 586.0, 698.75]
+Episode 281	 reward: -9.45	 Mean_loss: 0.14959061,  training time: 8.07
+[476.75, 582.25, 581.5, 654.0]
+Episode 282	 reward: -9.57	 Mean_loss: 0.09678175,  training time: 8.07
+[471.0, 549.0, 584.5, 683.75]
+Episode 283	 reward: -9.49	 Mean_loss: 0.10342670,  training time: 8.10
+[439.75, 564.0, 606.5, 695.25]
+Episode 284	 reward: -9.16	 Mean_loss: 0.14440599,  training time: 8.10
+[446.5, 555.5, 600.25, 673.5]
+Episode 285	 reward: -9.54	 Mean_loss: 0.12861802,  training time: 8.08
+[470.75, 540.25, 571.0, 670.0]
+Episode 286	 reward: -9.31	 Mean_loss: 0.09380276,  training time: 8.13
+[452.5, 561.5, 587.25, 678.75]
+Episode 287	 reward: -9.70	 Mean_loss: 0.12468918,  training time: 8.10
+[457.75, 556.25, 560.0, 702.0]
+Episode 288	 reward: -9.54	 Mean_loss: 0.16257894,  training time: 8.11
+[433.75, 565.0, 581.25, 649.5]
+Episode 289	 reward: -9.19	 Mean_loss: 0.08495693,  training time: 8.09
+[441.5, 528.0, 599.0, 652.0]
+Episode 290	 reward: -9.86	 Mean_loss: 0.08091663,  training time: 8.07
+[452.5, 557.75, 582.25, 651.75]
+Episode 291	 reward: -9.69	 Mean_loss: 0.06890506,  training time: 8.09
+[452.25, 547.25, 552.0, 658.25]
+Episode 292	 reward: -9.13	 Mean_loss: 0.12591138,  training time: 8.09
+[426.25, 537.5, 576.0, 656.5]
+Episode 293	 reward: -9.46	 Mean_loss: 0.12031353,  training time: 8.08
+[473.0, 567.0, 568.25, 705.0]
+Episode 294	 reward: -9.62	 Mean_loss: 0.15680896,  training time: 8.08
+[445.0, 554.5, 578.0, 686.0]
+Episode 295	 reward: -8.87	 Mean_loss: 0.13304797,  training time: 8.08
+[478.0, 562.75, 573.5, 688.25]
+Episode 296	 reward: -10.12	 Mean_loss: 0.13992599,  training time: 8.09
+[449.0, 550.25, 569.5, 668.0]
+Episode 297	 reward: -9.71	 Mean_loss: 0.13144569,  training time: 8.06
+[444.25, 558.5, 558.75, 647.25]
+Episode 298	 reward: -9.11	 Mean_loss: 0.10035191,  training time: 8.17
+[445.5, 555.0, 594.5, 678.5]
+Episode 299	 reward: -9.34	 Mean_loss: 0.12202409,  training time: 8.09
+[438.0, 536.5, 571.5, 646.5]
+Episode 300	 reward: -9.35	 Mean_loss: 0.08412565,  training time: 8.09
+[440.25, 559.75, 601.5, 672.25]
+Episode 301	 reward: -9.55	 Mean_loss: 0.14469120,  training time: 8.14
+[440.5, 541.0, 611.25, 679.5]
+Episode 302	 reward: -10.33	 Mean_loss: 0.15212630,  training time: 8.07
+[458.0, 516.0, 634.75, 650.25]
+Episode 303	 reward: -8.89	 Mean_loss: 0.13661802,  training time: 8.08
+[470.5, 547.0, 611.0, 638.0]
+Episode 304	 reward: -9.67	 Mean_loss: 0.07772197,  training time: 8.08
+[454.25, 532.75, 627.5, 660.5]
+Episode 305	 reward: -9.62	 Mean_loss: 0.12307464,  training time: 8.06
+[467.75, 536.25, 622.0, 652.25]
+Episode 306	 reward: -9.36	 Mean_loss: 0.11572970,  training time: 8.08
+[472.25, 549.0, 605.0, 663.75]
+Episode 307	 reward: -9.34	 Mean_loss: 0.10971040,  training time: 8.10
+[458.0, 568.25, 634.5, 672.25]
+Episode 308	 reward: -9.44	 Mean_loss: 0.13128449,  training time: 8.10
+[457.0, 541.25, 608.25, 651.0]
+Episode 309	 reward: -9.62	 Mean_loss: 0.08734219,  training time: 8.17
+[452.25, 554.0, 644.0, 660.0]
+Episode 310	 reward: -9.25	 Mean_loss: 0.10093784,  training time: 8.11
+[455.75, 564.25, 606.5, 674.25]
+Episode 311	 reward: -9.72	 Mean_loss: 0.12234366,  training time: 8.14
+[451.25, 538.0, 634.0, 663.0]
+Episode 312	 reward: -9.94	 Mean_loss: 0.11932039,  training time: 8.08
+[442.0, 550.5, 608.5, 663.25]
+Episode 313	 reward: -9.96	 Mean_loss: 0.09939536,  training time: 8.07
+[465.75, 533.5, 618.0, 662.0]
+Episode 314	 reward: -9.71	 Mean_loss: 0.08899997,  training time: 8.08
+[433.75, 543.0, 611.0, 668.0]
+Episode 315	 reward: -9.52	 Mean_loss: 0.10531928,  training time: 8.08
+[451.5, 531.0, 627.5, 658.75]
+Episode 316	 reward: -9.87	 Mean_loss: 0.09579953,  training time: 8.04
+[437.75, 558.25, 603.25, 650.25]
+Episode 317	 reward: -9.74	 Mean_loss: 0.08189169,  training time: 8.06
+[456.0, 528.75, 614.25, 634.75]
+Episode 318	 reward: -8.99	 Mean_loss: 0.09011166,  training time: 8.07
+[454.5, 545.25, 650.25, 652.75]
+Episode 319	 reward: -10.03	 Mean_loss: 0.10547773,  training time: 8.05
+[433.75, 543.5, 587.5, 657.25]
+Episode 320	 reward: -9.66	 Mean_loss: 0.09399574,  training time: 8.06
+[453.0, 502.0, 616.25, 664.0]
+Episode 321	 reward: -9.37	 Mean_loss: 0.15510461,  training time: 8.11
+[481.75, 486.75, 585.5, 676.0]
+Episode 322	 reward: -9.81	 Mean_loss: 0.16907859,  training time: 8.06
+[445.5, 490.0, 566.5, 673.25]
+Episode 323	 reward: -9.74	 Mean_loss: 0.15620358,  training time: 8.07
+[486.5, 486.25, 575.25, 673.25]
+Episode 324	 reward: -9.98	 Mean_loss: 0.15109484,  training time: 8.08
+[445.5, 500.0, 598.25, 679.0]
+Episode 325	 reward: -9.97	 Mean_loss: 0.16407627,  training time: 8.06
+[462.25, 471.5, 580.0, 698.5]
+Episode 326	 reward: -9.84	 Mean_loss: 0.21016179,  training time: 8.02
+[456.5, 494.0, 584.75, 668.0]
+Episode 327	 reward: -9.99	 Mean_loss: 0.12417695,  training time: 8.05
+[452.25, 484.5, 607.0, 673.5]
+Episode 328	 reward: -9.56	 Mean_loss: 0.15193672,  training time: 8.05
+[481.25, 486.5, 579.25, 654.0]
+Episode 329	 reward: -8.80	 Mean_loss: 0.10074699,  training time: 8.08
+[497.0, 504.5, 618.25, 668.0]
+Episode 330	 reward: -9.89	 Mean_loss: 0.14384425,  training time: 8.08
+[468.25, 499.5, 613.25, 673.5]
+Episode 331	 reward: -9.65	 Mean_loss: 0.13128383,  training time: 8.05
+[454.0, 490.5, 613.75, 684.5]
+Episode 332	 reward: -9.42	 Mean_loss: 0.11780064,  training time: 8.06
+[442.5, 496.75, 581.75, 651.0]
+Episode 333	 reward: -9.77	 Mean_loss: 0.08960572,  training time: 8.04
+[467.75, 508.5, 602.25, 666.0]
+Episode 334	 reward: -9.58	 Mean_loss: 0.15847276,  training time: 8.04
+[461.25, 507.5, 610.25, 668.0]
+Episode 335	 reward: -9.90	 Mean_loss: 0.11400652,  training time: 8.01
+[469.0, 512.5, 588.5, 674.5]
+Episode 336	 reward: -9.85	 Mean_loss: 0.12858012,  training time: 8.00
+[456.0, 487.25, 567.5, 672.25]
+Episode 337	 reward: -10.11	 Mean_loss: 0.10718520,  training time: 8.08
+[464.0, 498.75, 580.75, 663.75]
+Episode 338	 reward: -9.83	 Mean_loss: 0.10266282,  training time: 8.01
+[439.5, 509.0, 589.75, 661.75]
+Episode 339	 reward: -9.79	 Mean_loss: 0.10981265,  training time: 8.00
+[447.75, 505.75, 611.75, 662.75]
+Episode 340	 reward: -9.15	 Mean_loss: 0.10890116,  training time: 8.02
+[415.25, 555.0, 626.0, 697.25]
+Episode 341	 reward: -10.30	 Mean_loss: 0.15826674,  training time: 8.02
+[402.25, 521.0, 617.0, 705.0]
+Episode 342	 reward: -10.07	 Mean_loss: 0.18296699,  training time: 8.03
+[426.25, 549.75, 611.75, 743.0]
+Episode 343	 reward: -10.91	 Mean_loss: 0.25979292,  training time: 7.99
+[420.25, 531.75, 620.25, 692.75]
+Episode 344	 reward: -10.05	 Mean_loss: 0.15078434,  training time: 7.98
+[402.5, 541.25, 629.25, 708.75]
+Episode 345	 reward: -9.71	 Mean_loss: 0.18072337,  training time: 7.98
+[429.0, 533.0, 616.0, 697.25]
+Episode 346	 reward: -10.30	 Mean_loss: 0.16588119,  training time: 7.99
+[391.25, 511.0, 639.5, 687.0]
+Episode 347	 reward: -10.06	 Mean_loss: 0.13682534,  training time: 8.02
+[435.0, 510.75, 632.25, 728.25]
+Episode 348	 reward: -9.71	 Mean_loss: 0.22876908,  training time: 8.02
+[440.5, 510.0, 632.75, 707.25]
+Episode 349	 reward: -9.99	 Mean_loss: 0.13854626,  training time: 7.98
+[419.25, 540.5, 617.0, 737.5]
+Episode 350	 reward: -10.35	 Mean_loss: 0.24285507,  training time: 7.99
+[426.75, 560.75, 632.75, 712.25]
+Episode 351	 reward: -9.66	 Mean_loss: 0.14543337,  training time: 7.99
+[426.75, 518.5, 647.0, 709.25]
+Episode 352	 reward: -10.58	 Mean_loss: 0.14158003,  training time: 8.01
+[388.5, 537.75, 654.75, 703.5]
+Episode 353	 reward: -9.90	 Mean_loss: 0.12736981,  training time: 7.99
+[413.25, 536.5, 636.5, 720.5]
+Episode 354	 reward: -9.94	 Mean_loss: 0.16399683,  training time: 8.00
+[434.0, 535.75, 628.75, 706.75]
+Episode 355	 reward: -9.61	 Mean_loss: 0.13422035,  training time: 7.98
+[425.25, 535.25, 644.5, 747.75]
+Episode 356	 reward: -10.07	 Mean_loss: 0.21767646,  training time: 7.96
+[408.5, 548.0, 652.5, 705.25]
+Episode 357	 reward: -10.21	 Mean_loss: 0.11425468,  training time: 7.97
+[398.75, 546.0, 648.0, 698.5]
+Episode 358	 reward: -10.33	 Mean_loss: 0.11982225,  training time: 7.99
+[399.75, 538.0, 621.75, 703.0]
+Episode 359	 reward: -9.57	 Mean_loss: 0.09526852,  training time: 8.00
+[436.25, 551.0, 653.25, 709.0]
+Episode 360	 reward: -9.78	 Mean_loss: 0.11828443,  training time: 7.97
+[450.25, 550.75, 560.0, 675.25]
+Episode 361	 reward: -9.90	 Mean_loss: 0.08460446,  training time: 8.01
+[471.75, 536.0, 550.0, 646.5]
+Episode 362	 reward: -10.35	 Mean_loss: 0.08947658,  training time: 8.02
+[451.25, 545.25, 590.75, 655.25]
+Episode 363	 reward: -9.93	 Mean_loss: 0.05948913,  training time: 7.99
+[459.75, 570.25, 563.75, 649.0]
+Episode 364	 reward: -10.08	 Mean_loss: 0.08207388,  training time: 8.00
+[437.0, 548.5, 550.75, 638.0]
+Episode 365	 reward: -9.12	 Mean_loss: 0.05509105,  training time: 7.99
+[462.25, 546.5, 601.0, 652.75]
+Episode 366	 reward: -9.31	 Mean_loss: 0.07869165,  training time: 7.98
+[436.75, 555.0, 554.5, 630.0]
+Episode 367	 reward: -9.36	 Mean_loss: 0.07848373,  training time: 7.95
+[460.0, 560.5, 573.25, 629.0]
+Episode 368	 reward: -9.89	 Mean_loss: 0.06824647,  training time: 7.99
+[471.75, 561.0, 581.5, 659.0]
+Episode 369	 reward: -10.06	 Mean_loss: 0.12666449,  training time: 7.98
+[442.75, 548.25, 570.0, 643.0]
+Episode 370	 reward: -10.20	 Mean_loss: 0.11372011,  training time: 7.97
+[425.75, 561.5, 578.5, 658.0]
+Episode 371	 reward: -9.64	 Mean_loss: 0.11521984,  training time: 7.98
+[438.0, 558.5, 574.25, 655.75]
+Episode 372	 reward: -10.00	 Mean_loss: 0.08598507,  training time: 7.98
+[455.5, 550.75, 553.75, 666.0]
+Episode 373	 reward: -9.81	 Mean_loss: 0.11638956,  training time: 7.96
+[447.75, 581.25, 569.25, 669.0]
+Episode 374	 reward: -10.31	 Mean_loss: 0.09066393,  training time: 8.06
+[453.0, 565.75, 544.25, 662.25]
+Episode 375	 reward: -9.64	 Mean_loss: 0.09732439,  training time: 8.00
+[433.75, 568.75, 569.25, 644.0]
+Episode 376	 reward: -9.71	 Mean_loss: 0.08317934,  training time: 8.00
+[452.5, 552.0, 578.25, 643.0]
+Episode 377	 reward: -9.70	 Mean_loss: 0.10829142,  training time: 7.96
+[457.5, 542.25, 572.5, 675.75]
+Episode 378	 reward: -9.40	 Mean_loss: 0.12444768,  training time: 7.99
+[441.0, 548.5, 561.0, 686.5]
+Episode 379	 reward: -9.66	 Mean_loss: 0.09474649,  training time: 7.98
+[433.25, 555.0, 572.0, 649.75]
+Episode 380	 reward: -9.67	 Mean_loss: 0.08474387,  training time: 7.99
+[497.25, 529.25, 660.25, 665.25]
+Episode 381	 reward: -10.20	 Mean_loss: 0.08985202,  training time: 8.10
+[500.75, 542.25, 639.75, 674.75]
+Episode 382	 reward: -10.35	 Mean_loss: 0.10520517,  training time: 8.00
+[499.25, 532.25, 654.5, 667.75]
+Episode 383	 reward: -9.63	 Mean_loss: 0.10741389,  training time: 8.00
+[498.75, 509.25, 644.5, 648.25]
+Episode 384	 reward: -9.64	 Mean_loss: 0.08928540,  training time: 7.99
+[497.25, 519.5, 663.5, 670.5]
+Episode 385	 reward: -10.15	 Mean_loss: 0.11327909,  training time: 8.02
+[456.5, 556.0, 629.25, 660.5]
+Episode 386	 reward: -10.11	 Mean_loss: 0.12348235,  training time: 7.99
+[483.0, 516.75, 650.0, 652.75]
+Episode 387	 reward: -10.47	 Mean_loss: 0.10900568,  training time: 8.00
+[487.5, 525.5, 652.0, 694.75]
+Episode 388	 reward: -9.77	 Mean_loss: 0.16486980,  training time: 7.97
+[512.5, 547.75, 633.25, 710.5]
+Episode 389	 reward: -9.47	 Mean_loss: 0.21908058,  training time: 8.05
+[475.5, 540.75, 650.5, 681.0]
+Episode 390	 reward: -9.92	 Mean_loss: 0.12602518,  training time: 7.99
+[498.75, 526.5, 622.75, 695.5]
+Episode 391	 reward: -9.59	 Mean_loss: 0.14895514,  training time: 7.99
+[503.5, 541.25, 638.5, 678.25]
+Episode 392	 reward: -9.58	 Mean_loss: 0.09994427,  training time: 7.98
+[467.0, 531.25, 637.25, 662.75]
+Episode 393	 reward: -9.94	 Mean_loss: 0.10649068,  training time: 7.98
+[446.5, 565.5, 654.0, 676.75]
+Episode 394	 reward: -9.84	 Mean_loss: 0.15112649,  training time: 7.99
+[472.75, 528.75, 626.5, 657.0]
+Episode 395	 reward: -9.80	 Mean_loss: 0.09799686,  training time: 7.99
+[474.0, 531.75, 651.0, 662.25]
+Episode 396	 reward: -9.73	 Mean_loss: 0.08800111,  training time: 7.98
+[476.75, 560.5, 613.25, 695.75]
+Episode 397	 reward: -10.04	 Mean_loss: 0.14289528,  training time: 7.98
+[481.25, 530.25, 642.5, 688.25]
+Episode 398	 reward: -9.98	 Mean_loss: 0.15504132,  training time: 7.96
+[452.0, 522.25, 627.75, 693.25]
+Episode 399	 reward: -9.46	 Mean_loss: 0.14052807,  training time: 7.99
+[479.25, 528.5, 645.0, 686.5]
+Episode 400	 reward: -9.53	 Mean_loss: 0.14290515,  training time: 8.01
+[419.0, 570.0, 648.0, 692.75]
+Episode 401	 reward: -10.41	 Mean_loss: 0.14654723,  training time: 8.01
+[427.0, 582.0, 641.0, 677.25]
+Episode 402	 reward: -9.63	 Mean_loss: 0.16456616,  training time: 7.98
+[443.5, 565.25, 634.25, 685.25]
+Episode 403	 reward: -10.39	 Mean_loss: 0.12146273,  training time: 7.99
+[435.25, 553.75, 666.0, 639.5]
+Episode 404	 reward: -10.20	 Mean_loss: 0.07663241,  training time: 8.00
+[457.5, 572.0, 653.0, 726.75]
+Episode 405	 reward: -9.71	 Mean_loss: 0.19176497,  training time: 7.98
+[469.75, 557.0, 662.75, 676.0]
+Episode 406	 reward: -11.03	 Mean_loss: 0.09180196,  training time: 7.97
+[449.5, 563.5, 626.0, 670.0]
+Episode 407	 reward: -9.65	 Mean_loss: 0.10054523,  training time: 7.97
+[442.5, 583.0, 629.0, 663.25]
+Episode 408	 reward: -10.14	 Mean_loss: 0.07917393,  training time: 7.98
+[412.75, 561.5, 627.75, 675.25]
+Episode 409	 reward: -9.51	 Mean_loss: 0.06564026,  training time: 7.98
+[410.0, 554.5, 627.0, 684.25]
+Episode 410	 reward: -10.53	 Mean_loss: 0.12531492,  training time: 7.98
+[460.25, 597.0, 636.0, 647.5]
+Episode 411	 reward: -10.28	 Mean_loss: 0.08176611,  training time: 8.08
+[413.0, 549.5, 646.5, 689.0]
+Episode 412	 reward: -9.86	 Mean_loss: 0.10933698,  training time: 7.99
+[458.25, 553.25, 645.0, 666.5]
+Episode 413	 reward: -9.83	 Mean_loss: 0.08225060,  training time: 8.04
+[468.75, 561.0, 640.5, 688.0]
+Episode 414	 reward: -10.05	 Mean_loss: 0.11847509,  training time: 8.06
+[451.5, 555.5, 647.0, 651.0]
+Episode 415	 reward: -10.50	 Mean_loss: 0.06953293,  training time: 8.00
+[434.25, 611.25, 647.0, 674.5]
+Episode 416	 reward: -10.24	 Mean_loss: 0.11857489,  training time: 7.99
+[439.25, 568.0, 658.5, 667.0]
+Episode 417	 reward: -9.65	 Mean_loss: 0.09059819,  training time: 7.97
+[438.5, 567.25, 676.25, 677.0]
+Episode 418	 reward: -9.80	 Mean_loss: 0.08669928,  training time: 7.97
+[414.75, 559.5, 644.75, 671.75]
+Episode 419	 reward: -10.58	 Mean_loss: 0.12072454,  training time: 7.97
+[419.0, 534.75, 635.75, 654.0]
+Episode 420	 reward: -10.29	 Mean_loss: 0.07135671,  training time: 7.98
+[431.75, 531.0, 652.25, 659.75]
+Episode 421	 reward: -10.31	 Mean_loss: 0.06163443,  training time: 8.02
+[415.25, 545.25, 604.75, 685.5]
+Episode 422	 reward: -9.94	 Mean_loss: 0.11239375,  training time: 7.98
+[429.75, 540.0, 639.5, 650.5]
+Episode 423	 reward: -10.15	 Mean_loss: 0.09098729,  training time: 8.03
+[447.75, 549.0, 647.0, 664.25]
+Episode 424	 reward: -10.32	 Mean_loss: 0.10205942,  training time: 7.93
+[441.25, 551.5, 599.75, 659.5]
+Episode 425	 reward: -9.82	 Mean_loss: 0.07944372,  training time: 8.03
+[464.0, 538.0, 623.25, 689.25]
+Episode 426	 reward: -10.05	 Mean_loss: 0.15495428,  training time: 8.04
+[426.0, 560.0, 601.25, 679.75]
+Episode 427	 reward: -9.50	 Mean_loss: 0.13241462,  training time: 7.97
+[433.25, 533.75, 635.75, 670.25]
+Episode 428	 reward: -10.07	 Mean_loss: 0.11795879,  training time: 7.96
+[421.5, 530.0, 634.5, 662.75]
+Episode 429	 reward: -10.95	 Mean_loss: 0.09027552,  training time: 7.98
+[414.75, 537.75, 623.75, 692.5]
+Episode 430	 reward: -9.30	 Mean_loss: 0.15773147,  training time: 7.96
+[423.0, 529.75, 631.75, 680.5]
+Episode 431	 reward: -9.92	 Mean_loss: 0.14302048,  training time: 7.95
+[450.25, 564.0, 624.5, 662.5]
+Episode 432	 reward: -10.33	 Mean_loss: 0.08129746,  training time: 7.97
+[481.75, 558.75, 621.5, 667.5]
+Episode 433	 reward: -9.65	 Mean_loss: 0.10530512,  training time: 7.97
+[413.0, 561.25, 585.25, 702.25]
+Episode 434	 reward: -9.70	 Mean_loss: 0.14583845,  training time: 7.93
+[437.0, 578.5, 625.0, 678.75]
+Episode 435	 reward: -9.65	 Mean_loss: 0.11727986,  training time: 7.97
+[465.25, 531.75, 654.5, 634.75]
+Episode 436	 reward: -10.47	 Mean_loss: 0.07227114,  training time: 7.99
+[448.25, 563.0, 620.0, 685.5]
+Episode 437	 reward: -9.87	 Mean_loss: 0.09986640,  training time: 7.99
+[460.25, 557.75, 629.0, 656.0]
+Episode 438	 reward: -10.71	 Mean_loss: 0.08797780,  training time: 7.99
+[434.5, 545.75, 647.25, 659.5]
+Episode 439	 reward: -9.52	 Mean_loss: 0.07102711,  training time: 7.99
+[447.75, 554.0, 617.0, 673.25]
+Episode 440	 reward: -9.64	 Mean_loss: 0.06904142,  training time: 7.99
+[452.5, 566.5, 589.0, 657.25]
+Episode 441	 reward: -9.40	 Mean_loss: 0.09786151,  training time: 8.02
+[435.75, 527.25, 582.25, 673.5]
+Episode 442	 reward: -9.76	 Mean_loss: 0.12973997,  training time: 7.98
+[428.25, 543.25, 599.5, 667.5]
+Episode 443	 reward: -10.06	 Mean_loss: 0.15305482,  training time: 7.97
+[466.25, 529.5, 592.0, 667.75]
+Episode 444	 reward: -9.67	 Mean_loss: 0.12278399,  training time: 8.00
+[427.5, 548.25, 593.5, 670.75]
+Episode 445	 reward: -9.61	 Mean_loss: 0.12165876,  training time: 7.97
+[455.0, 532.25, 592.75, 651.5]
+Episode 446	 reward: -9.86	 Mean_loss: 0.10305047,  training time: 7.96
+[432.75, 537.75, 601.75, 657.25]
+Episode 447	 reward: -9.39	 Mean_loss: 0.11822004,  training time: 7.97
+[453.75, 553.0, 612.0, 681.75]
+Episode 448	 reward: -9.47	 Mean_loss: 0.17328678,  training time: 8.01
+[434.5, 532.25, 579.0, 666.25]
+Episode 449	 reward: -10.49	 Mean_loss: 0.13711083,  training time: 8.05
+[441.5, 541.75, 589.0, 637.25]
+Episode 450	 reward: -9.70	 Mean_loss: 0.10237186,  training time: 7.98
+[434.5, 534.0, 590.25, 684.0]
+Episode 451	 reward: -10.01	 Mean_loss: 0.22674923,  training time: 8.02
+[434.25, 563.25, 574.0, 643.75]
+Episode 452	 reward: -9.91	 Mean_loss: 0.11990099,  training time: 7.98
+[454.25, 545.0, 586.75, 651.75]
+Episode 453	 reward: -10.27	 Mean_loss: 0.14528036,  training time: 8.07
+[426.5, 520.0, 588.5, 679.25]
+Episode 454	 reward: -9.69	 Mean_loss: 0.15452226,  training time: 8.03
+[461.25, 522.0, 607.5, 682.25]
+Episode 455	 reward: -8.99	 Mean_loss: 0.17382984,  training time: 8.02
+[449.25, 521.0, 597.25, 670.0]
+Episode 456	 reward: -10.16	 Mean_loss: 0.11374059,  training time: 8.02
+[433.25, 552.0, 614.0, 676.0]
+Episode 457	 reward: -9.93	 Mean_loss: 0.14922386,  training time: 8.03
+[442.75, 531.0, 604.0, 669.0]
+Episode 458	 reward: -9.70	 Mean_loss: 0.10885207,  training time: 8.09
+[426.0, 553.5, 595.25, 656.5]
+Episode 459	 reward: -9.54	 Mean_loss: 0.10308259,  training time: 7.96
+[453.0, 533.0, 626.25, 668.0]
+Episode 460	 reward: -9.34	 Mean_loss: 0.12517683,  training time: 7.89
+[447.0, 521.75, 601.75, 632.0]
+Episode 461	 reward: -9.39	 Mean_loss: 0.11747881,  training time: 7.91
+[440.5, 563.0, 585.25, 615.25]
+Episode 462	 reward: -9.66	 Mean_loss: 0.10027184,  training time: 7.89
+[414.25, 543.0, 584.75, 625.5]
+Episode 463	 reward: -8.94	 Mean_loss: 0.09178124,  training time: 7.92
+[448.0, 559.25, 615.5, 621.5]
+Episode 464	 reward: -9.37	 Mean_loss: 0.10768180,  training time: 7.89
+[432.0, 567.0, 586.5, 617.25]
+Episode 465	 reward: -9.62	 Mean_loss: 0.09222022,  training time: 7.86
+[426.0, 557.0, 602.5, 621.75]
+Episode 466	 reward: -9.56	 Mean_loss: 0.12344930,  training time: 7.86
+[423.75, 547.5, 634.25, 610.5]
+Episode 467	 reward: -9.22	 Mean_loss: 0.11273647,  training time: 7.85
+[402.25, 559.0, 596.5, 599.0]
+Episode 468	 reward: -9.90	 Mean_loss: 0.10900249,  training time: 7.88
+[426.25, 551.0, 624.0, 602.0]
+Episode 469	 reward: -9.47	 Mean_loss: 0.09900017,  training time: 7.89
+[469.5, 562.25, 579.25, 649.25]
+Episode 470	 reward: -9.03	 Mean_loss: 0.12880960,  training time: 7.89
+[439.75, 544.25, 580.5, 604.0]
+Episode 471	 reward: -9.39	 Mean_loss: 0.07797205,  training time: 7.90
+[404.5, 543.5, 603.25, 618.5]
+Episode 472	 reward: -8.83	 Mean_loss: 0.09295826,  training time: 7.89
+[461.25, 545.75, 585.0, 618.0]
+Episode 473	 reward: -9.96	 Mean_loss: 0.10750641,  training time: 7.91
+[441.25, 546.75, 599.75, 622.25]
+Episode 474	 reward: -9.66	 Mean_loss: 0.11160710,  training time: 7.88
+[442.75, 545.5, 604.5, 611.5]
+Episode 475	 reward: -9.11	 Mean_loss: 0.09641654,  training time: 7.88
+[430.75, 545.25, 631.75, 623.0]
+Episode 476	 reward: -9.68	 Mean_loss: 0.08268639,  training time: 7.89
+[439.0, 528.75, 596.75, 636.25]
+Episode 477	 reward: -9.66	 Mean_loss: 0.13601707,  training time: 7.88
+[414.5, 544.0, 607.5, 610.5]
+Episode 478	 reward: -9.72	 Mean_loss: 0.08808322,  training time: 7.89
+[446.25, 572.5, 578.25, 620.75]
+Episode 479	 reward: -10.30	 Mean_loss: 0.10867020,  training time: 7.88
+[445.75, 531.5, 601.25, 622.0]
+Episode 480	 reward: -9.61	 Mean_loss: 0.08153675,  training time: 7.88
+[487.0, 521.0, 571.25, 678.5]
+Episode 481	 reward: -9.96	 Mean_loss: 0.13478443,  training time: 7.92
+[489.5, 510.75, 576.75, 719.0]
+Episode 482	 reward: -9.96	 Mean_loss: 0.19879454,  training time: 7.88
+[512.5, 510.75, 566.25, 674.75]
+Episode 483	 reward: -9.60	 Mean_loss: 0.11687329,  training time: 7.89
+[476.0, 527.0, 603.25, 690.5]
+Episode 484	 reward: -9.99	 Mean_loss: 0.12379684,  training time: 7.89
+[487.25, 538.5, 575.5, 696.25]
+Episode 485	 reward: -10.18	 Mean_loss: 0.14986505,  training time: 7.88
+[472.0, 517.0, 587.75, 717.25]
+Episode 486	 reward: -10.07	 Mean_loss: 0.16841425,  training time: 7.89
+[479.5, 540.75, 582.75, 668.75]
+Episode 487	 reward: -10.63	 Mean_loss: 0.10280298,  training time: 7.85
+[505.25, 536.75, 602.75, 685.25]
+Episode 488	 reward: -9.75	 Mean_loss: 0.15342739,  training time: 7.90
+[485.75, 518.0, 561.75, 660.5]
+Episode 489	 reward: -9.89	 Mean_loss: 0.08507440,  training time: 7.95
+[495.25, 525.5, 573.75, 689.0]
+Episode 490	 reward: -10.13	 Mean_loss: 0.16667610,  training time: 7.86
+[520.25, 533.25, 568.0, 692.5]
+Episode 491	 reward: -9.41	 Mean_loss: 0.14927574,  training time: 7.89
+[470.5, 535.5, 573.75, 674.0]
+Episode 492	 reward: -9.57	 Mean_loss: 0.10269854,  training time: 7.89
+[474.25, 517.25, 568.75, 671.5]
+Episode 493	 reward: -9.56	 Mean_loss: 0.11068463,  training time: 7.87
+[484.5, 526.0, 593.5, 649.25]
+Episode 494	 reward: -9.66	 Mean_loss: 0.10053067,  training time: 7.89
+[501.0, 503.0, 565.0, 688.0]
+Episode 495	 reward: -10.62	 Mean_loss: 0.12901855,  training time: 7.87
+[471.75, 516.5, 598.0, 682.0]
+Episode 496	 reward: -10.24	 Mean_loss: 0.16176751,  training time: 7.87
+[471.75, 518.25, 603.5, 675.5]
+Episode 497	 reward: -9.02	 Mean_loss: 0.13539538,  training time: 7.89
+[494.75, 539.5, 551.75, 653.5]
+Episode 498	 reward: -10.03	 Mean_loss: 0.09420202,  training time: 7.88
+[494.25, 496.5, 566.0, 663.75]
+Episode 499	 reward: -10.10	 Mean_loss: 0.08924931,  training time: 7.88
+[520.75, 537.5, 562.0, 676.0]
+Episode 500	 reward: -9.82	 Mean_loss: 0.12158629,  training time: 7.89
++ for model in 'maml+$model_suffix'
++ echo 10,5 13,5 15,5 17,5
++ tr ' ' '\n'
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp16/maml/finetuning/maml+exp16_500_512_3/10x5 --model_suffix free --finetuning_model maml+exp16_500_512_3 --max_updates 50 --n_j 10 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/10x5+mix
+save model name:  10x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp16_500_512_3.pth'
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp16/maml/finetuning/maml+exp16_500_512_3/13x5 --model_suffix free --finetuning_model maml+exp16_500_512_3 --max_updates 50 --n_j 13 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/13x5+mix
+save model name:  13x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp16_500_512_3.pth'
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp16/maml/finetuning/maml+exp16_500_512_3/15x5 --model_suffix free --finetuning_model maml+exp16_500_512_3 --max_updates 50 --n_j 15 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/15x5+mix
+save model name:  15x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp16_500_512_3.pth'
++ IFS=,
++ read n_j n_m
++ python train/DAN_finetuning.py --logdir ./runs/exp16/maml/finetuning/maml+exp16_500_512_3/17x5 --model_suffix free --finetuning_model maml+exp16_500_512_3 --max_updates 50 --n_j 17 --n_m 5 --num_envs 4 --hidden_dim_actor 512 --hidden_dim_critic 512 --num_mlp_layers_actor 3 --num_mlp_layers_critic 3 --lr 0.003
+/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/__init__.py:614: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /opt/conda/conda-bld/pytorch_1699449181202/work/torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+vali_data = ./data/data_train_vali/SD2/17x5+mix
+save model name:  17x5+mix+free
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 131, in <module>
+    main()
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 126, in main
+    trainer = DANTrainer(configs)
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 11, in __init__
+    self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 986, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 435, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/work/home/lxx_hzau/miniconda3/envs/RL-torch/lib/python3.10/site-packages/torch/serialization.py", line 416, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './trained_network/SD2/maml+exp16_500_512_3.pth'
++ IFS=,
++ read n_j n_m

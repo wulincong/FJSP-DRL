@@ -1,0 +1,69 @@
+exp1 无maml训练
+试验10：用原论文的模型模型进行finetuning
+exp11
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/multi_task_maml_exp11.py", line 3, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+Traceback (most recent call last):
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/DAN_finetuning.py", line 2, in <module>
+    from train.base import *
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/train/base.py", line 13, in <module>
+    from model.PPO import PPO_initialize
+  File "/work/home/lxx_hzau/project/FJSP-DRL-main/model/PPO.py", line 8, in <module>
+    import learn2learn as l2l
+ModuleNotFoundError: No module named 'learn2learn'
+exp13
+测试同步

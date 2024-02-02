@@ -48,6 +48,7 @@ class MultiTaskTrainer(Trainer):
             makespans = [[] for _ in range(self.num_tasks)]
             loss_sum = 0
             iteration_policies = []
+            mean_rewards_all_env_list = []
             for task_idx in range(self.num_tasks):
                 env = self.tasks[task_idx]
                 state = env.reset()
@@ -57,9 +58,10 @@ class MultiTaskTrainer(Trainer):
                 theta_prime = self.ppo.inner_update(self.memory, 1, self.task_lr)
                 state = env.reset()
 
-                self.memory_generate(env, state, self.ppo, params=theta_prime, memory=self.valid_memorys[task_idx]) #搜集query set
+                ep_rewards = self.memory_generate(env, state, self.ppo, params=theta_prime, memory=self.valid_memorys[task_idx]) #搜集query set
 
                 mean_rewards_all_env = np.mean(ep_rewards)
+                mean_rewards_all_env_list.append(str(mean_rewards_all_env))
                 makespans[task_idx].append(env.current_makespan)
                 iteration_policies.append(theta_prime)
 
@@ -74,8 +76,8 @@ class MultiTaskTrainer(Trainer):
             if iteration < 2: self.record = makespan_min = makespan_sum
 
             tqdm.write(
-                'Episode {}\t reward: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
-                    iteration + 1, mean_rewards_all_env, loss, ep_et - ep_st))
+                'Episode {}\n reward: {}\n Mean_loss: {:.8f},  training time: {:.2f}'.format(
+                    iteration + 1, " ".join(mean_rewards_all_env_list), loss, ep_et - ep_st))
 
             if makespan_sum < makespan_min:
                 makespan_min = makespan_sum

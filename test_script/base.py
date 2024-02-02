@@ -27,15 +27,15 @@ class Test:
         self.data_set = data_set
         self.adapt_nums=config.adapt_nums
         setup_seed(config.seed_test)
-        self.ppo=PPO_initialize()
+        self.ppo=PPO_initialize(config)
         self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
-        print(n_j," ， " , n_m)
+        # print(n_j," ， " , n_m)
         self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
 
-    def greedy_strategy(self, policy=None):
+    def greedy_strategy(self, policy=None, finetuning = False):
         """
             使用贪婪策略在给定的数据上测试模型。
         :param data_set: 测试数据
@@ -45,42 +45,18 @@ class Test:
         :return: 测试结果，包括完成时间和时间信息
         """
         test_result_list = []
-        # adapt_times = []
-
-        # adapt_cnt = []
         if policy is None: policy=self.ppo.policy
         
         policy.eval()
-        adapt_policy = deepcopy(policy)
-        
-        for i in tqdm(range(len(self.data_set[0])), file=sys.stdout, desc="progress", colour='blue'):
+        for i in range(len(self.data_set[0])):
             state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]])
-            adapt_policy.train()
             ep_st = time.time()
-            cnt = 0
-            if i==0:
-                for _ in range(self.adapt_nums):
-                    if _ %50 == 0: print(_)
-                    cnt += 1
-                    # print("================== fast adapt =====================")
-                    state = self.env.reset()
-                    self.memory_generate(self.env, state, adapt_policy)
-                    loss, _, adapt_policy = self.ppo.fast_adapt(self.memory, adapt_policy)
-                    convergence_checker.add_data(loss)
-                    
-                    # tqdm.write(f"current_makespan = {self.env.current_makespan}")
-                    if convergence_checker.is_converged():
-                        tqdm.write(f"Finish fast adapt at step:{cnt}" )
-                        convergence_checker.clear()
-                        break
-            ep_et = time.time()
-            # adapt_cnt.append(cnt)
-            adapt_policy.eval()
+            policy.eval()
             t1 = time.time()
             state = self.env.reset()
             while True:
                 with torch.no_grad():
-                    pi, _ = adapt_policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
+                    pi, _ = policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
                                     op_mask=state.op_mask_tensor,  # [1, N, N]
                                     candidate=state.candidate_tensor,  # [1, J]
                                     fea_m=state.fea_m_tensor,  # [1, M, 6]
@@ -94,11 +70,39 @@ class Test:
                 if done:
                     break
             t2 = time.time()
-            tqdm.write(f"{cnt}, {ep_et - ep_st}")
-            test_result_list.append([self.env.current_makespan[0], t2 - t1, cnt, ep_et - ep_st])
+            # tqdm.write(f"{cnt}, {ep_et - ep_st}")
+            test_result_list.append([self.env.current_makespan[0], t2 - t1])
         # for a_c, a_t, r in zip(adapt_cnt, adapt_times, test_result_list):
         #     print(f"adapt_cnt={a_c}, adapt_time={a_t}, makespan={r[0]}, time={r[1]}")
+        
         return np.array(test_result_list)
+
+    def finetuning(self):
+        
+        policy=self.ppo.policy
+        
+        policy.eval()
+        adapt_policy = deepcopy(policy)
+        finetuning_makespan = []
+        for i in range(len(self.data_set[0])):
+            adapt_policy.load_state_dict(policy.state_dict())
+            state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]])
+            adapt_policy.train()
+            ep_st = time.time()
+            mkspan = []
+            for _ in range(self.adapt_nums):
+
+                state = self.env.reset()
+                self.memory_generate(self.env, state, adapt_policy)
+                loss, _, adapt_policy = self.ppo.fast_adapt(self.memory, adapt_policy)
+                mkspan.append(self.env.current_makespan[0])
+            finetuning_makespan.append(mkspan)
+            ep_et = time.time()
+        self.ppo.policy.load_state_dict(adapt_policy.state_dict())
+        finetuning_makespan = np.array(finetuning_makespan)
+        # print(finetuning_makespan)
+        finetuning_makespan = np.mean(finetuning_makespan, axis=0)
+        return finetuning_makespan
 
 
     def sampling_strategy(self, sample_times, policy=None):
@@ -202,6 +206,21 @@ class Test:
         self.ppo.policy.eval()
         for n_j in job_nums:
             ...
+
+class FinetuningTest(Test):
+    
+    def greedy_strategy(self, policy=None, finetuning = False):
+        """
+            使用贪婪策略在给定的数据上测试模型。
+        :param data_set: 测试数据
+        :param model_path: 模型文件的路径
+        :param seed: 用于测试的种子值
+
+        :return: 测试结果，包括完成时间和时间信息
+        """
+
+
+
 
 
 def load_data_and_model(config):

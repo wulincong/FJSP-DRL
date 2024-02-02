@@ -200,8 +200,6 @@ class Trainer:
             f'model path: ./DANIEL_FJSP/trained_network/{self.data_source}/{self.model_name}\t\ttraining time: '
             f'{round((self.train_et - self.train_st), 2)}\t\t local time: {str_time}\n')
 
-
-
     def save_finetuning_log(self):
         """
         Save the finetuning log to a file.
@@ -219,14 +217,12 @@ class Trainer:
             f.write(f"\n{self.finetuning_model}\n")
             f.write("\n".join([str(_) for _ in self.makespan_log]))
             
-
         # 构建 loss 日志文件的完整路径
         loss_log_file_path = os.path.join(log_dir, f"loss.txt")
         # 写入 loss 日志
         with open(loss_log_file_path, "a+") as f:
             f.write(f"\n\n{self.finetuning_model} -->>> {self.data_name}\n")
             f.write("\n".join(map(str, self.loss_log)))  # 假设 loss_log 是数字列表
-
 
     def save_validation_log(self):
         """

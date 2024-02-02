@@ -390,6 +390,42 @@ class CaseGenerator:
 
         return job_length, op_pt, self.num_options / self.num_opes
 
+def permute_rows(x):
+    '''
+    x is a np array
+    '''
+    ix_i = np.tile(np.arange(x.shape[0]), (x.shape[1], 1)).T
+    ix_j = np.random.sample(x.shape).argsort(axis=1)
+    return x[ix_i, ix_j]
+
+
+def uni_instance_gen(n_j, n_d, n_m, m_low, m_high, t_low, t_high):  #工件个数，工序个数，机器个数，可运行机器最小最大个数，最小最大运行时间
+    mas = np.random.randint(low=m_low, high=m_high, size=(n_j, n_d))    #生成数据有最小值无最大值
+    machines = np.zeros((n_j, n_d, m_high))
+    times = np.zeros((n_j, n_d, m_high))
+    ma_ins = [x for x in range(n_m)]
+    num_dispatch = np.zeros((n_j))
+    for i in range(n_j):
+        num_dispatch[i] = np.random.randint(low=n_d/2, high=n_d+1)
+    for i in range(n_j):
+        for j in range(int(num_dispatch[i])):
+            ma = random.sample(ma_ins, mas[i][j])
+            time = np.random.randint(low=t_low, high=t_high,size=(mas[i][j]))
+            for k in range(mas[i][j]):
+                machines[i][j][k] = ma[k] + 1
+                times[i][j][k] = time[k]
+
+    for i in range(n_j):
+        q = np.random.randint(0, 2)
+        if(q == 1):
+            machines[i][n_d - 1] = 0
+            times[i][n_d - 1] = 0
+
+
+    return machines, times
+
+
+
 
 def main():
     if configs.data_type == 'test':
@@ -404,6 +440,10 @@ def main():
     else:
         print(f'Error from Instance Generation: incorrect data type {configs.data_type}')
         sys.exit()
+
+
+
+
 
 
 if __name__ == '__main__':

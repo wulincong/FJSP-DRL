@@ -19,7 +19,7 @@ cat << EOL
 EOL
 
 # 本试验特殊参数
-n_j_options="20 20 20 20 20 20 20 "
+n_j_options="20 20 20 20 20 20 20"
 n_m_options="10 10 10 10 10 10 10"
 op_per_job_options="5  7  10 13 15 17 20"
 
@@ -91,25 +91,47 @@ n_m=10
 model_suffix=${exp}_${meta_iterations}_${hidden_dim_actor}_${num_mlp_layers_actor}
 logdir_maml=$logdir/maml
 
-python ${t}/multi_task_maml_exp18.py --logdir $logdir_maml/train_model/model_suffix \
-                                     --model_suffix $model_suffix \
-                                     --maml_model True \
-                                     --meta_iterations $meta_iterations \
-                                     --num_tasks ${num_tasks} \
-                                     --max_updates $max_updates_maml \
-                                     --num_envs $num_envs \
-                                     --hidden_dim_actor $hidden_dim_actor \
-                                     --hidden_dim_critic $hidden_dim_critic \
-                                     --num_mlp_layers_actor $num_mlp_layers_actor \
-                                     --num_mlp_layers_critic $num_mlp_layers_critic \
-                                     --n_j_options $n_j_options \
-                                     --n_m_options $n_m_options \
-                                     --op_per_job_options $op_per_job_options
+# python ${t}/multi_task_maml_exp18.py --logdir $logdir_maml/train_model/model_suffix \
+#                                      --model_suffix $model_suffix \
+#                                      --maml_model True \
+#                                      --meta_iterations $meta_iterations \
+#                                      --num_tasks ${num_tasks} \
+#                                      --max_updates $max_updates_maml \
+#                                      --num_envs $num_envs \
+#                                      --hidden_dim_actor $hidden_dim_actor \
+#                                      --hidden_dim_critic $hidden_dim_critic \
+#                                      --num_mlp_layers_actor $num_mlp_layers_actor \
+#                                      --num_mlp_layers_critic $num_mlp_layers_critic \
+#                                      --n_j_options $n_j_options \
+#                                      --n_m_options $n_m_options \
+#                                      --op_per_job_options $op_per_job_options
 
 # 执行 DAN_finetuning.py
 
 
-for model in maml+$model_suffix
+# for model in maml+$model_suffix
+# do
+#     # for n_j in $n_j_options; do
+#     for op_per_job in $op_per_job_options; do
+#         python "${t}/DAN_finetuning.py" --logdir $logdir_maml/finetuning/${model}/${n_j}x${n_m}_${op_per_job} \
+#                                         --model_suffix free \
+#                                         --finetuning_model $model \
+#                                         --max_updates $max_updates_finetune \
+#                                         --n_j $n_j \
+#                                         --n_m $n_m \
+#                                         --op_per_job $op_per_job \
+#                                         --num_envs $num_envs \
+#                                         --hidden_dim_actor $hidden_dim_actor \
+#                                         --hidden_dim_critic $hidden_dim_critic \
+#                                         --num_mlp_layers_actor $num_mlp_layers_actor \
+#                                         --num_mlp_layers_critic $num_mlp_layers_critic \
+#                                         --lr $lr \
+#                                         --exp_dim $exp_dim
+#     # done
+#     done
+# done
+
+for model in "maml+exp15_1000_64_3"
 do
     # for n_j in $n_j_options; do
     for op_per_job in $op_per_job_options; do
@@ -121,13 +143,8 @@ do
                                         --n_m $n_m \
                                         --op_per_job $op_per_job \
                                         --num_envs $num_envs \
-                                        --hidden_dim_actor $hidden_dim_actor \
-                                        --hidden_dim_critic $hidden_dim_critic \
-                                        --num_mlp_layers_actor $num_mlp_layers_actor \
-                                        --num_mlp_layers_critic $num_mlp_layers_critic \
                                         --lr $lr \
                                         --exp_dim $exp_dim
     # done
     done
 done
-

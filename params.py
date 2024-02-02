@@ -39,13 +39,13 @@ parser.add_argument('--model_source', type=str, default='SD2', help='Suffix of t
 parser.add_argument('--data_source', type=str, default='SD2', help='Suffix of test data')
 
 # args for SD2 data generation
-parser.add_argument('--op_per_job', type=float, default=0,
+parser.add_argument('--op_per_job', type=float, default=10,
                     help='Number of operations per job, default 0, means the number equals m')
 parser.add_argument('--op_per_mch_min', type=int, default=1,
                     help='Minimum number of compatible machines for each operation')
 parser.add_argument('--op_per_mch_max', type=int, default=5,
                     help='Maximum number of compatible machines for each operation')
-parser.add_argument('--data_size', type=int, default=100, help='The number of instances for data generation')
+parser.add_argument('--data_size', type=int, default=10, help='The number of instances for data generation')
 parser.add_argument('--data_type', type=str, default="test", help='Generated data type (test/vali)')
 
 # args for testData to excel
@@ -90,7 +90,7 @@ parser.add_argument('--num_mlp_layers_critic', type=int, default=3, help='Number
 parser.add_argument('--hidden_dim_critic', type=int, default=64, help='Hidden dimension of Critic network')
 
 # args for PPO Algorithm
-parser.add_argument('--num_envs', type=int, default=20, help='Batch size for training environments')
+parser.add_argument('--num_envs', type=int, default=10, help='Batch size for training environments')
 parser.add_argument('--max_updates', type=int, default=1000, help='No. of episodes of each env for training')
 parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
 
@@ -115,7 +115,7 @@ parser.add_argument('--meta_lr', type=float, default=3e-4, help='训练时元学
 parser.add_argument('--task_lr', type=float, default=3e-4, help='任务学习率Inner-loop学习率')
 parser.add_argument('--adapt_lr', type=float, default=3e-4, help='任务快速适应学习率')
 parser.add_argument('--adapt_steps', type=int, default=4, help='内部更新适应次数')
-parser.add_argument('--adapt_nums', type=int, default=5, help='验证时快速适应迭代次数')
+parser.add_argument('--adapt_nums', type=int, default=11, help='验证时快速适应迭代次数')
 parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
 parser.add_argument('--maml_model',  type=str2bool, default=False)
 
@@ -136,7 +136,7 @@ parser.add_argument('--exp_dim', type=str, default="m", help='试验在哪个维
 
 import os
 
-if os.getenv('NOTEBOOK', 0) : # 如果环境变量不存在，则默认为0
+if os.getenv('ON_PY', 0) : # 如果环境变量不存在，则默认为0
     configs = parser.parse_args(args=[
         "--logdir", "./runs/model_test/main_model",
         "--model_suffix", "free",

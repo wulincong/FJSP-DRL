@@ -3,7 +3,7 @@ from common_utils import eval_actions
 import torch.nn as nn
 import torch
 from copy import deepcopy
-from params import configs
+# from params import configs
 import numpy as np
 import learn2learn as l2l
 from torch import autograd
@@ -293,11 +293,15 @@ class PPO:
         return updated_params
 
 
-    def fast_adapt(self, memory: Memory, clone: DANIEL):
+    def fast_adapt(self, memory: Memory, clone: DANIEL, freeze_feature_exact=True):
         '''
         memory: 
         clone: 
         '''
+        if freeze_feature_exact:
+            for name, param in self.policy.named_parameters():
+                if name.startswith('feature_exact'):
+                    param.requires_grad = False
         optimizer_clone = torch.optim.Adam(clone.parameters(), lr=self.adapt_lr) 
         # 获取转置后的训练数据，用于策略更新
         t_data = memory.transpose_data()  # Tensor len 13  pre torch.Size([1000, 50, 10])
@@ -330,7 +334,7 @@ class PPO:
 
         loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
         # 梯度清零，进行反向传播和优化
-        self.optimizer.zero_grad()  
+        optimizer_clone.zero_grad()  
         loss_epochs = loss.mean().detach()
         v_loss_epochs = v_loss.mean().detach()
         loss.mean().backward()
@@ -342,6 +346,9 @@ class PPO:
         #     else:
         #         print(name, "没有受到loss的影响")
         optimizer_clone.step()
+        for policy_old_params, policy_params in zip(clone.parameters(), self.policy.parameters()):
+            policy_old_params.data.copy_(self.tau * policy_old_params.data + (1 - self.tau) * policy_params.data)
+
         return loss_epochs.item(), v_loss_epochs.item() / self.k_epochs, clone
 
 
@@ -527,7 +534,7 @@ class PPO:
 
         return loss
 
-def PPO_initialize():
+def PPO_initialize(configs):
     ppo = PPO(configs)
     
     # writer = SummaryWriter(log_dir=configs.logdir, flush_secs=180)

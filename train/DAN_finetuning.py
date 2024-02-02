@@ -57,39 +57,39 @@ class DANTrainer(Trainer):
                 state = self.env.reset()
 
             ep_rewards = - deepcopy(self.env.init_quality)
+            ep_rewards = self.memory_generate(self.env, state, self.ppo)
+            # while True:
 
-            while True:
+            #     # state store
+            #     self.memory.push(state)
+            #     with torch.no_grad():
 
-                # state store
-                self.memory.push(state)
-                with torch.no_grad():
+            #         pi_envs, vals_envs = self.ppo.policy_old(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
+            #                                                 op_mask=state.op_mask_tensor,  # [sz_b, N, N]
+            #                                                 candidate=state.candidate_tensor,  # [sz_b, J]
+            #                                                 fea_m=state.fea_m_tensor,  # [sz_b, M, 6]
+            #                                                 mch_mask=state.mch_mask_tensor,  # [sz_b, M, M]
+            #                                                 comp_idx=state.comp_idx_tensor,  # [sz_b, M, M, J]
+            #                                                 dynamic_pair_mask=state.dynamic_pair_mask_tensor,  # [sz_b, J, M]
+            #                                                 fea_pairs=state.fea_pairs_tensor)  # [sz_b, J, M]
 
-                    pi_envs, vals_envs = self.ppo.policy_old(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
-                                                            op_mask=state.op_mask_tensor,  # [sz_b, N, N]
-                                                            candidate=state.candidate_tensor,  # [sz_b, J]
-                                                            fea_m=state.fea_m_tensor,  # [sz_b, M, 6]
-                                                            mch_mask=state.mch_mask_tensor,  # [sz_b, M, M]
-                                                            comp_idx=state.comp_idx_tensor,  # [sz_b, M, M, J]
-                                                            dynamic_pair_mask=state.dynamic_pair_mask_tensor,  # [sz_b, J, M]
-                                                            fea_pairs=state.fea_pairs_tensor)  # [sz_b, J, M]
+            #     # sample the action
+            #     action_envs, action_logprob_envs = sample_action(pi_envs)
 
-                # sample the action
-                action_envs, action_logprob_envs = sample_action(pi_envs)
+            #     # state transition
+            #     state, reward, done = self.env.step(actions=action_envs.cpu().numpy())
+            #     ep_rewards += reward
+            #     reward = torch.from_numpy(reward).to(device)
 
-                # state transition
-                state, reward, done = self.env.step(actions=action_envs.cpu().numpy())
-                ep_rewards += reward
-                reward = torch.from_numpy(reward).to(device)
+            #     # collect the transition
+            #     self.memory.done_seq.append(torch.from_numpy(done).to(device))
+            #     self.memory.reward_seq.append(reward)
+            #     self.memory.action_seq.append(action_envs)
+            #     self.memory.log_probs.append(action_logprob_envs)
+            #     self.memory.val_seq.append(vals_envs.squeeze(1))
 
-                # collect the transition
-                self.memory.done_seq.append(torch.from_numpy(done).to(device))
-                self.memory.reward_seq.append(reward)
-                self.memory.action_seq.append(action_envs)
-                self.memory.log_probs.append(action_logprob_envs)
-                self.memory.val_seq.append(vals_envs.squeeze(1))
-
-                if done.all():
-                    break
+            #     if done.all():
+            #         break
 
             loss, v_loss = self.ppo.update(self.memory)
             self.memory.clear_memory()

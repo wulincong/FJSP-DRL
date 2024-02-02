@@ -176,6 +176,7 @@ def main(config, flag_sample):
     else:
         model_prefix = "DANIELG"
 
+    finetuning = False
     for data in test_data:
         print("datta[1]: ",data[1])
         print("-" * 25 + "Test Learned Model" + "-" * 25)
@@ -187,6 +188,7 @@ def main(config, flag_sample):
 
         for model in test_model:
             save_path = save_direc + f'/Result_{model_prefix}+{model[1]}_{data[1]}.npy'
+            if model[1].startswith("maml"): finetuning = True
             if (not os.path.exists(save_path)) or config.cover_flag:
                 print(f"Model name : {model[1]}")
                 print(f"data name: ./data/{config.data_source}/{data[1]}")
@@ -197,8 +199,8 @@ def main(config, flag_sample):
                     # fast_adapt_times = []
                     # Greedy mode, test 5 times, record average time.
 
-                    for j in range(1):
-                        print(j)
+                    for j in range(2):
+                        # print(j)
                         test = Test(config, data[0], model[0])
 
                         # start_time = time.time()
@@ -206,7 +208,7 @@ def main(config, flag_sample):
                         # end_time = time.time()
                         # fast_adapt_times.append(end_time - start_time)
 
-                        result = test.greedy_strategy()
+                        result = test.greedy_strategy(finetuning=finetuning)
                         # result = test_greedy_strategy(data[0], model[0], config.seed_test)
                         
                         result_5_times.append(result)

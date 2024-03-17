@@ -487,6 +487,7 @@ class PPO:
             # 假设所有张量的第一维长度是一样的，我们可以用任何一个张量来计算分割点
             split_idx = int(len(t_data[0]) * train_ratio)
 
+            new_policy = {name: param.clone() for name, param in self.policy.named_parameters() if param.requires_grad}
             # 分割数据
             train_replays = tuple(data[:split_idx] for data in t_data)
             valid_replays = tuple(data[split_idx:] for data in t_data)
@@ -499,12 +500,9 @@ class PPO:
             num_batch = np.ceil(full_batch_size / self.minibatch_size)
             # print(" len(train_replays[0])", len(train_replays[0]))
 
-            #fast_adapt
+            # fast_adapt 
             # cloned_model = l2l.clone_module(self.policy)
-            updated_params = dict(self.policy.named_parameters())
             # with torch.no_grad():
-            new_policy = {name: param.clone() for name, param in self.policy.named_parameters() if param.requires_grad}
-
             for i in range(int(num_batch)):
                 start_idx = i * self.minibatch_size
                 end_idx = min((i + 1) * self.minibatch_size, full_batch_size)
@@ -534,10 +532,12 @@ class PPO:
 
                 new_policy = {name: param - self.adapt_lr * grad if grad is not None else param for (name, param), grad in zip(new_policy.items(), grads)}
                 # print(new_policy)
-            
+
             loss = self.outer_ppo_loss(valid_replays, valid_advantage_seq, valid_v_target_seq, old_policy, new_policy)
+                # print("loss.shape:   ", loss.shape)
+
             mean_loss += loss.mean()
-        
+
         mean_loss /= len(iteration_replays)
 
         return mean_loss
@@ -549,8 +549,8 @@ class PPO:
             self.optimizer.step()
             self.optimizer.zero_grad()
 
-            for policy_old_params, policy_params in zip(self.policy_old.parameters(), self.policy.parameters()):
-                policy_old_params.data.copy_(self.tau * policy_old_params.data + (1 - self.tau) * policy_params.data)
+            # for policy_old_params, policy_params in zip(self.policy_old.parameters(), self.policy.parameters()):
+            #     policy_old_params.data.copy_(self.tau * policy_old_params.data + (1 - self.tau) * policy_params.data)
 
         return loss
 

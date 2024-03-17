@@ -226,6 +226,12 @@ def setup_seed(seed):
     random.seed(seed)
     torch.backends.cudnn.deterministic = True
 
+def get_subdict(params_dict, prefix):
+    """
+    获取params_dict中以prefix为前缀的子字典
+    """
+    subdict = {k[len(prefix) + 1:]: v for k, v in params_dict.items() if k.startswith(prefix)}
+    return subdict
 
 if __name__ == '__main__':
     print('123')

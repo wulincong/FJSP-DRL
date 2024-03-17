@@ -3,7 +3,7 @@ from params import configs
 from tqdm import tqdm
 from data_utils import load_data_from_files, CaseGenerator, SD2_instance_generator, matrix_to_text, load_data_from_files
 from common_utils import strToSuffix, setup_seed
-from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, EnvState
+from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, EnvState, FJSPEnvForSameOpNumsEnergy
 from fjsp_env_various_op_nums import FJSPEnvForVariousOpNums
 from copy import deepcopy
 import os
@@ -68,7 +68,7 @@ class Trainer:
         self.test_data_path = f'./data/{self.data_source}/{self.data_name}'
         self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}'
         if config.maml_model:
-            self.model_name = f'maml{strToSuffix(config.model_suffix)}'
+            self.model_name = f'maml{strToSuffix(config.model_suffix)}{int(time.time())}'
 
 
         # seed

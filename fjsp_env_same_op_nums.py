@@ -196,7 +196,7 @@ class FJSPEnvForSameOpNums:
         """
         self.op_mean_pt = np.mean(self.op_pt, axis=2).data
         # 操作的最小和最大加工时间
-        self.op_min_pt = np.min(self.op_pt, axis=-1).data
+        self.op_min_pt = np.min(self.op_pt, axis=-1).data  # 每个工序的最小完工时间
         self.op_max_pt = np.max(self.op_pt, axis=-1).data
         self.pt_span = self.op_max_pt - self.op_min_pt  # 操作加工时间范围
         # [E, M]机器的最小和最大加工时间
@@ -229,6 +229,8 @@ class FJSPEnvForSameOpNums:
         self.init_quality = np.max(self.op_ct_lb, axis=1)
 
         self.max_endTime = self.init_quality
+        
+        
         """
             compute machine raw features
         """
@@ -241,8 +243,35 @@ class FJSPEnvForSameOpNums:
         self.dynamic_pair_mask = (self.candidate_pt == 0)  # 动态操作-机器对掩码
         self.candidate_process_relation = np.copy(self.dynamic_pair_mask) # 候选操作和机器之间的处理关系
         self.mch_current_available_jc_nums = np.sum(~self.candidate_process_relation, axis=1) # 机器上当前可用的作业数量
+        
+        self.op_pt_current = self.unmasked_op_pt.copy()
+
 
         self.mch_mean_pt = np.mean(self.op_pt, axis=1).filled(0) # 
+        ##生成机器的能耗        
+        self.mch_working_power = np.random.uniform(0.3, 1, size=self.mch_mean_pt.shape)
+        # 随机生成每个环境中每台机器的待机功率（范围在0.1到0.2之间）
+        self.mch_idle_power = np.random.uniform(0.1, 0.2, size=self.mch_mean_pt.shape)
+        
+
+        
+        # 方法1：计算平均功耗
+
+        self.mch_mean_pt_current = np.mean(self.op_pt_current, axis=1)
+        mch_power_consumption = self.mch_mean_pt_current * self.mch_working_power
+        working_energy = np.sum(mch_power_consumption, axis=1, keepdims=True)
+        env_idle_time = np.sum(self.mch_idle_power * self.max_endTime[:, np.newaxis], axis=1)
+
+        self.current_EC = working_energy + env_idle_time
+        
+        # 方法2： 计算最低功耗
+        # op_energy = np.where(self.op_pt > 1e10, float(np.inf), self.op_pt * self.mch_working_power[:, np.newaxis, :])
+        op_energy = self.op_pt * self.mch_working_power[:, np.newaxis, :]
+        min_energy_per_op = np.min(op_energy, axis=-1)
+        min_energy_per_mch = np.min(op_energy, axis=1)
+        self.total_min_energy = np.sum(min_energy_per_op)
+        self.current_EC = np.array(min_energy_per_mch)
+        self.current_EC = np.sum(self.current_EC, axis=-1)
         # construct machine features [E, M, 6]
 
         # construct 'come_idx' : [E, M, M, J]
@@ -268,6 +297,7 @@ class FJSPEnvForSameOpNums:
         self.old_candidate_process_relation = np.copy(self.candidate_process_relation)
         self.old_mch_current_available_op_nums = np.copy(self.mch_current_available_op_nums)
         self.old_mch_current_available_jc_nums = np.copy(self.mch_current_available_jc_nums)
+        self.old_current_EC = np.copy(self.current_EC)
         # state
         self.state = copy.deepcopy(self.old_state)
         return self.state
@@ -287,6 +317,7 @@ class FJSPEnvForSameOpNums:
         self.op_match_job_remain_work = np.copy(self.old_op_match_job_remain_work)
         self.init_quality = np.copy(self.old_init_quality)
         self.max_endTime = self.init_quality
+        self.current_EC = np.copy(self.old_current_EC)
         self.candidate_pt = np.copy(self.old_candidate_pt)
         self.candidate_process_relation = np.copy(self.old_candidate_process_relation)
         self.mch_current_available_op_nums = np.copy(self.old_mch_current_available_op_nums)
@@ -302,6 +333,7 @@ class FJSPEnvForSameOpNums:
         self.step_count = 0 # 记录当前环境中经过的步数或时间步
         # the array that records the makespan of all environments
         self.current_makespan = np.full(self.number_of_envs, float("-inf")) # 
+        self.current_makespan_normal = np.full(self.number_of_envs, float("-inf"))
         # the complete time of operations ([E,N])
         self.op_ct = np.zeros((self.number_of_envs, self.number_of_ops))
         self.mch_free_time = np.zeros((self.number_of_envs, self.number_of_machines))
@@ -309,6 +341,7 @@ class FJSPEnvForSameOpNums:
 
         self.mch_waiting_time = np.zeros((self.number_of_envs, self.number_of_machines))
         self.mch_working_flag = np.zeros((self.number_of_envs, self.number_of_machines))
+        self.total_mch_waiting_time = np.zeros((self.number_of_envs, self.number_of_machines))
 
         self.next_schedule_time = np.zeros(self.number_of_envs)
         self.candidate_free_time = np.zeros((self.number_of_envs, self.number_of_jobs))
@@ -471,8 +504,10 @@ class FJSPEnvForSameOpNums:
 
         self.construct_pair_features()
 
+
         # compute the reward : R_t = C_{LB}(s_{t}) - C_{LB}(s_{t+1})
         reward = self.max_endTime - np.max(self.op_ct_lb, axis=1)
+        # reward = self.max_endTime - np.max(self.op_ct_lb, axis=1)
         self.max_endTime = np.max(self.op_ct_lb, axis=1)
 
         # update the state
@@ -481,6 +516,8 @@ class FJSPEnvForSameOpNums:
                           self.fea_pairs)
 
         return self.state, np.array(reward), self.done()
+
+
 
     def done(self):
         """
@@ -645,3 +682,196 @@ class FJSPEnvForSameOpNums:
         d2 = np.expand_dims(x, 1)
 
         return np.logical_and(d1, d2).astype(np.float32)
+
+class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
+    # def calculate_working_energy(self, operation_time, machine_id):
+    #     # 基于操作时间计算机器工作时的能耗
+    #     energy_rate_working = 1.0  # 假设工作能耗率为1.0
+    #     energy_consumed = operation_time * energy_rate_working
+    #     return energy_consumed
+
+    # def calculate_idle_energy(self, idle_time, machine_id):
+    #     # 基于空闲时间计算机器空闲时的能耗
+    #     energy_rate_idle = 0.1  # 假设空闲能耗率为0.1
+    #     energy_consumed = idle_time * energy_rate_idle
+    #     return energy_consumed
+
+    def step(self, actions):
+        """
+            perform the state transition & return the next state and reward
+        :param actions: the action list with shape [E]
+        :return: the next state, reward and the done flag
+        """
+        chosen_job = actions // self.number_of_machines
+        chosen_mch = actions % self.number_of_machines
+        chosen_op = self.candidate[self.env_idxs, chosen_job]
+
+
+
+        if (self.reverse_process_relation[self.env_idxs, chosen_op, chosen_mch]).any():
+            print(
+                f'FJSP_Env.py Error from choosing action: Op {chosen_op} can\'t be processed by Mch {chosen_mch}')
+            sys.exit()
+
+        self.step_count += 1
+
+        # update candidate
+        candidate_add_flag = (chosen_op != self.job_last_op_id[self.env_idxs, chosen_job])
+        self.candidate[self.env_idxs, chosen_job] += candidate_add_flag
+        self.mask[self.env_idxs, chosen_job] = (1 - candidate_add_flag)
+
+        # the start processing time of chosen operations
+        chosen_op_st = np.maximum(self.candidate_free_time[self.env_idxs, chosen_job],
+                                  self.mch_free_time[self.env_idxs, chosen_mch])
+
+        self.op_ct[self.env_idxs, chosen_op] = chosen_op_st + self.op_pt[
+            self.env_idxs, chosen_op, chosen_mch]
+        # 修改工件和机器的空闲时间
+        self.candidate_free_time[self.env_idxs, chosen_job] = self.op_ct[self.env_idxs, chosen_op]
+        self.mch_free_time[self.env_idxs, chosen_mch] = self.op_ct[self.env_idxs, chosen_op]
+        self.current_makespan_normal = np.maximum(self.current_makespan_normal, self.op_ct[
+            self.env_idxs, chosen_op])
+        
+        #修改相关真实值
+        true_chosen_op_st = np.maximum(self.true_candidate_free_time[self.env_idxs, chosen_job],
+                                       self.true_mch_free_time[self.env_idxs, chosen_mch])
+        self.true_op_ct[self.env_idxs, chosen_op] = true_chosen_op_st + self.true_op_pt[
+            self.env_idxs, chosen_op, chosen_mch]
+        self.true_candidate_free_time[self.env_idxs, chosen_job] = self.true_op_ct[
+            self.env_idxs, chosen_op]
+        self.true_mch_free_time[self.env_idxs, chosen_mch] = self.true_op_ct[
+            self.env_idxs, chosen_op]
+
+        self.current_makespan = np.maximum(self.current_makespan, self.true_op_ct[
+            self.env_idxs, chosen_op])
+
+        # update the candidate message
+        mask_temp = candidate_add_flag
+        self.candidate_pt[mask_temp, chosen_job[mask_temp]] = self.unmasked_op_pt[mask_temp, chosen_op[mask_temp] + 1]
+        self.candidate_process_relation[mask_temp, chosen_job[mask_temp]] = \
+            self.reverse_process_relation[mask_temp, chosen_op[mask_temp] + 1]
+        self.candidate_process_relation[~mask_temp, chosen_job[~mask_temp]] = 1
+
+        # compute the next schedule time
+
+        # [E, J, M]
+        candidateFT_for_compare = np.expand_dims(self.candidate_free_time, axis=2)
+        mchFT_for_compare = np.expand_dims(self.mch_free_time, axis=1)
+        self.pair_free_time = np.maximum(candidateFT_for_compare, mchFT_for_compare)
+
+        schedule_matrix = ma.array(self.pair_free_time, mask=self.candidate_process_relation)
+
+        self.next_schedule_time = np.min(
+            schedule_matrix.reshape(self.number_of_envs, -1), axis=1).data
+
+        self.remain_process_relation[self.env_idxs, chosen_op] = 0
+        self.op_scheduled_flag[self.env_idxs, chosen_op] = 1
+
+        """
+            update the mask for deleting nodes
+        """
+        self.deleted_op_nodes = \
+            np.logical_and((self.op_ct <= self.next_schedule_time[:, np.newaxis]),
+                           self.op_scheduled_flag)
+        self.delete_mask_fea_j = np.tile(self.deleted_op_nodes[:, :, np.newaxis],
+                                         (1, 1, self.op_fea_dim))
+
+        """
+            update the state
+        """
+        self.update_op_mask()
+
+        # update operation raw features
+        diff = self.op_ct[self.env_idxs, chosen_op] - self.op_ct_lb[self.env_idxs, chosen_op]
+
+        mask1 = (self.op_idx >= chosen_op[:, np.newaxis]) & \
+                (self.op_idx < (self.job_last_op_id[self.env_idxs, chosen_job] + 1)[:,
+                               np.newaxis])
+        self.op_ct_lb[mask1] += np.tile(diff[:, np.newaxis], (1, self.number_of_ops))[mask1]
+
+        mask2 = (self.op_idx >= (self.job_first_op_id[self.env_idxs, chosen_job])[:,
+                                np.newaxis]) & \
+                (self.op_idx < (self.job_last_op_id[self.env_idxs, chosen_job] + 1)[:,
+                               np.newaxis])
+        self.op_match_job_left_op_nums[mask2] -= 1
+        self.op_match_job_remain_work[mask2] -= \
+            np.tile(self.op_mean_pt[self.env_idxs, chosen_op][:, np.newaxis], (1, self.number_of_ops))[mask2]
+
+        self.op_waiting_time = np.zeros((self.number_of_envs, self.number_of_ops))
+        self.op_waiting_time[self.env_job_idx, self.candidate] = \
+            (1 - self.mask) * np.maximum(np.expand_dims(self.next_schedule_time, axis=1)
+                                         - self.candidate_free_time, 0) + self.mask * self.op_waiting_time[
+                self.env_job_idx, self.candidate]
+
+        self.op_remain_work = np.maximum(self.op_ct -
+                                         np.expand_dims(self.next_schedule_time, axis=1), 0)
+
+        self.construct_op_features()
+
+        # update dynamic pair mask
+        self.dynamic_pair_mask = np.copy(self.candidate_process_relation)
+
+        self.unavailable_pairs = self.pair_free_time > self.next_schedule_time[:, np.newaxis, np.newaxis]
+
+        self.dynamic_pair_mask = np.logical_or(self.dynamic_pair_mask, self.unavailable_pairs)
+
+        # update comp_idx
+        self.comp_idx = self.logic_operator(x=~self.dynamic_pair_mask)
+
+        self.update_mch_mask()
+
+        # update machine raw features
+        self.mch_current_available_jc_nums = np.sum(~self.dynamic_pair_mask, axis=1)
+        self.mch_current_available_op_nums -= self.process_relation[
+            self.env_idxs, chosen_op]
+
+        mch_free_duration = np.expand_dims(self.next_schedule_time, axis=1) - self.mch_free_time
+        mch_free_flag = mch_free_duration < 0
+        self.mch_working_flag = mch_free_flag + 0
+        self.mch_waiting_time = (1 - mch_free_flag) * mch_free_duration 
+
+        self.mch_remain_work = np.maximum(-mch_free_duration, 0)
+
+        self.construct_mch_features()
+
+        self.construct_pair_features()
+
+        # 计算机器空闲时的能耗
+        self.total_mch_waiting_time = self.total_mch_waiting_time + self.mch_waiting_time if (self.mch_waiting_time < 1.e10).any() else 0.01
+        idle_energy_consumption = self.total_mch_waiting_time * self.mch_working_power
+        idle_energy = np.sum(idle_energy_consumption, axis = -1)
+
+        # 计算机器工作时的能耗
+
+        zero_tensor = np.copy(self.op_pt_current)
+        # zero_tensor[self.env_idxs[:, np.newaxis], chosen_job[:, np.newaxis], :] = 0
+        # zero_tensor[self.env_idxs[:, np.newaxis], chosen_job[:, np.newaxis], chosen_mch[:, np.newaxis]] = \
+        # self.op_pt_current[self.env_idxs[:, np.newaxis], chosen_job[:, np.newaxis], chosen_mch[:, np.newaxis]]
+        # self.op_pt_current = zero_tensor
+        # mch_mean_pt_current = np.mean(self.op_pt_current, axis=1)
+
+        mch_working_time = self.current_makespan_normal[:, np.newaxis] - self.total_mch_waiting_time
+
+        mch_power_consumption = mch_working_time * self.mch_working_power
+        working_energy = np.sum(mch_power_consumption, axis = -1)
+
+        # 总能耗为工作能耗加上空闲能耗
+        total_energy_consumed = working_energy + idle_energy
+        # compute the reward : R_t = C_{LB}(s_{t}) - C_{LB}(s_{t+1})
+        rewardEC = self.current_EC - total_energy_consumed
+        self.current_EC = total_energy_consumed
+        reward_mk = self.max_endTime - np.max(self.op_ct_lb, axis=1)
+        reward = 0.5 * (reward_mk) + 0.5 * np.sum(rewardEC, axis=-1)
+
+        # reward = self.max_endTime - np.max(self.op_ct_lb, axis=1)
+        self.max_endTime = np.max(self.op_ct_lb, axis=1)
+
+        # update the state
+        self.state.update(self.fea_j, self.op_mask, self.fea_m, self.mch_mask,
+                          self.dynamic_pair_mask, self.comp_idx, self.candidate,
+                          self.fea_pairs)
+
+        return self.state, np.array(reward), self.done()
+
+
+

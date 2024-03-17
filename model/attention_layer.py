@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+from common_utils import get_subdict
 
 class SingleOpAttnBlock(nn.Module):
     def __init__(self, input_dim, output_dim, dropout_prob):
@@ -26,20 +26,23 @@ class SingleOpAttnBlock(nn.Module):
 
         self.dropout = nn.Dropout(p=dropout_prob)
 
-    def forward(self, h, op_mask):
+    def forward(self, h, op_mask, fast_weights=None):
         """
         :param h: operation feature vectors with shape [sz_b, N, input_dim]
         :param op_mask: used for masking nonexistent predecessors/successor
                         with shape [sz_b, N, 3]
         :return: output feature vectors with shape [sz_b, N, output_dim]
         """
-        Wh = torch.matmul(h, self.W)
+        W = self.W if fast_weights is None or "W" not in fast_weights else fast_weights["W"]
+        a = self.a if fast_weights is None or 'a' not in fast_weights else fast_weights['a']
+        
+        Wh = torch.matmul(h, W)
         sz_b, N, _ = Wh.size()
 
         Wh_concat = torch.stack([Wh.roll(1, dims=1), Wh, Wh.roll(-1, dims=1)], dim=-2)
 
-        Wh1 = torch.matmul(Wh, self.a[:self.out_features, :])
-        Wh2 = torch.matmul(Wh, self.a[self.out_features:, :])
+        Wh1 = torch.matmul(Wh, a[:self.out_features, :])
+        Wh2 = torch.matmul(Wh, a[self.out_features:, :])
 
         Wh2_concat = torch.stack([Wh2.roll(1, dims=1), Wh2, Wh2.roll(-1, dims=1)], dim=-1)
 
@@ -79,7 +82,7 @@ class MultiHeadOpAttnBlock(nn.Module):
         for i, attention in enumerate(self.attentions):
             self.add_module('attention_{}'.format(i), attention)
 
-    def forward(self, h, op_mask):
+    def forward(self, h, op_mask, fast_weights = None):
         """
         :param h: operation feature vectors with shape [sz_b, N, input_dim]
         :param op_mask: used for masking nonexistent predecessors/successor
@@ -91,7 +94,10 @@ class MultiHeadOpAttnBlock(nn.Module):
         h = self.dropout(h)
 
         # shape: [ [sz_b, N, output_dim], ... [sz_b, N, output_dim]]
-        h_heads = [att(h, op_mask) for att in self.attentions]
+        h_heads = []
+        for i, att in enumerate(self.attentions):
+            
+            h_heads.append(att(h, op_mask, get_subdict(fast_weights, f"attention_{i}")))
 
         if self.concat:
             h = torch.cat(h_heads, dim=-1)
@@ -131,7 +137,7 @@ class SingleMchAttnBlock(nn.Module):
 
         self.dropout = nn.Dropout(p=dropout_prob)
 
-    def forward(self, h, mch_mask, comp_val):
+    def forward(self, h, mch_mask, comp_val, fast_weights=None):
         """
         :param h: operation feature vectors with shape [sz_b, M, node_input_dim]
         :param mch_mask:  used for masking attention coefficients (with shape [sz_b, M, M])
@@ -143,13 +149,15 @@ class SingleMchAttnBlock(nn.Module):
         """
         # Wh.shape: [sz_b, M, out_features]
         # W_edge.shape: [sz_b, M, M, out_features]
+        W = fast_weights["W"] if fast_weights else self.W
+        W_edge = fast_weights["W_edge"] if fast_weights else self.W_edge
 
-        Wh = torch.matmul(h, self.W)
-        W_edge = torch.matmul(comp_val, self.W_edge)
+        Wh = torch.matmul(h, W)
+        W_edge = torch.matmul(comp_val, W_edge)
 
         # compute attention matrix
 
-        e = self.get_attention_coef(Wh, W_edge)
+        e = self.get_attention_coef(Wh, W_edge, a = fast_weights["a"] if fast_weights else None)
 
         zero_vec = -9e15 * torch.ones_like(e)
         attention = torch.where(mch_mask > 0, e, zero_vec)
@@ -160,17 +168,17 @@ class SingleMchAttnBlock(nn.Module):
 
         return h_prime
 
-    def get_attention_coef(self, Wh, W_edge):
+    def get_attention_coef(self, Wh, W_edge, a = None):
         """
             compute attention coefficients using node and edge features
         :param Wh: transformed node features
         :param W_edge: transformed edge features
         :return:
         """
-
-        Wh1 = torch.matmul(Wh, self.a[:self.out_features, :])  # [sz_b, M, 1]
-        Wh2 = torch.matmul(Wh, self.a[self.out_features:2 * self.out_features, :])  # [sz_b, M, 1]
-        edge_feas = torch.matmul(W_edge, self.a[2 * self.out_features:, :])  # [sz_b, M, M, 1]
+        a = self.a if a is None else a
+        Wh1 = torch.matmul(Wh, a[:self.out_features, :])  # [sz_b, M, 1]
+        Wh2 = torch.matmul(Wh, a[self.out_features:2 * self.out_features, :])  # [sz_b, M, 1]
+        edge_feas = torch.matmul(W_edge, a[2 * self.out_features:, :])  # [sz_b, M, M, 1]
 
         # broadcast add
         e = Wh1 + Wh2.transpose(-1, -2) + edge_feas.squeeze(-1)
@@ -201,7 +209,7 @@ class MultiHeadMchAttnBlock(nn.Module):
         for i, attention in enumerate(self.attentions):
             self.add_module('attention_{}'.format(i), attention)
 
-    def forward(self, h, mch_mask, comp_val):
+    def forward(self, h, mch_mask, comp_val, fast_weights=None):
         """
         :param h: operation feature vectors with shape [sz_b, M, node_input_dim]
         :param mch_mask:  used for masking attention coefficients (with shape [sz_b, M, M])
@@ -215,7 +223,12 @@ class MultiHeadMchAttnBlock(nn.Module):
         """
         h = self.dropout(h)
 
-        h_heads = [att(h, mch_mask, comp_val) for att in self.attentions]
+        h_heads = []
+        for i, att in enumerate(self.attentions):
+            if fast_weights:
+                h_heads.append(att(h, mch_mask, comp_val, get_subdict(fast_weights, f"attention_{i}")))
+            else:
+                h_heads.append(att(h, mch_mask, comp_val))
 
         if self.concat:
             # h.shape : [sz_b, M, output_dim*num_heads]

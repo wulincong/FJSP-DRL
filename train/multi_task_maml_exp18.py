@@ -11,7 +11,7 @@ class MultiTaskTrainer(Trainer):
         super().__init__(config)
         
         self.env = None
-        self.ppo = PPO_initialize()
+        self.ppo = PPO_initialize(config)
         self.meta_optimizer = torch.optim.Adam(self.ppo.policy.parameters(), self.meta_lr)
         
         self.n_j_options = config.n_j_options        

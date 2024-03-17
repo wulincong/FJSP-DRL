@@ -14,12 +14,12 @@ hidden_dim=512
 
 # 本试验特殊参数
 n_j_options=[int(_) for _ in np.linspace(5, 25, 6)]
-# n_m_options=n_j_options[::-1]
-# op_per_job_options=[10 for _ in n_m_options]
-
-# n_j_options=[5, 10, 15, 20, 25]
 n_m_options=n_j_options[::-1]
 op_per_job_options=[10 for _ in n_m_options]
+op_per_job_options=n_m_options
+n_j_options=[13, 17, 21, 25, 25]
+n_m_options=[5,  13, 9,  5, 17]
+op_per_job_options=n_m_options
 print(n_j_options, n_m_options, op_per_job_options)
 
 LOG_DIR="./runs/"+EXP
@@ -27,7 +27,7 @@ LOG_DIR="./runs/"+EXP
 num_tasks=len(n_j_options)
 
 # multi_task_maml_exp.py 脚本的特定参数
-meta_iterations=500
+meta_iterations=200
 
 
 def train_maml(file=None, model_suffix=None, train_model = "maml"):
@@ -49,14 +49,29 @@ def train_maml(file=None, model_suffix=None, train_model = "maml"):
 model_name, commd, args = train_maml()
 print(args)
 configs = parser.parse_args(args=args)
-trainer = MultiTaskTrainer(configs)
+trainer = MultiTaskECTrainer(configs)
+# trainer = MultiTaskTrainer(configs)
 trainer.train()
 
-_, _, args = train_maml(train_model="pre_train")
-print(args)
-configs = parser.parse_args(args=args)
-pretrainer = PretrainTrainer(configs)
-pretrainer.train()
+# trainer = MultiTaskTrainerCustomize(configs)
+# trainer.train(inner_update_params_startswith=[])
+# trainer.train(inner_update_params_startswith=['feature_exact'])
+
+# trainer = MultiTaskTrainerCustomize(configs)
+# trainer.train(inner_update_params_startswith=['critic'])
+
+# trainer = MultiTaskTrainerCustomize(configs)
+# trainer.train(inner_update_params_startswith=['actor'])
+
+# trainer = MultiTaskTrainerCustomize(configs)
+# trainer.train(inner_update_params_startswith=['feature_exact', 'critic'])
+
+
+# _, _, args = train_maml(train_model="pre_train")
+# print(args)
+# configs = parser.parse_args(args=args)
+# pretrainer = PretrainTrainer(configs)
+# pretrainer.train()
 
 
 

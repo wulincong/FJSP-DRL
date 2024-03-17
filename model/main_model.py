@@ -1,4 +1,4 @@
-from common_utils import nonzero_averaging
+from common_utils import nonzero_averaging, get_subdict
 from model.attention_layer import *
 from model.sub_layers import *
 import torch
@@ -66,7 +66,7 @@ class DualAttentionNetwork(nn.Module):
                 )
             )
 
-    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx):
+    def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, fast_weights=None):
         """
         :param candidate: the index of candidates  [sz_b, J]
         :param fea_j: input operation feature vectors with shape [sz_b, N, 8]
@@ -95,8 +95,8 @@ class DualAttentionNetwork(nn.Module):
             fea_j_jc = torch.gather(fea_j, 1, candidate_idx).type(torch.float32)
             comp_val_layer = torch.matmul(comp_idx_for_mul,
                                      fea_j_jc).reshape(sz_b, M, M, -1)
-            fea_j = self.op_attention_blocks[layer](fea_j, op_mask)
-            fea_m = self.mch_attention_blocks[layer](fea_m, mch_mask, comp_val_layer)
+            fea_j = self.op_attention_blocks[layer](fea_j, op_mask, get_subdict(fast_weights, f"op_attention_blocks.{layer}"))
+            fea_m = self.mch_attention_blocks[layer](fea_m, mch_mask, comp_val_layer, get_subdict(fast_weights, f"mch_attention_blocks.{layer}"))
 
         fea_j_global = nonzero_averaging(fea_j)
         fea_m_global = nonzero_averaging(fea_m)
@@ -149,7 +149,7 @@ class DANIEL(nn.Module):
                 params[name] = param
 
         fea_j, fea_m, fea_j_global, fea_m_global = self.feature_exact(fea_j, op_mask, candidate, fea_m, mch_mask,
-                                                                      comp_idx) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
+                                                                      comp_idx, fast_weights=self.get_subdict(params, 'feature_exact')) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
 
         sz_b, M, _, J = comp_idx.size()  # 获取comp_idx张量的形状信息。
         d = fea_j.size(-1)
@@ -246,7 +246,7 @@ class MetaActorDANIEL(nn.Module):
         """
 
         fea_j, fea_m, fea_j_global, fea_m_global = self.feature_exact(fea_j, op_mask, candidate, fea_m, mch_mask,
-                                                                      comp_idx) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
+                                                                      comp_idx, ) # 调用self.feature_exact函数，计算操作特征向量的一些中间结果。
 
         sz_b, M, _, J = comp_idx.size()  # 获取comp_idx张量的形状信息。
         d = fea_j.size(-1)

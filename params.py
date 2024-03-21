@@ -134,6 +134,10 @@ parser.add_argument('--logdir', type=str, default="./runs/"+str_time, help='Suff
 parser.add_argument('--save_instance', type=str2bool, default=True, help='Whether SAVE instance in finetuning stage')
 parser.add_argument('--exp_dim', type=str, default="m", help='试验在哪个维度改变')
 
+# args for EC
+parser.add_argument('--factor_Mk', type=float, default=0.0, )
+parser.add_argument('--factor_Ec', type=float, default=1.0)
+
 import os
 
 if os.getenv('ON_PY', 0) : # 如果环境变量不存在，则默认为0

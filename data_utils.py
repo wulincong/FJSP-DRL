@@ -110,6 +110,80 @@ def SD2_instance_generator(config, n_j=None, n_m=None, op_per_job=None):
     return job_length, op_pt, op_per_mch
 
 
+def SD2_instance_generator_EMconflict(config, n_j=None, n_m=None, op_per_job=None):
+    """
+    Generate an instance for the Flexible Job Shop Problem (FJSP) considering
+    the conflict of machine power and processing time.
+    
+    :param config: Configuration object with instance parameters.
+    :return: Tuple containing job lengths, operation processing times, and average number of compatible machines.
+    """
+    if n_j is None:
+        n_j = config.n_j
+    if n_m is None:
+        n_m = config.n_m
+    if op_per_job:
+        pass
+    elif config.op_per_job == 0:
+        op_per_job = n_m
+    else:
+        op_per_job = config.op_per_job
+
+    low = config.low
+    high = config.high
+    middle = (high - low) / 2
+    data_suffix = config.data_suffix
+
+    # Determine operation per machine limits
+    op_per_mch_min = 1
+    if data_suffix == "nf":
+        op_per_mch_max = 1
+    elif data_suffix == "mix":
+        op_per_mch_max = n_m
+    else:
+        op_per_mch_min = config.op_per_mch_min
+        op_per_mch_max = config.op_per_mch_max
+
+    if op_per_mch_min < 1 or op_per_mch_max > n_m:
+        print(f'Error from Instance Generation: [{op_per_mch_min},{op_per_mch_max}] '
+            f'with num_mch : {n_m}')
+        sys.exit()
+
+    mch_working_power = np.empty(n_m)
+    for i in range(n_m):
+        if np.random.rand() > 0.5:
+            mch_working_power[i] = np.random.uniform(1.6, 2)
+        else:
+            mch_working_power[i] = np.random.uniform(00.3, 0.5)
+
+    mch_idle_power = np.random.uniform(0.1, 0.2, size=n_m)
+
+    # Generate job structure
+    n_op = int(n_j * op_per_job)
+    job_length = np.full(shape=(n_j,), fill_value=op_per_job, dtype=int)
+
+    # Generate machine usage for each operation
+    op_use_mch = np.random.randint(low=op_per_mch_min, high=op_per_mch_max + 1, size=n_op)
+    op_per_mch = np.mean(op_use_mch)
+
+    # Initialize processing time matrix
+    op_pt = np.zeros((n_op, n_m), dtype=int)
+
+    for op_idx in range(n_op):
+        for mch_idx in range(n_m):
+            if mch_working_power[mch_idx] > 0.6: #如果功率比较大
+                op_pt[op_idx, mch_idx] = np.random.randint(low + 30, middle)
+            else: 
+                op_pt[op_idx, mch_idx] = np.random.randint(middle + 30, high)
+        # Adjust unavailable machines
+        mch_num = op_use_mch[op_idx]
+        if mch_num < n_m:
+            unavailable_mch_indices = np.random.choice(np.arange(n_m), n_m - mch_num, replace=False)
+            op_pt[op_idx, unavailable_mch_indices] = 0
+    ##计算每个操作的能耗
+
+    return job_length, op_pt, op_per_mch, mch_working_power, mch_idle_power
+
 
 def matrix_to_text(job_length, op_pt, op_per_mch):
     """

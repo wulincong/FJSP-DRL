@@ -518,6 +518,157 @@ class FinetuningTrainer(Trainer):
         self.save_finetuning_log()
 
 
+class DANMkEcTrainer(Trainer):
+    def __init__(self, config):
+
+        super().__init__(config)
+        self.env = FJSPEnvForSameOpNumsEnergy(self.n_j, self.n_m, self.config.factor_Mk, self.config.factor_Ec)
+        self.finetuning_model = f'../trained_network/SD2/10x5+mix.pth'
+        self.ppo = PPO_initialize(config)
+        print(self.finetuning_model)
+
+
+    def sample_training_instances(self, n_j=None,n_m=None, op_per_job=None ):
+        """
+            sample training instances following the config, 
+            the sampling process of SD1 data is imported from "songwenas12/fjsp-drl" 
+        :return: new training instances
+        """
+        if n_j is None: n_j = self.n_j
+        if n_m is None: n_m = self.n_m
+        if op_per_job is None: op_per_job = self.config.op_per_job
+        prepare_JobLength = [random.randint(self.op_per_job_min, self.op_per_job_max) for _ in range(n_j)]
+        dataset_JobLength = [] 
+        dataset_OpPT = []
+        dataset_mch_working_power = []
+        dataset_mch_idle_power = []
+        
+        for i in range(self.num_envs): # 20
+
+            JobLength, OpPT, _, mch_working_power, mch_idle_power = SD2_instance_generator_EMconflict(config=self.config, n_j = n_j, n_m = n_m, op_per_job=op_per_job)  
+
+            dataset_JobLength.append(JobLength)
+            dataset_OpPT.append(OpPT)
+            dataset_mch_working_power.append(mch_working_power)
+            dataset_mch_idle_power.append(mch_idle_power)
+
+        # print("len of sample_training_instances/dataset_OpPT:", len(dataset_OpPT))
+        return dataset_JobLength, dataset_OpPT, dataset_mch_working_power, dataset_mch_idle_power
+
+
+    def train(self):
+        """
+            train the model following the config
+        """
+        setup_seed(self.seed_train)
+        self.log = []
+        self.validation_log = []
+        self.record = float('inf')
+        print("-" * 25 + "Training Setting" + "-" * 25)
+        print(f"source : {self.data_source}")
+    
+        print(f"model name :{self.finetuning_model}")
+        print(f"vali data :{self.vali_data_path}")
+        print("\n")
+
+        self.train_st = time.time()
+        current_EC_record = []
+        mean_rewards_all_env_record = []
+        mean_makespan_all_env_record = []
+        for i_update in tqdm(range(self.max_updates), file=sys.stdout, desc="progress", colour='blue'):
+            ep_st = time.time()
+
+            # if i_update % self.reset_env_timestep == 0:
+            if i_update == 0:
+                dataset_job_length, dataset_op_pt, dataset_mch_working_power, dataset_mch_idle_power = self.sample_training_instances()
+                state = self.env.set_initial_data(dataset_job_length, dataset_op_pt, dataset_mch_working_power, dataset_mch_idle_power )
+            else:
+                state = self.env.reset()
+            ep_rewards = - deepcopy(self.env.init_quality)
+
+            while True:
+
+                # state store
+                self.memory.push(state)
+                with torch.no_grad():
+
+                    pi_envs, vals_envs = self.ppo.policy_old(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
+                                                            op_mask=state.op_mask_tensor,  # [sz_b, N, N]
+                                                            candidate=state.candidate_tensor,  # [sz_b, J]
+                                                            fea_m=state.fea_m_tensor,  # [sz_b, M, 6]
+                                                            mch_mask=state.mch_mask_tensor,  # [sz_b, M, M]
+                                                            comp_idx=state.comp_idx_tensor,  # [sz_b, M, M, J]
+                                                            dynamic_pair_mask=state.dynamic_pair_mask_tensor,  # [sz_b, J, M]
+                                                            fea_pairs=state.fea_pairs_tensor)  # [sz_b, J, M]
+
+                # sample the action
+                action_envs, action_logprob_envs = sample_action(pi_envs)
+
+                # state transition
+                state, reward, done = self.env.step(actions=action_envs.cpu().numpy())
+                ep_rewards += reward
+                reward = torch.from_numpy(reward).to(device)
+
+                # collect the transition
+                self.memory.done_seq.append(torch.from_numpy(done).to(device))
+                self.memory.reward_seq.append(reward)
+                self.memory.action_seq.append(action_envs)
+                self.memory.log_probs.append(action_logprob_envs)
+                self.memory.val_seq.append(vals_envs.squeeze(1))
+
+                if done.all():
+                    break
+
+            loss, v_loss = self.ppo.update(self.memory)
+            self.memory.clear_memory()
+
+            mean_rewards_all_env = np.mean(ep_rewards)
+            mean_rewards_all_env_record.append(mean_rewards_all_env)
+            mean_makespan_all_env = np.mean(self.env.current_makespan)
+            mean_makespan_all_env_record.append(mean_makespan_all_env)
+            current_makespan_normal = np.mean(self.env.current_makespan_normal)
+            current_EC = np.mean(self.env.current_EC)
+            current_EC_record.append(current_EC)
+            # print(self.env.current_makespan)
+            if i_update < 2: vali_result = mean_makespan_all_env 
+
+            # save the mean rewards of all instances in current training data
+            self.log.append([i_update, mean_rewards_all_env])
+
+            ep_et = time.time()
+            # print the reward, makespan, loss and training time of the current episode
+            tqdm.write(
+                'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}, current EC: {:.2f}'.format(
+                    i_update + 1, mean_rewards_all_env, mean_makespan_all_env, loss, ep_et - ep_st, current_EC))
+            # scalars = {f"makespan_{i}":m  for i, m in zip(range(self.num_envs), self.env.current_makespan)}
+            scalars = {}
+            scalars.update({
+                'Loss/train': loss
+                ,'makespan_train':mean_makespan_all_env
+                # ,'makespan_validate':vali_result
+                ,'current_EC': current_EC
+                ,"EC_MK": current_EC
+                ,"rewards": mean_rewards_all_env
+            })
+            
+            self.iter_log(i_update, scalars)
+            mk_normal_scalars = {"EC_MK": current_makespan_normal}
+            mk_writer = SummaryWriter(self.logdir+"mk")
+            self.iter_log(i_update, mk_normal_scalars, mk_writer)
+
+        self.train_et = time.time()
+
+        # log results
+        # self.save_training_log()
+
+
+        ##draw
+        with open(f"./train_log/makespans{int(time.time())}.txt", "w") as f: print(mean_makespan_all_env_record, file=f)
+        with open(f"./train_log/mean_rewards{int(time.time())}.txt", "w") as f: print(mean_rewards_all_env_record, file=f)
+        # with open(f"./train_log/meta_loss{int(time.time())}.txt", "w") as f: print(self.meta_loss, file=f)
+        with open(f"./train_log/EC{int(time.time())}.txt", "w") as f: print(current_EC_record, file=f)
+
+
 if __name__ == "__main__":
     trainer = DANTrainer(configs)
     trainer.train()

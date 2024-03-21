@@ -1,7 +1,7 @@
 from common_utils import *
 from params import configs
 from tqdm import tqdm
-from data_utils import load_data_from_files, CaseGenerator, SD2_instance_generator, matrix_to_text, load_data_from_files
+from data_utils import load_data_from_files, CaseGenerator, SD2_instance_generator, matrix_to_text, load_data_from_files, SD2_instance_generator_EMconflict
 from common_utils import strToSuffix, setup_seed
 from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, EnvState, FJSPEnvForSameOpNumsEnergy
 from fjsp_env_various_op_nums import FJSPEnvForVariousOpNums
@@ -103,6 +103,7 @@ class Trainer:
         print("save model name: ",self.model_name)
         print(f"vali data :{self.vali_data_path}")
         print(f"instance dir : {self.instance_dir}")
+        print(f'tensorboard logdir: {self.logdir}')
         print("\n")
 
 

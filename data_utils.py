@@ -110,6 +110,69 @@ def SD2_instance_generator(config, n_j=None, n_m=None, op_per_job=None):
     return job_length, op_pt, op_per_mch
 
 
+def SD2_instance_generator_EM(config, n_j=None, n_m=None, op_per_job=None):
+    """
+    Generate an instance for the Flexible Job Shop Problem (FJSP) considering
+    the conflict of machine power and processing time.
+    
+    :param config: Configuration object with instance parameters.
+    :return: Tuple containing job lengths, operation processing times, and average number of compatible machines.
+    """
+    if n_j is None:
+        n_j = config.n_j
+    if n_m is None:
+        n_m = config.n_m
+    if op_per_job:
+        pass
+    elif config.op_per_job == 0:
+        op_per_job = n_m
+    else:
+        op_per_job = config.op_per_job
+
+    low = config.low
+    high = config.high
+    middle = (high - low) / 2
+    data_suffix = config.data_suffix
+
+    # Determine operation per machine limits
+    op_per_mch_min = 1
+    if data_suffix == "nf":
+        op_per_mch_max = 1
+    elif data_suffix == "mix":
+        op_per_mch_max = n_m
+    else:
+        op_per_mch_min = config.op_per_mch_min
+        op_per_mch_max = config.op_per_mch_max
+
+    if op_per_mch_min < 1 or op_per_mch_max > n_m:
+        print(f'Error from Instance Generation: [{op_per_mch_min},{op_per_mch_max}] '
+            f'with num_mch : {n_m}')
+        sys.exit()
+
+    mch_working_power = np.random.uniform(0.3, 1, size=n_m)
+
+    mch_idle_power = np.random.uniform(0.1, 0.2, size=n_m)
+
+    # Generate job structure
+    n_op = int(n_j * op_per_job)
+    job_length = np.full(shape=(n_j,), fill_value=op_per_job, dtype=int)
+
+    # Generate machine usage for each operation
+    op_use_mch = np.random.randint(low=op_per_mch_min, high=op_per_mch_max + 1, size=n_op)
+    op_per_mch = np.mean(op_use_mch)
+
+    # Initialize processing time matrix
+    op_pt = np.random.randint(low=low, high=high + 1, size=(n_op, n_m))
+    
+    for row in range(op_pt.shape[0]):
+        mch_num = int(op_use_mch[row])
+        if mch_num < n_m:
+            inf_pos = np.random.choice(np.arange(0, n_m), n_m - mch_num, replace=False)
+            op_pt[row][inf_pos] = 0
+
+    return job_length, op_pt, op_per_mch, mch_working_power, mch_idle_power
+
+
 def SD2_instance_generator_EMconflict(config, n_j=None, n_m=None, op_per_job=None):
     """
     Generate an instance for the Flexible Job Shop Problem (FJSP) considering
@@ -185,7 +248,7 @@ def SD2_instance_generator_EMconflict(config, n_j=None, n_m=None, op_per_job=Non
     return job_length, op_pt, op_per_mch, mch_working_power, mch_idle_power
 
 
-def matrix_to_text(job_length, op_pt, op_per_mch):
+def matrix_to_text(job_length, op_pt, op_per_mch, *args):
     """
         Convert matrix form of the data into test form
     :param job_length: the number of operations in each job (shape [J])
@@ -197,6 +260,7 @@ def matrix_to_text(job_length, op_pt, op_per_mch):
     """
     n_j = job_length.shape[0]
     n_op, n_m = op_pt.shape
+    if args: mch_working_power, mch_idle_power = args
     text = [f'{n_j}\t{n_m}\t{op_per_mch}']
 
     op_idx = 0
@@ -210,7 +274,9 @@ def matrix_to_text(job_length, op_pt, op_per_mch):
             op_idx += 1
 
         text.append(line)
-
+    if args: 
+        text.append(' '.join([str(_) for _ in mch_working_power]))
+        text.append(' '.join([str(_) for _ in mch_idle_power]))
     return text
 
 
@@ -251,8 +317,20 @@ def text_to_matrix(text):
 
     return job_length, op_pt
 
+def text_to_matrix_with_ec(text):
 
-def load_data_from_files(directory):
+    n_j = int(re.findall(r'\d+\.?\d*', text[0])[0])
+    n_m = int(re.findall(r'\d+\.?\d*', text[0])[1])
+
+    job_length, op_pt = text_to_matrix(text)
+
+    mch_working_power, mch_idle_power = text[n_j+1], text[n_j+2]
+    mch_working_power = [float(x) for x in mch_working_power.split()]
+    mch_idle_power = [float(x) for x in mch_idle_power.split()]
+    return job_length, op_pt, mch_working_power, mch_idle_power 
+
+
+def load_data_from_files(directory, text_to_matrix=text_to_matrix):
     """
         load all files within the specified directory
     :param directory: the directory of files
@@ -263,6 +341,8 @@ def load_data_from_files(directory):
 
     dataset_job_length = []
     dataset_op_pt = []
+    dataset_mch_working_power = []
+    dataset_mch_idle_power = []
     for root, dirs, files in os.walk(directory):
         # sort files by index
         files.sort(key=lambda s: int(re.findall("\d+", s)[0]))
@@ -270,11 +350,16 @@ def load_data_from_files(directory):
         for f in files:
             # print(f)
             g = open(os.path.join(root, f), 'r').readlines()
-            job_length, op_pt = text_to_matrix(g)
+            
+            job_length, op_pt, *args = text_to_matrix(g)
+            if args: 
+                dataset_mch_working_power.append(args[0])
+                dataset_mch_idle_power.append(args[1])
             dataset_job_length.append(job_length)
             dataset_op_pt.append(op_pt)
+            
     # print(dataset_op_pt[0])
-    return dataset_job_length, dataset_op_pt
+    return dataset_job_length, dataset_op_pt, dataset_mch_working_power, dataset_mch_idle_power
 
 
 def pack_data_from_config(data_source, test_data):
@@ -286,13 +371,16 @@ def pack_data_from_config(data_source, test_data):
     :return: a list of data (matrix form) and its name
     """
     data_list = []
+    
     for data_name in test_data:
         data_path = f'./data/{data_source}/{data_name}'
-        data_list.append((load_data_from_files(data_path), data_name))
+        if data_source == "SD2EC": 
+            data_list.append((load_data_from_files(data_path, text_to_matrix_with_ec), data_name))
+        else: data_list.append((load_data_from_files(data_path), data_name))
     return data_list
 
 
-def generate_data_to_files(seed, directory, config):
+def generate_data_to_files(seed, directory, config, generator=SD2_instance_generator):
     """
         Generate data and save it to the specified directory
     :param seed: seed for data generation
@@ -330,9 +418,9 @@ def generate_data_to_files(seed, directory, config):
 
         for idx in range(batch_size):
             if source != 'SD1':
-                job_length, op_pt, op_per_mch = SD2_instance_generator(config=config)
+                job_length, op_pt, op_per_mch, *others = generator(config=config)
 
-                lines_doc = matrix_to_text(job_length, op_pt, op_per_mch)
+                lines_doc = matrix_to_text(job_length, op_pt, op_per_mch, *others)
 
                 file_path = os.path.join(path, '{}_{:03}.fjs'.format(filename, idx + 1))
 
@@ -503,7 +591,12 @@ def uni_instance_gen(n_j, n_d, n_m, m_low, m_high, t_low, t_high):  #工件个�
 
 def main():
     if configs.data_type == 'test':
-        generate_data_to_files(configs.seed_datagen,
+        if configs.data_source == "SD2EC":
+            generate_data_to_files(configs.seed_datagen,
+                                   f'./data/{configs.data_source}/',
+                               configs, SD2_instance_generator_EMconflict)
+        else:
+            generate_data_to_files(configs.seed_datagen,
                                    f'./data/{configs.data_source}/',
                                configs)
     elif configs.data_type == 'vali':

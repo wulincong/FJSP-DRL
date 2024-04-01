@@ -6,7 +6,7 @@ from tqdm import tqdm
 from data_utils import pack_data_from_config
 from model.PPO import PPO_initialize
 from common_utils import setup_seed
-from fjsp_env_same_op_nums import FJSPEnvForSameOpNums
+from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, FJSPEnvForSameOpNumsEnergy
 from copy import deepcopy
 from model.PPO import Memory
 from train.base import ConvergenceChecker
@@ -23,7 +23,7 @@ class Test:
 
     def __init__(self, config, data_set, model_path) -> None:
 
-
+        self.config = config
         self.data_set = data_set
         self.adapt_nums=config.adapt_nums
         setup_seed(config.seed_test)
@@ -31,8 +31,9 @@ class Test:
         self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
-        # print(n_j," ， " , n_m)
-        self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
+        if config.data_source == "SD2EC":
+            self.env = FJSPEnvForSameOpNumsEnergy(n_j, n_m, config.factor_Mk, config.factor_Ec)
+        else: self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
 
     def greedy_strategy(self, policy=None, finetuning = False):
@@ -49,9 +50,11 @@ class Test:
         
         policy.eval()
         for i in range(len(self.data_set[0])):
-            state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]])
+            
+            if self.config.data_source == "SD2EC": 
+                state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], [self.data_set[2][i]], [self.data_set[3][i]])
+            else: state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], )
             ep_st = time.time()
-            policy.eval()
             t1 = time.time()
             state = self.env.reset()
             while True:
@@ -71,38 +74,49 @@ class Test:
                     break
             t2 = time.time()
             # tqdm.write(f"{cnt}, {ep_et - ep_st}")
-            test_result_list.append([self.env.current_makespan[0], t2 - t1])
+            if self.config.data_source == "SD2EC":
+                test_result_list.append([self.env.current_makespan[0], self.env.current_EC[0], t2 - t1])
+            else: test_result_list.append([self.env.current_makespan[0], t2 - t1])
+
         # for a_c, a_t, r in zip(adapt_cnt, adapt_times, test_result_list):
         #     print(f"adapt_cnt={a_c}, adapt_time={a_t}, makespan={r[0]}, time={r[1]}")
         
         return np.array(test_result_list)
 
-    def finetuning(self):
+    def finetuning(self, times = 10):
         
         policy=self.ppo.policy
         
         policy.eval()
         adapt_policy = deepcopy(policy)
         finetuning_makespan = []
-        for i in range(len(self.data_set[0])):
+        finetuning_ec = []
+        for i in range(len(self.data_set[0])):  ##共有10个FJSP实例
             adapt_policy.load_state_dict(policy.state_dict())
-            state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]])
+            if self.config.data_source == "SD2EC": 
+                state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], [self.data_set[2][i]], [self.data_set[3][i]])
+            else: state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], )
             adapt_policy.train()
             ep_st = time.time()
             mkspan = []
+            current_ec = []
             for _ in range(self.adapt_nums):
 
                 state = self.env.reset()
                 self.memory_generate(self.env, state, adapt_policy)
                 loss, _, adapt_policy = self.ppo.fast_adapt(self.memory, adapt_policy)
                 mkspan.append(self.env.current_makespan[0])
+                if self.config.data_source == "SD2EC": 
+                    current_ec.append(self.env.current_EC[0])
             finetuning_makespan.append(mkspan)
+            finetuning_ec.append(current_ec)
             ep_et = time.time()
         self.ppo.policy.load_state_dict(adapt_policy.state_dict())
-        finetuning_makespan = np.array(finetuning_makespan)
-        # print(finetuning_makespan)
-        finetuning_makespan = np.mean(finetuning_makespan, axis=0)
-        return finetuning_makespan
+        finetuning_makespan = np.array(finetuning_makespan).mean(axis=0)
+        if self.config.data_source == "SD2EC":
+            finetuning_ec = np.array(finetuning_ec).mean(axis=0)
+
+        return finetuning_makespan, finetuning_ec if self.config.data_source == "SD2EC" else finetuning_makespan
 
 
     def sampling_strategy(self, sample_times, policy=None):

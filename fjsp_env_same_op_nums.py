@@ -628,7 +628,6 @@ class FJSPEnvForSameOpNums:
                                self.op_match_job_left_op_nums,##与操作匹配的作业中剩余的操作数量
                                self.op_match_job_remain_work,#与操作匹配的作业中剩余的工作量
                                self.op_available_mch_nums, #可用于该操作的机器数量
-                                # self.op_energy, #操作的能耗
                                ), axis=2)
 
         if self.step_count != self.number_of_ops:

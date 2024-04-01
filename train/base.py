@@ -1,7 +1,7 @@
 from common_utils import *
 from params import configs
 from tqdm import tqdm
-from data_utils import load_data_from_files, CaseGenerator, SD2_instance_generator, matrix_to_text, load_data_from_files, SD2_instance_generator_EMconflict
+from data_utils import load_data_from_files, CaseGenerator, SD2_instance_generator, matrix_to_text, load_data_from_files, SD2_instance_generator_EMconflict, SD2_instance_generator_EM
 from common_utils import strToSuffix, setup_seed
 from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, EnvState, FJSPEnvForSameOpNumsEnergy
 from fjsp_env_various_op_nums import FJSPEnvForVariousOpNums
@@ -61,7 +61,8 @@ class Trainer:
             self.data_name = f'{self.n_j}x{self.n_m}'
         elif self.data_source == 'SD2':
             self.data_name = f'{self.n_j}x{self.n_m}x{int(config.op_per_job)}{strToSuffix(config.data_suffix)}'
-        
+        elif self.data_source == 'SD2EC': 
+            self.data_name = f'{self.n_j}x{self.n_m}EC'
         self.vali_data_path = f'./data/data_train_vali/{self.data_source}/{self.data_name}'
         self.save_instance = config.save_instance
 

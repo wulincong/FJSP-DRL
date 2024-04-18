@@ -1,30 +1,25 @@
-import os, sys
-os.environ['ON_PY']="1"
+from datetime import datetime
+import numpy as np
 from params import parser
-from train.Trainer import *
+from Trainer import MultiTaskTrainer
+n_j = 10
+n_m = 5
 
-EXP="MAMLEC"
-print(EXP)
-hidden_dim=512
-
-# 本试验特殊参数
+exp = "MAMLMK"
+hidden_dim=64
 n_j_options=[str(int(_)) for _ in np.linspace(5, 25, 6)]
 n_m_options=n_j_options[::-1]
+
+n_j_options = ["20", "25", "25", "15"]
+n_m_options = ["5", "20", "15", "10"]
 op_per_job_options=n_m_options
 TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
-print(n_j_options, n_m_options, op_per_job_options)
-
-LOG_DIR="./runs/"+EXP
-
 num_tasks=len(n_j_options)
-
-meta_iterations=200
-
 
 def train_model():
     args = [
-        "--logdir", f"./runs/{EXP}/{TIMESTAMP}",
-        "--model_suffix", EXP,
+        "--logdir", f"./runs/{exp}/{TIMESTAMP}",
+        "--model_suffix", exp,
         "--meta_iterations", "200",
         "--maml_model", "True", 
         "--num_tasks", f"{num_tasks}",
@@ -33,18 +28,12 @@ def train_model():
         "--n_j_options", *n_j_options, 
         "--n_m_options", *n_m_options, 
         "--op_per_job_options", *op_per_job_options, 
-        "--fea_j_input_dim", "12", 
-        "--fea_m_input_dim", "9",
-        "--model_source", "SD2EC",
-        "--data_source", "SD2EC",
-        "--num_envs", "20"
         ]
     print(args)
     configs = parser.parse_args(args=args)
     
-    trainer = MultiTaskTrainerEc(configs)
+    trainer = MultiTaskTrainer(configs)
 
     trainer.train()
 
 train_model()
-

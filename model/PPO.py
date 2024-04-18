@@ -311,7 +311,7 @@ class PPO:
             for name, param in self.policy.named_parameters():
                 if name.startswith('feature_exact'):
                     param.requires_grad = False
-        optimizer_clone = torch.optim.Adam(clone.parameters(), lr=self.adapt_lr) 
+        optimizer_clone = torch.optim.Adam(clone.actor.parameters(), lr=0.001) 
         # 获取转置后的训练数据，用于策略更新
         t_data = memory.transpose_data()  # Tensor len 13  pre torch.Size([1000, 50, 10])
         # 计算广义优势估计（GAE）和目标价值  A_t, G_t

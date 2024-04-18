@@ -85,38 +85,24 @@ class Test:
 
     def finetuning(self, times = 10):
         
-        policy=self.ppo.policy
-        
-        policy.eval()
-        adapt_policy = deepcopy(policy)
         finetuning_makespan = []
         finetuning_ec = []
-        for i in range(len(self.data_set[0])):  ##共有10个FJSP实例
-            adapt_policy.load_state_dict(policy.state_dict())
+        self.adapt_param_list = []
+
+        if self.config.data_source == "SD2EC": 
+            state = self.env.set_initial_data(self.data_set[0], self.data_set[1], self.data_set[2], self.data_set[3])
+        else: state = self.env.set_initial_data(self.data_set[0], self.data_set[1], )
+
+        for _ in range(times):
+            state = self.env.reset()
+            self.memory_generate(self.env, state, self.ppo.policy_old)
+            loss, *_  = self.ppo.update(self.memory)
+            self.adapt_param_list.append([p.clone().detach() for p in self.ppo.policy.actor.parameters()])
+            finetuning_makespan.append(self.env.current_makespan[0])
             if self.config.data_source == "SD2EC": 
-                state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], [self.data_set[2][i]], [self.data_set[3][i]])
-            else: state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], )
-            adapt_policy.train()
-            ep_st = time.time()
-            mkspan = []
-            current_ec = []
-            for _ in range(self.adapt_nums):
+                finetuning_ec.append(self.env.current_EC[0])
 
-                state = self.env.reset()
-                self.memory_generate(self.env, state, adapt_policy)
-                loss, _, adapt_policy = self.ppo.fast_adapt(self.memory, adapt_policy)
-                mkspan.append(self.env.current_makespan[0])
-                if self.config.data_source == "SD2EC": 
-                    current_ec.append(self.env.current_EC[0])
-            finetuning_makespan.append(mkspan)
-            finetuning_ec.append(current_ec)
-            ep_et = time.time()
-        self.ppo.policy.load_state_dict(adapt_policy.state_dict())
-        finetuning_makespan = np.array(finetuning_makespan).mean(axis=0)
-        if self.config.data_source == "SD2EC":
-            finetuning_ec = np.array(finetuning_ec).mean(axis=0)
-
-        return finetuning_makespan, finetuning_ec if self.config.data_source == "SD2EC" else finetuning_makespan
+        return (finetuning_makespan, finetuning_ec) if self.config.data_source == "SD2EC" else finetuning_makespan
 
 
     def sampling_strategy(self, sample_times, policy=None):

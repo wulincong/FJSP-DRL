@@ -1,6 +1,8 @@
 from train.base import *
 import numpy as np
 
+
+
 class MultiTaskTrainer(Trainer):
     def __init__(self, config, ) -> None:
 
@@ -10,10 +12,11 @@ class MultiTaskTrainer(Trainer):
         self.ppo = PPO_initialize(config)
         self.meta_optimizer = torch.optim.Adam(self.ppo.policy.parameters(), self.meta_lr)
         
-        self.n_j_options = config.n_j_options        
+        self.n_j_options = config.n_j_options
         self.n_m_options = config.n_m_options
         self.op_per_job_options = config.op_per_job_options
         self.valid_memorys = [Memory(gamma=config.gamma, gae_lambda=config.gae_lambda) for _ in range(self.num_tasks)]
+        self.train_param_list = []
         print("self.n_js: ", self.n_j_options)
         print("self.n_m_options: ",self.n_m_options)
         print("self.op_per_job_options: ",self.op_per_job_options)
@@ -23,7 +26,6 @@ class MultiTaskTrainer(Trainer):
         self.log = []
         self.record = float('inf')
         self.train_st = time.time()
-        # time.sleep(1000)
         assert self.num_tasks == len(self.n_j_options)
 
         self.makespans = [[] for _ in range(self.num_tasks)]
@@ -46,16 +48,14 @@ class MultiTaskTrainer(Trainer):
                         ))
                     self.tasks.append(env)
 
-            loss_sum = 0
             iteration_policies = []
             mean_rewards_all_env_list = []
             for task_idx in range(self.num_tasks):
                 env = self.tasks[task_idx]
                 state = env.reset()
-                theta_prime = None
 
-                ep_rewards = self.memory_generate(env, state, self.ppo, theta_prime)
-                theta_prime = self.ppo.inner_update(self.memory, 1, self.task_lr)
+                ep_rewards = self.memory_generate(env, state, self.ppo)
+                theta_prime = self.ppo.inner_update(self.memory, 4, self.task_lr)
                 state = env.reset()
 
                 ep_rewards = self.memory_generate(env, state, self.ppo, params=theta_prime, memory=self.valid_memorys[task_idx]) #搜集query set
@@ -83,9 +83,9 @@ class MultiTaskTrainer(Trainer):
             self.mean_rewards.append(mean_rewards_all_env_list)
             if makespan_sum < makespan_min:
                 makespan_min = makespan_sum
-                self.save_model()
+            self.save_model()
             #     tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
-
+            if iteration % 10 == 0: self.train_param_list.append([p.clone().detach() for p in self.ppo.policy.actor.parameters()])
             scalars={
                 'Loss/train': loss
                 ,'makespan_train':np.mean(makespan_sum)
@@ -93,9 +93,10 @@ class MultiTaskTrainer(Trainer):
             }
             self.iter_log(iteration, scalars)
             self.memory.clear_memory()
-        with open(f"./train_log/makespans{int(time.time())}.txt", "w") as f: print(self.makespans, file=f)
-        with open(f"./train_log/mean_rewards{int(time.time())}.txt", "w") as f: print(self.mean_rewards, file=f)
-        with open(f"./train_log/meta_loss{int(time.time())}.txt", "w") as f: print(self.meta_loss, file=f)
+
+        # with open(f"./train_log/makespans{self.log_timestamp}.txt", "w") as f: print(self.makespans, file=f)
+        # with open(f"./train_log/mean_rewards{self.log_timestamp}.txt", "w") as f: print(self.mean_rewards, file=f)
+        # with open(f"./train_log/meta_loss{self.log_timestamp}.txt", "w") as f: print(self.meta_loss, file=f)
         # with open(f"./train_log/EC{int(time.time())}.txt", "w") as f: print(self.current_EC_record, file=f)
 
 
@@ -421,6 +422,97 @@ class FinetuningTrainer(Trainer):
         # self.save_training_log()
         self.save_finetuning_log()
 
+class FinetuningTest(Trainer):
+    
+    def __init__(self, config):
+
+        super().__init__(config)
+        self.env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
+        self.finetuning_model = f'./trained_network/{config.model_source}/{config.finetuning_model}.pth'
+        self.ppo = PPO_initialize(config)
+        self.ppo.policy.load_state_dict(torch.load(self.finetuning_model, map_location='cuda'))
+        self.ppo.policy_old = deepcopy(self.ppo.policy)
+
+        print(f"finetuning model name :{self.finetuning_model}")
+
+    def check_file_count(self):
+        # 列出 instance_dir 目录中的所有文件
+        files = [f for f in os.listdir(self.instance_dir) if os.path.isfile(os.path.join(self.instance_dir, f))]
+
+        # 计算文件数量
+        file_count = len(files)
+
+        # 比较文件数量和 num_envs
+        return file_count == self.num_envs
+
+    def train(self):
+        """
+            train the model following the config
+        """
+        setup_seed(self.seed_train)
+        self.log = []
+        self.validation_log = []
+        self.record = float('inf')
+
+        self.makespan_log = []
+        self.loss_log = []
+
+        self.train_st = time.time()
+        
+        for i_update in tqdm(range(self.max_updates), file=sys.stdout, desc="progress", colour='blue'):
+            ep_st = time.time()
+
+            # resampling the training data
+            if i_update  == 0:
+                data_path = f"{self.instance_dir}/"
+
+                if self.check_file_count():
+                    dataset_job_length, dataset_op_pt = load_data_from_files(data_path)
+                else:
+                    import logging
+                    logging.info("实例数量与环境数不同，将重新生成实例！")
+
+                    dataset_job_length, dataset_op_pt = self.sample_training_instances()
+                
+                state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
+            else:
+                state = self.env.reset()
+
+            ep_rewards = self.memory_generate(self.env, state, self.ppo)
+
+            loss, v_loss = self.ppo.update(self.memory)
+            self.memory.clear_memory()
+
+            mean_rewards_all_env = np.mean(ep_rewards)
+            mean_makespan_all_env = np.mean(self.env.current_makespan)
+            # print(self.env.current_makespan)
+            if i_update < 2: vali_result = mean_makespan_all_env 
+
+            # save the mean rewards of all instances in current training data
+            self.log.append([i_update, mean_rewards_all_env])
+            self.makespan_log.append(list(self.env.current_makespan))
+            self.loss_log.append(loss)
+
+            ep_et = time.time()
+            # print the reward, makespan, loss and training time of the current episode
+            tqdm.write(
+                'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
+                    i_update + 1, mean_rewards_all_env, mean_makespan_all_env, loss, ep_et - ep_st))
+            scalars = {f"makespan_{i}":m  for i, m in zip(range(self.num_envs), self.env.current_makespan)}
+            scalars.update({
+                'Loss/train': loss
+                ,'makespan_train':mean_makespan_all_env
+                ,'makespan_validate':vali_result
+            })
+            
+            self.iter_log(i_update, scalars)
+
+        self.train_et = time.time()
+
+        # log results
+        # self.save_training_log()
+        self.save_finetuning_log()
+
 
 class DANMkEcTrainer(Trainer):
     def __init__(self, config):
@@ -482,8 +574,8 @@ class DANMkEcTrainer(Trainer):
         for i_update in tqdm(range(self.max_updates), file=sys.stdout, desc="progress", colour='blue'):
             ep_st = time.time()
 
-            if i_update % self.reset_env_timestep == 0:
-            # if i_update == 0:
+            # if i_update % self.reset_env_timestep == 0:
+            if i_update == 0:
                 dataset_job_length, dataset_op_pt, dataset_mch_working_power, dataset_mch_idle_power = self.sample_training_instances()
                 state = self.env.set_initial_data(dataset_job_length, dataset_op_pt, dataset_mch_working_power, dataset_mch_idle_power )
             else:
@@ -510,6 +602,7 @@ class DANMkEcTrainer(Trainer):
 
                 # state transition
                 state, reward, done = self.env.step(actions=action_envs.cpu().numpy())
+                self.env.render_pygame()
                 ep_rewards += reward
                 reward = torch.from_numpy(reward).to(device)
 
@@ -550,15 +643,16 @@ class DANMkEcTrainer(Trainer):
                 'Loss/train': loss
                 ,'makespan_train':mean_makespan_all_env
                 # ,'makespan_validate':vali_result
-                ,'current_EC': current_EC
+                ,'current_EC/current_EC': current_EC
+                ,'current_EC/min_EC': self.env.total_min_energy.mean()
                 ,"EC_MK": current_EC
                 ,"rewards": mean_rewards_all_env
             })
             
             self.iter_log(i_update, scalars)
-            mk_normal_scalars = {"EC_MK": current_makespan_normal}
-            mk_writer = SummaryWriter(self.logdir+"mk")
-            self.iter_log(i_update, mk_normal_scalars, mk_writer)
+            # mk_normal_scalars = {"EC_MK": current_makespan_normal}
+            # mk_writer = SummaryWriter(self.logdir+"mk")
+            # self.iter_log(i_update, mk_normal_scalars, mk_writer)
             self.save_model()
 
         self.train_et = time.time()
@@ -609,8 +703,8 @@ class MultiTaskTrainerEc(DANMkEcTrainer):
             ep_st = time.time()
 
             #重置环境
-            # if iteration % self.reset_env_timestep == 0:
-            if iteration == 0:
+            if iteration % self.reset_env_timestep == 0:
+            # if iteration == 0:
                 self.tasks = []
                 for _ in range(self.num_tasks):
                     env = FJSPEnvForSameOpNumsEnergy(self.n_j_options[_], self.n_m_options[_], 
@@ -655,16 +749,18 @@ class MultiTaskTrainerEc(DANMkEcTrainer):
             self.save_model()
             self.memory.clear_memory()
 
-        with open(f"./train_log/makespans{int(time.time())}.txt", "w") as f: print(self.makespans, file=f)
-        with open(f"./train_log/mean_rewards{int(time.time())}.txt", "w") as f: print(self.mean_rewards, file=f)
-        with open(f"./train_log/meta_loss{int(time.time())}.txt", "w") as f: print(self.meta_loss, file=f)
-        with open(f"./train_log/EC{int(time.time())}.txt", "w") as f: print(self.Ec_records, file=f)
+        with open(f"./train_log/makespans{self.log_timestamp}.txt", "w") as f: print(self.makespans, file=f)
+        with open(f"./train_log/mean_rewards{self.log_timestamp}.txt", "w") as f: print(self.mean_rewards, file=f)
+        with open(f"./train_log/meta_loss{self.log_timestamp}.txt", "w") as f: print(self.meta_loss, file=f)
+        with open(f"./train_log/EC{self.log_timestamp}.txt", "w") as f: print(self.Ec_records, file=f)
 
 
 class PretrainTrainerEc(MultiTaskTrainerEc):
 
     def train(self, ):
         setup_seed(self.seed_train)
+        self.n_j_options = self.n_j_options[::-1]
+        self.n_m_options = self.n_m_options[::-1]
         for iteration in range(self.meta_iterations):
             ep_st = time.time()
 

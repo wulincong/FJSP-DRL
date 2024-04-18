@@ -5,7 +5,14 @@ import copy
 from params import configs
 import sys
 import torch
-
+import pandas as pd
+import pygame
+import random
+import plotly.express as px
+# 图形工厂
+import plotly.figure_factory as ff
+import plotly.graph_objects as go
+from plotly.colors import qualitative
 
 @dataclass
 class EnvState:
@@ -190,6 +197,7 @@ class FJSPEnvForSameOpNums:
         self.op_fea_dim = 10
         # the dimension of machine raw features
         self.mch_fea_dim = 8
+        self.fig = go.Figure()
 
     def set_static_properties(self):
         """
@@ -271,11 +279,11 @@ class FJSPEnvForSameOpNums:
         self.op_max_pt = np.max(self.op_pt, axis=-1).data
         self.pt_span = self.op_max_pt - self.op_min_pt  # 操作加工时间范围
         # [E, M]机器的最小和最大加工时间
-        self.mch_min_pt = np.max(self.op_pt, axis=1).data
+        self.mch_min_pt = np.min(self.op_pt, axis=1).data
         self.mch_max_pt = np.max(self.op_pt, axis=1)
-
         # the estimated lower bound of complete time of operations 操作的完工时间的估计下限
         self.op_ct_lb = copy.deepcopy(self.op_min_pt)
+
         for k in range(self.number_of_envs):
             for i in range(self.number_of_jobs):
                 self.op_ct_lb[k][self.job_first_op_id[k][i]:self.job_last_op_id[k][i] + 1] = np.cumsum(
@@ -328,8 +336,8 @@ class FJSPEnvForSameOpNums:
             self.mch_idle_power = np.array(mch_idle_power_list)
         else: self.mch_idle_power = np.random.uniform(0.1, 0.2, size=self.mch_mean_pt.shape)
         self.true_mch_working_power = np.copy(self.mch_working_power)
-        self.wkpower_lb = np.min(self.mch_working_power)
-        self.wkpower_ub = np.max(self.mch_working_power)
+        self.wkpower_lb = 0.3
+        self.wkpower_ub = 2.0
         self.mch_working_power = (self.mch_working_power - self.wkpower_lb) / (self.wkpower_ub - self.wkpower_lb + 1e-8)
         # 方法1：计算平均功耗
 
@@ -343,6 +351,10 @@ class FJSPEnvForSameOpNums:
         # 方法2： 计算最低功耗
         # op_energy = np.where(self.op_pt > 1e10, float(np.inf), self.op_pt * self.mch_working_power[:, np.newaxis, :])
         self.op_energy = self.op_pt * self.mch_working_power[:, np.newaxis, :]
+        self.unmasked_op_energy = self.op_energy.data.copy()
+
+        self.candidate_ec = np.array([self.unmasked_op_energy[k][self.candidate[k]] for k in range(self.number_of_envs)])
+
         min_energy_per_op = np.array(np.min(self.op_energy, axis=-1))
         self.total_min_energy = np.sum(min_energy_per_op, axis=-1)
         # self.current_EC = np.array(min_energy_per_mch)
@@ -352,6 +364,15 @@ class FJSPEnvForSameOpNums:
         # construct machine features [E, M, 6]
         self.energy_lb_idx = np.argmin(self.op_energy, axis=-1)
         self.energy_lb_energy = np.min(self.op_energy, axis=-1)
+
+        self.mch_min_ec = np.min(self.op_energy, axis=-2).data
+        self.mch_max_ec = np.max(self.op_energy, axis=-2).data
+        self.mch_mean_ec = np.mean(self.op_energy, axis=-2).data
+        self.op_energy_lb = np.min(self.op_energy, axis=-1).data
+        self.op_min_energy = np.min(self.op_energy, axis=-1).data
+        self.op_max_energy = np.max(self.op_energy, axis=-1).data
+        self.energy_span = self.op_max_energy - self.op_min_energy
+        self.op_mean_ec = np.mean(self.op_energy, axis=2).data
         self.construct_op_features()
 
         # construct 'come_idx' : [E, M, M, J]
@@ -370,10 +391,12 @@ class FJSPEnvForSameOpNums:
         self.old_op_mask = np.copy(self.op_mask)
         self.old_mch_mask = np.copy(self.mch_mask)
         self.old_op_ct_lb = np.copy(self.op_ct_lb)
+        self.old_op_energy_lb = np.copy(self.op_energy_lb)
         self.old_op_match_job_left_op_nums = np.copy(self.op_match_job_left_op_nums)
         self.old_op_match_job_remain_work = np.copy(self.op_match_job_remain_work)
         self.old_init_quality = np.copy(self.init_quality)
         self.old_candidate_pt = np.copy(self.candidate_pt)
+        self.old_candidate_ec= np.copy(self.candidate_ec)
         self.old_candidate_process_relation = np.copy(self.candidate_process_relation)
         self.old_mch_current_available_op_nums = np.copy(self.mch_current_available_op_nums)
         self.old_mch_current_available_jc_nums = np.copy(self.mch_current_available_jc_nums)
@@ -395,18 +418,20 @@ class FJSPEnvForSameOpNums:
         self.op_mask = np.copy(self.old_op_mask)
         self.mch_mask = np.copy(self.old_mch_mask)
         self.op_ct_lb = np.copy(self.old_op_ct_lb)
+        self.op_energy_lb = np.copy(self.old_op_energy_lb)
         self.op_match_job_left_op_nums = np.copy(self.old_op_match_job_left_op_nums)
         self.op_match_job_remain_work = np.copy(self.old_op_match_job_remain_work)
         self.init_quality = np.copy(self.old_init_quality)
         self.max_endTime = self.init_quality
         self.current_EC = np.copy(self.old_current_EC)
         self.candidate_pt = np.copy(self.old_candidate_pt)
+        self.candidate_ec = np.copy(self.old_candidate_ec)
         self.candidate_process_relation = np.copy(self.old_candidate_process_relation)
         self.mch_current_available_op_nums = np.copy(self.old_mch_current_available_op_nums)
         self.mch_current_available_jc_nums = np.copy(self.old_mch_current_available_jc_nums)
         self.energy_lb_energy = np.copy(self.old_energy_lb_energy)
         self.energy_lb_idx = np.copy(self.old_energy_lb_idx)
-
+        self.op_energy = self.op_pt * self.mch_working_power[:, np.newaxis, :]
         # copy the old state
         self.state = copy.deepcopy(self.old_state)
 
@@ -416,6 +441,7 @@ class FJSPEnvForSameOpNums:
         """
             initialize variables for further use
         """
+        self.tasks_data = []
         self.step_count = 0 # 记录当前环境中经过的步数或时间步
         # the array that records the makespan of all environments
         self.current_makespan = np.full(self.number_of_envs, float("-inf")) # 
@@ -458,6 +484,7 @@ class FJSPEnvForSameOpNums:
                                         fill_value=0, dtype=bool)
 
         self.schedule_mch_working_energy = np.full(shape=(self.number_of_envs, ), fill_value=0, dtype=np.float64)
+        
 
     def step(self, actions):
         """
@@ -468,7 +495,7 @@ class FJSPEnvForSameOpNums:
         chosen_job = actions // self.number_of_machines
         chosen_mch = actions % self.number_of_machines
         chosen_op = self.candidate[self.env_idxs, chosen_job]
-
+        
         if (self.reverse_process_relation[self.env_idxs, chosen_op, chosen_mch]).any():
             print(
                 f'FJSP_Env.py Error from choosing action: Op {chosen_op} can\'t be processed by Mch {chosen_mch}')
@@ -494,6 +521,10 @@ class FJSPEnvForSameOpNums:
                                        self.true_mch_free_time[self.env_idxs, chosen_mch])
         self.true_op_ct[self.env_idxs, chosen_op] = true_chosen_op_st + self.true_op_pt[
             self.env_idxs, chosen_op, chosen_mch]
+        
+        self.tasks_data.append({"Task": f"Job{chosen_job}", "Station": f"Machine{chosen_mch}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
+            0, chosen_op, chosen_mch], "Width": 0.4})
+        
         self.true_candidate_free_time[self.env_idxs, chosen_job] = self.true_op_ct[
             self.env_idxs, chosen_op]
         self.true_mch_free_time[self.env_idxs, chosen_mch] = self.true_op_ct[
@@ -505,6 +536,8 @@ class FJSPEnvForSameOpNums:
         # update the candidate message
         mask_temp = candidate_add_flag
         self.candidate_pt[mask_temp, chosen_job[mask_temp]] = self.unmasked_op_pt[mask_temp, chosen_op[mask_temp] + 1]
+        self.candidate_ec[mask_temp, chosen_job[mask_temp]] = self.unmasked_op_energy[mask_temp, chosen_op[mask_temp] + 1]
+
         self.candidate_process_relation[mask_temp, chosen_job[mask_temp]] = \
             self.reverse_process_relation[mask_temp, chosen_op[mask_temp] + 1]
         self.candidate_process_relation[~mask_temp, chosen_job[~mask_temp]] = 1
@@ -771,6 +804,118 @@ class FJSPEnvForSameOpNums:
         d2 = np.expand_dims(x, 1)
 
         return np.logical_and(d1, d2).astype(np.float32)
+    
+    def render(self):
+        '''tasks_data = [
+        {"Task": "Job1-Task1", "Station": "Machine1", "Start": 0, "Duration": 4, "Width": 0.4},
+        {"Task": "Job2-Task1", "Station": "Machine2", "Start": 5, "Duration": 3, "Width": 0.4},
+        {"Task": "Job3-Task1", "Station": "Machine3", "Start": 9, "Duration": 2, "Width": 0.4},
+        ]   '''
+
+        
+        # 获取唯一的Job名称列表
+        unique_jobs = list(set(task['Task'] for task in self.tasks_data))
+
+        # 使用Plotly的定性颜色循环
+        color_sequence = qualitative.Plotly
+
+        # 如果Job数量超过内置颜色，可以生成新颜色
+        if len(unique_jobs) > len(color_sequence):
+            # 可以添加一个生成颜色代码的方法
+            # 这里仅为了演示，我们重复使用内置颜色序列
+            extra_colors_needed = len(unique_jobs) - len(color_sequence)
+            color_sequence.extend(color_sequence[:extra_colors_needed])
+
+        # 创建颜色映射
+        color_map = {job: color for job, color in zip(unique_jobs, color_sequence)}
+        self.fig.data = []
+        for task in self.tasks_data:
+            self.fig.add_trace(go.Bar(
+                x=[task["Duration"]],
+                y=[task["Station"]],
+                base=[task["Start"]],
+                width=[task["Width"]],
+                orientation='h',
+                name=task["Task"],
+                marker_color=color_map[task["Task"]],
+            ))
+
+        # 更新图表布局
+        self.fig.update_layout(
+            title="按Job上色的FJSP调度示意图 - 多种颜色",
+            xaxis_title="时间",
+            yaxis=dict(
+                type='category',
+                categoryorder='array',
+                categoryarray=[task['Station'] for task in self.tasks_data]
+            ),
+            barmode='stack',
+            legend_title="Job",
+        )
+
+        self.fig.show()
+    
+    def initialize_pygame(self):
+        pygame.init()
+        self.screen_width = self.number_of_jobs * np.mean(self.op_mean_pt) * 120 + 100
+        self.screen_height = self.number_of_machines * 100 + 100
+        # print((self.screen_width, self.screen_height))
+        screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        return screen
+    
+    def get_color_for_task(self, task_name,):
+        if task_name not in self.task_colors:
+            # 随机生成颜色，避免颜色过暗
+            random_color = (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
+            self.task_colors[task_name] = random_color
+        return self.task_colors[task_name]
+
+
+    def render_gantt_chart(self, tasks_data, screen):
+        WHITE = (255, 255, 255)
+        
+        
+        screen.fill(WHITE)
+        font = pygame.font.Font(None, 20)
+        # 画出每个任务的颜色图例
+        task_set = set()
+        for task in self.tasks_data:
+            task_set.add(task['Task'])
+        tasks_list = sorted(list(task_set))
+        
+        for i, task in enumerate(tasks_list):
+            color = self.get_color_for_task(task)
+            pygame.draw.rect(screen, color, (self.screen_width - 100, 30 + i * 30, 20, 20))
+            text = font.render(task, True, (0, 0, 0))
+            screen.blit(text, (self.screen_width - 70, 30 + i * 30))
+
+        # 绘制机器标签和任务
+        machine_set = set()
+        for task in tasks_data:
+            machine_set.add(task['Station'])
+        machine_list = sorted(list(machine_set), key=lambda x: int(x.replace('Machine', '')))
+
+        for task in tasks_data:
+            color = self.get_color_for_task(task['Task'])
+            x = 100 + task['Start']  # 缩放因子调整
+            y = 100 + int(task['Station'].replace('Machine', '')) * 100  # 间隔调整
+            width = task['Duration'] - 1   # 缩放因子调整
+            height = int(60 * task['Width'])  # 高度调整
+            pygame.draw.rect(screen, color, (x, y, width, height))
+        
+        # 绘制机器标签
+        for i, machine in enumerate(machine_list):
+            text = font.render(machine, True, (0, 0, 0))
+            screen.blit(text, (25, 106 + i * 100))
+
+        pygame.display.flip()
+
+    def render_pygame(self):
+        if self.step_count == 0: return
+        if self.step_count == 1:
+            self.task_colors = {}
+            self.screen = self.initialize_pygame()
+        self.render_gantt_chart(self.tasks_data, self.screen)
 
 class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
     # def calculate_working_energy(self, operation_time, machine_id):
@@ -798,6 +943,7 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
         self.op_fea_dim = 12
         # the dimension of machine raw features
         self.mch_fea_dim = 9
+        self.fig = go.Figure()
 
     def step(self, actions):
         """
@@ -840,6 +986,10 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
                                        self.true_mch_free_time[self.env_idxs, chosen_mch])
         self.true_op_ct[self.env_idxs, chosen_op] = true_chosen_op_st + self.true_op_pt[
             self.env_idxs, chosen_op, chosen_mch]
+        
+        self.tasks_data.append({"Task": f"Job{chosen_job[0]}", "Station": f"Machine{chosen_mch[0]}", "Start": true_chosen_op_st[0], 
+                                "Duration": self.true_op_pt[self.env_idxs, chosen_op, chosen_mch][0], "Width": 0.4})
+        
         self.true_candidate_free_time[self.env_idxs, chosen_job] = self.true_op_ct[
             self.env_idxs, chosen_op]
         self.true_mch_free_time[self.env_idxs, chosen_mch] = self.true_op_ct[
@@ -851,6 +1001,7 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
         # update the candidate message
         mask_temp = candidate_add_flag
         self.candidate_pt[mask_temp, chosen_job[mask_temp]] = self.unmasked_op_pt[mask_temp, chosen_op[mask_temp] + 1]
+
         self.candidate_process_relation[mask_temp, chosen_job[mask_temp]] = \
             self.reverse_process_relation[mask_temp, chosen_op[mask_temp] + 1]
         self.candidate_process_relation[~mask_temp, chosen_job[~mask_temp]] = 1
@@ -947,6 +1098,7 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
         self.op_energy[self.env_idxs, chosen_op, :] = 0
         unscheduled_energy_lb_idx = np.argmin(self.op_energy, axis=-1)  ###每个op最小的能量消耗的索引
         unscheduled_energy_lb_energy = np.min(self.op_energy, axis=-1)
+        self.op_energy_lb = unscheduled_energy_lb_energy.copy()
         min_energy_per_mch = np.zeros(shape=(self.number_of_envs, self.number_of_machines))
         # 遍历并将能量最小值加到对应的机器上
         for i in range(unscheduled_energy_lb_idx.shape[0]):  # 遍历每行
@@ -994,8 +1146,8 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
         """
         self.fea_m = np.stack((self.mch_current_available_jc_nums, #当前可用于机器的作业计数（job count）数量
                                self.mch_current_available_op_nums, #当前机器可用的操作（operation）数量
-                               self.mch_min_pt, ##机器上操作的最小处理时间
-                               self.mch_mean_pt, # 机器上操作的平均处理时间
+                               self.mch_min_ec, ##机器上操作的最小处理时间
+                               self.mch_mean_ec, # 机器上操作的平均处理时间
                                self.mch_waiting_time, # 机器的等待时间
                                self.mch_remain_work, # 机器上剩余的工作量
                                self.mch_free_time, ### 机器的空闲时间，可能与等待时间有所不同，更多地关注于机器的可用性。
@@ -1008,10 +1160,10 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
             construct operation raw features
         """
         self.fea_j = np.stack((self.op_scheduled_flag, # 操作是否已被调度
-                               self.op_ct_lb,##操作的完工时间的估计下限
-                               self.op_min_pt, ###操作的最小处理时间，最短的
-                               self.pt_span, ##操作的处理时间变化范围。
-                               self.op_mean_pt,#操作的平均处理时间
+                               self.op_energy_lb,##操作的完工时间的估计下限
+                               self.op_min_energy, ###操作的最小处理时间，最短的
+                               self.energy_span, ##操作的处理时间变化范围。
+                               self.op_mean_ec,#操作的平均处理时间
                                self.op_waiting_time,##操作的等待时间
                                self.op_remain_work,###操作剩余的工作量
                                self.op_match_job_left_op_nums,##与操作匹配的作业中剩余的操作数量
@@ -1023,3 +1175,41 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
 
         if self.step_count != self.number_of_ops:
             self.norm_op_features()
+
+    # def construct_pair_features(self):
+    #     """
+    #         构建成对特征
+    #     """
+    #     # 对于每个作业中的每个操作，计算其剩余加工时间。如果操作已完成，则掩盖其加工时间。
+    #     remain_op_energy = ma.array(self.op_energy, mask=~self.remain_process_relation)
+
+    #     # 选定作业中的最大加工时间
+    #     chosen_op_max_energy = np.expand_dims(self.op_max_energy[self.env_job_idx, self.candidate], axis=-1)
+
+    #     # 计算所有剩余操作中的最大加工时间
+    #     max_remain_op_energy = np.max(np.max(remain_op_energy, axis=1, keepdims=True), axis=2, keepdims=True).filled(0 + 1e-8)
+
+    #     # 计算每台机器上剩余操作的最大加工时间
+    #     mch_max_remain_op_energy = np.max(remain_op_energy, axis=1, keepdims=True).filled(0 + 1e-8)
+
+    #     # 计算候选操作中的最大加工时间
+    #     pair_max_ec = np.max(np.max(self.candidate_ec, axis=1, keepdims=True), axis=2, keepdims=True) + 1e-8
+
+    #     # 计算每台机器上候选操作的最大加工时间
+    #     mch_max_candidate_ec = np.max(self.candidate_ec, axis=1, keepdims=True) + 1e-8
+
+    #     # 计算候选操作的等待时间，考虑作业和机器的等待时间
+    #     pair_wait_time = self.op_waiting_time[self.env_job_idx, self.candidate][:, :, np.newaxis] + self.mch_waiting_time[:, np.newaxis, :]
+
+    #     # 计算选定作业的剩余工作量
+    #     chosen_job_remain_work = np.expand_dims(self.op_match_job_remain_work[self.env_job_idx, self.candidate], axis=-1) + 1e-8
+
+    #     # 将所有计算出的特征堆叠成一个特征数组，以便后续处理
+    #     self.fea_pairs = np.stack((self.candidate_ec,
+    #                             self.candidate_ec / chosen_op_max_energy,
+    #                             self.candidate_ec / mch_max_candidate_ec,
+    #                             self.candidate_ec / max_remain_op_energy,
+    #                             self.candidate_ec / mch_max_remain_op_energy,
+    #                             self.candidate_ec / pair_max_ec,
+    #                             self.candidate_ec / chosen_job_remain_work,
+    #                             pair_wait_time), axis=-1)

@@ -10,6 +10,7 @@ import os
 import random
 import time
 import sys
+from datetime import datetime
 from model.PPO import PPO_initialize
 from model.PPO import Memory
 import higher
@@ -97,7 +98,8 @@ class Trainer:
             if not os.path.exists(self.instance_dir):
                 os.makedirs(self.instance_dir)
         
-        
+        self.log_timestamp = "{0:%Y-%m-%dT%H-%M-%S}".format(datetime.now())
+
         print("-" * 25 + "Training Setting" + "-" * 25)
         print(f"source : {self.data_source}")
         print(f"vali_data = {self.vali_data_path}")
@@ -106,6 +108,7 @@ class Trainer:
         print(f"instance dir : {self.instance_dir}")
         print(f'tensorboard logdir: {self.logdir}')
         print("\n")
+        print(f"timestamp = {self.log_timestamp}")
 
 
     def train(self):

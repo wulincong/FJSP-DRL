@@ -51,12 +51,12 @@ echo 改变机器数量
 # done
 # done
 
-for n_m in 5 10; do
-for n_j in 20 15 10; do
+for n_m in 5 8 11 14 17 20 23 25; do
+for n_j in 5 8 11 14 17 20 23 25; do
     python ./data_utils.py --n_j=$n_j  \
                             --n_m=$n_m \
                             --cover_data_flag=True \
                             --data_type test \
-                            --data_source SD2EC
+                            --data_source SD2
 done
 done

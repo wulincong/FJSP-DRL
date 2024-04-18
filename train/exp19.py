@@ -9,7 +9,7 @@ op_per_job_options="5 5 5 5 5 5 5 5 5"
 
 EXP="EXP19"
 print(EXP)
-hidden_dim=512
+hidden_dim=64
 
 
 # 本试验特殊参数
@@ -49,8 +49,8 @@ def train_maml(file=None, model_suffix=None, train_model = "maml"):
 model_name, commd, args = train_maml()
 print(args)
 configs = parser.parse_args(args=args)
-trainer = MultiTaskECTrainer(configs)
-# trainer = MultiTaskTrainer(configs)
+# trainer = MultiTaskECTrainer(configs)
+trainer = MultiTaskTrainer(configs)
 trainer.train()
 
 # trainer = MultiTaskTrainerCustomize(configs)

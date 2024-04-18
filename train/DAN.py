@@ -26,7 +26,7 @@ class DANTrainer(Trainer):
         print("\n")
 
         self.train_st = time.time()
-
+        self.train_params = []
         for i_update in tqdm(range(self.max_updates), file=sys.stdout, desc="progress", colour='blue'):
             ep_st = time.time()
 
@@ -84,6 +84,7 @@ class DANTrainer(Trainer):
 
             # validate the trained model
             if (i_update + 1) % self.validate_timestep == 0:
+                self.train_params.append(list(self.ppo.policy.parameters()))
                 self.save_model()
 
                 # if self.data_source == "SD1":

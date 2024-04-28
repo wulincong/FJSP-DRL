@@ -5,11 +5,11 @@ from train.Trainer import *
 
 EXP="MAMLEC"
 print(EXP)
-hidden_dim=512
+hidden_dim=64
 
 # 本试验特殊参数
-n_j_options=[str(int(_)) for _ in np.linspace(5, 25, 6)]
-n_m_options=n_j_options[::-1]
+n_j_options=["15", "5", "10"]
+n_m_options=["15", "5", "10"]
 op_per_job_options=n_m_options
 TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
 print(n_j_options, n_m_options, op_per_job_options)
@@ -18,14 +18,14 @@ LOG_DIR="./runs/"+EXP
 
 num_tasks=len(n_j_options)
 
-meta_iterations=200
+meta_iterations=2000
 
 
 def train_model():
     args = [
         "--logdir", f"./runs/{EXP}/{TIMESTAMP}",
         "--model_suffix", EXP,
-        "--meta_iterations", "200",
+        "--meta_iterations", f"{meta_iterations}",
         "--maml_model", "True", 
         "--num_tasks", f"{num_tasks}",
         "--hidden_dim_actor", f"{hidden_dim}",
@@ -38,6 +38,11 @@ def train_model():
         "--model_source", "SD2EC",
         "--data_source", "SD2EC",
         "--num_envs", "20"
+        ,"--seed_train", "234"
+        ,"--reset_env_timestep", "50"
+        ,"--low", "5"
+        ,'--lr', "3e-4",
+        
         ]
     print(args)
     configs = parser.parse_args(args=args)

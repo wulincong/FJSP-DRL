@@ -31,11 +31,15 @@ class Test:
         self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
-        if config.data_source == "SD2EC":
+        if config.data_source.startswith("SD2EC"):
             self.env = FJSPEnvForSameOpNumsEnergy(n_j, n_m, config.factor_Mk, config.factor_Ec)
         else: self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
-
+        self.finetuning_makespan = []
+        self.finetuning_ec = []        #
+        self.adapt_param_list = []  # self.ppo.policy.actor.parameters
+        self.test_result_list = []  # (makespan, ec, time)
+    
     def greedy_strategy(self, policy=None, finetuning = False):
         """
             使用贪婪策略在给定的数据上测试模型。
@@ -45,13 +49,13 @@ class Test:
 
         :return: 测试结果，包括完成时间和时间信息
         """
-        test_result_list = []
-        if policy is None: policy=self.ppo.policy
         
+        if policy is None: policy=self.ppo.policy
+        test_result = []
         policy.eval()
         for i in range(len(self.data_set[0])):
             
-            if self.config.data_source == "SD2EC": 
+            if self.config.data_source.startswith("SD2EC"): 
                 state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], [self.data_set[2][i]], [self.data_set[3][i]])
             else: state = self.env.set_initial_data([self.data_set[0][i]], [self.data_set[1][i]], )
             ep_st = time.time()
@@ -74,22 +78,19 @@ class Test:
                     break
             t2 = time.time()
             # tqdm.write(f"{cnt}, {ep_et - ep_st}")
-            if self.config.data_source == "SD2EC":
-                test_result_list.append([self.env.current_makespan[0], self.env.current_EC[0], t2 - t1])
-            else: test_result_list.append([self.env.current_makespan[0], t2 - t1])
-
-        # for a_c, a_t, r in zip(adapt_cnt, adapt_times, test_result_list):
-        #     print(f"adapt_cnt={a_c}, adapt_time={a_t}, makespan={r[0]}, time={r[1]}")
-        
-        return np.array(test_result_list)
+            if self.config.data_source.startswith("SD2EC"):
+                # print(self.env.current_EC)
+                test_result.append([self.env.current_makespan[0], self.env.current_EC[0], t2 - t1])
+            else: test_result.append([self.env.current_makespan[0], t2 - t1])
+        test_result = np.array(test_result)
+        self.test_result_list.append(test_result.mean(axis=0))
+        return np.array(test_result)
 
     def finetuning(self, times = 10):
         
-        finetuning_makespan = []
-        finetuning_ec = []
-        self.adapt_param_list = []
 
-        if self.config.data_source == "SD2EC": 
+        self.ppo.policy.train()
+        if self.config.data_source.startswith("SD2EC"): 
             state = self.env.set_initial_data(self.data_set[0], self.data_set[1], self.data_set[2], self.data_set[3])
         else: state = self.env.set_initial_data(self.data_set[0], self.data_set[1], )
 
@@ -98,11 +99,11 @@ class Test:
             self.memory_generate(self.env, state, self.ppo.policy_old)
             loss, *_  = self.ppo.update(self.memory)
             self.adapt_param_list.append([p.clone().detach() for p in self.ppo.policy.actor.parameters()])
-            finetuning_makespan.append(self.env.current_makespan[0])
-            if self.config.data_source == "SD2EC": 
-                finetuning_ec.append(self.env.current_EC[0])
+            self.finetuning_makespan.append(self.env.current_makespan[0])
+            if self.config.data_source.startswith("SD2EC"): 
+                self.finetuning_ec.append(self.env.current_EC[0])
 
-        return (finetuning_makespan, finetuning_ec) if self.config.data_source == "SD2EC" else finetuning_makespan
+        return (self.finetuning_makespan, self.finetuning_ec) if self.config.data_source.startswith("SD2EC") else self.finetuning_makespan
 
 
     def sampling_strategy(self, sample_times, policy=None):

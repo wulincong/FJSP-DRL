@@ -62,7 +62,7 @@ class Trainer:
             self.data_name = f'{self.n_j}x{self.n_m}'
         elif self.data_source == 'SD2':
             self.data_name = f'{self.n_j}x{self.n_m}x{int(config.op_per_job)}{strToSuffix(config.data_suffix)}'
-        elif self.data_source == 'SD2EC': 
+        elif self.data_source.startswith("SD2EC"): 
             self.data_name = f'{self.n_j}x{self.n_m}EC'
         self.vali_data_path = f'./data/data_train_vali/{self.data_source}/{self.data_name}'
         self.save_instance = config.save_instance

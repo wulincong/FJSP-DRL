@@ -166,6 +166,7 @@ class PPO:
         self.policy_old.load_state_dict(self.policy.state_dict())
         # 创建优化器和值函数损失函数
         self.optimizer = torch.optim.Adam(self.policy.parameters(), lr=self.lr)
+        self.meta_optimizer = torch.optim.Adam(self.policy.parameters(), lr=self.meta_lr)
         self.feature_exact_optimizer = torch.optim.Adam(self.policy.feature_exact.parameters(), lr=self.lr)
         self.actor_optimizer = torch.optim.Adam(self.policy.actor.parameters(), lr=self.lr)
         self.critic_optimizer = torch.optim.Adam(self.policy.critic.parameters(), lr=self.lr)
@@ -546,44 +547,11 @@ class PPO:
         for _ in range(self.ppo_steps):
             loss = self.meta_loss(iteration_replays, iteration_policies)
             loss.backward()
-            self.optimizer.step()
-            self.optimizer.zero_grad()
+            self.meta_optimizer.step()
+            self.meta_optimizer.zero_grad()
 
             for policy_old_params, policy_params in zip(self.policy_old.parameters(), self.policy.parameters()):
                 policy_old_params.data.copy_(self.tau * policy_old_params.data + (1 - self.tau) * policy_params.data)
-
-        return loss
-
-    def meta_actor_optimize(self, iteration_replays, iteration_policies):
-        for _ in range(self.ppo_steps):
-            loss = self.meta_loss(iteration_replays, iteration_policies)
-            loss.backward()
-            self.actor_optimizer.step()
-            self.actor_optimizer.zero_grad()
-
-        return loss
-
-
-    def meta_optimize_customize(self, iteration_replays, iteration_policies, meta_update_params_startswith):
-        for _ in range(self.ppo_steps):
-            loss = self.meta_loss(iteration_replays, iteration_policies)
-            loss.backward()
-            # 定义需要更新的参数前缀
-            update_prefixes = [prefix for prefix in ['actor', 'critic', 'feature_exact'] if prefix in meta_update_params_startswith]
-
-            # 遍历模型参数
-            for name, param in self.policy.named_parameters():
-                # 检查参数名是否以需要更新的前缀开始
-                for prefix in update_prefixes:
-                    if name.startswith(prefix):
-                        # 更新参数
-                        param.data -= self.meta_lr * param.grad.data
-                        break  # 找到匹配的前缀后不需要继续检查其他前缀
-
-            self.optimizer.zero_grad()
-            # soft update
-            # for policy_old_params, policy_params in zip(self.policy_old.parameters(), self.policy.parameters()):
-            #     policy_old_params.data.copy_(self.tau * policy_old_params.data + (1 - self.tau) * policy_params.data)
 
         return loss
 

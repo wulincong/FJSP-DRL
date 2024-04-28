@@ -20,7 +20,7 @@ def train_model():
     args = [
         "--logdir", f"./runs/{exp}/{TIMESTAMP}",
         "--model_suffix", exp,
-        "--meta_iterations", "200",
+        "--meta_iterations", "1000",
         "--maml_model", "True", 
         "--num_tasks", f"{num_tasks}",
         "--hidden_dim_actor", f"{hidden_dim}",
@@ -28,6 +28,7 @@ def train_model():
         "--n_j_options", *n_j_options, 
         "--n_m_options", *n_m_options, 
         "--op_per_job_options", *op_per_job_options, 
+        "--reset_env_timestep", "50", 
         ]
     print(args)
     configs = parser.parse_args(args=args)

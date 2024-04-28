@@ -29,6 +29,7 @@ args = [
     "--n_j_options", *n_j_options, 
     "--n_m_options", *n_m_options, 
     "--op_per_job_options", *op_per_job_options, 
+    ""
     ]
 print(args)
 configs = parser.parse_args(args=args)
@@ -86,4 +87,4 @@ while end_i < len(params_reduced):
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.title('PCA of Model Parameters')
-plt.savefig("./training_params.png")
+plt.savefig(f"./training_params{trainer.log_timestamp}.png")

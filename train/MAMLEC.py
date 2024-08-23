@@ -8,8 +8,8 @@ print(EXP)
 hidden_dim=64
 
 # 本试验特殊参数
-n_j_options=["15", "5", "10"]
-n_m_options=["15", "5", "10"]
+n_j_options = [ "23", "13", "15"]
+n_m_options = [ "17", "12", "5"]
 op_per_job_options=n_m_options
 TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
 print(n_j_options, n_m_options, op_per_job_options)
@@ -18,7 +18,7 @@ LOG_DIR="./runs/"+EXP
 
 num_tasks=len(n_j_options)
 
-meta_iterations=2000
+meta_iterations=1500
 
 
 def train_model():

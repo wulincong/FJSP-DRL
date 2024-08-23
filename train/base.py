@@ -3,7 +3,7 @@ from params import configs
 from tqdm import tqdm
 from data_utils import load_data_from_files, CaseGenerator, SD2_instance_generator, matrix_to_text, load_data_from_files, SD2_instance_generator_EMconflict, SD2_instance_generator_EM
 from common_utils import strToSuffix, setup_seed
-from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, EnvState, FJSPEnvForSameOpNumsEnergy
+from fjsp_env_same_op_nums import *
 from fjsp_env_various_op_nums import FJSPEnvForVariousOpNums
 from copy import deepcopy
 import os

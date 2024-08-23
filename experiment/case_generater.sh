@@ -67,6 +67,6 @@ for n_j in 5 10 15 20 25; do
                             --n_m=$n_m \
                             --cover_data_flag=True \
                             --data_type test \
-                            --data_source SD2EC0
+                            --data_source SD2EC
 done
 done

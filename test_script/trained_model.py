@@ -14,7 +14,7 @@ import torch
 
 device = torch.device(configs.device)
 
-ppo = PPO_initialize()
+ppo = PPO_initialize(configs)
 test_time = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
 
 def test_greedy_strategy_maml(data_set, model_path, seed):
@@ -199,7 +199,7 @@ def main(config, flag_sample):
                     # fast_adapt_times = []
                     # Greedy mode, test 5 times, record average time.
 
-                    for j in range(2):
+                    for j in range(5):
                         # print(j)
                         test = Test(config, data[0], model[0])
 
@@ -208,8 +208,8 @@ def main(config, flag_sample):
                         # end_time = time.time()
                         # fast_adapt_times.append(end_time - start_time)
 
-                        result = test.greedy_strategy(finetuning=finetuning)
-                        # result = test_greedy_strategy(data[0], model[0], config.seed_test)
+                        # result = test.greedy_strategy(finetuning=finetuning)
+                        result = test_greedy_strategy(data[0], model[0], config.seed_test)
                         
                         result_5_times.append(result)
                     result_5_times = np.array(result_5_times)
@@ -220,8 +220,8 @@ def main(config, flag_sample):
                     print("testing results:")
                     print(f"makespan(greedy): ", save_result[:, 0].mean())
                     print(f"time: ", save_result[:, 1].mean())
-                    print(f"Max fast_adapt cnt:", save_result[:, 2].max())
-                    print(f"Average fast_adapt time:", save_result[:, 3].mean())
+                    # print(f"Max fast_adapt cnt:", save_result[:, 2].max())
+                    # print(f"Average fast_adapt time:", save_result[:, 3].mean())
                     print("="*100)
 
                 else:

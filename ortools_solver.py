@@ -234,31 +234,32 @@ def fjsp_solver(jobs, num_machines, time_limits):
     status = solver.Solve(model, solution_printer)
     total2 = time.time()
 
-    return solver.ObjectiveValue(), total2 - total1
 
     # Print final solution.
-    # for job_id in all_jobs:
-    #     print('Job %i:' % job_id)
-    #     for task_id in range(len(jobs[job_id])):
-    #         start_value = solver.Value(starts[(job_id, task_id)])
-    #         machine = -1
-    #         duration = -1
-    #         selected = -1
-    #         for alt_id in range(len(jobs[job_id][task_id])):
-    #             if solver.Value(presences[(job_id, task_id, alt_id)]):
-    #                 duration = jobs[job_id][task_id][alt_id][0]
-    #                 machine = jobs[job_id][task_id][alt_id][1]
-    #                 selected = alt_id
-    #         print(
-    #             '  task_%i_%i starts at %i (alt %i, machine %i, duration %i)' %
-    #             (job_id, task_id, start_value, selected, machine, duration))
-    #
-    # print('Solve status: %s' % solver.StatusName(status))
-    # print('Optimal objective value: %i' % solver.ObjectiveValue())
-    # print('Statistics')
-    # print('  - conflicts : %i' % solver.NumConflicts())
-    # print('  - branches  : %i' % solver.NumBranches())
-    # print('  - wall time : %f s' % solver.WallTime())
+    for job_id in all_jobs:
+        print('Job %i:' % job_id)
+        for task_id in range(len(jobs[job_id])):
+            start_value = solver.Value(starts[(job_id, task_id)])
+            machine = -1
+            duration = -1
+            selected = -1
+            for alt_id in range(len(jobs[job_id][task_id])):
+                if solver.Value(presences[(job_id, task_id, alt_id)]):
+                    duration = jobs[job_id][task_id][alt_id][0]
+                    machine = jobs[job_id][task_id][alt_id][1]
+                    selected = alt_id
+            print(
+                '  task_%i_%i starts at %i (alt %i, machine %i, duration %i)' %
+                (job_id, task_id, start_value, selected, machine, duration))
+    
+    print('Solve status: %s' % solver.StatusName(status))
+    print('Optimal objective value: %i' % solver.ObjectiveValue())
+    print('Statistics')
+    print('  - conflicts : %i' % solver.NumConflicts())
+    print('  - branches  : %i' % solver.NumBranches())
+    print('  - wall time : %f s' % solver.WallTime())
+    
+    return solver.ObjectiveValue(), total2 - total1
 
 
 class SolutionPrinter(cp_model.CpSolverSolutionCallback):

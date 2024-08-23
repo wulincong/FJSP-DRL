@@ -6,7 +6,7 @@ from tqdm import tqdm
 from data_utils import pack_data_from_config
 from model.PPO import PPO_initialize
 from common_utils import setup_seed
-from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, FJSPEnvForSameOpNumsEnergy
+from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, FJSPEnvForSameOpNumsEnergy, FJSPEnvForSameOpNumsMakespanEnergy
 from copy import deepcopy
 from model.PPO import Memory
 from train.base import ConvergenceChecker
@@ -31,7 +31,9 @@ class Test:
         self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
-        if config.data_source.startswith("SD2EC"):
+        if config.data_source.startswith("SD2EC0"):
+            self.env = FJSPEnvForSameOpNumsMakespanEnergy(n_j, n_m, config.factor_Mk, config.factor_Ec)
+        elif config.data_source.startswith("SD2EC"):
             self.env = FJSPEnvForSameOpNumsEnergy(n_j, n_m, config.factor_Mk, config.factor_Ec)
         else: self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)

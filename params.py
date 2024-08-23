@@ -58,7 +58,7 @@ parser.add_argument('--max_solve_time', type=int, default=1800, help='The maximu
 # args for seed
 parser.add_argument('--seed_datagen', type=int, default=300, help='Seed for data generation')
 parser.add_argument('--seed_train_vali_datagen', type=int, default=213, help='Seed for generate validation data')
-parser.add_argument('--seed_train', type=int, default=123, help='Seed for training')
+parser.add_argument('--seed_train', type=int, default=456, help='Seed for training')
 parser.add_argument('--seed_test', type=int, default=510, help='Seed for testing heuristics')
 # args for tricks
 

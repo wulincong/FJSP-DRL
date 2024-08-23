@@ -74,6 +74,16 @@ class Memory:
         self.comp_idx_seq.append(state.comp_idx_tensor)
         self.candidate_seq.append(state.candidate_tensor)
         self.fea_pairs_seq.append(state.fea_pairs_tensor)
+    
+    def get_batch(self, batch_size):
+        # 假设所有数据都有相同的批次大小（sz_b）
+        indices = torch.randperm(len(self.action_seq))[:batch_size]
+        batch = {
+            'actions': torch.cat([self.action_seq[idx] for idx in indices], dim=0),
+            'rewards': torch.cat([self.reward_seq[idx] for idx in indices], dim=0),
+            # 添加其他必要的字段
+        }
+        return batch
 
     def transpose_data(self):
         """
@@ -174,7 +184,7 @@ class PPO:
         self.V_loss_2 = nn.MSELoss()
         self.device = torch.device(config.device)
 
-    def update(self, memory, freeze_feature_exact = False):
+    def update(self, memory):
         '''
         :param memory: data used for PPO training
         :return: total_loss and critic_loss
@@ -190,10 +200,6 @@ class PPO:
 
         loss_epochs = 0
         v_loss_epochs = 0
-        if freeze_feature_exact:
-            for name, param in self.policy.named_parameters():
-                if name.startswith('feature_exact'):
-                    param.requires_grad = False
 
         for _ in range(self.k_epochs):  # 4
             # 对每个迭代进行小批次的策略更新
@@ -235,12 +241,6 @@ class PPO:
                 loss_epochs += loss.mean().detach()
                 v_loss_epochs += v_loss.mean().detach()
                 loss.mean().backward()
-                # 查看哪些参数受到loss的影响
-                # for name, param in self.policy.named_parameters():
-                #     if param.grad is not None and torch.sum(torch.abs(param.grad)) > 0:
-                #         print(name, "受到了loss的影响")
-                #     else:
-                #         print(name, "没有受到loss的影响")
                 self.optimizer.step()
         # soft update 进行软更新
         for policy_old_params, policy_params in zip(self.policy_old.parameters(), self.policy.parameters()):
@@ -457,15 +457,17 @@ class PPO:
         #ratio
         ratio = torch.exp(logprobs - valid_replays[12].detach())  # 计算重要性采样比率
         # print("ratio:", ratio)
-
+        # valid_advantage_seq = (valid_advantage_seq - valid_advantage_seq.mean()) / (valid_advantage_seq.std() + 1e-8)
         surr1 = ratio * valid_advantage_seq  # 计算第一个损失项
+
         surr2 = torch.clamp(ratio, 1 - self.eps_clip, 1 + self.eps_clip) * valid_advantage_seq  # 计算第二个损失项
         v_loss = self.V_loss_2(vals.squeeze(1), valid_v_target_seq)  # 计算价值损失
         p_loss = - torch.min(surr1, surr2)  # 计算策略损失
 
         ent_loss = - ent_loss.clone()  # 计算熵损失
         loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss  # 计算总损失
-
+        loss = loss / (valid_replays[0].shape[0] )
+        # print(valid_replays[0].shape[0])
         return loss
 
     def meta_loss(self, iteration_replays, iteration_policies):

@@ -10,8 +10,8 @@ hidden_dim=64
 n_j_options=[str(int(_)) for _ in np.linspace(5, 25, 6)]
 n_m_options=n_j_options[::-1]
 
-n_j_options = ["20", "25", "25", "15"]
-n_m_options = ["5", "20", "15", "10"]
+n_j_options = ["25", "25", "15"]
+n_m_options = ["20", "15", "5"]
 op_per_job_options=n_m_options
 TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
 num_tasks=len(n_j_options)
@@ -20,7 +20,7 @@ def train_model():
     args = [
         "--logdir", f"./runs/{exp}/{TIMESTAMP}",
         "--model_suffix", exp,
-        "--meta_iterations", "1000",
+        "--meta_iterations", "1500",
         "--maml_model", "True", 
         "--num_tasks", f"{num_tasks}",
         "--hidden_dim_actor", f"{hidden_dim}",

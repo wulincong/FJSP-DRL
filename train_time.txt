@@ -530,3 +530,4 @@ model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+free		training time: 12.2
 model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+free		training time: 22.75		 local time: 20240112_154832
 model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+free		training time: 31.44		 local time: 20240112_154858
 model path: ./DANIEL_FJSP/trained_network/SD2/15x5+mix+free		training time: 37.82		 local time: 20240112_154932
+model path: ./DANIEL_FJSP/trained_network/SD2/10x5x0+mix		training time: 720.89		 local time: 20240813_213040

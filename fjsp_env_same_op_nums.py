@@ -328,6 +328,8 @@ class FJSPEnvForSameOpNums:
 
         self.mch_mean_pt = np.mean(self.op_pt, axis=1).filled(0) # 
         ##生成机器的能耗   
+        self.real_mch_working_power = mch_working_power_list
+        self.real_mch_idle_power = mch_idle_power_list
         if mch_working_power_list is not None:
             self.mch_working_power = np.array(mch_working_power_list)
         else: self.mch_working_power = np.random.uniform(0.3, 1, size=self.mch_mean_pt.shape)
@@ -336,8 +338,8 @@ class FJSPEnvForSameOpNums:
             self.mch_idle_power = np.array(mch_idle_power_list)
         else: self.mch_idle_power = np.random.uniform(0.1, 0.2, size=self.mch_mean_pt.shape)
         self.true_mch_working_power = np.copy(self.mch_working_power)
-        self.wkpower_lb = 0.3
-        self.wkpower_ub = 2.0
+        self.wkpower_lb = np.min(self.true_mch_working_power)
+        self.wkpower_ub = np.max(self.true_mch_working_power)
         self.mch_working_power = (self.mch_working_power - self.wkpower_lb) / (self.wkpower_ub - self.wkpower_lb + 1e-8)
         # 方法1：计算平均功耗
 
@@ -354,6 +356,9 @@ class FJSPEnvForSameOpNums:
         self.unmasked_op_energy = self.op_energy.data.copy()
 
         self.candidate_ec = np.array([self.unmasked_op_energy[k][self.candidate[k]] for k in range(self.number_of_envs)])
+        
+        # 每个机器的总加工时间
+        self.mch_total_processing_time = np.zeros((self.number_of_envs, self.number_of_machines))
 
         min_energy_per_op = np.array(np.min(self.op_energy, axis=-1))
         self.total_min_energy = np.sum(min_energy_per_op, axis=-1)
@@ -434,6 +439,8 @@ class FJSPEnvForSameOpNums:
         self.op_energy = self.op_pt * self.mch_working_power[:, np.newaxis, :]
         # copy the old state
         self.state = copy.deepcopy(self.old_state)
+        self.tasks_data = [{"Task": "Job", "Station": f"Machine{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
+        self.mch_total_processing_time = np.zeros((self.number_of_envs, self.number_of_machines))
 
         return self.state
 
@@ -441,7 +448,7 @@ class FJSPEnvForSameOpNums:
         """
             initialize variables for further use
         """
-        self.tasks_data = []
+        self.tasks_data = [{"Task": "Job", "Station": f"Machine{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
         self.step_count = 0 # 记录当前环境中经过的步数或时间步
         # the array that records the makespan of all environments
         self.current_makespan = np.full(self.number_of_envs, float("-inf")) # 
@@ -522,8 +529,8 @@ class FJSPEnvForSameOpNums:
         self.true_op_ct[self.env_idxs, chosen_op] = true_chosen_op_st + self.true_op_pt[
             self.env_idxs, chosen_op, chosen_mch]
         
-        self.tasks_data.append({"Task": f"Job{chosen_job}", "Station": f"Machine{chosen_mch}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
-            0, chosen_op, chosen_mch], "Width": 0.4})
+        self.tasks_data.append({"Task": f"Job{chosen_job[0]}", "Station": f"Machine{chosen_mch[0]}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
+            0, chosen_op, chosen_mch][0], "Width": 0.4})
         
         self.true_candidate_free_time[self.env_idxs, chosen_job] = self.true_op_ct[
             self.env_idxs, chosen_op]
@@ -1110,6 +1117,24 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
         self.energy_lb_energy = unscheduled_energy_lb_energy
         working_energy = self.schedule_mch_working_energy + np.sum(min_energy_per_mch, axis=-1)
         
+        # 当前步骤选择的机器的加工时间
+        current_processing_time = self.true_op_pt[self.env_idxs, chosen_op, chosen_mch]
+
+        # 累加当前步骤的加工时间到对应的机器
+        self.mch_total_processing_time[self.env_idxs, chosen_mch] += current_processing_time
+        
+        # 计算每台机器的真实加工功耗
+        real_working_energy = self.mch_total_processing_time * self.real_mch_working_power
+
+        # 计算每台机器的待机时间
+        idle_time = self.current_makespan[:, np.newaxis] - self.mch_total_processing_time
+
+        # 计算每台机器的待机功耗
+        real_idle_energy = idle_time * self.real_mch_idle_power
+
+        # 计算当前的总能耗
+        self.total_real_energy_consumed = np.sum(real_working_energy, axis=-1) + np.sum(real_idle_energy, axis=-1)
+
         self.construct_op_features()
         self.construct_mch_features()
 
@@ -1154,6 +1179,7 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
                                self.mch_working_flag, # 标志机器是否正在工作
                                self.mch_working_power
                                ), axis=2)
+
 
     def construct_op_features(self):
         """
@@ -1219,3 +1245,57 @@ class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
                                 self.candidate_ec / pair_max_ec,
                                 self.candidate_ec / chosen_job_remain_work,
                                 pair_wait_time), axis=-1)
+
+
+class FJSPEnvForSameOpNumsMakespanEnergy(FJSPEnvForSameOpNumsEnergy):
+
+    def __init__(self, n_j, n_m, factor_Mk=0, factor_Ec=1):
+        super().__init__(n_j, n_m, factor_Mk, factor_Ec)
+        # the dimension of operation raw features
+        self.op_fea_dim = 16
+        # the dimension of machine raw features
+        self.mch_fea_dim = 11
+        self.fig = go.Figure()
+
+    def construct_mch_features(self):
+        """
+            construct machine raw features
+        """
+        self.fea_m = np.stack((self.mch_current_available_jc_nums, #当前可用于机器的作业计数（job count）数量
+                               self.mch_current_available_op_nums, #当前机器可用的操作（operation）数量
+                                self.mch_min_pt, ##机器上操作的最小处理时间
+                               self.mch_min_ec, ##机器上操作的最小能耗
+                               self.mch_mean_pt, # 机器上操作的平均处理时间
+                               self.mch_mean_ec, # 机器上操作的平均能耗
+                               self.mch_waiting_time, # 机器的等待时间
+                               self.mch_remain_work, # 机器上剩余的工作量
+                               self.mch_free_time, ### 机器的空闲时间，可能与等待时间有所不同，更多地关注于机器的可用性。
+                               self.mch_working_flag, # 标志机器是否正在工作
+                               self.mch_working_power
+                               ), axis=2)
+
+    def construct_op_features(self):
+        """
+            construct operation raw features
+        """
+        self.fea_j = np.stack((self.op_scheduled_flag, # 操作是否已被调度
+                               self.op_ct_lb,##操作的完工时间的估计下限
+                               self.op_energy_lb,##操作能耗的估计下限
+                               self.op_min_pt, ###操作的最小处理时间，最短的
+                               self.op_min_energy, ###操作的最小能耗
+                               self.pt_span, ##操作的处理时间变化范围。
+                               self.energy_span, ##操作的能耗变化范围。
+                                self.op_mean_pt,#操作的平均处理时间
+                               self.op_mean_ec,#操作的平均能耗
+                               self.op_waiting_time,##操作的等待时间
+                               self.op_remain_work,###操作剩余的工作量
+                               self.op_match_job_left_op_nums,##与操作匹配的作业中剩余的操作数量
+                               self.op_match_job_remain_work,#与操作匹配的作业中剩余的工作量
+                               self.op_available_mch_nums, #可用于该操作的机器数量
+                                self.energy_lb_idx, # 
+                                self.energy_lb_energy, 
+                               ), axis=2)
+
+        if self.step_count != self.number_of_ops:
+            self.norm_op_features()
+

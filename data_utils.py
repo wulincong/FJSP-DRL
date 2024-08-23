@@ -158,8 +158,8 @@ def SD2_instance_generator_EM(config, n_j=None, n_m=None, op_per_job=None):
             inf_pos = np.random.choice(np.arange(0, n_m), n_m - mch_num, replace=False)
             op_pt[row][inf_pos] = 0
 
-    mch_working_power = np.random.uniform(10, 50, size=(n_m))
-    mch_idle_power = mch_working_power * np.random.uniform(0.1, 0.3, size=n_m)
+    mch_working_power = np.random.uniform(2, 5, size=(n_m))
+    mch_idle_power = np.full(shape=(n_m), fill_value=0.1)
 
     return job_length, op_pt, op_per_mch, mch_working_power, mch_idle_power
 
@@ -258,7 +258,6 @@ def SD2_instance_generator_EMconflict(config, n_j=None, n_m=None, op_per_job=Non
         if mch_num < n_m:
             unavailable_mch_indices = np.random.choice(np.arange(n_m), n_m  - mch_num, replace=False)
             op_pt[op_idx, unavailable_mch_indices] = 0
-
     return job_length, op_pt, op_per_mch, mch_working_power, mch_idle_power
 
 def matrix_to_text(job_length, op_pt, op_per_mch, *args):
@@ -433,7 +432,7 @@ def generate_data_to_files(seed, directory, config, generator=SD2_instance_gener
         for idx in range(batch_size):
             if source != 'SD1':
                 job_length, op_pt, op_per_mch, *others = generator(config=config)
-
+                print(others)
                 lines_doc = matrix_to_text(job_length, op_pt, op_per_mch, *others)
 
                 file_path = os.path.join(path, '{}_{:03}.fjs'.format(filename, idx + 1))
@@ -609,7 +608,7 @@ def main():
             generate_data_to_files(configs.seed_datagen,
                                    f'./data/{configs.data_source}/',
                                configs, SD2_instance_generator_EMconflict)
-        if configs.data_source == "SD2EC0":
+        elif configs.data_source == "SD2EC0":
             generate_data_to_files(configs.seed_datagen,
                                    f'./data/{configs.data_source}/',
                                configs, SD2_instance_generator_EM)

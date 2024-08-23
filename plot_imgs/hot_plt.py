@@ -73,10 +73,10 @@ def MAML_finetuning(model, dim=64):
          "--test_model", model]
     
     model_res, _ = MAML_finetuning_test(args = args)
-    with open(f"./plot_imgs/hot_plt_data/model_res{log_timestamp}.txt", "w") as file:
+    with open(f"./plot_imgs/hot_plt_data/model_res{model}.txt", "w") as file:
         print(model_res, file = file)
 
 if __name__ == "__main__":
     # random
-    MAML_finetuning("10x5+mix", dim=64)
+    MAML_finetuning("test_random", dim=64)
 

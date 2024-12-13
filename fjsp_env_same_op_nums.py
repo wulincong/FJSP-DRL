@@ -13,6 +13,8 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 from plotly.colors import qualitative
+import gymnasium as gym
+from gymnasium.spaces import Box, MultiBinary, MultiDiscrete
 
 @dataclass
 class EnvState:
@@ -644,7 +646,7 @@ class FJSPEnvForSameOpNums:
                           self.dynamic_pair_mask, self.comp_idx, self.candidate,
                           self.fea_pairs)
 
-        return self.state, np.array(reward), self.done()
+        return self.state, np.array(reward, dtype="float32"), self.done()
 
 
 
@@ -923,6 +925,50 @@ class FJSPEnvForSameOpNums:
             self.task_colors = {}
             self.screen = self.initialize_pygame()
         self.render_gantt_chart(self.tasks_data, self.screen)
+
+    def generate_observation_space(self):
+        """
+        Generates the observation space as a Gym Dict space.
+        """
+        observation_space = gym.spaces.Dict({
+            "fea_j": Box(
+                low=-np.inf, 
+                high=np.inf, 
+                shape=(self.number_of_envs, self.number_of_ops, self.op_fea_dim), 
+                dtype=np.float32
+            ),
+            "op_mask": MultiBinary(
+                shape=(self.number_of_envs, self.number_of_ops, 3)
+            ),
+            "fea_m": Box(
+                low=-np.inf, 
+                high=np.inf, 
+                shape=(self.number_of_envs, self.number_of_machines, self.mch_fea_dim), 
+                dtype=np.float32
+            ),
+            "mch_mask": MultiBinary(
+                shape=(self.number_of_envs, self.number_of_machines, self.number_of_machines)
+            ),
+            "dynamic_pair_mask": MultiBinary(
+                shape=(self.number_of_envs, self.number_of_jobs, self.number_of_machines)
+            ),
+            "candidate": Box(
+                low=0, 
+                high=self.number_of_ops - 1, 
+                shape=(self.number_of_envs, self.number_of_jobs), 
+                dtype=np.int32
+            ),
+            "fea_pairs": Box(
+                low=-np.inf, 
+                high=np.inf, 
+                shape=(self.number_of_envs, self.number_of_jobs, self.number_of_machines, 8), 
+                dtype=np.float32
+            )
+        })
+
+        return observation_space
+
+
 
 class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
     # def calculate_working_energy(self, operation_time, machine_id):

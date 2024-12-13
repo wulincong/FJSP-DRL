@@ -26,6 +26,18 @@ class MultiTaskTrainer(Trainer):
         print("self.n_m_options: ",self.n_m_options)
         print("self.op_per_job_options: ",self.op_per_job_options)
 
+    def reset_env_tasks(self, envModel = FJSPEnvForSameOpNums):
+        self.tasks = []
+        for _ in range(self.num_tasks):
+            n_j = n_m = 0
+            while n_j <= n_m: 
+                n_j = random.randint(5, 20)
+                n_m = random.randint(5, 20)
+            # print(n_j, n_m)
+            env = envModel(n_j, n_m)
+            env.set_initial_data(*self.sample_training_instances(n_j, n_m))
+            self.tasks.append(env)
+
     def train(self):
         setup_seed(self.seed_train)
         self.log = []
@@ -42,18 +54,7 @@ class MultiTaskTrainer(Trainer):
             ep_st = time.time()
 
             #重置环境
-
-            if iteration % self.reset_env_timestep == 0:
-                self.tasks = []
-                for _ in range(self.num_tasks):
-                    n_j = n_m = 0
-                    while n_j <= n_m: 
-                        n_j = random.randint(5, 20)
-                        n_m = random.randint(5, 20)
-                    print(n_j, n_m)
-                    env = FJSPEnvForSameOpNums(n_j, n_m)
-                    env.set_initial_data(*self.sample_training_instances(n_j, n_m))
-                    self.tasks.append(env)
+            if iteration % self.reset_env_timestep == 0: self.reset_env_tasks()
 
             iteration_policies = []
             mean_rewards_all_env_list = []
@@ -72,6 +73,7 @@ class MultiTaskTrainer(Trainer):
                 self.makespans[task_idx].append(np.mean(env.current_makespan))
                 # self.current_EC_record[task_idx].append(np.mean(env.current_EC))
                 iteration_policies.append(theta_prime)
+            
             mean_reward_iter = np.mean(mean_rewards_all_env_list)
             #计算meta损失
             loss = self.ppo.meta_optimize(self.valid_memorys, iteration_policies)
@@ -103,91 +105,6 @@ class MultiTaskTrainer(Trainer):
         with open(f"./train_log/mean_rewards{self.log_timestamp}.txt", "w") as f: print(self.mean_rewards, file=f)
         with open(f"./train_log/meta_loss{self.log_timestamp}.txt", "w") as f: print(self.meta_loss, file=f)
         # with open(f"./train_log/EC{int(time.time())}.txt", "w") as f: print(self.current_EC_record, file=f)
-
-
-class DANTrainer(Trainer):
-    def __init__(self, config):
-
-        super().__init__(config)
-        self.ppo = PPO_initialize(config)
-        self.env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
-
-
-    def train(self):
-        """
-            train the model following the config
-        """
-        setup_seed(self.seed_train)
-        self.log = []
-        self.validation_log = []
-        self.record = float('inf')
-
-        # print the setting
-        print("-" * 25 + "Training Setting" + "-" * 25)
-        print(f"source : {self.data_source}")
-        print(f"model name :{self.model_name}")
-        print(f"vali data :{self.vali_data_path}")
-        print("\n")
-
-        self.train_st = time.time()
-
-        for i_update in tqdm(range(self.max_updates), file=sys.stdout, desc="progress", colour='blue'):
-            ep_st = time.time()
-
-            # resampling the training data
-            if i_update % self.reset_env_timestep == 0:
-                dataset_job_length, dataset_op_pt = self.sample_training_instances()
-                state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
-            else:
-                state = self.env.reset()
-
-            ep_rewards = self.memory_generate(self.env, state, self.ppo)
-
-            loss, v_loss = self.ppo.update(self.memory)
-            self.memory.clear_memory()
-
-            mean_rewards_all_env = np.mean(ep_rewards)
-            mean_makespan_all_env = np.mean(self.env.current_makespan)
-            if i_update < 2: vali_result = mean_makespan_all_env 
-
-            # save the mean rewards of all instances in current training data
-            self.log.append([i_update, mean_rewards_all_env])
-
-            # validate the trained model
-            if (i_update + 1) % self.validate_timestep == 0:
-                # self.save_model()
-
-                if self.data_source == "SD1":
-                    vali_result = self.validate_envs_with_various_op_nums().mean()
-                else:
-                    vali_result = self.validate_envs_with_same_op_nums().mean()
-
-                if vali_result < self.record:
-                    self.save_model()
-                    self.record = vali_result
-
-                self.validation_log.append(vali_result)
-                self.save_validation_log()
-                tqdm.write(f'The validation quality is: {vali_result} (best : {self.record})')
-
-            ep_et = time.time()
-            # print the reward, makespan, loss and training time of the current episode
-            tqdm.write(
-                'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
-                    i_update + 1, mean_rewards_all_env, mean_makespan_all_env, loss, ep_et - ep_st))
-            
-            scalars={
-                'Loss/train': loss
-                ,'makespan_train':mean_makespan_all_env
-                # ,'makespan_validate':vali_result
-            }
-            
-            self.iter_log(i_update, scalars)
-
-        self.train_et = time.time()
-
-        # log results
-        self.save_training_log()
 
 
 class PretrainTrainer(MultiTaskTrainer):

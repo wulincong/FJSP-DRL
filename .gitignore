@@ -166,3 +166,4 @@ train_log/
 trained_network/
 test_results/
 *.out
+slurm

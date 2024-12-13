@@ -164,7 +164,7 @@ class Test:
                     # state store
             self.memory.push(state)
             with torch.no_grad():
-                pi_envs, vals_envs = policy(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
+                pi_envs, vals_envs, *others = policy(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
                                                                 op_mask=state.op_mask_tensor,  # [sz_b, N, N]
                                                                 candidate=state.candidate_tensor,  # [sz_b, J]
                                                                 fea_m=state.fea_m_tensor,  # [sz_b, M, 6]

@@ -147,7 +147,7 @@ class Trainer:
                     # state store
             memory.push(state)
             with torch.no_grad():
-                pi_envs, vals_envs = inner_ppo.policy_old(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
+                pi_envs, vals_envs, *others = inner_ppo.policy_old(fea_j=state.fea_j_tensor,  # [sz_b, N, 8]
                                                                 op_mask=state.op_mask_tensor,  # [sz_b, N, N]
                                                                 candidate=state.candidate_tensor,  # [sz_b, J]
                                                                 fea_m=state.fea_m_tensor,  # [sz_b, M, 6]

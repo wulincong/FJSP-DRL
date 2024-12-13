@@ -555,11 +555,11 @@ class PPO:
 
         return loss
 
+
+
+
 def PPO_initialize(configs):
     ppo = PPO(configs)
-    
-    # writer = SummaryWriter(log_dir=configs.logdir, flush_secs=180)
-
-    # writer.add_graph(dict(ppo.policy.named_parameters()))
-    # writer.close()
+    from model.VariVAEPPO import VariVAEPPO
+    if configs.network_type == "VAE": return VariVAEPPO(configs)
     return ppo

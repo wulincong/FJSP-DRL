@@ -1,1100 +1,0 @@
-==================================================
-energy_weight: 0.0, makespan_weight:1.0
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7212 Solve Time: 0.27219319343566895 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:30,  3.30it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7200 Solve Time: 0.12898850440979004 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:21,  4.46it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5450 Solve Time: 0.1470324993133545 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:20,  4.64it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.08071565628051758 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:16,  5.78it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6406 Solve Time: 0.11651015281677246 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:00<00:15,  6.02it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8703 Solve Time: 0.21567893028259277 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:18,  4.96it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6411 Solve Time: 0.10633158683776855 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:16,  5.59it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.16896343231201172 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:18,  5.09it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 8044 Solve Time: 0.2647123336791992 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:21,  4.32it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9587 Solve Time: 0.24441027641296387 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:22,  4.00it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8675 Solve Time: 0.17125296592712402 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:21,  4.08it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 8936 Solve Time: 0.14914870262145996 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:20,  4.36it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.09647130966186523 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:17,  5.00it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8712 Solve Time: 0.09206676483154297 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:02<00:15,  5.52it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6643 Solve Time: 0.19779133796691895 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:17,  4.85it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6671 Solve Time: 0.18205904960632324 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:18,  4.60it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.12146496772766113 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:16,  4.93it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6295 Solve Time: 0.27002549171447754 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:03<00:19,  4.20it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8716 Solve Time: 0.2730100154876709 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:21,  3.78it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 5392 Solve Time: 0.15102648735046387 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:20,  3.98it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.1287856101989746 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:18,  4.27it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7176 Solve Time: 0.19686460494995117 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:04<00:18,  4.16it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5422 Solve Time: 0.19458794593811035 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:18,  4.06it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.13580965995788574 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:17,  4.39it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8214 Solve Time: 0.26860570907592773 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:18,  3.97it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.09430646896362305 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:05<00:15,  4.75it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7559 Solve Time: 0.17283844947814941 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:05<00:15,  4.67it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.10858035087585449 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:13,  5.25it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 6960 Solve Time: 0.12420368194580078 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:13,  5.35it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 11068 Solve Time: 0.3075845241546631 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:16,  4.25it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 8154 Solve Time: 0.20117902755737305 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:06<00:16,  4.19it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.17690563201904297 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:15,  4.29it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.1475226879119873 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:14,  4.55it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7828 Solve Time: 0.11971735954284668 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:13,  4.91it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.1569821834564209 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:13,  4.88it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8557 Solve Time: 0.1952800750732422 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:07<00:13,  4.66it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9708 Solve Time: 0.1392357349395752 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:13,  4.78it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.10383415222167969 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:11,  5.31it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.18146514892578125 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:11,  5.11it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8062 Solve Time: 0.308272123336792 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:08<00:14,  4.05it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 6995 Solve Time: 0.2228679656982422 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:15,  3.90it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8440 Solve Time: 0.1946425437927246 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:14,  3.93it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 7697 Solve Time: 0.11482954025268555 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:12,  4.42it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8740 Solve Time: 0.21185755729675293 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:13,  4.20it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7680 Solve Time: 0.11861181259155273 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:09<00:11,  4.66it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 7752 Solve Time: 0.2303154468536377 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:12,  4.26it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 10222 Solve Time: 0.07460618019104004 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:10,  4.96it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7263 Solve Time: 0.11591958999633789 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:09,  5.45it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7432 Solve Time: 0.13054370880126953 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.58it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.10062718391418457 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:10<00:08,  5.96it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7406 Solve Time: 0.16675591468811035 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:10<00:08,  5.49it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8910 Solve Time: 0.16238832473754883 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:09,  5.15it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.1444683074951172 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:09,  5.06it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8271 Solve Time: 0.1412508487701416 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:09,  5.00it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6531 Solve Time: 0.12960100173950195 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:11<00:08,  5.08it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7690 Solve Time: 0.1277470588684082 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:11<00:08,  5.18it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7776 Solve Time: 0.09209537506103516 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:07,  5.83it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8062 Solve Time: 0.18749165534973145 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  5.18it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.1489400863647461 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:07,  5.19it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9259 Solve Time: 0.15923261642456055 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:12<00:07,  5.14it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6874 Solve Time: 0.16080427169799805 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:12<00:07,  5.09it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 7440 Solve Time: 0.07656621932983398 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:08,  4.28it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.1134786605834961 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:07,  4.75it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10572 Solve Time: 0.09938716888427734 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.19it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 7484 Solve Time: 0.18504095077514648 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:07,  4.88it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6218 Solve Time: 0.09014296531677246 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:13<00:06,  5.33it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9247 Solve Time: 0.1279301643371582 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.45it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8599 Solve Time: 0.1750493049621582 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  5.29it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8219 Solve Time: 0.31369733810424805 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:07,  4.10it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 9054 Solve Time: 0.1763288974761963 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:14<00:07,  4.11it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 7255 Solve Time: 0.2204272747039795 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:07,  3.94it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 8017 Solve Time: 0.10382986068725586 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.41it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8180 Solve Time: 0.1494591236114502 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:05,  4.62it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7364 Solve Time: 0.15370821952819824 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:05,  4.65it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.11958050727844238 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:15<00:04,  5.04it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6858 Solve Time: 0.24807119369506836 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.33it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 6852 Solve Time: 0.153764009475708 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.53it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 7830 Solve Time: 0.14278149604797363 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.59it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 7181 Solve Time: 0.13041090965270996 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:16<00:04,  4.78it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 9729 Solve Time: 0.12549543380737305 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:04,  4.99it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8078 Solve Time: 0.20965123176574707 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.59it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.16145968437194824 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  4.53it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 6222 Solve Time: 0.15227460861206055 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.58it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8549 Solve Time: 0.15114068984985352 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:03,  4.64it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6577 Solve Time: 0.16588258743286133 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:03,  4.70it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.19612669944763184 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.64it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 7763 Solve Time: 0.1483449935913086 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.82it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7634 Solve Time: 0.11750578880310059 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  5.20it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8114 Solve Time: 0.1274707317352295 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:18<00:02,  5.35it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 6655 Solve Time: 0.10545825958251953 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.79it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 9231 Solve Time: 0.11857771873474121 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.95it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.1056370735168457 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  6.09it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 6773 Solve Time: 0.11264348030090332 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  6.03it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.1462564468383789 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:19<00:01,  5.98it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9286 Solve Time: 0.12699103355407715 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:19<00:00,  5.88it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6363 Solve Time: 0.11772274971008301 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.83it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7637 Solve Time: 0.1727285385131836 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.41it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 5936 Solve Time: 0.18144750595092773 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  5.11it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.13942551612854004 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:20<00:00,  5.24it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6581 Solve Time: 0.21858453750610352 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:20<00:00,  4.72it/s]progress: 100%|[34m██████████[0m| 100/100 [00:20<00:00,  4.78it/s]
-mean makespan 229.16
-mean energy 7651.7
-mean_energy: 7651.7, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.1, makespan_weight:0.9
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7671 Solve Time: 0.20880866050720215 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:25,  3.96it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.12259364128112793 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:18,  5.28it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5209 Solve Time: 0.15467286109924316 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:19,  5.04it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.14325761795043945 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:18,  5.20it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6406 Solve Time: 0.17511200904846191 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:01<00:19,  4.91it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8670 Solve Time: 0.21070313453674316 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:20,  4.49it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6511 Solve Time: 0.14797735214233398 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:19,  4.72it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9401 Solve Time: 0.2248377799987793 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:21,  4.35it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 8151 Solve Time: 0.19079852104187012 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:21,  4.30it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9655 Solve Time: 0.29352760314941406 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:24,  3.75it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8279 Solve Time: 0.1778123378753662 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:22,  3.97it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 8937 Solve Time: 0.10519886016845703 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:19,  4.63it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.12859725952148438 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:17,  5.01it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8308 Solve Time: 0.13837742805480957 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:03<00:16,  5.17it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6686 Solve Time: 0.190260648727417 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:17,  4.75it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6535 Solve Time: 0.10336160659790039 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:16,  5.20it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.13614511489868164 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:15,  5.36it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6370 Solve Time: 0.33396124839782715 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:03<00:20,  4.01it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8716 Solve Time: 0.3251965045928955 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:23,  3.46it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 5415 Solve Time: 0.17973613739013672 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:22,  3.63it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 7475 Solve Time: 0.1337733268737793 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:19,  4.00it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7319 Solve Time: 0.18396949768066406 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:05<00:19,  4.07it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5532 Solve Time: 0.2008495330810547 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:18,  4.11it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.18532562255859375 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:18,  4.10it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8395 Solve Time: 0.23760724067687988 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:19,  3.86it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.11884260177612305 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:05<00:17,  4.31it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7329 Solve Time: 0.16538596153259277 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:16,  4.45it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.11800885200500488 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:14,  4.84it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 6960 Solve Time: 0.15384650230407715 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:14,  4.93it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10751 Solve Time: 0.3303225040435791 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:17,  3.96it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 9001 Solve Time: 0.19325947761535645 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:17,  3.98it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.12953400611877441 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:15,  4.28it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.11603927612304688 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:14,  4.75it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 10041 Solve Time: 0.1250779628753662 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:12,  5.11it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.13820362091064453 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:12,  5.09it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8773 Solve Time: 0.1719214916229248 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:13,  4.85it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9708 Solve Time: 0.15201497077941895 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:12,  4.95it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.1036827564239502 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:11,  5.44it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.20967602729797363 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:12,  4.97it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7692 Solve Time: 0.2713930606842041 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:08<00:14,  4.17it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 7088 Solve Time: 0.2261030673980713 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:14,  3.96it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8586 Solve Time: 0.20599675178527832 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:14,  3.96it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8294 Solve Time: 0.16128897666931152 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:13,  4.19it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8726 Solve Time: 0.21512770652770996 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:13,  4.09it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7680 Solve Time: 0.14492154121398926 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:12,  4.36it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 8325 Solve Time: 0.21140241622924805 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:13,  4.15it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 9487 Solve Time: 0.0824899673461914 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:11,  4.78it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.09931182861328125 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:09,  5.25it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7745 Solve Time: 0.1240696907043457 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.41it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7705 Solve Time: 0.12943029403686523 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:11<00:09,  5.40it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7503 Solve Time: 0.18497204780578613 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:09,  5.06it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8590 Solve Time: 0.16449236869812012 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:09,  4.99it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.0980234146118164 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:08,  5.61it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8271 Solve Time: 0.1756603717803955 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:08,  5.21it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6612 Solve Time: 0.10806107521057129 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:12<00:08,  5.41it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7649 Solve Time: 0.17647051811218262 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:08,  5.14it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7776 Solve Time: 0.1066138744354248 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:07,  5.52it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8356 Solve Time: 0.1837615966796875 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  5.08it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.14887309074401855 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:08,  5.02it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9355 Solve Time: 0.1499323844909668 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:13<00:08,  4.99it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6734 Solve Time: 0.16853570938110352 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:07,  4.94it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 7100 Solve Time: 0.12402772903442383 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:07,  5.24it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.11026120185852051 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  5.48it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10477 Solve Time: 0.15289306640625 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.38it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 7255 Solve Time: 0.1425623893737793 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:06,  5.23it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6228 Solve Time: 0.08783221244812012 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:05,  5.90it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9126 Solve Time: 0.07255315780639648 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:04,  6.69it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8659 Solve Time: 0.20960617065429688 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:05,  5.60it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8495 Solve Time: 0.25176215171813965 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:06,  4.70it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8709 Solve Time: 0.21422958374023438 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:06,  4.37it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6976 Solve Time: 0.18867969512939453 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:06,  4.32it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7466 Solve Time: 0.15534067153930664 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.48it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8226 Solve Time: 0.19879889488220215 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:06,  4.39it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7355 Solve Time: 0.18777823448181152 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:05,  4.38it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.11882138252258301 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:05,  4.81it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6746 Solve Time: 0.2956078052520752 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.00it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 7128 Solve Time: 0.14533519744873047 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.32it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8259 Solve Time: 0.11288666725158691 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.90it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 7243 Solve Time: 0.13966608047485352 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:16<00:04,  5.15it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 8405 Solve Time: 0.10037493705749512 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.66it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8258 Solve Time: 0.23012542724609375 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:03,  4.86it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.11618590354919434 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  4.91it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 6315 Solve Time: 0.15764760971069336 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.90it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8549 Solve Time: 0.1422109603881836 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:03,  5.04it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6759 Solve Time: 0.12564539909362793 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:02,  5.42it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.3071722984313965 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.18it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 7682 Solve Time: 0.1570744514465332 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.36it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7665 Solve Time: 0.20882177352905273 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  4.25it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8199 Solve Time: 0.1313631534576416 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.61it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 10019 Solve Time: 0.1444098949432373 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:02,  4.83it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 8246 Solve Time: 0.08888769149780273 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.50it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7307 Solve Time: 0.13078808784484863 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.66it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7398 Solve Time: 0.12379026412963867 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.61it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.1343064308166504 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:19<00:01,  5.73it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9733 Solve Time: 0.11849498748779297 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.73it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 7426 Solve Time: 0.15091919898986816 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.47it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7494 Solve Time: 0.1645035743713379 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.29it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 5943 Solve Time: 0.17637395858764648 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  5.07it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 7370 Solve Time: 0.13556790351867676 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:20<00:00,  5.14it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 7441 Solve Time: 0.2450699806213379 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.48it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.72it/s]
-mean makespan 229.16
-mean energy 7757.96
-mean_energy: 7757.96, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.2, makespan_weight:0.8
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7180 Solve Time: 0.22097373008728027 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:27,  3.54it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.1435239315032959 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:22,  4.29it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5360 Solve Time: 0.17904376983642578 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:22,  4.23it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.10056352615356445 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:19,  4.86it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6430 Solve Time: 0.13417291641235352 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:01<00:18,  5.14it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8357 Solve Time: 0.2401142120361328 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:21,  4.42it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6411 Solve Time: 0.12888550758361816 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:19,  4.69it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.2039344310760498 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:21,  4.38it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 7398 Solve Time: 0.23036479949951172 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:02<00:22,  4.03it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 10095 Solve Time: 0.29964756965637207 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:25,  3.54it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8887 Solve Time: 0.1592545509338379 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:23,  3.81it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 9120 Solve Time: 0.13927745819091797 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:21,  4.13it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.10893130302429199 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:03<00:19,  4.57it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8892 Solve Time: 0.1446371078491211 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:03<00:17,  4.82it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6616 Solve Time: 0.1825242042541504 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:18,  4.59it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6515 Solve Time: 0.1545703411102295 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:18,  4.61it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.15744781494140625 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:17,  4.77it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6356 Solve Time: 0.2482900619506836 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:04<00:19,  4.13it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8790 Solve Time: 0.27486729621887207 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:21,  3.79it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 5392 Solve Time: 0.17268824577331543 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:20,  3.89it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.11766290664672852 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:18,  4.31it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7175 Solve Time: 0.12910819053649902 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:05<00:16,  4.69it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5532 Solve Time: 0.16596698760986328 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:16,  4.73it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.19845223426818848 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:17,  4.42it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8395 Solve Time: 0.2966909408569336 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:19,  3.80it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.10596752166748047 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:06<00:16,  4.40it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7332 Solve Time: 0.12331032752990723 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:15,  4.78it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 9679 Solve Time: 0.16510748863220215 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:15,  4.71it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 6960 Solve Time: 0.15160584449768066 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:14,  4.74it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10831 Solve Time: 0.2617223262786865 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:16,  4.12it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 9064 Solve Time: 0.231917142868042 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:17,  3.96it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.13518881797790527 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:16,  4.24it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.15950274467468262 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:15,  4.38it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 24656 Solve Time: 0.11637639999389648 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:13,  4.74it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.14083099365234375 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:13,  4.94it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8899 Solve Time: 0.12234234809875488 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:12,  5.11it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9048 Solve Time: 0.1510450839996338 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:12,  5.11it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.10028409957885742 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:11,  5.62it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.19487214088439941 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:12,  4.98it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7963 Solve Time: 0.2679862976074219 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:09<00:14,  4.17it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 6911 Solve Time: 0.16548967361450195 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:13,  4.28it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8743 Solve Time: 0.19901061058044434 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:13,  4.15it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8149 Solve Time: 0.10221529006958008 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:12,  4.72it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8711 Solve Time: 0.15157747268676758 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:11,  4.96it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7615 Solve Time: 0.16495728492736816 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:11,  4.92it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 8075 Solve Time: 0.22920989990234375 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:12,  4.50it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 10192 Solve Time: 0.1343541145324707 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:11,  4.75it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.11452078819274902 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:10,  5.18it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7748 Solve Time: 0.15103960037231445 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.16it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.08406305313110352 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:10<00:08,  5.78it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8185 Solve Time: 0.15034103393554688 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:08,  5.52it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8709 Solve Time: 0.1502387523651123 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:08,  5.41it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.16027188301086426 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:09,  5.16it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8431 Solve Time: 0.1658487319946289 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:09,  4.94it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6734 Solve Time: 0.12021780014038086 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:11<00:08,  5.22it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7776 Solve Time: 0.13404536247253418 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:08,  5.36it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7822 Solve Time: 0.09345746040344238 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:07,  5.75it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8050 Solve Time: 0.15235686302185059 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:07,  5.54it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.14810395240783691 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:07,  5.26it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9296 Solve Time: 0.18187284469604492 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:12<00:07,  5.01it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6683 Solve Time: 0.11153936386108398 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:07,  5.41it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 7941 Solve Time: 0.10012364387512207 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:06,  5.80it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10160 Solve Time: 0.1236715316772461 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  5.89it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10314 Solve Time: 0.14075732231140137 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.71it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 6648 Solve Time: 0.17788171768188477 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:06,  5.24it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6218 Solve Time: 0.1346445083618164 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  5.21it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9398 Solve Time: 0.07813405990600586 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:05,  5.88it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8624 Solve Time: 0.16094040870666504 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:05,  5.43it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 11823 Solve Time: 0.3763892650604248 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:07,  3.93it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8648 Solve Time: 0.212249755859375 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:07,  3.82it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6841 Solve Time: 0.23763608932495117 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:07,  3.67it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7466 Solve Time: 0.12516164779663086 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.15it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8619 Solve Time: 0.1674213409423828 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:06,  4.24it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7365 Solve Time: 0.1733839511871338 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:06,  4.26it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.15056252479553223 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:05,  4.40it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6857 Solve Time: 0.2113790512084961 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.35it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 6852 Solve Time: 0.173872709274292 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.41it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8105 Solve Time: 0.12887215614318848 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.75it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6542 Solve Time: 0.16701245307922363 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:17<00:04,  4.70it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 9346 Solve Time: 0.10478878021240234 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.36it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8957 Solve Time: 0.23264527320861816 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.62it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.11497688293457031 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  5.00it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 7822 Solve Time: 0.13063383102416992 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  5.15it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8647 Solve Time: 0.10355520248413086 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:02,  5.34it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6067 Solve Time: 0.1542353630065918 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:02,  5.21it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 6044 Solve Time: 0.24423861503601074 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.47it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 7858 Solve Time: 0.14822006225585938 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.64it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7634 Solve Time: 0.1057276725769043 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  5.00it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8114 Solve Time: 0.15191149711608887 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  5.00it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 9486 Solve Time: 0.12349605560302734 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.26it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 10655 Solve Time: 0.13945531845092773 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.30it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.1446540355682373 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.34it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7003 Solve Time: 0.14450836181640625 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.38it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6356 Solve Time: 0.17612695693969727 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:19<00:01,  5.08it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9802 Solve Time: 0.13994503021240234 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.09it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6363 Solve Time: 0.14607739448547363 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.13it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7455 Solve Time: 0.25319433212280273 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  4.55it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 5873 Solve Time: 0.2075035572052002 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  4.29it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.13930010795593262 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:21<00:00,  4.54it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6581 Solve Time: 0.2420060634613037 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.12it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.68it/s]
-mean makespan 229.16
-mean energy 7931.78
-mean_energy: 7931.78, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.3, makespan_weight:0.7
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7728 Solve Time: 0.21890616416931152 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:26,  3.79it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.16419315338134766 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:22,  4.39it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5225 Solve Time: 0.1533806324005127 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:21,  4.54it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.13353633880615234 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:19,  4.81it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6406 Solve Time: 0.1297895908355713 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:01<00:18,  5.14it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8720 Solve Time: 0.16863679885864258 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:19,  4.92it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8565 Solve Time: 0.09671711921691895 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:16,  5.51it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9286 Solve Time: 0.14261460304260254 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:17,  5.32it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 7987 Solve Time: 0.2191638946533203 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:19,  4.60it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 11262 Solve Time: 0.2906620502471924 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:23,  3.86it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8818 Solve Time: 0.18419122695922852 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:22,  4.02it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 9120 Solve Time: 0.17020130157470703 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:21,  4.14it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.10192251205444336 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:18,  4.75it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 10028 Solve Time: 0.13001179695129395 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:02<00:16,  5.08it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6860 Solve Time: 0.22652459144592285 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:19,  4.46it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6671 Solve Time: 0.14148521423339844 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:17,  4.73it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.09437823295593262 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:15,  5.27it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6871 Solve Time: 0.3081789016723633 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:03<00:19,  4.19it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 9000 Solve Time: 0.3182718753814697 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:22,  3.61it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 5415 Solve Time: 0.18544840812683105 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:21,  3.76it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.12743067741394043 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:19,  4.13it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7212 Solve Time: 0.17932534217834473 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:04<00:18,  4.18it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 6580 Solve Time: 0.2204725742340088 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:19,  3.97it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.21376872062683105 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:19,  3.85it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8112 Solve Time: 0.2501199245452881 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:20,  3.71it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.12479400634765625 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:05<00:17,  4.22it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8281 Solve Time: 0.19793272018432617 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:17,  4.18it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.1339263916015625 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:16,  4.43it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 7465 Solve Time: 0.1368710994720459 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:15,  4.67it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10725 Solve Time: 0.23698973655700684 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:16,  4.21it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 9008 Solve Time: 0.21648359298706055 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:17,  4.05it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.12615013122558594 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:15,  4.37it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.12998151779174805 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:14,  4.62it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7903 Solve Time: 0.14700698852539062 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:13,  4.82it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7369 Solve Time: 0.13742923736572266 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:12,  5.03it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8773 Solve Time: 0.10815024375915527 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:12,  5.25it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 8931 Solve Time: 0.12613129615783691 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:11,  5.32it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.10064101219177246 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:10,  5.79it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7848 Solve Time: 0.23469161987304688 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:12,  4.87it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7692 Solve Time: 0.3572359085083008 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:09<00:16,  3.73it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 6995 Solve Time: 0.24760961532592773 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:16,  3.58it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8574 Solve Time: 0.17026948928833008 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:15,  3.79it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8149 Solve Time: 0.14117813110351562 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:13,  4.10it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8508 Solve Time: 0.17161965370178223 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:10<00:13,  4.14it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7816 Solve Time: 0.1326615810394287 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:12,  4.37it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 8100 Solve Time: 0.1889026165008545 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:12,  4.32it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 9399 Solve Time: 0.12444472312927246 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:11,  4.74it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.11207866668701172 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:10,  5.13it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7540 Solve Time: 0.11414456367492676 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.35it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.1370236873626709 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:11<00:09,  5.43it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7406 Solve Time: 0.14318180084228516 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:08,  5.45it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 9227 Solve Time: 0.17977452278137207 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:09,  4.97it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.12177467346191406 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:09,  5.19it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 10117 Solve Time: 0.1891937255859375 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:12<00:09,  4.77it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6701 Solve Time: 0.18196344375610352 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:12<00:10,  4.49it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7776 Solve Time: 0.1387624740600586 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:09,  4.79it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7849 Solve Time: 0.15448713302612305 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:08,  4.88it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8050 Solve Time: 0.1699690818786621 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  4.82it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.12788867950439453 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:13<00:08,  4.95it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9594 Solve Time: 0.12778496742248535 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:13<00:07,  5.36it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6854 Solve Time: 0.10190010070800781 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:06,  5.94it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 8046 Solve Time: 0.07181978225708008 seconds
-Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.14193105697631836 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:05,  6.44it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10254 Solve Time: 0.13396310806274414 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:05,  6.08it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 7202 Solve Time: 0.13122177124023438 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:06,  5.81it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6142 Solve Time: 0.1438426971435547 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  5.55it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 8888 Solve Time: 0.14064407348632812 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.49it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8720 Solve Time: 0.16599750518798828 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  5.30it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8389 Solve Time: 0.24392247200012207 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:06,  4.52it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8648 Solve Time: 0.19518446922302246 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:06,  4.34it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6972 Solve Time: 0.1870269775390625 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:06,  4.23it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7466 Solve Time: 0.12350249290466309 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.57it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8787 Solve Time: 0.16698479652404785 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:05,  4.54it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 8272 Solve Time: 0.16519880294799805 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:05,  4.62it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.13650941848754883 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:05,  4.88it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6784 Solve Time: 0.25608038902282715 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.30it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 7258 Solve Time: 0.12474608421325684 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:04,  4.60it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8242 Solve Time: 0.14714765548706055 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.80it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 7755 Solve Time: 0.1127784252166748 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:16<00:03,  5.32it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 8605 Solve Time: 0.11593961715698242 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.64it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8396 Solve Time: 0.16003990173339844 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:03,  5.55it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.1391594409942627 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  5.37it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 6378 Solve Time: 0.16444158554077148 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.98it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8833 Solve Time: 0.09845685958862305 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:03,  5.32it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6807 Solve Time: 0.16842269897460938 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:03,  4.96it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.25965094566345215 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.21it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 8515 Solve Time: 0.15248894691467285 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.45it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7634 Solve Time: 0.1373887062072754 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  4.64it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8227 Solve Time: 0.15210795402526855 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.81it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 9659 Solve Time: 0.10882878303527832 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.24it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 8246 Solve Time: 0.131150484085083 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.29it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7259 Solve Time: 0.13658976554870605 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.27it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7936 Solve Time: 0.09357404708862305 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.97it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.20189166069030762 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:19<00:01,  5.24it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 10529 Solve Time: 0.09998226165771484 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.55it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6615 Solve Time: 0.1535956859588623 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.30it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 8958 Solve Time: 0.14013099670410156 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.41it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 5873 Solve Time: 0.13670086860656738 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  5.60it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 6314 Solve Time: 0.11938595771789551 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:20<00:00,  5.70it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6643 Solve Time: 0.1832423210144043 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  5.10it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.75it/s]
-mean makespan 229.16
-mean energy 7849.46
-mean_energy: 7849.46, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.4, makespan_weight:0.6
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7555 Solve Time: 0.17516517639160156 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:20,  4.90it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.15986132621765137 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:19,  4.92it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5567 Solve Time: 0.15971755981445312 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:20,  4.73it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.15512299537658691 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:19,  4.85it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6406 Solve Time: 0.1325998306274414 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:00<00:18,  5.17it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8650 Solve Time: 0.22439980506896973 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:20,  4.52it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6511 Solve Time: 0.10429263114929199 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:18,  5.11it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9328 Solve Time: 0.17167353630065918 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:18,  4.96it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 9007 Solve Time: 0.2147808074951172 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:20,  4.43it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9574 Solve Time: 0.28310441970825195 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:23,  3.75it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8764 Solve Time: 0.20089077949523926 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:23,  3.81it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 9120 Solve Time: 0.1544342041015625 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:21,  4.05it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.10560846328735352 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:19,  4.57it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8929 Solve Time: 0.14503741264343262 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:03<00:17,  4.81it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6778 Solve Time: 0.15308284759521484 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:17,  4.76it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6575 Solve Time: 0.19529008865356445 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:18,  4.51it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7521 Solve Time: 0.1225886344909668 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:17,  4.78it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 7876 Solve Time: 0.3709743022918701 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:04<00:22,  3.63it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8987 Solve Time: 0.3212895393371582 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:24,  3.30it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 6716 Solve Time: 0.14911317825317383 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:21,  3.70it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.0955805778503418 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:18,  4.32it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7175 Solve Time: 0.17469573020935059 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:05<00:17,  4.41it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5289 Solve Time: 0.2603433132171631 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:19,  4.00it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.2558729648590088 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:20,  3.72it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8395 Solve Time: 0.2751131057739258 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:06<00:21,  3.44it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.11320877075195312 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:06<00:18,  3.99it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7222 Solve Time: 0.19321489334106445 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:18,  4.03it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.14504599571228027 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:16,  4.33it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 6962 Solve Time: 0.12296819686889648 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:15,  4.61it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10879 Solve Time: 0.2688484191894531 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:07<00:17,  4.04it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 9110 Solve Time: 0.2546422481536865 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:18,  3.77it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.14599251747131348 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:16,  4.03it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.20569539070129395 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:16,  4.08it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 11072 Solve Time: 0.0841515064239502 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:13,  4.91it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.16357016563415527 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:08<00:13,  4.89it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 9388 Solve Time: 0.13777852058410645 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:13,  4.91it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9243 Solve Time: 0.1322040557861328 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:12,  5.02it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.08447384834289551 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:10,  5.69it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7848 Solve Time: 0.17290449142456055 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:11,  5.23it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7692 Solve Time: 0.36687517166137695 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:09<00:15,  3.81it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 6911 Solve Time: 0.17106199264526367 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:14,  4.04it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8109 Solve Time: 0.19948887825012207 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:14,  3.99it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8149 Solve Time: 0.14497947692871094 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:10<00:13,  4.24it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8808 Solve Time: 0.20385432243347168 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:10<00:13,  4.09it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7722 Solve Time: 0.1567831039428711 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:12,  4.24it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 7752 Solve Time: 0.23148155212402344 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:13,  4.05it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 9103 Solve Time: 0.1041860580444336 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:11,  4.55it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.10469222068786621 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:11<00:10,  5.07it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7748 Solve Time: 0.15471577644348145 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:11<00:10,  5.06it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.09918570518493652 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:11<00:09,  5.43it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7968 Solve Time: 0.17435050010681152 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:09,  5.03it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8811 Solve Time: 0.15871644020080566 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:09,  4.88it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.15633463859558105 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:12<00:09,  4.86it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8271 Solve Time: 0.12630748748779297 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:12<00:08,  5.27it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6531 Solve Time: 0.11237025260925293 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:12<00:07,  5.73it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7623 Solve Time: 0.13544487953186035 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:07,  5.61it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7849 Solve Time: 0.10262823104858398 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:07,  5.79it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8167 Solve Time: 0.1539299488067627 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:07,  5.40it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8318 Solve Time: 0.14968633651733398 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:13<00:07,  5.24it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9381 Solve Time: 0.18141388893127441 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:13<00:08,  4.87it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 7026 Solve Time: 0.15735101699829102 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:08,  4.80it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 8556 Solve Time: 0.14593267440795898 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:07,  4.92it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.15745091438293457 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:07,  5.08it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10580 Solve Time: 0.12296056747436523 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:14<00:06,  5.33it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 7667 Solve Time: 0.15595769882202148 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:14<00:06,  5.13it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6218 Solve Time: 0.10548067092895508 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  5.54it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 10012 Solve Time: 0.14557814598083496 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.47it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 9211 Solve Time: 0.21499204635620117 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  4.84it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8282 Solve Time: 0.2974708080291748 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:15<00:07,  4.06it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8652 Solve Time: 0.23035883903503418 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:07,  3.85it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 7285 Solve Time: 0.14993762969970703 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:07,  4.13it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7607 Solve Time: 0.13598275184631348 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.39it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8186 Solve Time: 0.16484284400939941 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:16<00:06,  4.44it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7365 Solve Time: 0.1613636016845703 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:16<00:05,  4.60it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.11005115509033203 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:05,  4.92it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6746 Solve Time: 0.2228238582611084 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.41it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 7722 Solve Time: 0.13410258293151855 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:17<00:04,  4.65it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8501 Solve Time: 0.1241159439086914 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:17<00:04,  4.91it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6968 Solve Time: 0.11110353469848633 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:17<00:04,  5.15it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 8605 Solve Time: 0.10283970832824707 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.78it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 7793 Solve Time: 0.2223198413848877 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:03,  4.85it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.1142585277557373 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  5.13it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 6243 Solve Time: 0.1213381290435791 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:18<00:03,  5.20it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 7942 Solve Time: 0.1467571258544922 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:18<00:03,  5.13it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6262 Solve Time: 0.15194106101989746 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:02,  5.01it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 6016 Solve Time: 0.2447659969329834 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.31it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 8056 Solve Time: 0.1475691795349121 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:19<00:02,  4.57it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7408 Solve Time: 0.2072141170501709 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:19<00:02,  4.40it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 14634 Solve Time: 0.19805073738098145 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.33it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 6655 Solve Time: 0.10381603240966797 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:02,  4.84it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 9655 Solve Time: 0.11412191390991211 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.17it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.0991370677947998 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.77it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 8133 Solve Time: 0.14112234115600586 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:20<00:01,  5.57it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.16756677627563477 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:20<00:01,  5.21it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9286 Solve Time: 0.12729287147521973 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.43it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6758 Solve Time: 0.11450433731079102 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.71it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7613 Solve Time: 0.14451193809509277 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.67it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 6229 Solve Time: 0.15697646141052246 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:21<00:00,  5.30it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.08300638198852539 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:21<00:00,  6.06it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 11992 Solve Time: 0.25771117210388184 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.82it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.65it/s]
-mean makespan 229.16
-mean energy 7892.84
-mean_energy: 7892.84, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.5, makespan_weight:0.5
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7393 Solve Time: 0.20823359489440918 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:25,  3.93it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.17317652702331543 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:22,  4.29it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5360 Solve Time: 0.18737363815307617 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:22,  4.28it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 9088 Solve Time: 0.11887955665588379 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:20,  4.74it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6486 Solve Time: 0.1311943531036377 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:01<00:18,  5.07it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8722 Solve Time: 0.25706958770751953 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:22,  4.20it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6511 Solve Time: 0.10269784927368164 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:19,  4.79it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.11606431007385254 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:17,  5.35it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 7978 Solve Time: 0.2288656234741211 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:19,  4.58it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9482 Solve Time: 0.2399899959564209 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:22,  4.02it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8279 Solve Time: 0.1959221363067627 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:22,  4.03it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 9120 Solve Time: 0.14867472648620605 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:20,  4.26it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 7017 Solve Time: 0.13056063652038574 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:18,  4.67it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8712 Solve Time: 0.13238215446472168 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:03<00:17,  4.96it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6764 Solve Time: 0.14940667152404785 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:17,  4.89it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 7401 Solve Time: 0.14770054817199707 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:17,  4.91it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.1539018154144287 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:16,  5.00it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6356 Solve Time: 0.3438074588775635 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:04<00:21,  3.78it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8922 Solve Time: 0.35024595260620117 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:24,  3.28it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 6997 Solve Time: 0.11134839057922363 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:21,  3.81it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 6677 Solve Time: 0.11192035675048828 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:18,  4.28it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7175 Solve Time: 0.1777637004852295 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:05<00:17,  4.37it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5532 Solve Time: 0.19833898544311523 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:18,  4.18it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.16929244995117188 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:18,  4.21it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8395 Solve Time: 0.20340442657470703 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:18,  4.08it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.11777734756469727 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:05<00:15,  4.64it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7249 Solve Time: 0.20587921142578125 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:16,  4.35it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 9679 Solve Time: 0.16910552978515625 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:16,  4.47it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 6960 Solve Time: 0.14238429069519043 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:15,  4.59it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10719 Solve Time: 0.3081212043762207 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:18,  3.83it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 8339 Solve Time: 0.15636110305786133 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:16,  4.14it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.11574482917785645 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:15,  4.51it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 7481 Solve Time: 0.14373421669006348 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:14,  4.69it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7698 Solve Time: 0.1540541648864746 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:13,  4.82it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.188154935836792 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:13,  4.66it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8438 Solve Time: 0.12564754486083984 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:13,  4.92it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9457 Solve Time: 0.13589191436767578 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:12,  5.04it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.10286283493041992 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:11,  5.55it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.1840076446533203 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:11,  5.20it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7692 Solve Time: 0.18451237678527832 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:08<00:12,  4.82it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 7060 Solve Time: 0.16104459762573242 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:11,  4.92it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8239 Solve Time: 0.21270465850830078 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:12,  4.47it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8156 Solve Time: 0.15657496452331543 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:12,  4.50it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8870 Solve Time: 0.2515695095062256 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:14,  3.98it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 8378 Solve Time: 0.09858465194702148 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:11,  4.59it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 8182 Solve Time: 0.20252466201782227 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:12,  4.41it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 8735 Solve Time: 0.12466287612915039 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:11,  4.73it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.08400988578796387 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:09,  5.26it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7748 Solve Time: 0.13843536376953125 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.27it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 8260 Solve Time: 0.16344642639160156 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:11<00:09,  5.16it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7757 Solve Time: 0.16914868354797363 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:09,  5.04it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8911 Solve Time: 0.18294811248779297 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:10,  4.74it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6717 Solve Time: 0.14595389366149902 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:09,  4.85it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8271 Solve Time: 0.14556241035461426 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:09,  4.87it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6531 Solve Time: 0.13167309761047363 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:12<00:08,  5.23it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7468 Solve Time: 0.1475069522857666 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:08,  5.23it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7871 Solve Time: 0.14093875885009766 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:08,  5.31it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8050 Solve Time: 0.18169450759887695 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  4.91it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.12219023704528809 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:07,  5.17it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9376 Solve Time: 0.1583104133605957 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:13<00:08,  4.96it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6729 Solve Time: 0.1499166488647461 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:07,  4.95it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 8922 Solve Time: 0.07233691215515137 seconds
-Objective Value: 258.0 Makespan: 258 Total Energy: 10180 Solve Time: 0.11373376846313477 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  6.09it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10734 Solve Time: 0.17980003356933594 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.57it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 7641 Solve Time: 0.16401386260986328 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:06,  5.23it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6142 Solve Time: 0.16791582107543945 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  4.96it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9646 Solve Time: 0.0855553150177002 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.41it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8717 Solve Time: 0.19397974014282227 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  4.93it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8219 Solve Time: 0.3256673812866211 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:07,  4.01it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8637 Solve Time: 0.21081924438476562 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:07,  3.91it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 7387 Solve Time: 0.23093557357788086 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:07,  3.72it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7466 Solve Time: 0.09645819664001465 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.37it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8368 Solve Time: 0.17019224166870117 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:06,  4.42it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7365 Solve Time: 0.15828490257263184 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:16<00:05,  4.60it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.11101651191711426 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:04,  5.03it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6766 Solve Time: 0.24915218353271484 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.47it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 6852 Solve Time: 0.1660292148590088 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.59it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8501 Solve Time: 0.14434242248535156 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.81it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6565 Solve Time: 0.1366569995880127 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:17<00:04,  5.00it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 9218 Solve Time: 0.14008760452270508 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.18it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 7912 Solve Time: 0.19854950904846191 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.72it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.14599370956420898 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  4.84it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 6378 Solve Time: 0.12728548049926758 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.92it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8647 Solve Time: 0.14467191696166992 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:18<00:03,  4.94it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6367 Solve Time: 0.16665029525756836 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:03,  4.80it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.2379310131072998 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.27it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 7960 Solve Time: 0.14646220207214355 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.53it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7665 Solve Time: 0.1659238338470459 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  4.62it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8200 Solve Time: 0.17470836639404297 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.64it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 6655 Solve Time: 0.12326908111572266 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.01it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 8246 Solve Time: 0.1364579200744629 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.09it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.1333456039428711 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.21it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7550 Solve Time: 0.14941692352294922 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.24it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6356 Solve Time: 0.1960303783416748 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:20<00:01,  4.88it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9757 Solve Time: 0.1257166862487793 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.14it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6363 Solve Time: 0.11552143096923828 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.40it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7542 Solve Time: 0.17046284675598145 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.15it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 5873 Solve Time: 0.1501317024230957 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  5.28it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.15246915817260742 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:21<00:00,  5.13it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6703 Solve Time: 0.22245454788208008 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.38it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.68it/s]
-mean makespan 229.16
-mean energy 7741.55
-mean_energy: 7741.55, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.6, makespan_weight:0.4
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7253 Solve Time: 0.17209172248840332 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:19,  5.07it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.15446686744689941 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:19,  5.08it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5323 Solve Time: 0.15006184577941895 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:19,  4.94it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.11753439903259277 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:18,  5.23it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 7037 Solve Time: 0.13371491432189941 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:00<00:17,  5.43it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8357 Solve Time: 0.31133103370666504 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:22,  4.13it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6411 Solve Time: 0.14069461822509766 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:20,  4.45it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.14597177505493164 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:19,  4.64it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 8144 Solve Time: 0.26891112327575684 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:02<00:22,  3.99it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9710 Solve Time: 0.29074525833129883 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:25,  3.51it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8717 Solve Time: 0.2006540298461914 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:24,  3.59it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 8936 Solve Time: 0.12243008613586426 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:21,  4.11it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.10360002517700195 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:18,  4.71it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8847 Solve Time: 0.11992621421813965 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:03<00:16,  5.07it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 7016 Solve Time: 0.19144105911254883 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:17,  4.87it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6671 Solve Time: 0.16529178619384766 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:17,  4.85it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.11957216262817383 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:15,  5.24it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6838 Solve Time: 0.3500192165374756 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:04<00:20,  3.97it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 9000 Solve Time: 0.36511683464050293 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:24,  3.33it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 6983 Solve Time: 0.1609494686126709 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:22,  3.58it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.118377685546875 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:19,  4.04it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7212 Solve Time: 0.17228198051452637 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:05<00:18,  4.12it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5289 Solve Time: 0.1767122745513916 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:18,  4.13it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.22222638130187988 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:19,  3.95it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8087 Solve Time: 0.25365257263183594 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:20,  3.69it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.11684894561767578 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:06<00:17,  4.23it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7439 Solve Time: 0.16665935516357422 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:17,  4.29it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.15234375 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:16,  4.45it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 7055 Solve Time: 0.1520824432373047 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:15,  4.56it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10905 Solve Time: 0.3169362545013428 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:07<00:18,  3.84it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 9001 Solve Time: 0.18358755111694336 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:17,  3.99it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.1125326156616211 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:15,  4.50it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.2037355899810791 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:15,  4.30it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7886 Solve Time: 0.1135261058807373 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:14,  4.69it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7929 Solve Time: 0.19324278831481934 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:08<00:14,  4.56it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8321 Solve Time: 0.1558530330657959 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:13,  4.66it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9538 Solve Time: 0.14215993881225586 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:13,  4.84it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.05939888954162598 seconds
-Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.20050597190856934 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:11,  5.29it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7702 Solve Time: 0.2406904697418213 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:09<00:12,  4.64it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 7876 Solve Time: 0.2689979076385498 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:14,  4.09it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8194 Solve Time: 0.14370465278625488 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:13,  4.39it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8149 Solve Time: 0.17479872703552246 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:13,  4.37it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8711 Solve Time: 0.19195175170898438 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:10<00:12,  4.32it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7816 Solve Time: 0.08345699310302734 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:10,  5.07it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 8384 Solve Time: 0.16905713081359863 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:10,  4.97it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 9433 Solve Time: 0.10582399368286133 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:09,  5.36it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.11532831192016602 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:09,  5.65it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7748 Solve Time: 0.1509556770324707 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:11<00:09,  5.29it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.12580251693725586 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:11<00:09,  5.50it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7432 Solve Time: 0.1578819751739502 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:09,  5.40it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8590 Solve Time: 0.11551141738891602 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:08,  5.52it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.12823271751403809 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:08,  5.41it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8827 Solve Time: 0.18289828300476074 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:09,  4.94it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6701 Solve Time: 0.1494460105895996 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:12<00:08,  5.03it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7483 Solve Time: 0.15069270133972168 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:08,  5.07it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7822 Solve Time: 0.12453532218933105 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:08,  5.32it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8050 Solve Time: 0.1779787540435791 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  5.07it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.1119682788848877 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:07,  5.43it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9403 Solve Time: 0.1725316047668457 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:13<00:07,  5.13it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6998 Solve Time: 0.16907978057861328 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:07,  5.05it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 7703 Solve Time: 0.1101224422454834 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:07,  5.33it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.13664484024047852 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  5.45it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10792 Solve Time: 0.15180253982543945 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.24it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 6849 Solve Time: 0.14652514457702637 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:14<00:06,  5.10it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6218 Solve Time: 0.10947847366333008 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  5.34it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9097 Solve Time: 0.11968517303466797 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.45it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8599 Solve Time: 0.19989919662475586 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  4.84it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8222 Solve Time: 0.2824094295501709 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:15<00:07,  4.11it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8214 Solve Time: 0.16794443130493164 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:07,  4.28it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6874 Solve Time: 0.19469547271728516 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:06,  4.17it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7858 Solve Time: 0.14261102676391602 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.37it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 12086 Solve Time: 0.16784024238586426 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:06,  4.43it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 8130 Solve Time: 0.17786812782287598 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:16<00:05,  4.42it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.09116196632385254 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:04,  5.04it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6926 Solve Time: 0.24533367156982422 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.34it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 6852 Solve Time: 0.14693832397460938 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.50it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8366 Solve Time: 0.11835646629333496 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.88it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6534 Solve Time: 0.11336421966552734 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:17<00:04,  5.17it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 8405 Solve Time: 0.13040733337402344 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.28it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8399 Solve Time: 0.23276638984680176 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.53it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.11481618881225586 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  4.88it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 7492 Solve Time: 0.182539701461792 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.58it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8647 Solve Time: 0.14534354209899902 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:18<00:03,  4.72it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6707 Solve Time: 0.1710965633392334 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:03,  4.74it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 6058 Solve Time: 0.20426177978515625 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.62it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 7736 Solve Time: 0.12792348861694336 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:03,  3.98it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7408 Solve Time: 0.16878890991210938 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:19<00:02,  4.19it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8199 Solve Time: 0.12499141693115234 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.72it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 9486 Solve Time: 0.10025763511657715 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.15it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 8246 Solve Time: 0.08116483688354492 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.67it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.17444324493408203 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.30it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7191 Solve Time: 0.12490439414978027 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.51it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.18549752235412598 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:20<00:01,  5.08it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9286 Solve Time: 0.12877607345581055 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.16it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 7063 Solve Time: 0.10031461715698242 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.77it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7457 Solve Time: 0.17338347434997559 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.41it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 5873 Solve Time: 0.20590782165527344 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  4.94it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.1108543872833252 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:21<00:00,  5.30it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6581 Solve Time: 0.18606901168823242 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.95it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.68it/s]
-mean makespan 229.16
-mean energy 7762.37
-mean_energy: 7762.37, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.7, makespan_weight:0.3
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7393 Solve Time: 0.28174614906311035 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:31,  3.11it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7093 Solve Time: 0.16170072555541992 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:25,  3.84it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5360 Solve Time: 0.12001276016235352 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:22,  4.38it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.08934807777404785 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:17,  5.44it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6458 Solve Time: 0.11386322975158691 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:00<00:16,  5.80it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8495 Solve Time: 0.1586897373199463 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:17,  5.35it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6511 Solve Time: 0.1438753604888916 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:17,  5.36it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.16497254371643066 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:18,  5.07it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 7734 Solve Time: 0.19217610359191895 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:19,  4.68it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9549 Solve Time: 0.23754143714904785 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:21,  4.17it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8661 Solve Time: 0.16271114349365234 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:20,  4.31it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 8936 Solve Time: 0.16638517379760742 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:20,  4.38it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.10154867172241211 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:17,  4.85it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 7903 Solve Time: 0.16401886940002441 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:02<00:17,  4.85it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6886 Solve Time: 0.1744368076324463 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:18,  4.56it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6595 Solve Time: 0.12282633781433105 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:17,  4.80it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.1144704818725586 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:15,  5.23it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6809 Solve Time: 0.32356858253479004 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:03<00:20,  4.01it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8716 Solve Time: 0.31389904022216797 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:23,  3.50it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 6325 Solve Time: 0.10102200508117676 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:19,  4.03it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.11563944816589355 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:17,  4.53it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7175 Solve Time: 0.1502697467803955 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:04<00:16,  4.69it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 6512 Solve Time: 0.23498821258544922 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:17,  4.29it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.19719266891479492 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:18,  4.22it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8397 Solve Time: 0.25589537620544434 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:19,  3.93it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.1183924674987793 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:05<00:16,  4.35it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7289 Solve Time: 0.1778395175933838 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:16,  4.41it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.1576700210571289 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:15,  4.53it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 6960 Solve Time: 0.15960240364074707 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:15,  4.56it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 15676 Solve Time: 0.3188025951385498 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:18,  3.78it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 9207 Solve Time: 0.2497251033782959 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:18,  3.66it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.09900951385498047 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:15,  4.26it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.15152430534362793 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:15,  4.43it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7698 Solve Time: 0.1303269863128662 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:14,  4.67it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7929 Solve Time: 0.13793325424194336 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:13,  4.91it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8321 Solve Time: 0.13784241676330566 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:12,  4.95it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 8902 Solve Time: 0.14343547821044922 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:12,  5.04it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.09787845611572266 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:10,  5.68it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.20377159118652344 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:12,  4.94it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7804 Solve Time: 0.22641563415527344 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:08<00:13,  4.48it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 7045 Solve Time: 0.18759942054748535 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:13,  4.39it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8102 Solve Time: 0.19632840156555176 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:13,  4.30it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8267 Solve Time: 0.14487218856811523 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:12,  4.57it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8503 Solve Time: 0.22812247276306152 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:13,  4.13it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 9390 Solve Time: 0.10369205474853516 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:09<00:11,  4.77it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 7767 Solve Time: 0.16631770133972168 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:11,  4.77it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 9487 Solve Time: 0.12334465980529785 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:10,  5.00it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7263 Solve Time: 0.12261247634887695 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:09,  5.31it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7224 Solve Time: 0.14356303215026855 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.19it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 9767 Solve Time: 0.13295483589172363 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:10<00:09,  5.35it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7406 Solve Time: 0.17666912078857422 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:09,  5.22it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8590 Solve Time: 0.12275505065917969 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:08,  5.46it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6717 Solve Time: 0.1185615062713623 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:08,  5.53it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8271 Solve Time: 0.1260387897491455 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:08,  5.49it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 7915 Solve Time: 0.10611343383789062 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:11<00:07,  5.66it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7442 Solve Time: 0.14465022087097168 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:11<00:08,  5.45it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7776 Solve Time: 0.10093832015991211 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:07,  5.61it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8084 Solve Time: 0.17558026313781738 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  5.11it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.12965607643127441 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:07,  5.29it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 10033 Solve Time: 0.1652224063873291 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:12<00:07,  5.11it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6904 Solve Time: 0.1212778091430664 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:12<00:07,  5.30it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 7703 Solve Time: 0.10605788230895996 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:06,  5.73it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.11077380180358887 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  6.02it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10759 Solve Time: 0.14320993423461914 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.55it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8096 Solve Time: 0.18738460540771484 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:07,  4.95it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6218 Solve Time: 0.12251019477844238 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:13<00:06,  5.10it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9247 Solve Time: 0.09250354766845703 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:05,  5.82it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8599 Solve Time: 0.19810009002685547 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  5.14it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8219 Solve Time: 0.311204195022583 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:07,  4.12it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8309 Solve Time: 0.20450139045715332 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:14<00:07,  4.05it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6823 Solve Time: 0.1749589443206787 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:07,  4.12it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 9029 Solve Time: 0.11238837242126465 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.60it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 7970 Solve Time: 0.18563365936279297 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:06,  4.46it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7423 Solve Time: 0.15930819511413574 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:05,  4.53it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.10192108154296875 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:15<00:05,  4.98it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6746 Solve Time: 0.23172974586486816 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.37it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 8234 Solve Time: 0.14011502265930176 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:04,  4.61it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8080 Solve Time: 0.12494802474975586 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.85it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6534 Solve Time: 0.1023857593536377 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:16<00:03,  5.30it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 8428 Solve Time: 0.13727831840515137 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:16<00:03,  5.39it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8374 Solve Time: 0.22359776496887207 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.66it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.08382868766784668 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  5.19it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 7446 Solve Time: 0.1774890422821045 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.83it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 7988 Solve Time: 0.15789222717285156 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:03,  4.90it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6377 Solve Time: 0.17381644248962402 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:17<00:03,  4.76it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.2417452335357666 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.22it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 8456 Solve Time: 0.10586833953857422 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.87it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7560 Solve Time: 0.14905762672424316 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  5.11it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8114 Solve Time: 0.13831615447998047 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:18<00:02,  5.11it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 6655 Solve Time: 0.1300497055053711 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:18<00:01,  5.19it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 8246 Solve Time: 0.14900541305541992 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.12it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.12483787536621094 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.24it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7114 Solve Time: 0.08862543106079102 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.65it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.15947222709655762 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:19<00:01,  5.44it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9286 Solve Time: 0.12552285194396973 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:19<00:00,  5.41it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6363 Solve Time: 0.08469629287719727 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:19<00:00,  6.01it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7577 Solve Time: 0.21689939498901367 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.19it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 6037 Solve Time: 0.2088024616241455 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  4.77it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.14957261085510254 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:20<00:00,  4.76it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6951 Solve Time: 0.20621490478515625 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:20<00:00,  4.40it/s]progress: 100%|[34m██████████[0m| 100/100 [00:20<00:00,  4.78it/s]
-mean makespan 229.16
-mean energy 7774.71
-mean_energy: 7774.71, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.8, makespan_weight:0.2
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7163 Solve Time: 0.17688322067260742 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:19,  4.98it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7203 Solve Time: 0.15063714981079102 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:19,  5.07it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5360 Solve Time: 0.16814112663269043 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:20,  4.69it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.15735983848571777 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:19,  4.82it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6406 Solve Time: 0.16002559661865234 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:01<00:19,  4.90it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8357 Solve Time: 0.18277668952941895 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:19,  4.71it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6411 Solve Time: 0.09592223167419434 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:17,  5.29it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.14267325401306152 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:16,  5.44it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 8228 Solve Time: 0.23260831832885742 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:19,  4.72it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9454 Solve Time: 0.25902819633483887 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:22,  4.07it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8763 Solve Time: 0.21395015716552734 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:22,  3.91it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 8936 Solve Time: 0.1582469940185547 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:21,  4.18it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.0902717113494873 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:17,  4.88it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 9271 Solve Time: 0.14257097244262695 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:02<00:16,  5.08it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6828 Solve Time: 0.21307682991027832 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:18,  4.51it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6535 Solve Time: 0.14997076988220215 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:18,  4.55it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7521 Solve Time: 0.11866354942321777 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:17,  4.87it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6374 Solve Time: 0.373943567276001 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:04<00:22,  3.68it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8841 Solve Time: 0.2696051597595215 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:22,  3.53it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 5392 Solve Time: 0.16657209396362305 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:21,  3.71it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.07364702224731445 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:17,  4.51it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7175 Solve Time: 0.1666102409362793 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:04<00:16,  4.59it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5218 Solve Time: 0.2181844711303711 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:18,  4.23it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.2120654582977295 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:18,  4.07it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 12705 Solve Time: 0.3363003730773926 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:21,  3.50it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.1459822654724121 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:06<00:18,  3.91it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7188 Solve Time: 0.19909882545471191 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:18,  3.95it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.14094281196594238 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:17,  4.22it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 7055 Solve Time: 0.10210204124450684 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:14,  4.90it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10851 Solve Time: 0.2524571418762207 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:16,  4.27it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 8154 Solve Time: 0.15022850036621094 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:15,  4.42it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.1552278995513916 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:14,  4.60it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.18704724311828613 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:14,  4.54it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7903 Solve Time: 0.0869441032409668 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:13,  5.06it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.11464118957519531 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:12,  5.38it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8321 Solve Time: 0.11474204063415527 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:07<00:11,  5.81it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 8223 Solve Time: 0.09296655654907227 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:09,  6.45it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.07281088829040527 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:08,  6.97it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 8235 Solve Time: 0.1962742805480957 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:10,  5.72it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8091 Solve Time: 0.35176658630371094 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:08<00:14,  4.09it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 6995 Solve Time: 0.2544112205505371 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:15,  3.78it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8448 Solve Time: 0.209885835647583 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:15,  3.76it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 8169 Solve Time: 0.1683356761932373 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:14,  3.93it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8714 Solve Time: 0.24399065971374512 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:15,  3.72it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7816 Solve Time: 0.11687922477722168 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:13,  4.07it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 7967 Solve Time: 0.21120095252990723 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:13,  4.04it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 9487 Solve Time: 0.10936927795410156 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:11,  4.60it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7263 Solve Time: 0.1199491024017334 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:10,  5.02it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7432 Solve Time: 0.10597681999206543 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.35it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.13622617721557617 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:11<00:09,  5.40it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7583 Solve Time: 0.2036609649658203 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:09,  4.94it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8912 Solve Time: 0.11988019943237305 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:09,  5.22it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6719 Solve Time: 0.1714158058166504 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:09,  4.95it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8864 Solve Time: 0.15533208847045898 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:09,  4.90it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6955 Solve Time: 0.14544892311096191 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:12<00:09,  4.95it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7782 Solve Time: 0.14081788063049316 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:08,  5.10it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7849 Solve Time: 0.13557863235473633 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:08,  5.21it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 8190 Solve Time: 0.14626836776733398 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  5.25it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.16837096214294434 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:08,  5.10it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9732 Solve Time: 0.18958210945129395 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:13<00:08,  4.84it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6858 Solve Time: 0.10991048812866211 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:07,  5.12it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 8544 Solve Time: 0.09401488304138184 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:06,  5.60it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10431 Solve Time: 0.10573267936706543 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  6.09it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10792 Solve Time: 0.17423200607299805 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.40it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 6912 Solve Time: 0.1831979751586914 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:14<00:07,  4.92it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6283 Solve Time: 0.14354658126831055 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  4.95it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9126 Solve Time: 0.12038278579711914 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.35it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 8599 Solve Time: 0.18137741088867188 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  5.09it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8336 Solve Time: 0.30559325218200684 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:07,  4.03it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8740 Solve Time: 0.15077638626098633 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:06,  4.41it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6823 Solve Time: 0.19530320167541504 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:06,  4.29it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 8293 Solve Time: 0.16043996810913086 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.38it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8642 Solve Time: 0.1172327995300293 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:05,  4.92it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7364 Solve Time: 0.130096435546875 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:04,  5.27it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.14209842681884766 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:04,  5.34it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6869 Solve Time: 0.23769187927246094 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.56it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 8191 Solve Time: 0.16153192520141602 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.57it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8259 Solve Time: 0.10276412963867188 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.98it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6629 Solve Time: 0.12541818618774414 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:16<00:04,  5.12it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 10035 Solve Time: 0.14600372314453125 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.20it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 8453 Solve Time: 0.20370960235595703 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.71it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.14732003211975098 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  4.76it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 7081 Solve Time: 0.15666437149047852 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.81it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8647 Solve Time: 0.1222236156463623 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:03,  5.00it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 6048 Solve Time: 0.1654524803161621 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:03,  4.96it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.20110273361206055 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.60it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 8280 Solve Time: 0.16379833221435547 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.59it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7634 Solve Time: 0.1619267463684082 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  4.56it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8114 Solve Time: 0.17159581184387207 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.58it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 6752 Solve Time: 0.1175527572631836 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.01it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 8246 Solve Time: 0.08641457557678223 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.75it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7221 Solve Time: 0.14267992973327637 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.53it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 7314 Solve Time: 0.15018248558044434 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.46it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6356 Solve Time: 0.19150590896606445 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:19<00:01,  4.99it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9286 Solve Time: 0.16984915733337402 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:01,  4.83it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6363 Solve Time: 0.14568209648132324 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  4.96it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7521 Solve Time: 0.1914205551147461 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  4.80it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 6229 Solve Time: 0.19623661041259766 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  4.62it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 6079 Solve Time: 0.12927794456481934 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:21<00:00,  4.81it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 7182 Solve Time: 0.22635602951049805 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.36it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.69it/s]
-mean makespan 229.16
-mean energy 7744.38
-mean_energy: 7744.38, meanspan_energy: 229.16
-==================================================
-energy_weight: 0.9, makespan_weight:0.1
--------------------------Solve Setting-------------------------
-solve data name : 5x5+mix
-path : ./data/SD2EC/5x5+mix
-left instances: dataset[0, 100)
-progress:   0%|[34m          [0m| 0/100 [00:00<?, ?it/s]Objective Value: 286.0 Makespan: 286 Total Energy: 7788 Solve Time: 0.20096898078918457 seconds
-progress:   1%|[34m          [0m| 1/100 [00:00<00:22,  4.44it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 7092 Solve Time: 0.1862785816192627 seconds
-progress:   2%|[34m▏         [0m| 2/100 [00:00<00:22,  4.34it/s]Objective Value: 81.0 Makespan: 81 Total Energy: 5360 Solve Time: 0.15246820449829102 seconds
-progress:   3%|[34m▎         [0m| 3/100 [00:00<00:21,  4.42it/s]Objective Value: 274.0 Makespan: 274 Total Energy: 8450 Solve Time: 0.14509940147399902 seconds
-progress:   4%|[34m▍         [0m| 4/100 [00:00<00:20,  4.58it/s]Objective Value: 252.0 Makespan: 252 Total Energy: 6906 Solve Time: 0.10913705825805664 seconds
-progress:   5%|[34m▌         [0m| 5/100 [00:01<00:18,  5.04it/s]Objective Value: 204.0 Makespan: 204 Total Energy: 8667 Solve Time: 0.21766090393066406 seconds
-progress:   6%|[34m▌         [0m| 6/100 [00:01<00:21,  4.47it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 6411 Solve Time: 0.08780288696289062 seconds
-progress:   7%|[34m▋         [0m| 7/100 [00:01<00:18,  5.02it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 9268 Solve Time: 0.15276694297790527 seconds
-progress:   8%|[34m▊         [0m| 8/100 [00:01<00:17,  5.18it/s]Objective Value: 164.0 Makespan: 164 Total Energy: 7848 Solve Time: 0.19340038299560547 seconds
-progress:   9%|[34m▉         [0m| 9/100 [00:01<00:18,  4.96it/s]Objective Value: 305.0 Makespan: 305 Total Energy: 9708 Solve Time: 0.23741841316223145 seconds
-progress:  10%|[34m█         [0m| 10/100 [00:02<00:20,  4.32it/s]Objective Value: 233.0 Makespan: 233 Total Energy: 8634 Solve Time: 0.1803147792816162 seconds
-progress:  11%|[34m█         [0m| 11/100 [00:02<00:20,  4.26it/s]Objective Value: 298.0 Makespan: 298 Total Energy: 8936 Solve Time: 0.15288615226745605 seconds
-progress:  12%|[34m█▏        [0m| 12/100 [00:02<00:19,  4.42it/s]Objective Value: 339.0 Makespan: 339 Total Energy: 6273 Solve Time: 0.10424661636352539 seconds
-progress:  13%|[34m█▎        [0m| 13/100 [00:02<00:17,  4.99it/s]Objective Value: 254.0 Makespan: 254 Total Energy: 8679 Solve Time: 0.14428210258483887 seconds
-progress:  14%|[34m█▍        [0m| 14/100 [00:02<00:16,  5.14it/s]Objective Value: 272.0 Makespan: 272 Total Energy: 6846 Solve Time: 0.1467301845550537 seconds
-progress:  15%|[34m█▌        [0m| 15/100 [00:03<00:16,  5.01it/s]Objective Value: 240.0 Makespan: 240 Total Energy: 6595 Solve Time: 0.16689658164978027 seconds
-progress:  16%|[34m█▌        [0m| 16/100 [00:03<00:17,  4.93it/s]Objective Value: 395.0 Makespan: 395 Total Energy: 7573 Solve Time: 0.11076211929321289 seconds
-progress:  17%|[34m█▋        [0m| 17/100 [00:03<00:15,  5.37it/s]Objective Value: 129.0 Makespan: 129 Total Energy: 6549 Solve Time: 0.3686494827270508 seconds
-progress:  18%|[34m█▊        [0m| 18/100 [00:03<00:21,  3.84it/s]Objective Value: 219.0 Makespan: 219 Total Energy: 8716 Solve Time: 0.35060977935791016 seconds
-progress:  19%|[34m█▉        [0m| 19/100 [00:04<00:24,  3.32it/s]Objective Value: 149.0 Makespan: 149 Total Energy: 5392 Solve Time: 0.1704552173614502 seconds
-progress:  20%|[34m██        [0m| 20/100 [00:04<00:22,  3.58it/s]Objective Value: 260.0 Makespan: 260 Total Energy: 5754 Solve Time: 0.07177400588989258 seconds
-progress:  21%|[34m██        [0m| 21/100 [00:04<00:18,  4.33it/s]Objective Value: 279.0 Makespan: 279 Total Energy: 7212 Solve Time: 0.13073277473449707 seconds
-progress:  22%|[34m██▏       [0m| 22/100 [00:04<00:16,  4.70it/s]Objective Value: 88.0 Makespan: 88 Total Energy: 5532 Solve Time: 0.20363211631774902 seconds
-progress:  23%|[34m██▎       [0m| 23/100 [00:05<00:17,  4.36it/s]Objective Value: 152.0 Makespan: 152 Total Energy: 8518 Solve Time: 0.19741582870483398 seconds
-progress:  24%|[34m██▍       [0m| 24/100 [00:05<00:17,  4.29it/s]Objective Value: 200.0 Makespan: 200 Total Energy: 8397 Solve Time: 0.23169636726379395 seconds
-progress:  25%|[34m██▌       [0m| 25/100 [00:05<00:18,  4.08it/s]Objective Value: 189.0 Makespan: 189 Total Energy: 6880 Solve Time: 0.08580303192138672 seconds
-progress:  26%|[34m██▌       [0m| 26/100 [00:05<00:15,  4.90it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7188 Solve Time: 0.23003888130187988 seconds
-progress:  27%|[34m██▋       [0m| 27/100 [00:06<00:16,  4.37it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 8893 Solve Time: 0.13182497024536133 seconds
-progress:  28%|[34m██▊       [0m| 28/100 [00:06<00:15,  4.67it/s]Objective Value: 173.0 Makespan: 173 Total Energy: 7055 Solve Time: 0.14572668075561523 seconds
-progress:  29%|[34m██▉       [0m| 29/100 [00:06<00:14,  4.82it/s]Objective Value: 265.0 Makespan: 265 Total Energy: 10831 Solve Time: 0.3503682613372803 seconds
-progress:  30%|[34m███       [0m| 30/100 [00:06<00:18,  3.78it/s]Objective Value: 172.0 Makespan: 172 Total Energy: 8396 Solve Time: 0.1842806339263916 seconds
-progress:  31%|[34m███       [0m| 31/100 [00:07<00:17,  3.89it/s]Objective Value: 174.0 Makespan: 174 Total Energy: 6912 Solve Time: 0.1368846893310547 seconds
-progress:  32%|[34m███▏      [0m| 32/100 [00:07<00:16,  4.19it/s]Objective Value: 361.0 Makespan: 361 Total Energy: 5843 Solve Time: 0.19652867317199707 seconds
-progress:  33%|[34m███▎      [0m| 33/100 [00:07<00:16,  4.12it/s]Objective Value: 357.0 Makespan: 357 Total Energy: 7903 Solve Time: 0.13933253288269043 seconds
-progress:  34%|[34m███▍      [0m| 34/100 [00:07<00:15,  4.36it/s]Objective Value: 169.0 Makespan: 169 Total Energy: 7713 Solve Time: 0.1091609001159668 seconds
-progress:  35%|[34m███▌      [0m| 35/100 [00:07<00:13,  4.73it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 8321 Solve Time: 0.14098191261291504 seconds
-progress:  36%|[34m███▌      [0m| 36/100 [00:08<00:13,  4.80it/s]Objective Value: 331.0 Makespan: 331 Total Energy: 9015 Solve Time: 0.1363842487335205 seconds
-progress:  37%|[34m███▋      [0m| 37/100 [00:08<00:12,  4.95it/s]Objective Value: 281.0 Makespan: 281 Total Energy: 6782 Solve Time: 0.0652322769165039 seconds
-progress:  38%|[34m███▊      [0m| 38/100 [00:08<00:11,  5.62it/s]Objective Value: 182.0 Makespan: 182 Total Energy: 7840 Solve Time: 0.20868587493896484 seconds
-progress:  39%|[34m███▉      [0m| 39/100 [00:08<00:12,  4.90it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 7869 Solve Time: 0.26118946075439453 seconds
-progress:  40%|[34m████      [0m| 40/100 [00:08<00:14,  4.25it/s]Objective Value: 140.0 Makespan: 140 Total Energy: 6911 Solve Time: 0.2004411220550537 seconds
-progress:  41%|[34m████      [0m| 41/100 [00:09<00:14,  4.13it/s]Objective Value: 143.0 Makespan: 143 Total Energy: 8867 Solve Time: 0.18465948104858398 seconds
-progress:  42%|[34m████▏     [0m| 42/100 [00:09<00:14,  4.09it/s]Objective Value: 155.0 Makespan: 155 Total Energy: 7791 Solve Time: 0.11342000961303711 seconds
-progress:  43%|[34m████▎     [0m| 43/100 [00:09<00:12,  4.59it/s]Objective Value: 225.0 Makespan: 225 Total Energy: 8740 Solve Time: 0.19416308403015137 seconds
-progress:  44%|[34m████▍     [0m| 44/100 [00:09<00:12,  4.46it/s]Objective Value: 263.0 Makespan: 263 Total Energy: 7816 Solve Time: 0.132368803024292 seconds
-progress:  45%|[34m████▌     [0m| 45/100 [00:10<00:11,  4.67it/s]Objective Value: 287.0 Makespan: 287 Total Energy: 8326 Solve Time: 0.22463560104370117 seconds
-progress:  46%|[34m████▌     [0m| 46/100 [00:10<00:12,  4.34it/s]Objective Value: 333.0 Makespan: 333 Total Energy: 10222 Solve Time: 0.11638617515563965 seconds
-progress:  47%|[34m████▋     [0m| 47/100 [00:10<00:10,  4.82it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7160 Solve Time: 0.1158456802368164 seconds
-progress:  48%|[34m████▊     [0m| 48/100 [00:10<00:09,  5.23it/s]Objective Value: 318.0 Makespan: 318 Total Energy: 7745 Solve Time: 0.1468963623046875 seconds
-progress:  49%|[34m████▉     [0m| 49/100 [00:10<00:09,  5.32it/s]Objective Value: 262.0 Makespan: 262 Total Energy: 7216 Solve Time: 0.12398386001586914 seconds
-progress:  50%|[34m█████     [0m| 50/100 [00:10<00:09,  5.50it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 7406 Solve Time: 0.2024979591369629 seconds
-progress:  51%|[34m█████     [0m| 51/100 [00:11<00:10,  4.89it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 8590 Solve Time: 0.1134033203125 seconds
-progress:  52%|[34m█████▏    [0m| 52/100 [00:11<00:09,  5.14it/s]Objective Value: 159.0 Makespan: 159 Total Energy: 6717 Solve Time: 0.14847183227539062 seconds
-progress:  53%|[34m█████▎    [0m| 53/100 [00:11<00:09,  5.04it/s]Objective Value: 153.0 Makespan: 153 Total Energy: 8643 Solve Time: 0.1327342987060547 seconds
-progress:  54%|[34m█████▍    [0m| 54/100 [00:11<00:09,  5.08it/s]Objective Value: 249.0 Makespan: 249 Total Energy: 6531 Solve Time: 0.14522671699523926 seconds
-progress:  55%|[34m█████▌    [0m| 55/100 [00:11<00:08,  5.05it/s]Objective Value: 288.0 Makespan: 288 Total Energy: 7318 Solve Time: 0.11672711372375488 seconds
-progress:  56%|[34m█████▌    [0m| 56/100 [00:12<00:08,  5.49it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 7849 Solve Time: 0.12401342391967773 seconds
-progress:  57%|[34m█████▋    [0m| 57/100 [00:12<00:07,  5.47it/s]Objective Value: 167.0 Makespan: 167 Total Energy: 9201 Solve Time: 0.18295907974243164 seconds
-progress:  58%|[34m█████▊    [0m| 58/100 [00:12<00:08,  4.99it/s]Objective Value: 278.0 Makespan: 278 Total Energy: 8431 Solve Time: 0.15063762664794922 seconds
-progress:  59%|[34m█████▉    [0m| 59/100 [00:12<00:08,  5.01it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 9538 Solve Time: 0.18088865280151367 seconds
-progress:  60%|[34m██████    [0m| 60/100 [00:12<00:08,  4.79it/s]Objective Value: 392.0 Makespan: 392 Total Energy: 6729 Solve Time: 0.1606311798095703 seconds
-progress:  61%|[34m██████    [0m| 61/100 [00:13<00:08,  4.72it/s]Objective Value: 206.0 Makespan: 206 Total Energy: 8186 Solve Time: 0.10523366928100586 seconds
-progress:  62%|[34m██████▏   [0m| 62/100 [00:13<00:07,  5.24it/s]Objective Value: 258.0 Makespan: 258 Total Energy: 10961 Solve Time: 0.12021255493164062 seconds
-progress:  63%|[34m██████▎   [0m| 63/100 [00:13<00:06,  5.52it/s]Objective Value: 283.0 Makespan: 283 Total Energy: 10734 Solve Time: 0.14590072631835938 seconds
-progress:  64%|[34m██████▍   [0m| 64/100 [00:13<00:06,  5.46it/s]Objective Value: 202.0 Makespan: 202 Total Energy: 7595 Solve Time: 0.1623237133026123 seconds
-progress:  65%|[34m██████▌   [0m| 65/100 [00:13<00:06,  5.10it/s]Objective Value: 171.0 Makespan: 171 Total Energy: 6218 Solve Time: 0.12624287605285645 seconds
-progress:  66%|[34m██████▌   [0m| 66/100 [00:14<00:06,  5.29it/s]Objective Value: 194.0 Makespan: 194 Total Energy: 9097 Solve Time: 0.12012362480163574 seconds
-progress:  67%|[34m██████▋   [0m| 67/100 [00:14<00:06,  5.40it/s]Objective Value: 227.0 Makespan: 227 Total Energy: 9354 Solve Time: 0.1672801971435547 seconds
-progress:  68%|[34m██████▊   [0m| 68/100 [00:14<00:06,  5.19it/s]Objective Value: 210.0 Makespan: 210 Total Energy: 8384 Solve Time: 0.35037708282470703 seconds
-progress:  69%|[34m██████▉   [0m| 69/100 [00:14<00:07,  3.90it/s]Objective Value: 317.0 Makespan: 317 Total Energy: 8806 Solve Time: 0.17821359634399414 seconds
-progress:  70%|[34m███████   [0m| 70/100 [00:15<00:07,  4.06it/s]Objective Value: 383.0 Makespan: 383 Total Energy: 6823 Solve Time: 0.1656172275543213 seconds
-progress:  71%|[34m███████   [0m| 71/100 [00:15<00:06,  4.18it/s]Objective Value: 177.0 Makespan: 177 Total Energy: 7607 Solve Time: 0.12363767623901367 seconds
-progress:  72%|[34m███████▏  [0m| 72/100 [00:15<00:06,  4.50it/s]Objective Value: 163.0 Makespan: 163 Total Energy: 8308 Solve Time: 0.15740489959716797 seconds
-progress:  73%|[34m███████▎  [0m| 73/100 [00:15<00:05,  4.60it/s]Objective Value: 195.0 Makespan: 195 Total Energy: 7372 Solve Time: 0.18528985977172852 seconds
-progress:  74%|[34m███████▍  [0m| 74/100 [00:15<00:05,  4.57it/s]Objective Value: 190.0 Makespan: 190 Total Energy: 5740 Solve Time: 0.09797191619873047 seconds
-progress:  75%|[34m███████▌  [0m| 75/100 [00:16<00:04,  5.02it/s]Objective Value: 138.0 Makespan: 138 Total Energy: 6834 Solve Time: 0.26926279067993164 seconds
-progress:  76%|[34m███████▌  [0m| 76/100 [00:16<00:05,  4.33it/s]Objective Value: 119.0 Makespan: 119 Total Energy: 6852 Solve Time: 0.13623738288879395 seconds
-progress:  77%|[34m███████▋  [0m| 77/100 [00:16<00:05,  4.53it/s]Objective Value: 230.0 Makespan: 230 Total Energy: 8105 Solve Time: 0.1250011920928955 seconds
-progress:  78%|[34m███████▊  [0m| 78/100 [00:16<00:04,  4.89it/s]Objective Value: 116.0 Makespan: 116 Total Energy: 6542 Solve Time: 0.09624814987182617 seconds
-progress:  79%|[34m███████▉  [0m| 79/100 [00:16<00:03,  5.57it/s]Objective Value: 157.0 Makespan: 157 Total Energy: 8144 Solve Time: 0.1362621784210205 seconds
-progress:  80%|[34m████████  [0m| 80/100 [00:17<00:03,  5.62it/s]Objective Value: 186.0 Makespan: 186 Total Energy: 9079 Solve Time: 0.2535228729248047 seconds
-progress:  81%|[34m████████  [0m| 81/100 [00:17<00:04,  4.65it/s]Objective Value: 256.0 Makespan: 256 Total Energy: 6203 Solve Time: 0.12638187408447266 seconds
-progress:  82%|[34m████████▏ [0m| 82/100 [00:17<00:03,  4.84it/s]Objective Value: 150.0 Makespan: 150 Total Energy: 5992 Solve Time: 0.18093538284301758 seconds
-progress:  83%|[34m████████▎ [0m| 83/100 [00:17<00:03,  4.60it/s]Objective Value: 196.0 Makespan: 196 Total Energy: 8549 Solve Time: 0.13742756843566895 seconds
-progress:  84%|[34m████████▍ [0m| 84/100 [00:17<00:03,  4.73it/s]Objective Value: 215.0 Makespan: 215 Total Energy: 7647 Solve Time: 0.1247100830078125 seconds
-progress:  85%|[34m████████▌ [0m| 85/100 [00:18<00:03,  4.92it/s]Objective Value: 358.0 Makespan: 358 Total Energy: 5991 Solve Time: 0.29392337799072266 seconds
-progress:  86%|[34m████████▌ [0m| 86/100 [00:18<00:03,  4.03it/s]Objective Value: 267.0 Makespan: 267 Total Energy: 8283 Solve Time: 0.1307535171508789 seconds
-progress:  87%|[34m████████▋ [0m| 87/100 [00:18<00:02,  4.34it/s]Objective Value: 296.0 Makespan: 296 Total Energy: 7634 Solve Time: 0.12122273445129395 seconds
-progress:  88%|[34m████████▊ [0m| 88/100 [00:18<00:02,  4.62it/s]Objective Value: 261.0 Makespan: 261 Total Energy: 8114 Solve Time: 0.15827250480651855 seconds
-progress:  89%|[34m████████▉ [0m| 89/100 [00:19<00:02,  4.68it/s]Objective Value: 192.0 Makespan: 192 Total Energy: 6655 Solve Time: 0.11716580390930176 seconds
-progress:  90%|[34m█████████ [0m| 90/100 [00:19<00:01,  5.10it/s]Objective Value: 251.0 Makespan: 251 Total Energy: 10487 Solve Time: 0.10516357421875 seconds
-progress:  91%|[34m█████████ [0m| 91/100 [00:19<00:01,  5.54it/s]Objective Value: 197.0 Makespan: 197 Total Energy: 7363 Solve Time: 0.13602948188781738 seconds
-progress:  92%|[34m█████████▏[0m| 92/100 [00:19<00:01,  5.51it/s]Objective Value: 244.0 Makespan: 244 Total Energy: 8170 Solve Time: 0.14662384986877441 seconds
-progress:  93%|[34m█████████▎[0m| 93/100 [00:19<00:01,  5.60it/s]Objective Value: 393.0 Makespan: 393 Total Energy: 6317 Solve Time: 0.2064342498779297 seconds
-progress:  94%|[34m█████████▍[0m| 94/100 [00:20<00:01,  5.00it/s]Objective Value: 322.0 Makespan: 322 Total Energy: 9802 Solve Time: 0.12245726585388184 seconds
-progress:  95%|[34m█████████▌[0m| 95/100 [00:20<00:00,  5.29it/s]Objective Value: 199.0 Makespan: 199 Total Energy: 6363 Solve Time: 0.14542150497436523 seconds
-progress:  96%|[34m█████████▌[0m| 96/100 [00:20<00:00,  5.28it/s]Objective Value: 426.0 Makespan: 426 Total Energy: 7598 Solve Time: 0.14234542846679688 seconds
-progress:  97%|[34m█████████▋[0m| 97/100 [00:20<00:00,  5.30it/s]Objective Value: 91.0 Makespan: 91 Total Energy: 6229 Solve Time: 0.14390850067138672 seconds
-progress:  98%|[34m█████████▊[0m| 98/100 [00:20<00:00,  5.20it/s]Objective Value: 241.0 Makespan: 241 Total Energy: 5943 Solve Time: 0.1380300521850586 seconds
-progress:  99%|[34m█████████▉[0m| 99/100 [00:20<00:00,  5.15it/s]Objective Value: 124.0 Makespan: 124 Total Energy: 6581 Solve Time: 0.22218656539916992 seconds
-progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.49it/s]progress: 100%|[34m██████████[0m| 100/100 [00:21<00:00,  4.71it/s]
-mean makespan 229.16
-mean energy 7729.54
-mean_energy: 7729.54, meanspan_energy: 229.16

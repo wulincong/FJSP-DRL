@@ -432,11 +432,11 @@ def generate_data_to_files(seed, directory, config, generator=SD2_instance_gener
         for idx in range(batch_size):
             if source != 'SD1':
                 job_length, op_pt, op_per_mch, *others = generator(config=config)
-                print(others)
+                if others: print(others)
                 lines_doc = matrix_to_text(job_length, op_pt, op_per_mch, *others)
 
                 file_path = os.path.join(path, '{}_{:03}.fjs'.format(filename, idx + 1))
-
+                print(file_path)
                 with open(file_path, 'w') as doc:
                     for line in lines_doc:
                         print(line, file=doc)

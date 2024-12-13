@@ -35,8 +35,8 @@ class DANTrainer(Trainer):
                 dataset_job_length, dataset_op_pt = self.sample_training_instances()
                 state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
             else:
-                if i_update == 10:
-                    self.env.render_gantt_chart()
+                # if i_update == 10:
+                #     self.env.render_gantt_chart()
                 state = self.env.reset()
 
             ep_rewards = - deepcopy(self.env.init_quality)

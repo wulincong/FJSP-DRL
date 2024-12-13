@@ -92,7 +92,7 @@ parser.add_argument('--hidden_dim_critic', type=int, default=64, help='Hidden di
 # args for PPO Algorithm
 parser.add_argument('--num_envs', type=int, default=10, help='Batch size for training environments')
 parser.add_argument('--max_updates', type=int, default=1000, help='No. of episodes of each env for training')
-parser.add_argument('--lr', type=float, default=6e-4, help='Learning rate')
+parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
 
 parser.add_argument('--gamma', type=float, default=1, help='Discount factor used in training')
 parser.add_argument('--k_epochs', type=int, default=4, help='Update frequency of each episode')
@@ -116,11 +116,18 @@ parser.add_argument('--task_lr', type=float, default=6e-4, help='任务学习率
 parser.add_argument('--adapt_lr', type=float, default=6e-4, help='任务快速适应学习率')
 parser.add_argument('--adapt_steps', type=int, default=4, help='内部更新适应次数')
 parser.add_argument('--adapt_nums', type=int, default=11, help='验证时快速适应迭代次数')
-parser.add_argument('--num_tasks', type=int, default=5, help='每个batch要处理的任务数量')
+parser.add_argument('--num_tasks', type=int, default=1, help='每个batch要处理的任务数量')
 parser.add_argument('--maml_model',  type=str2bool, default=False)
+
+parser.add_argument('--network_type', type=str, default="", help='')
 
 # args for Meta model finetuning
 parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', help='List of model for testing')
+
+#args for Varible method
+parser.add_argument('--latent_dim', type=int, default=8, help='VariVAE的参数')
+parser.add_argument('--vae_loss_coef', type=float, default=0.1, help='VAE 损失系数')
+parser.add_argument('--hidden_dim_vae', type=int, default=64, help='VariVAE hidden dim的参数')
 
 # args for test
 parser.add_argument('--test_data', nargs='+', default=['10x5+mix'], help='List of data for testing')

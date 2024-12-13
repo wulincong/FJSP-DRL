@@ -5,7 +5,6 @@ import torch
 from copy import deepcopy
 # from params import configs
 import numpy as np
-import learn2learn as l2l
 from torch import autograd
 from collections import OrderedDict
 
@@ -94,7 +93,7 @@ class Memory:
         t_reward_seq = torch.stack(self.reward_seq, dim=0).transpose(0, 1).flatten(0, 1)
         self.t_old_val_seq = torch.stack(self.val_seq, dim=0).transpose(0, 1)
         t_val_seq = self.t_old_val_seq.flatten(0, 1)
-        t_done_seq = torch.stack(self.done_seq, dim=0).transpose(0, 1).flatten(0, 1)
+        t_done_seq = torch.stack(self.done_seq, dim=0).transpose(0, 1).flatten(0, 1).float()
         t_logprobs_seq = torch.stack(self.log_probs, dim=0).transpose(0, 1).flatten(0, 1)
 
         return t_Fea_j_seq, t_op_mask_seq, t_Fea_m_seq, t_mch_mask_seq, t_dynamicMask_seq, \

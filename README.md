@@ -84,3 +84,74 @@ python test_trained_model.py 	--data_source SD2	# source of testing instances
 - https://github.com/zcaicaros/L2D
 - https://github.com/google/or-tools
 - https://github.com/Diego999/pyGAT
+
+
+## Memory数据结构
+- 专门设计用于PPO的轨迹数据存储与管理。
+#### 主要数据结构
+
+|属性名|数据类型/维度|作用说明|
+|---------|--------|--------|
+|fea_j_seq	| [N, tensor[sz_b, N, 8]] |作业特征序列|
+|op_mask_seq|	[N, tensor[sz_b, N, 3]]	|操作掩码，用于约束合法动作|
+|fea_m_seq|	[N, tensor[sz_b, M, 6]]	|机器特征序列|
+|mch_mask_seq|	[N, tensor[sz_b, M, M]]	|机器掩码，表示机器约束|
+|dynamic_pair_mask_seq	|[N, tensor[sz_b, J, M]]	|动态机器-作业配对掩码|
+|comp_idx_seq|	[N, tensor[sz_b, M, M, J]]|	竞争索引特征|
+|candidate_seq|	[N, tensor[sz_b, J]]|	候选作业序列|
+|fea_pairs_seq|	[N, tensor[sz_b, J]]|	特征配对信息|
+|action_seq|	[N, tensor[sz_b]]|	动作索引|
+|reward_seq|	[N, tensor[sz_b]]|	奖励值|
+|val_seq|	[N, tensor[sz_b]]|	状态值|
+|done_seq|	[N, tensor[sz_b]]|	结束标记，用于PPO更新时终止条件|
+|log_probs|	[N, tensor[sz_b]]|	动作概率的对数值|
+
+
+#### 优势估计：get_gae_advantages
+
+广义优势估计通过时间差分误差递推得到，公式如下：
+
+$$
+A_t^{\text{GAE}(\lambda)} = \sum_{l=0}^\infty (\gamma \lambda)^l \delta_{t+l}
+$$
+- 其中$\delta_t$是时间差分误差 
+$$ \delta_t = r_t + \gamma V(s_{t+1}) - V(s_t) $$
+- $A_t^{\text{GAE}(\lambda)}$ 在 𝜆 参数控制下的优势估计。
+- γ 是折扣因子，控制未来奖励的衰减程度。
+- 𝜆是平滑参数，平衡偏差和方差。
+- 𝑉(𝑠𝑡)是状态 $𝑠_𝑡$的值函数估计。
+
+为了更高效地计算，可以将 GAE 写成递推形式：
+
+$$
+A_t^{\text{GAE}(\lambda)} = \delta_t + \gamma \lambda A_{t+1}^{\text{GAE}(\lambda)}
+$$
+这表示优势估计可以通过未来的 GAE 值与当前时间差分误差逐步递推计算得到。
+
+GAE提供了平滑的优势估计，适应于长时间步的策略优化。
+
+## PPO代码
+
+#### PPO的核心目标：
+稳定地更新策略，限制重要性采样比率，防止策略过大变动。
+引入值函数和熵损失，平衡探索与利用。
+
+#### Clipped Objective：
+通过 torch.clamp 限制策略更新幅度，防止策略“崩坏”。
+
+#### GAE（广义优势估计）：
+提高优势估计的稳定性，减少高方差的影响。
+
+#### 软更新策略：
+使用权重 tau 缓慢更新旧策略网络，增强学习稳定性。
+
+## 训练过程
+DANTrainer 类负责将 PPO 算法与 FJSP 环境结合，进行模型训练。
+
+#### 训练流程
+1. 初始化 PPO 算法和 FJSP 环境。
+2. 环境交互：通过策略网络采样动作与环境交互，收集轨迹数据。
+3. 策略更新：调用 PPO 更新网络参数，优化策略与值函数。
+4. 结果记录：监控奖励、工期和损失，保存模型参数。
+
+

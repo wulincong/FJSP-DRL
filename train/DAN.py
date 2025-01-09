@@ -6,7 +6,9 @@ class DANTrainer(Trainer):
 
         super().__init__(config)
         self.ppo = PPO_initialize(config)
-        self.env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
+        if config.data_source == "SD1":
+            self.env = FJSPEnvForVariousOpNums(self.n_j, self.n_m)
+        else: self.env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
 
 
     def train(self):
@@ -35,8 +37,8 @@ class DANTrainer(Trainer):
                 dataset_job_length, dataset_op_pt = self.sample_training_instances()
                 state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
             else:
-                # if i_update == 10:
-                #     self.env.render_gantt_chart()
+                if i_update == (10) or i_update == (999):
+                    self.env.render()
                 state = self.env.reset()
 
             ep_rewards = - deepcopy(self.env.init_quality)
@@ -72,6 +74,10 @@ class DANTrainer(Trainer):
                 self.memory.val_seq.append(vals_envs.squeeze(1))
 
                 if done.all():
+                    # if i_update==1:
+                    #     self.env.render()
+                    #     self.env.add_shutdown_tasks(self.env.tasks_data ,1, 1)
+                    #     self.env.render()
                     break
 
             loss, v_loss = self.ppo.update(self.memory)

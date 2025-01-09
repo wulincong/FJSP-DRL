@@ -33,8 +33,8 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
         for _ in range(self.num_tasks):
             n_j = n_m = 0
             while n_j <= n_m:
-                n_j = random.randint(10, 10)
-                n_m = random.randint(5, 5)
+                n_j = random.randint(5, 20)
+                n_m = random.randint(5, 15)
             print(f"generate env task n_j, n_m = {n_j, n_m}")
             env = envModel(n_j, n_m)
             env.set_initial_data(*self.sample_training_instances(n_j, n_m))
@@ -57,8 +57,8 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
             ep_st = time.time()
 
             # Reset environment tasks periodically
-            # if iteration % self.config.reset_env_timestep == 0:
-            #     self.reset_env_tasks()
+            if iteration % self.config.reset_env_timestep == 0:
+                self.reset_env_tasks()
 
             iteration_policies = []
             mean_rewards_all_env_list = []

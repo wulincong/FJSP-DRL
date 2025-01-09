@@ -3,6 +3,10 @@ import numpy.ma as ma
 import copy
 import sys
 from fjsp_env_same_op_nums import EnvState
+from plotly.colors import qualitative
+import plotly.graph_objects as go
+import colorsys
+import random
 
 
 class FJSPEnvForVariousOpNums:
@@ -19,6 +23,7 @@ class FJSPEnvForVariousOpNums:
 
         self.op_fea_dim = 10  # 操作特征维度
         self.mch_fea_dim = 8  # 机器特征维度
+        self.fig = go.Figure()
 
     def set_static_properties(self):
         """
@@ -67,8 +72,14 @@ class FJSPEnvForVariousOpNums:
         self.pt_lower_bound = np.min(self.op_pt)
         self.pt_upper_bound = np.max(self.op_pt)
         self.true_op_pt = np.copy(self.op_pt)
+        epsilon = 1e-6  # 小正数，用于归一化的最小值
+        non_zero_mask = (self.op_pt > 0)  # 标记加工时间大于 0 的位置
 
-        self.op_pt = (self.op_pt - self.pt_lower_bound) / (self.pt_upper_bound - self.pt_lower_bound + 1e-8)
+        # 仅对非零位置进行归一化，零值位置保持为 0
+        normalized_op_pt = epsilon + (1 - epsilon) * (self.op_pt - self.pt_lower_bound) / (self.pt_upper_bound - self.pt_lower_bound + 1e-8)
+        self.op_pt = np.where(non_zero_mask, normalized_op_pt, 0)
+
+        # self.op_pt = (self.op_pt - self.pt_lower_bound) / (self.pt_upper_bound - self.pt_lower_bound + 1e-8)
 
         self.process_relation = (self.op_pt != 0)
         self.reverse_process_relation = ~self.process_relation
@@ -162,6 +173,9 @@ class FJSPEnvForVariousOpNums:
         self.old_mch_current_available_jc_nums = np.copy(self.mch_current_available_jc_nums)
         # state
         self.state = copy.deepcopy(self.old_state)
+        
+        self.tasks_data = [{"Task": "Job", "Station": f"Machine{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
+
         return self.state
 
     def reset(self):
@@ -179,6 +193,8 @@ class FJSPEnvForVariousOpNums:
         self.mch_current_available_jc_nums = np.copy(self.old_mch_current_available_jc_nums)
         # state
         self.state = copy.deepcopy(self.old_state)
+        self.tasks_data = [{"Task": "Job", "Station": f"Machine{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
+
         return self.state
 
     def initial_vars(self):
@@ -266,6 +282,9 @@ class FJSPEnvForVariousOpNums:
         self.current_makespan[self.incomplete_env_idx] = np.maximum(self.current_makespan[self.incomplete_env_idx],
                                                                     self.true_op_ct[
                                                                         self.incomplete_env_idx, chosen_op])
+        
+        self.tasks_data.append({"Task": f"Job{chosen_job[0]}", "Station": f"Machine{chosen_mch[0]}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
+            0, chosen_op, chosen_mch][0], "Width": 0.4})
 
         for k, j in enumerate(self.incomplete_env_idx):
             if candidate_add_flag[k]:
@@ -304,9 +323,9 @@ class FJSPEnvForVariousOpNums:
         for k, j in enumerate(self.incomplete_env_idx):
             self.op_ct_lb[j][chosen_op[k]:self.job_last_op_id[j, chosen_job[k]] + 1] += diff[k]
             self.op_match_job_left_op_nums[j][
-            self.job_first_op_id[j, chosen_job[k]]:self.job_last_op_id[j, chosen_job[k]] + 1] -= 1
+                self.job_first_op_id[j, chosen_job[k]]:self.job_last_op_id[j, chosen_job[k]] + 1] -= 1
             self.op_match_job_remain_work[j][
-            self.job_first_op_id[j, chosen_job[k]]:self.job_last_op_id[j, chosen_job[k]] + 1] -= \
+                self.job_first_op_id[j, chosen_job[k]]:self.job_last_op_id[j, chosen_job[k]] + 1] -= \
                 self.op_mean_pt[j, chosen_op[k]]
 
         self.op_waiting_time = np.zeros((self.number_of_envs, self.max_number_of_ops))
@@ -331,6 +350,7 @@ class FJSPEnvForVariousOpNums:
 
         self.update_mch_mask()
 
+        # mch features update
         self.mch_current_available_jc_nums = np.sum(~self.dynamic_pair_mask, axis=1)
         self.mch_current_available_op_nums[self.incomplete_env_idx] -= self.process_relation[
             self.incomplete_env_idx, chosen_op]
@@ -498,3 +518,61 @@ class FJSPEnvForVariousOpNums:
         d2 = np.expand_dims(x, 1)
 
         return np.logical_and(d1, d2).astype(np.float32)
+    
+    def render(self):
+        '''tasks_data = [
+        {"Task": "Job1-Task1", "Station": "Machine1", "Start": 0, "Duration": 4, "Width": 0.4},
+        {"Task": "Job2-Task1", "Station": "Machine2", "Start": 5, "Duration": 3, "Width": 0.4},
+        {"Task": "Job3-Task1", "Station": "Machine3", "Start": 9, "Duration": 2, "Width": 0.4},
+        ]   '''
+        # 获取唯一的Job名称列表
+        unique_jobs = list(set(task['Task'] for task in self.tasks_data))
+
+        # 使用Plotly的定性颜色循环作为基础
+        color_sequence = qualitative.Plotly
+
+        # 如果Job数量超过内置颜色，动态生成更多颜色
+        if len(unique_jobs) > len(color_sequence):
+            extra_colors_needed = len(unique_jobs) - len(color_sequence)
+            # 动态生成新颜色
+            random.seed(42)  # 固定种子以保证结果可复现
+            extra_colors = []
+            for _ in range(extra_colors_needed):
+                h, s, l = random.random(), 0.5 + random.random() / 2.0, 0.4 + random.random() / 5.0
+                r, g, b = colorsys.hls_to_rgb(h, l, s)
+                extra_colors.append(f"rgb({int(r*255)}, {int(g*255)}, {int(b*255)})")
+            color_sequence = color_sequence + extra_colors
+
+        # 创建颜色映射
+        color_map = {job: color for job, color in zip(unique_jobs, color_sequence)}
+
+        # 清空现有的绘图数据
+        self.fig.data = []
+
+        # 绘制条形图
+        for task in self.tasks_data:
+            self.fig.add_trace(go.Bar(
+                x=[task["Duration"]],
+                y=[task["Station"]],
+                base=[task["Start"]],
+                width=[task["Width"]],
+                orientation='h',
+                name=task["Task"],
+                marker_color=color_map[task["Task"]],
+            ))
+
+        # 更新图表布局
+        self.fig.update_layout(
+            title="按Job上色的FJSP调度示意图 - 多种颜色",
+            xaxis_title="时间",
+            yaxis=dict(
+                type='category',
+                categoryorder='array',
+                categoryarray=[task['Station'] for task in self.tasks_data]
+            ),
+            barmode='stack',
+            legend_title="Job",
+        )
+
+        # 显示图表
+        self.fig.show()

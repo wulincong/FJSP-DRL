@@ -449,6 +449,16 @@ def generate_data_to_files(seed, directory, config, generator=SD2_instance_gener
                 #     print(lines_doc[i], file=doc)
                 
                 doc.close()
+            if source == "SD1":
+                case = CaseGenerator(n_j, n_m, config.op_per_job_min, config.op_per_job_max, flag_same_opes=False)
+                job_length, op_pt, _ = case.get_case(idx)
+                lines_doc = matrix_to_text(job_length, op_pt, n_m)
+                file_path = os.path.join(path, '{}_{:03}.fjs'.format(filename, idx + 1))
+                print(file_path)
+                with open(file_path, 'w') as doc:
+                    for line in lines_doc:
+                        print(line, file=doc)
+
     else:
         print("the data already exists...")
 
@@ -514,8 +524,9 @@ class CaseGenerator:
 
         self.num_ope_biass = [sum(self.nums_ope[0:i]) for i in range(self.num_jobs)]
         self.num_ma_biass = [sum(self.nums_option[0:i]) for i in range(self.num_opes)]
-        line0 = '{0}\t{1}\t{2}\n'.format(self.num_jobs, self.num_mas, self.num_options / self.num_opes)
+        # line0 = '{0}\t{1}\t{2}\n'.format(self.num_jobs, self.num_mas, self.num_options / self.num_opes)
         lines_doc = []
+        print(self.num_opes)
         lines_doc.append('{0}\t{1}\t{2}'.format(self.num_jobs, self.num_mas, self.num_options / self.num_opes))
         for i in range(self.num_jobs):
             flag = 0

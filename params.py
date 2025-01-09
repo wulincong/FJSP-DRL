@@ -35,8 +35,8 @@ parser.add_argument('--cover_heu_flag', type=str2bool, default=False,
 parser.add_argument('--cover_train_flag', type=str2bool, default=True, help='Whether covering the trained model')
 
 # args for data load
-parser.add_argument('--model_source', type=str, default='SD2', help='Suffix of the data that model trained on')
-parser.add_argument('--data_source', type=str, default='SD2', help='Suffix of test data')
+parser.add_argument('--model_source', type=str, default='SD1', help='Suffix of the data that model trained on')
+parser.add_argument('--data_source', type=str, default='SD1', help='Suffix of test data')
 
 # args for SD2 data generation
 parser.add_argument('--op_per_job', type=float, default=0,
@@ -63,7 +63,7 @@ parser.add_argument('--seed_test', type=int, default=510, help='Seed for testing
 # args for tricks
 
 # args for env
-parser.add_argument('--n_j', type=int, default=10, help='Number of jobs of the instance')
+parser.add_argument('--n_j', type=int, default=3, help='Number of jobs of the instance')
 parser.add_argument('--n_m', type=int, default=5, help='Number of machines of the instance')
 parser.add_argument('--n_op', type=int, default=50, help='Number of operations of the instance')
 parser.add_argument('--low', type=int, default=1, help='Lower Bound of processing time(PT)')
@@ -71,6 +71,8 @@ parser.add_argument('--high', type=int, default=99, help='Upper Bound of process
 parser.add_argument('--n_j_options', nargs='+', type=int, default=[8, 11, 13, 16, 17, 21])
 parser.add_argument('--n_m_options', nargs='+', type=int, default=[4, 8, 12])
 parser.add_argument('--op_per_job_options', nargs='+', type=int, default=[6, 8, 10])
+parser.add_argument('--op_per_job_min', type=int, default=5, help='Minimum number of operations per job')
+parser.add_argument('--op_per_job_max', type=int, default=15, help='Maximum number of operations per job')
 # args for network
 parser.add_argument('--fea_j_input_dim', type=int, default=10, help='Dimension of operation raw feature vectors')
 parser.add_argument('--fea_m_input_dim', type=int, default=8, help='Dimension of machine raw feature vectors')
@@ -90,7 +92,7 @@ parser.add_argument('--num_mlp_layers_critic', type=int, default=3, help='Number
 parser.add_argument('--hidden_dim_critic', type=int, default=64, help='Hidden dimension of Critic network')
 
 # args for PPO Algorithm
-parser.add_argument('--num_envs', type=int, default=10, help='Batch size for training environments')
+parser.add_argument('--num_envs', type=int, default=2, help='Batch size for training environments')
 parser.add_argument('--max_updates', type=int, default=1000, help='No. of episodes of each env for training')
 parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
 
@@ -116,7 +118,7 @@ parser.add_argument('--task_lr', type=float, default=6e-4, help='任务学习率
 parser.add_argument('--adapt_lr', type=float, default=6e-4, help='任务快速适应学习率')
 parser.add_argument('--adapt_steps', type=int, default=4, help='内部更新适应次数')
 parser.add_argument('--adapt_nums', type=int, default=11, help='验证时快速适应迭代次数')
-parser.add_argument('--num_tasks', type=int, default=1, help='每个batch要处理的任务数量')
+parser.add_argument('--num_tasks', type=int, default=3, help='每个batch要处理的任务数量')
 parser.add_argument('--maml_model',  type=str2bool, default=False)
 
 parser.add_argument('--network_type', type=str, default="", help='')

@@ -28,7 +28,7 @@ class Test:
         self.adapt_nums=config.adapt_nums
         setup_seed(config.seed_test)
         self.ppo=PPO_initialize(config)
-        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda'))
+        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda',weights_only=True))
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
         # if config.data_source.startswith("SD2EC0"):
@@ -92,7 +92,6 @@ class Test:
 
     def finetuning(self, times = 10):
         
-
         self.ppo.policy.train()
         if self.config.data_source.startswith("SD2EC"): 
             state = self.env.set_initial_data(self.data_set[0], self.data_set[1], self.data_set[2], self.data_set[3])

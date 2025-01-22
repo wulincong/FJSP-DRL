@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch as th
 
 class VAE(nn.Module):
     def __init__(self, input_dim, hidden_dim, latent_dim):
@@ -40,3 +41,5 @@ class VAE(nn.Module):
         
         # Return latent variable z, mu, logvar, and the reconstructed input
         return reconstructed_x, mu, logvar
+
+

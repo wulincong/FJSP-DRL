@@ -174,7 +174,7 @@ class FJSPEnvForVariousOpNums:
         # state
         self.state = copy.deepcopy(self.old_state)
         
-        self.tasks_data = [{"Task": "Job", "Station": f"Machine{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
+        self.tasks_data = [{"Task": "Job", "Station": f"M{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
 
         return self.state
 
@@ -193,7 +193,7 @@ class FJSPEnvForVariousOpNums:
         self.mch_current_available_jc_nums = np.copy(self.old_mch_current_available_jc_nums)
         # state
         self.state = copy.deepcopy(self.old_state)
-        self.tasks_data = [{"Task": "Job", "Station": f"Machine{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
+        self.tasks_data = [{"Task": "Job", "Station": f"M{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
 
         return self.state
 
@@ -283,7 +283,7 @@ class FJSPEnvForVariousOpNums:
                                                                     self.true_op_ct[
                                                                         self.incomplete_env_idx, chosen_op])
         
-        self.tasks_data.append({"Task": f"Job{chosen_job[0]}", "Station": f"Machine{chosen_mch[0]}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
+        self.tasks_data.append({"Task": f"Job{chosen_job[0]}", "Station": f"M{chosen_mch[0]}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
             0, chosen_op, chosen_mch][0], "Width": 0.4})
 
         for k, j in enumerate(self.incomplete_env_idx):
@@ -521,9 +521,9 @@ class FJSPEnvForVariousOpNums:
     
     def render(self):
         '''tasks_data = [
-        {"Task": "Job1-Task1", "Station": "Machine1", "Start": 0, "Duration": 4, "Width": 0.4},
-        {"Task": "Job2-Task1", "Station": "Machine2", "Start": 5, "Duration": 3, "Width": 0.4},
-        {"Task": "Job3-Task1", "Station": "Machine3", "Start": 9, "Duration": 2, "Width": 0.4},
+        {"Task": "Job1-Task1", "Station": "M1", "Start": 0, "Duration": 4, "Width": 0.4},
+        {"Task": "Job2-Task1", "Station": "M2", "Start": 5, "Duration": 3, "Width": 0.4},
+        {"Task": "Job3-Task1", "Station": "M3", "Start": 9, "Duration": 2, "Width": 0.4},
         ]   '''
         # 获取唯一的Job名称列表
         unique_jobs = list(set(task['Task'] for task in self.tasks_data))
@@ -563,8 +563,8 @@ class FJSPEnvForVariousOpNums:
 
         # 更新图表布局
         self.fig.update_layout(
-            title="按Job上色的FJSP调度示意图 - 多种颜色",
-            xaxis_title="时间",
+            title="Schedule result",
+            xaxis_title="Time",
             yaxis=dict(
                 type='category',
                 categoryorder='array',
@@ -576,3 +576,69 @@ class FJSPEnvForVariousOpNums:
 
         # 显示图表
         self.fig.show()
+
+    def remain_work_status(self):
+        """
+        获取当前时刻的环境状态，返回剩余工件操作数和 op_pt_dict。
+        """
+        # 计算每个工件剩余的待调度工序数
+        remaining_ops_list = []
+        op_pt_list = []
+        for env_idx in range(self.number_of_envs):
+
+            remaining_ops = self.job_last_op_id[env_idx] - self.candidate[env_idx]
+
+            op_pt = []
+
+            for job_id in range(len(self.job_length[env_idx])):
+                cnt = 0
+                for op_id in range(self.candidate[env_idx][job_id], self.job_last_op_id[env_idx][job_id] + 1):
+                    if self.op_scheduled_flag[env_idx][op_id] == 0:
+                        op_pt.append(list(self.true_op_pt[env_idx][op_id].data))  # 将时间加入字典
+                        cnt += 1
+                remaining_ops[job_id] = cnt
+            remaining_ops_list.append(remaining_ops)
+            op_pt_list.append(op_pt)
+        return np.array(remaining_ops_list), np.array(op_pt, dtype=np.float32)
+
+    def mask_machine(self, chose_env_idx,  mch_id):
+        op_pt_list = self.op_pt[chose_env_idx].data
+        self.old_op_pt_list = op_pt_list.copy()
+        op_pt_list[:, mch_id] = 0
+        zero_row_indices = np.where(np.all(op_pt_list == 0, axis=1))[0]
+        # Determine which job each index belongs to
+        #检查op_pt_list是否有全0的行，如果有，把这一行的id计算出来
+        task_ids = []
+        for idx in zero_row_indices:
+            task_id = np.where((self.job_first_op_id[chose_env_idx] <= idx) & (self.job_last_op_id[chose_env_idx] >= idx))[0]
+            self.candidate_process_relation[chose_env_idx, task_id, :] = 1
+            self.process_relation[chose_env_idx, task_id, :] = 0
+            self.remain_process_relation[chose_env_idx, task_id, :] = 0
+            task_ids.append(task_id[0] if len(task_id) > 0 else None)
+        self.old_process_relation = self.process_relation.copy()
+        self.process_relation[chose_env_idx, :, mch_id] = 0
+        self.reverse_process_relation = ~self.process_relation
+        # 把self.op_pt的chose_env_idx改为op_pt_list，并且重新mask
+        self.op_pt.data[chose_env_idx] = op_pt_list  # 替换数据
+        self.op_pt.mask[chose_env_idx] = self.reverse_process_relation[chose_env_idx]  # 更新掩码
+        self.remain_process_relation[chose_env_idx, :, mch_id] = 0
+        self.candidate_process_relation[chose_env_idx, :, mch_id] = 1
+        # self.candidate_free_time
+        # self.mch_free_time[chose_env_idx, mch_id] = 1000
+
+        return {"unavaliable job id":task_ids}
+    
+    def unmask_machine(self):
+        op_pt_list = self.old_op_pt_list
+        self.process_relation = self.old_process_relation
+        self.reverse_process_relation = ~self.process_relation
+        # 把self.op_pt的chose_env_idx改为op_pt_list，并且重新mask
+        self.op_pt.data[0] = op_pt_list  # 替换数据
+        self.op_pt.mask[0] = self.reverse_process_relation[0]  # 更新掩码
+        # self.remain_process_relation[0, :, mch_id] = 0
+        # self.candidate_process_relation[0, :, mch_id] = 1
+        # self.candidate_free_time
+
+
+
+    

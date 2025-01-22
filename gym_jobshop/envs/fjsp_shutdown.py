@@ -10,7 +10,8 @@ class FJSPEnvShutdown(FJSPEnv):
         super().__init__(num_jobs, num_machines, **kwargs)
 
         self.mch_working_power = np.random.uniform(0.3, 1, size=self.n_m)
-        self.mch_idle_power = np.random.uniform(0.1, 0.2, size=self.n_m)
+        self.mch_idle_power = np.random.uniform(0.1, 0.2, size=s elf.n_m)
+
     def calculate_idle_periods(self, tasks_data=None):
         """
         计算每台机器的空闲时间段。

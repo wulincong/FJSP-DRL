@@ -36,12 +36,12 @@ class FJSPEnvBase(gym.Env):
         self.observation_space = spaces.Dict({
             'job_features': spaces.Box(low=0, high=np.inf, shape=(self.max_ops, len(self.chosen_features["job_features"])), dtype=np.float32),
             'mch_features': spaces.Box(low=0, high=np.inf, shape=(self.n_m, len(self.chosen_features["mch_features"])), dtype=np.float32),
-            'op_mask': spaces.Box(low=0, high=1, shape=(self.max_ops, 3), dtype=np.int32),
-            'mch_mask': spaces.Box(low=0, high=1, shape = (self.n_m, self.n_m),dtype=np.int32),
+            'op_mask': spaces.Box(low=0, high=1, shape=(self.max_ops, 3), dtype=np.bool_),
+            'mch_mask': spaces.Box(low=0, high=1, shape = (self.n_m, self.n_m),dtype=np.bool_),
             'candidate': spaces.Box(low=0, high=100000, shape=(self.n_j,), dtype=np.int32),
             'pair_features': spaces.Box(low=0, high=np.inf, shape=(self.n_j, self.n_m, 8), dtype=np.float32),
-            'comp_idx': spaces.Box(low=0, high=1, shape = (self.n_m, self.n_m, self.n_j), dtype=np.int32),
-            'dynamic_pair_mask': spaces.Box(low=0, high=1, shape = (self.n_j, self.n_m), dtype=np.int32),
+            'comp_idx': spaces.Box(low=0, high=1, shape = (self.n_m, self.n_m, self.n_j), dtype=np.bool_),
+            'dynamic_pair_mask': spaces.Box(low=0, high=1, shape = (self.n_j, self.n_m), dtype=np.bool_),
         })
 
         self.process_relation = (op_pt_list != 0)
@@ -253,35 +253,44 @@ class FJSPEnvBase(gym.Env):
         self._extent_features()  # 扩展特征
         observation = {}
 
-        def normalize(feature_array):
+        def normalize(feature_array, dtype):
             """
             对特征进行归一化处理
             :param feature_array: numpy 数组
+            :param dtype: 目标的数据类型
             :return: 归一化后的 numpy 数组
             """
+            if dtype == np.bool_:
+                # 对布尔值不进行归一化
+                return feature_array.astype(np.bool_)
+            if dtype == np.int32 or dtype == np.int64:
+                return feature_array.astype(dtype)
+            # 如果仅包含 0 和 1，则无需归一化
             if np.all((feature_array == 0) | (feature_array == 1)):
-                # 如果仅包含 0 和 1，则无需归一化
-                return feature_array
+                return feature_array.astype(dtype)
             else:
                 epsilon = 1e-6
                 max_val = feature_array.max()
                 min_val = feature_array.min()
                 # 避免除以零的情况
                 if max_val == min_val:
-                    return np.full_like(feature_array, epsilon)
-                return epsilon + (feature_array - min_val) / (max_val - min_val) * (1 - epsilon)
+                    return np.full_like(feature_array, epsilon, dtype=dtype)
+                normalized = epsilon + (feature_array - min_val) / (max_val - min_val) * (1 - epsilon)
+                return normalized.astype(dtype)  # 显式指定数据类型
 
         for feature_name, feature_requests in self.chosen_features.items():
+            obs_feature_dtype = self.observation_space[feature_name].dtype
             if feature_requests is not None:
                 # 对 feature_requests 中的每个特征进行归一化
                 stacked_features = np.stack(
-                    [normalize(getattr(self, kids_feature_name)) for kids_feature_name in feature_requests],
+                    [normalize(getattr(self, kids_feature_name), obs_feature_dtype)
+                             for kids_feature_name in feature_requests],
                     axis=-1
                 )
-                observation[feature_name] = stacked_features
+                observation[feature_name] = stacked_features.astype(obs_feature_dtype)
             else:
                 # 对直接的 feature_name 进行归一化
-                observation[feature_name] = getattr(self, feature_name)
+                observation[feature_name] = normalize(getattr(self, feature_name), obs_feature_dtype)
 
         # 扩展 job_features
         if "job_features" in observation:
@@ -298,7 +307,6 @@ class FJSPEnvBase(gym.Env):
             padded_op_mask = np.ones((self.max_ops, current_shape[1]), dtype=op_mask.dtype)  # 用 1 填充
             padded_op_mask[:current_shape[0], :] = op_mask
             observation["op_mask"] = padded_op_mask
-
         return observation
 
     def _get_job_id(self, chosen_job):

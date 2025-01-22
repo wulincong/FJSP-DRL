@@ -111,7 +111,7 @@ class FJSPEnv(FJSPEnvBase):
         self.pair_features_update()
 
     def pair_features_update(self):
-        remain_op_pt = ma.array(self.op_pt, mask=~self.remain_process_relation)
+        remain_op_pt = ma.array(self.op_pt.astype(float), mask=~self.remain_process_relation)
 
         chosen_op_max_pt = np.expand_dims(self.op_max_pt[self.candidate], axis=-1)
 
@@ -119,7 +119,6 @@ class FJSPEnv(FJSPEnvBase):
             .filled(0 + 1e-8)
 
         mch_max_remain_op_pt = np.max(remain_op_pt, axis=0, keepdims=True).filled(0 + 1e-8)
-
         pair_max_pt = np.max(np.max(self.candidate_pt, axis=0, keepdims=True),
                                 axis=1, keepdims=True) + 1e-8
 

@@ -5,4 +5,3 @@ class TestEC(Test):
         super().__init__(config, data_set, model_path)
     
 
-            

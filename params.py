@@ -92,7 +92,7 @@ parser.add_argument('--num_mlp_layers_critic', type=int, default=3, help='Number
 parser.add_argument('--hidden_dim_critic', type=int, default=64, help='Hidden dimension of Critic network')
 
 # args for PPO Algorithm
-parser.add_argument('--num_envs', type=int, default=2, help='Batch size for training environments')
+parser.add_argument('--num_envs', type=int, default=10, help='Batch size for training environments')
 parser.add_argument('--max_updates', type=int, default=1000, help='No. of episodes of each env for training')
 parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
 

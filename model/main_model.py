@@ -85,7 +85,7 @@ class DualAttentionNetwork(nn.Module):
         """
         sz_b, M, _, J = comp_idx.size()
 
-        comp_idx_for_mul = comp_idx.reshape(sz_b, -1, J)
+        comp_idx_for_mul = comp_idx.reshape(sz_b, -1, J).float()  
 
         for layer in range(self.num_dan_layers):
             candidate_idx = candidate.unsqueeze(-1). \

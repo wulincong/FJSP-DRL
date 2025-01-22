@@ -7,6 +7,7 @@ from data_utils import pack_data_from_config
 from model.PPO import PPO_initialize
 from common_utils import setup_seed
 from fjsp_env_same_op_nums import FJSPEnvForSameOpNums, FJSPEnvForSameOpNumsEnergy, FJSPEnvForSameOpNumsMakespanEnergy
+from fjsp_env_various_op_nums import FJSPEnvForVariousOpNums
 from copy import deepcopy
 from model.PPO import Memory
 from train.base import ConvergenceChecker
@@ -26,16 +27,19 @@ class Test:
         self.config = config
         self.data_set = data_set
         self.adapt_nums=config.adapt_nums
+        self.model_path = model_path
         setup_seed(config.seed_test)
         self.ppo=PPO_initialize(config)
-        self.ppo.policy.load_state_dict(torch.load(model_path, map_location='cuda',weights_only=True))
+        self.ppo.policy.load_state_dict(torch.load(self.model_path, map_location='cuda',weights_only=True))
         n_j = data_set[0][0].shape[0]
         n_op, n_m = data_set[1][0].shape
         # if config.data_source.startswith("SD2EC0"):
         #     self.env = FJSPEnvForSameOpNumsMakespanEnergy(n_j, n_m, config.factor_Mk, config.factor_Ec)
         if config.data_source.startswith("SD2EC"):
             self.env = FJSPEnvForSameOpNumsEnergy(n_j, n_m, config.factor_Mk, config.factor_Ec)
-        else: self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
+        elif config.data_source == "SD2": self.env = FJSPEnvForSameOpNums(n_j=n_j, n_m=n_m)
+        else : self.env = FJSPEnvForVariousOpNums(n_j, n_m)
+
         self.memory = Memory(gamma=config.gamma, gae_lambda=config.gae_lambda)
         self.finetuning_makespan = []
         self.finetuning_ec = []        #
@@ -90,12 +94,16 @@ class Test:
         self.test_result_list.append(test_result.mean(axis=0))
         return np.array(test_result)
 
-    def finetuning(self, times = 10):
-        
+    def finetuning(self, times = 5, job_length=None, OpPt=None):
+        self.ppo.policy.load_state_dict(torch.load(self.model_path, map_location='cuda',weights_only=True))
         self.ppo.policy.train()
+        self.finetuning_makespan = []
+        self.finetuning_ec = []        #
+
         if self.config.data_source.startswith("SD2EC"): 
             state = self.env.set_initial_data(self.data_set[0], self.data_set[1], self.data_set[2], self.data_set[3])
         else: state = self.env.set_initial_data(self.data_set[0], self.data_set[1], )
+        if job_length is not None: state = self.env.set_initial_data(job_length, OpPt)
         ep_reward_list = []
         
         for _ in range(times):
@@ -107,10 +115,12 @@ class Test:
             self.finetuning_makespan.append(self.env.current_makespan[0])
             if self.config.data_source.startswith("SD2EC"): 
                 self.finetuning_ec.append(self.env.current_EC[0])
-        if self.config.data_source == "SD2EC0":
-            return ep_reward_list
-        return (self.finetuning_makespan, self.finetuning_ec) if self.config.data_source.startswith("SD2EC") else self.finetuning_makespan
 
+        return {
+            "reward":ep_reward_list,
+            "makespan":self.finetuning_makespan
+            ,"EC": self.finetuning_ec
+        }
 
     def sampling_strategy(self, sample_times, policy=None):
         """

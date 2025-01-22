@@ -230,6 +230,7 @@ def get_subdict(params_dict, prefix):
     """
     获取params_dict中以prefix为前缀的子字典
     """
+    if params_dict is None: return None
     subdict = {k[len(prefix) + 1:]: v for k, v in params_dict.items() if k.startswith(prefix)}
     return subdict
 

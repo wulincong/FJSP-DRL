@@ -8,45 +8,7 @@ from stable_baselines3.common.policies import ActorCriticPolicy
 import torch as th
 import torch.nn as nn
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
-from model.main_model import DualAttentionNetwork
-
-class CustomFeatureExtractor(BaseFeaturesExtractor):
-    def __init__(self, observation_space, features_dim=128):
-        super(CustomFeatureExtractor, self).__init__(observation_space, features_dim)
-        # 获取输入维度
-        input_dim = observation_space.shape[0]
-        # 定义自定义网络
-        self.network = DualAttentionNetwork()
-
-    def forward(self, observations):
-        return self.network(observations)
-
-
-class CustomPolicy(ActorCriticPolicy):
-    def __init__(self, *args, **kwargs):
-        super(CustomPolicy, self).__init__(
-            *args,
-            features_extractor_class=CustomFeatureExtractor,
-            features_extractor_kwargs=dict(features_dim=128),
-            **kwargs,
-        )
-
-
-class MaskedPolicy(ActorCriticPolicy):
-    def __init__(self, *args, **kwargs):
-        super(MaskedPolicy, self).__init__(*args, **kwargs)
-
-    def predict(self, observation, action_mask=None, deterministic=False):
-        """
-        选择一个动作，考虑掩码。
-        :param observation: 环境状态
-        :param action_mask: 动作掩码，形状为 (action_space,) 的布尔数组
-        :param deterministic: 是否选择最优动作
-        :return: 动作和动作的概率分布
-        """
-        # 1. 获取原始动作分布
-        actions, values, log_prob = self.forward(observation)
-
+from model.DAN_policy import DANIELPolicy
 
 # 定义环境生成函数，支持初始化参数
 def make_custom_vec_env(env_class, n_envs, env_kwargs_list, seed=None):
@@ -102,7 +64,7 @@ def generate_env_and_train(n_j, n_m, op_per_job_min=10, op_per_job_max=20, n_env
     # 初始化环境和模型
     env = create_new_env()
     model = PPO(
-        CustomPolicy,
+        DANIELPolicy,
         env,
         verbose=1,
         tensorboard_log="./ppo_fjsp_tensorboard/"
@@ -126,6 +88,6 @@ def generate_env_and_train(n_j, n_m, op_per_job_min=10, op_per_job_max=20, n_env
 
 # 使用实例
 if __name__ == "__main__":
-    n_j = 14  # 作业数量
-    n_m = 11  # 机器数量
-    generate_env_and_train(n_j, n_m)
+    n_j = 5  # 作业数量
+    n_m = 3  # 机器数量
+    generate_env_and_train(n_j, n_m, op_per_job_min=2, op_per_job_max=3, n_envs=1)

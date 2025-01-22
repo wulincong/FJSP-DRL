@@ -31,8 +31,8 @@ class Trainer:
         self.n_m = config.n_m # Number of machines of the instance
         self.low = config.low # Lower Bound of processing time(PT)
         self.high = config.high # Upper Bound of processing time
-        self.op_per_job_min = int(0.8 * self.n_m) 
-        self.op_per_job_max = int(1.2 * self.n_m)
+        self.op_per_job_min = config.op_per_job_min
+        self.op_per_job_max = config.op_per_job_max
         self.data_source = config.data_source # Suffix of test data 测试数据的后缀
         self.config = config
         self.max_updates = config.max_updates # No. of episodes of each env for training
@@ -250,6 +250,7 @@ class Trainer:
         dataset_OpPT = []
         for i in range(self.num_envs): # 20
             if self.data_source == 'SD1':
+                print("SD1")
                 case = CaseGenerator(n_j, n_m, self.op_per_job_min, self.op_per_job_max,
                                      nums_ope=prepare_JobLength, path='./test', flag_doc=False)
                 JobLength, OpPT, _ = case.get_case(i)

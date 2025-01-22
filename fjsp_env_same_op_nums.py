@@ -936,48 +936,6 @@ class FJSPEnvForSameOpNums:
             self.screen = self.initialize_pygame()
         self.render_gantt_chart(self.tasks_data, self.screen)
 
-    def generate_observation_space(self):
-        """
-        Generates the observation space as a Gym Dict space.
-        """
-        observation_space = gym.spaces.Dict({
-            "fea_j": Box(
-                low=-np.inf, 
-                high=np.inf, 
-                shape=(self.number_of_envs, self.number_of_ops, self.op_fea_dim), 
-                dtype=np.float32
-            ),
-            "op_mask": MultiBinary(
-                shape=(self.number_of_envs, self.number_of_ops, 3)
-            ),
-            "fea_m": Box(
-                low=-np.inf, 
-                high=np.inf, 
-                shape=(self.number_of_envs, self.number_of_machines, self.mch_fea_dim), 
-                dtype=np.float32
-            ),
-            "mch_mask": MultiBinary(
-                shape=(self.number_of_envs, self.number_of_machines, self.number_of_machines)
-            ),
-            "dynamic_pair_mask": MultiBinary(
-                shape=(self.number_of_envs, self.number_of_jobs, self.number_of_machines)
-            ),
-            "candidate": Box(
-                low=0, 
-                high=self.number_of_ops - 1, 
-                shape=(self.number_of_envs, self.number_of_jobs), 
-                dtype=np.int32
-            ),
-            "fea_pairs": Box(
-                low=-np.inf, 
-                high=np.inf, 
-                shape=(self.number_of_envs, self.number_of_jobs, self.number_of_machines, 8), 
-                dtype=np.float32
-            )
-        })
-
-        return observation_space
-    
     def calculate_idle_periods(self, tasks_data=None):
         """
         计算每台机器的空闲时间段。
@@ -1124,6 +1082,30 @@ class FJSPEnvForSameOpNums:
         # 返回更新后的任务数据
         return sorted(updated_tasks, key=lambda x: (x["Station"], x["Start"]))
 
+    def remain_work_status(self):
+        """
+        获取当前时刻的环境状态，返回剩余工件操作数和 op_pt_dict。
+        """
+        # 计算每个工件剩余的待调度工序数
+        remaining_ops_list = []
+        op_pt_list = []
+        for env_idx in range(self.number_of_envs):
+
+            remaining_ops = self.job_last_op_id[env_idx] - self.candidate[env_idx]
+
+            op_pt = []
+
+            for job_id in range(len(self.job_length[env_idx])):
+                cnt = 0
+                for op_id in range(self.candidate[env_idx][job_id], self.job_last_op_id[env_idx][job_id] + 1):
+                    if self.op_scheduled_flag[env_idx][op_id] == 0:
+                        op_pt.append(list(self.true_op_pt[env_idx][op_id].data))  # 将时间加入字典
+                        cnt += 1
+                remaining_ops[job_id] = cnt
+            remaining_ops_list.append(remaining_ops)
+            op_pt_list.append(op_pt)
+        return np.array(remaining_ops_list), np.array(op_pt, dtype=np.float32)
+        
 
 class FJSPEnvForSameOpNumsEnergy(FJSPEnvForSameOpNums):
     # def calculate_working_energy(self, operation_time, machine_id):

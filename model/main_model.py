@@ -216,53 +216,58 @@ class VariVAE(DANIEL):
         self.feature_exact = DualAttentionNetwork(config).to(device)
         
         # VAE for latent variable extraction
-        self.latent_dim = config.latent_dim  # Define latent dim in config
-        self.vae = VAE(self.embedding_output_dim, config.hidden_dim_vae, self.latent_dim).to(device)
+        self.latent_dim = config.latent_dim
+        # VAE 输入维度调整为合并后的维度 (fea_j_global + fea_m_global)
+        self.vae = VAE(2 * self.embedding_output_dim, config.hidden_dim_vae, self.latent_dim).to(device)
 
-        # Actor and Critic using VAE latent variable
-        actor_input_dim = 4 * self.latent_dim + self.pair_input_dim
+        # Actor 和 Critic 的输入维度调整
+        actor_input_dim = 2 * self.embedding_output_dim + self.latent_dim + self.pair_input_dim  # 原 4*latent_dim 改为 mu
         self.actor = Actor(config.num_mlp_layers_actor, actor_input_dim, config.hidden_dim_actor, 1).to(device)
 
-        critic_input_dim = 2 * self.latent_dim
+        critic_input_dim = 2 * self.embedding_output_dim  # 直接用重构后的合并特征
         self.critic = Critic(config.num_mlp_layers_critic, critic_input_dim, config.hidden_dim_critic, 1).to(device)
 
     def forward(self, fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, dynamic_pair_mask, fea_pairs, params=None):
         if params is None:
             params = {name: param for name, param in self.named_parameters()}
 
-        # Feature extraction
+        # 特征提取
         fea_j, fea_m, fea_j_global, fea_m_global = self.feature_exact(
             fea_j, op_mask, candidate, fea_m, mch_mask, comp_idx, 
             fast_weights=self.get_subdict(params, 'feature_exact'))
 
-        # Apply VAE to extract latent variable z and reconstructed feature
-        reconstructed_fea_j, mu_j, logvar_j = self.vae(fea_j_global)
-        reconstructed_fea_m, mu_m, logvar_m = self.vae(fea_m_global)
+        # 合并全局特征并输入 VAE
+        combined_global = torch.cat([fea_j_global, fea_m_global], dim=-1)  # [batch, 2*embed_dim]
+        reconstructed_combined, mu, logvar = self.vae(combined_global)     # mu/logvar: [batch, latent_dim]
 
-        # Collect the input for decision-making network
+        # 构造 candidate_feature（关键改动）
         sz_b, M, _, J = comp_idx.size()
         d = fea_j.size(-1)
         candidate_idx = candidate.unsqueeze(-1).repeat(1, 1, d).type(torch.int64)
         Fea_j_JC = torch.gather(fea_j, 1, candidate_idx)
-        Fea_j_JC_serialized = Fea_j_JC.unsqueeze(2).repeat(1, 1, M, 1).reshape(sz_b, M * J, d)
-        Fea_m_serialized = fea_m.unsqueeze(1).repeat(1, J, 1, 1).reshape(sz_b, M * J, d)
-        z_j_expanded = reconstructed_fea_j.unsqueeze(1).expand_as(Fea_j_JC_serialized)
-        z_m_expanded = reconstructed_fea_m.unsqueeze(1).expand_as(Fea_j_JC_serialized)
+        Fea_j_JC_serialized = Fea_j_JC.unsqueeze(2).repeat(1, 1, M, 1).reshape(sz_b, M*J, d)
+        Fea_m_serialized = fea_m.unsqueeze(1).repeat(1, J, 1, 1).reshape(sz_b, M*J, d)
         
+        # 将 mu 扩展为与序列对齐的维度 [batch, M*J, latent_dim]
+        mu_expanded = mu.unsqueeze(1).expand(sz_b, M*J, self.latent_dim)
+        
+        # 拼接特征（Fea_j + Fea_m + mu + fea_pairs）
         fea_pairs = fea_pairs.reshape(sz_b, -1, self.pair_input_dim)
-        candidate_feature = torch.cat((Fea_j_JC_serialized, Fea_m_serialized, z_j_expanded, z_m_expanded, fea_pairs), dim=-1)
+        candidate_feature = torch.cat(
+            [Fea_j_JC_serialized, Fea_m_serialized, mu_expanded, fea_pairs], 
+            dim=-1
+        )
         
-        # Calculate candidate scores and apply mask
+        # 计算候选分数
         candidate_scores = self.actor(candidate_feature).squeeze(-1)
         candidate_scores[dynamic_pair_mask.reshape(sz_b, -1).bool()] = float('-inf')
         pi = F.softmax(candidate_scores, dim=1)
 
-        # Calculate value function
-        global_feature = torch.cat((reconstructed_fea_j, reconstructed_fea_m), dim=-1)
-        v = self.critic(global_feature)
+        # 价值函数直接使用重构后的合并特征
+        v = self.critic(reconstructed_combined)
         
-        return pi, v, mu_j, logvar_j, mu_m, logvar_m, reconstructed_fea_j, reconstructed_fea_m
-
+        # 返回修改后的结果
+        return pi, v, mu, logvar, combined_global, reconstructed_combined
 
 if __name__ == "__main__":
     from params import configs

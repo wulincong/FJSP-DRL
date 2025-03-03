@@ -1,150 +1,98 @@
-###从头训练
-from train.Trainer import *
-from model.VariVAEPPO import VariVAEPPO
+from train.base import *
 
-class VariVAEMultiTaskTrainer(MultiTaskTrainer):
+class VAETrainer(Trainer):
+
     def __init__(self, config):
-        """
-        Initialize the VariVAE Multi-task Trainer.
-        :param config: Configuration parameters for the training process.
-        """
         super().__init__(config)
-        self.config = config
-        self.env = None
-        self.ppo = VariVAEPPO(config)  # Use VariVAEPPO as the policy optimizer
-        self.meta_optimizer = torch.optim.Adam(self.ppo.policy.parameters(), lr=config.meta_lr)
-
-        # Task-specific configurations
-        self.num_tasks = config.num_tasks
-        self.n_j_options = config.n_j_options
-        self.n_m_options = config.n_m_options
-        self.op_per_job_options = config.op_per_job_options
-        self.valid_memorys = [Memory(gamma=config.gamma, gae_lambda=config.gae_lambda) for _ in range(self.num_tasks)]
-        self.train_param_list = []
-
-        print("n_j_options: ", self.n_j_options)
-        print("n_m_options: ", self.n_m_options)
-
-    def reset_env_tasks(self, envModel=FJSPEnvForSameOpNums):
-        """
-        Reset the environments for each task.
-        """
-        self.tasks = []
-        for _ in range(self.num_tasks):
-            n_j = n_m = 0
-            while n_j <= n_m:
-                n_j = random.randint(5, 20)
-                n_m = random.randint(5, 15)
-            print(f"generate env task n_j, n_m = {n_j, n_m}")
-            env = envModel(n_j, n_m)
-            env.set_initial_data(*self.sample_training_instances(n_j, n_m))
-            self.tasks.append(env)
-
+        self.ppo = PPO_initialize(config)
+        if config.data_source == "SD1":
+            self.env = FJSPEnvForVariousOpNums(self.n_j, self.n_m)
+        else:
+            self.env = FJSPEnvForSameOpNums(self.n_j, self.n_m)
+        
     def train(self):
-        """
-        Train the VariVAE model using MAML-based meta-learning.
-        """
-        setup_seed(self.config.seed_train)
-        self.log = []
+        setup_seed(self.seed_train)
         self.record = float('inf')
-        self.train_st = time.time()
-
-        self.makespans = [[] for _ in range(self.num_tasks)]
+        self.makespans = []
         self.meta_loss = []
         self.mean_rewards = []
-        self.reset_env_tasks()
-        for iteration in range(self.config.meta_iterations):
+        # print the setting
+        print("-" * 25 + "Training Setting" + "-" * 25)
+        print(f"source : {self.data_source}")
+        print(f"model name :{self.model_name}")
+        print(f"vali data :{self.vali_data_path}")
+        print("\n")
+        for i_update in tqdm(range(self.max_updates), file=sys.stdout, desc="progress", colour='blue'):
             ep_st = time.time()
 
-            # Reset environment tasks periodically
-            if iteration % self.config.reset_env_timestep == 0:
-                self.reset_env_tasks()
+            # resampling the training data
+            if i_update % self.reset_env_timestep == 0:
+                dataset_job_length, dataset_op_pt = self.sample_training_instances()
+                state = self.env.set_initial_data(dataset_job_length, dataset_op_pt)
+            else:
+                state = self.env.reset()
+            
+            ep_rewards = - deepcopy(self.env.init_quality)
 
-            iteration_policies = []
-            mean_rewards_all_env_list = []
+            while True:
+                self.memory.push(state)
 
-            for task_idx in range(self.num_tasks):
-                # Step 1: Train on support set
-                env = self.tasks[task_idx]
-                state = env.reset()
-                self.memory = Memory(gamma=self.config.gamma, gae_lambda=self.config.gae_lambda)
-                ep_rewards = self.memory_generate(env, state, self.ppo)
+                with torch.no_grad():
+                    pi_envs, vals_envs, *ohers = self.ppo.policy_old(fea_j=state.fea_j_tensor,
+                                                             op_mask=state.op_mask_tensor,
+                                                             candidate=state.candidate_tensor,
+                                                             fea_m=state.fea_m_tensor,
+                                                             mch_mask=state.mch_mask_tensor,
+                                                             comp_idx=state.comp_idx_tensor,
+                                                             dynamic_pair_mask=state.dynamic_pair_mask_tensor,
+                                                             fea_pairs=state.fea_pairs_tensor)
+                action_envs, action_logprob_envs = sample_action(pi_envs)
+                # state transition
+                state, reward, done = self.env.step(actions=action_envs.cpu().numpy())
+                ep_rewards += reward
+                reward = torch.from_numpy(reward).to(device)
+                # collect the transition
+                self.memory.done_seq.append(torch.from_numpy(done).to(device))
+                self.memory.reward_seq.append(reward)
+                self.memory.action_seq.append(action_envs)
+                self.memory.log_probs.append(action_logprob_envs)
+                self.memory.val_seq.append(vals_envs.squeeze(1))
+                if done.all():
+                    break
 
-                # Inner update to get task-specific parameters (theta_prime)
-                # theta_prime = self.ppo.inner_update(self.memory, self.config.k_epochs, self.config.task_lr)
-                epoch_loss, v_loss, vae_loss = self.ppo.update(self.memory)
-                # Step 2: Evaluate on query set
-                # ep_rewards = self.memory_generate(env, state, self.ppo, params=theta_prime,
-                #                                   memory=self.valid_memorys[task_idx])  # Collect query set
-
-                mean_rewards_all_env = np.mean(ep_rewards)
-                mean_rewards_all_env_list.append(mean_rewards_all_env)
-                self.makespans[task_idx].append(np.mean(env.current_makespan))
-                # iteration_policies.append(theta_prime)
-                state = env.reset()
-
-            mean_reward_iter = np.mean(mean_rewards_all_env_list)
-
-            # Step 3: Compute meta loss and optimize
-            # loss = self.ppo.meta_optimize(self.valid_memorys, iteration_policies)
-            # self.meta_loss.append(float(loss))
-
-            ep_et = time.time()
-            makespan_sum = np.sum([np.mean(lst) for lst in self.makespans])
-
-            tqdm.write(
-                f'Episode {iteration + 1} reward: {mean_reward_iter:.4f} '
-                f'Meta loss: {epoch_loss:.8f}, Training time: {ep_et - ep_st:.2f}s'
-                f'Makespan:{makespan_sum}'
-            )
-            self.mean_rewards.append(mean_reward_iter)
-
-            # Save model periodically
-            if makespan_sum < self.record:
-                self.record = makespan_sum
-                self.save_model()
-
-            # Periodically log parameters for analysis
-            # if iteration % 10 == 0:
-            #     self.train_param_list.append([p.clone().detach() for p in self.ppo.policy.actor.parameters()])
-
-            scalars = {
-                'Loss/train': epoch_loss,
-                'makespan_train': np.mean(makespan_sum),
-            }
-            # 添加模型结构
-
-            self.iter_log(iteration, scalars)
+            loss, v_loss, vae_loss = self.ppo.update(self.memory)
             self.memory.clear_memory()
 
-        # Save logs
-        self.save_logs()
+            mean_rewards_all_env = np.mean(ep_rewards)
+            mean_makespan_all_env = np.mean(self.env.current_makespan)
+            self.mean_rewards.append(mean_rewards_all_env)
+            self.makespans.append(mean_makespan_all_env)
+
+            if (i_update + 1) % self.validate_timestep == 0:
+                self.save_model()
+
+            ep_et = time.time()
+            tqdm.write(
+                'Episode {}\t reward: {:.2f}\t makespan: {:.2f}\t Mean_loss: {:.8f},  training time: {:.2f}'.format(
+                    i_update + 1, mean_rewards_all_env, mean_makespan_all_env, loss, ep_et - ep_st))
+
+            scalars={
+                'Loss/train': loss
+                ,'makespan_train':mean_makespan_all_env
+                # ,'makespan_validate':vali_result
+            }
+            
+            self.iter_log(i_update, scalars)
 
 
     def save_logs(self):
-        """
-        Save training logs to files.
-        """
+        
         with open(f"./train_log/makespans{self.log_timestamp}.txt", "w") as f:
             print(self.makespans, file=f)
         with open(f"./train_log/mean_rewards{self.log_timestamp}.txt", "w") as f:
             print(self.mean_rewards, file=f)
-        with open(f"./train_log/meta_loss{self.log_timestamp}.txt", "w") as f:
-            print(self.meta_loss, file=f)
-
-    def save_model(self):
-        """
-        Save the VariVAE model.
-        """
-        torch.save(self.ppo.policy.state_dict(), f"./trained_network/vari_vae_{self.log_timestamp}.pth")
-
-
-
-def main():
-    trainer = VariVAEMultiTaskTrainer(configs)
-    trainer.train()
 
 
 if __name__ == '__main__':
-    main()
-
+    trainer = VAETrainer(configs)
+    trainer.train()

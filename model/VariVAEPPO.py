@@ -34,16 +34,15 @@ class VariVAEPPO:
         self.V_loss_2 = nn.MSELoss()
         self.device = torch.device(config.device)
 
-    def vae_loss(self, fea_global, reconstructed_fea, mu, logvar):
+    def vae_loss(self, combined_global, reconstructed_combined, mu, logvar):
         """
-        计算 VAE 的重构损失和 KL 散度损失
+        计算合并特征的 VAE 损失：
+        - 重构损失：combined_global 和 reconstructed_combined 的 MSE
+        - KL 散度：基于合并后的 mu/logvar
         """
-        # 如果fea_global是单一维度 (256)，我们可以通过增加维度来确保它匹配reconstructed_fea
-        if fea_global.dim() == 1:
-            fea_global = fea_global.unsqueeze(1).repeat(1, reconstructed_fea.size(1))  # 将fea_global扩展为[256, 8]
-
-        recon_loss = F.mse_loss(reconstructed_fea, fea_global, reduction='mean')
-        kl_div = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp()) / fea_global.size(0)
+        # 确保输入维度匹配（例如 combined_global 是 [batch, 2*embed_dim]）
+        recon_loss = F.mse_loss(reconstructed_combined, combined_global, reduction='mean')
+        kl_div = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())  # 使用均值而非求和
         return recon_loss + self.vae_loss_coef * kl_div
 
     def update(self, memory):
@@ -68,8 +67,7 @@ class VariVAEPPO:
                 start_idx = i * self.minibatch_size
                 end_idx = (i + 1) * self.minibatch_size if i + 1 < num_batch else full_batch_size
 
-                # 前向传播
-                pis, vals, mu_j, logvar_j, mu_m, logvar_m, reconstructed_fea_j, reconstructed_fea_m = self.policy(
+                pis, vals, mu, logvar, combined_global, reconstructed_combined = self.policy(
                     fea_j=t_data[0][start_idx:end_idx],
                     op_mask=t_data[1][start_idx:end_idx],
                     candidate=t_data[6][start_idx:end_idx],
@@ -94,24 +92,20 @@ class VariVAEPPO:
                 ppo_loss = self.vloss_coef * v_loss + self.ploss_coef * p_loss + self.entloss_coef * ent_loss
 
                 # 计算 VAE 损失
-                vae_loss_j = self.vae_loss(t_data[9][start_idx:end_idx], reconstructed_fea_j, mu_j, logvar_j)
-                vae_loss_m = self.vae_loss(t_data[10][start_idx:end_idx], reconstructed_fea_m, mu_m, logvar_m)
-                total_vae_loss = vae_loss_j + vae_loss_m
+                vae_loss = self.vae_loss(combined_global, reconstructed_combined, mu, logvar)
 
-                # 计算总损失
-                loss = ppo_loss + self.vae_loss_coef * total_vae_loss
-
+                # 总损失 = PPO损失 + VAE损失
+                loss = ppo_loss + self.vae_loss_coef * vae_loss
+                
                 # 反向传播与优化
                 self.optimizer.zero_grad()
-                # self.vae_optimizer.zero_grad()
                 loss.mean().backward()
                 self.optimizer.step()
-                # self.vae_optimizer.step()
 
                 # 记录损失
                 loss_epochs += loss.mean().item()
                 v_loss_epochs += v_loss.mean().item()
-                vae_loss_epochs += total_vae_loss.mean().item()
+                vae_loss_epochs += vae_loss.item()  # 注意此处无需取 mean()
 
         # 软更新策略
         for policy_old_params, policy_params in zip(self.policy_old.parameters(), self.policy.parameters()):

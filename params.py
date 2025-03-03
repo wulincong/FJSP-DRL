@@ -35,8 +35,8 @@ parser.add_argument('--cover_heu_flag', type=str2bool, default=False,
 parser.add_argument('--cover_train_flag', type=str2bool, default=True, help='Whether covering the trained model')
 
 # args for data load
-parser.add_argument('--model_source', type=str, default='SD1', help='Suffix of the data that model trained on')
-parser.add_argument('--data_source', type=str, default='SD1', help='Suffix of test data')
+parser.add_argument('--model_source', type=str, default='SD2', help='Suffix of the data that model trained on')
+parser.add_argument('--data_source', type=str, default='SD2', help='Suffix of test data')
 
 # args for SD2 data generation
 parser.add_argument('--op_per_job', type=float, default=0,
@@ -63,7 +63,7 @@ parser.add_argument('--seed_test', type=int, default=510, help='Seed for testing
 # args for tricks
 
 # args for env
-parser.add_argument('--n_j', type=int, default=3, help='Number of jobs of the instance')
+parser.add_argument('--n_j', type=int, default=10, help='Number of jobs of the instance')
 parser.add_argument('--n_m', type=int, default=5, help='Number of machines of the instance')
 parser.add_argument('--n_op', type=int, default=50, help='Number of operations of the instance')
 parser.add_argument('--low', type=int, default=1, help='Lower Bound of processing time(PT)')
@@ -121,7 +121,7 @@ parser.add_argument('--adapt_nums', type=int, default=11, help='验证时快速�
 parser.add_argument('--num_tasks', type=int, default=3, help='每个batch要处理的任务数量')
 parser.add_argument('--maml_model',  type=str2bool, default=False)
 
-parser.add_argument('--network_type', type=str, default="", help='')
+parser.add_argument('--network_type', type=str, default="VAE", help='')
 
 # args for Meta model finetuning
 parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', help='List of model for testing')

@@ -283,7 +283,7 @@ class FJSPEnvForVariousOpNums:
                                                                     self.true_op_ct[
                                                                         self.incomplete_env_idx, chosen_op])
         
-        self.tasks_data.append({"Task": f"Job{chosen_job[0]}", "Station": f"M{chosen_mch[0]}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
+        self.tasks_data.append({"Task": f"Job-{chosen_job[0]}", "Station": f"M{chosen_mch[0]}", "Start": true_chosen_op_st[0], "Duration": self.true_op_pt[
             0, chosen_op, chosen_mch][0], "Width": 0.4})
 
         for k, j in enumerate(self.incomplete_env_idx):

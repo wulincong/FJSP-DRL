@@ -9,6 +9,7 @@ from torch import autograd
 from collections import OrderedDict
 
 from torch.utils.tensorboard import SummaryWriter
+torch.autograd.set_detect_anomaly(True)  # 启用异常检测
 
 class Memory:
     def __init__(self, gamma, gae_lambda):

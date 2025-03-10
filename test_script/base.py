@@ -70,7 +70,7 @@ class Test:
             state = self.env.reset()
             while True:
                 with torch.no_grad():
-                    pi, _ = policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
+                    pi, _, *others = policy(fea_j=state.fea_j_tensor,  # [1, N, 8]
                                     op_mask=state.op_mask_tensor,  # [1, N, N]
                                     candidate=state.candidate_tensor,  # [1, J]
                                     fea_m=state.fea_m_tensor,  # [1, M, 6]

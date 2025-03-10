@@ -34,7 +34,9 @@ class MultiTaskTrainer(Trainer):
                 n_j = random.randint(5, 20)
                 n_m = random.randint(5, 20)
             # print(n_j, n_m)
+            
             env = envModel(n_j, n_m)
+            
             env.set_initial_data(*self.sample_training_instances(n_j, n_m))
             self.tasks.append(env)
 

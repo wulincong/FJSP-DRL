@@ -35,8 +35,8 @@ parser.add_argument('--cover_heu_flag', type=str2bool, default=False,
 parser.add_argument('--cover_train_flag', type=str2bool, default=True, help='Whether covering the trained model')
 
 # args for data load
-parser.add_argument('--model_source', type=str, default='SD2', help='Suffix of the data that model trained on')
-parser.add_argument('--data_source', type=str, default='SD2', help='Suffix of test data')
+parser.add_argument('--model_source', type=str, default='SD1', help='Suffix of the data that model trained on')
+parser.add_argument('--data_source', type=str, default='SD1', help='Suffix of test data')
 
 # args for SD2 data generation
 parser.add_argument('--op_per_job', type=float, default=0,
@@ -108,7 +108,7 @@ parser.add_argument('--gae_lambda', type=float, default=0.98, help='GAE paramete
 # args for training
 parser.add_argument('--train_size', type=str, default="10x5", help='Size of training instances')
 parser.add_argument('--validate_timestep', type=int, default=10, help='Interval for validation and data log')
-parser.add_argument('--reset_env_timestep', type=int, default=20, help='Interval for reseting the environment')
+parser.add_argument('--reset_env_timestep', type=int, default=50, help='Interval for reseting the environment')
 parser.add_argument('--minibatch_size', type=int, default=256, help='Batch size for computing the gradient')
 
 # args for Meta-Learning

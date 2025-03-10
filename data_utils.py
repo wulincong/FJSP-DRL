@@ -526,7 +526,6 @@ class CaseGenerator:
         self.num_ma_biass = [sum(self.nums_option[0:i]) for i in range(self.num_opes)]
         # line0 = '{0}\t{1}\t{2}\n'.format(self.num_jobs, self.num_mas, self.num_options / self.num_opes)
         lines_doc = []
-        print(self.num_opes)
         lines_doc.append('{0}\t{1}\t{2}'.format(self.num_jobs, self.num_mas, self.num_options / self.num_opes))
         for i in range(self.num_jobs):
             flag = 0

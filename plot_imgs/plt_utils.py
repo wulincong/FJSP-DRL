@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 
 def plot_funetuning(data, title, y_label="Makespan", label=None):
     # Labels for the lines
-    labels = ["DAN_baseline", "MAML", "pre_training", "random"]
+    if label is None: labels = ["DAN_baseline", "MAML", "pre_training", "random"]
+    else: labels = label
     x = range(1, len(data[0]) + 1)
     # Plotting the lines
     for i, row in enumerate(data):

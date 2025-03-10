@@ -46,6 +46,7 @@ class Trainer:
         self.adapt_lr = config.adapt_lr
         self.adapt_nums = config.adapt_nums
         self.adapt_steps = config.adapt_steps
+        self.log_timestamp = "{0:%Y-%m-%dT%H-%M-%S}".format(datetime.now())
 
 
         if not os.path.exists(f'./trained_network/{self.data_source}'):
@@ -68,9 +69,9 @@ class Trainer:
         self.save_instance = config.save_instance
 
         self.test_data_path = f'./data/{self.data_source}/{self.data_name}'
-        self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}'
+        self.model_name = f'{self.data_name}{strToSuffix(config.model_suffix)}_{self.log_timestamp}'
         if config.maml_model:
-            self.model_name = f'maml{strToSuffix(config.model_suffix)}{int(time.time())}'
+            self.model_name = f'maml{strToSuffix(config.model_suffix)}_{self.log_timestamp}'
 
 
         # seed
@@ -98,7 +99,6 @@ class Trainer:
             if not os.path.exists(self.instance_dir):
                 os.makedirs(self.instance_dir)
         
-        self.log_timestamp = "{0:%Y-%m-%dT%H-%M-%S}".format(datetime.now())
 
         print("-" * 25 + "Training Setting" + "-" * 25)
         print(f"source : {self.data_source}")
@@ -250,7 +250,6 @@ class Trainer:
         dataset_OpPT = []
         for i in range(self.num_envs): # 20
             if self.data_source == 'SD1':
-                print("SD1")
                 case = CaseGenerator(n_j, n_m, self.op_per_job_min, self.op_per_job_max,
                                      nums_ope=prepare_JobLength, path='./test', flag_doc=False)
                 JobLength, OpPT, _ = case.get_case(i)

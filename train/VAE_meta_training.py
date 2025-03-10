@@ -25,18 +25,29 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
         print("n_j_options: ", self.n_j_options)
         print("n_m_options: ", self.n_m_options)
 
-    def reset_env_tasks(self, envModel=FJSPEnvForSameOpNums):
+    def reset_env_tasks(self, use_candidate = False):
         """
         Reset the environments for each task.
         """
         self.tasks = []
+        candidate_j = [11, 23, 23]
+        candidate_m = [8, 8, 17]
         for _ in range(self.num_tasks):
             n_j = n_m = 0
-            while n_j <= n_m:
-                n_j = random.randint(5, 20)
-                n_m = random.randint(5, 15)
+            if use_candidate:
+                n_j = candidate_j[_]
+                n_m = candidate_m[_]
+            else:
+                while n_j <= n_m:
+                    n_j = random.randint(5, 20)
+                    n_m = random.randint(5, 15)
             print(f"generate env task n_j, n_m = {n_j, n_m}")
-            env = envModel(n_j, n_m)
+            if self.data_source == 'SD1':
+                env = FJSPEnvForVariousOpNums(n_j, n_m)
+            elif self.data_source == 'SD2':
+                env = FJSPEnvForSameOpNums(n_j, n_m)
+            else:
+                print("Invalid data source.")
             env.set_initial_data(*self.sample_training_instances(n_j, n_m))
             self.tasks.append(env)
 
@@ -57,8 +68,8 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
             ep_st = time.time()
 
             # Reset environment tasks periodically
-            if iteration % self.config.reset_env_timestep == 0:
-                self.reset_env_tasks()
+            # if iteration % self.config.reset_env_timestep == 0:
+            #     self.reset_env_tasks()
 
             iteration_policies = []
             mean_rewards_all_env_list = []
@@ -94,8 +105,8 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
 
             tqdm.write(
                 f'Episode {iteration + 1} reward: {mean_reward_iter:.4f} '
-                f'Meta loss: {epoch_loss:.8f}, Training time: {ep_et - ep_st:.2f}s'
-                f'Makespan:{makespan_sum}'
+                f'Meta loss: {epoch_loss:.8f}, VAE loss: {vae_loss:.8f} '
+                f'Training time: {ep_et - ep_st:.2f}s Makespan:{makespan_sum}'
             )
             self.mean_rewards.append(mean_reward_iter)
 
@@ -136,8 +147,7 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
         """
         Save the VariVAE model.
         """
-        torch.save(self.ppo.policy.state_dict(), f"./trained_network/vari_vae_{self.log_timestamp}.pth")
-
+        torch.save(self.ppo.policy.state_dict(), f"./trained_network/vari_vae_{self.data_source}_{self.log_timestamp}.pth")
 
 
 def main():

@@ -174,8 +174,9 @@ class FJSPEnvForVariousOpNums:
         # state
         self.state = copy.deepcopy(self.old_state)
         
+        # for disturbance events
         self.tasks_data = [{"Task": "Job-1", "Station": f"M{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
-
+        self.maintenance_schedule = {}
         return self.state
 
     def reset(self):
@@ -194,7 +195,6 @@ class FJSPEnvForVariousOpNums:
         # state
         self.state = copy.deepcopy(self.old_state)
         self.tasks_data = [{"Task": "Job-1", "Station": f"M{i}", "Start": 0, "Duration": 0, "Width": 0.4} for i in range(self.number_of_machines-1, -1, -1) ]
-
         return self.state
 
     def initial_vars(self):
@@ -378,7 +378,8 @@ class FJSPEnvForVariousOpNums:
         return self.state, np.array(reward), self.done_flag
 
     def done(self):
-        return self.step_count >= self.env_number_of_ops
+        return np.all(self.dynamic_pair_mask, axis=(1,2)) or \
+        self.step_count >= self.env_number_of_ops
 
     def construct_op_features(self):
 
@@ -1051,3 +1052,33 @@ class FJSPEnvForVariousOpNums:
                         self.fea_m, self.mch_mask,
                         self.dynamic_pair_mask, self.comp_idx, self.candidate,
                         self.fea_pairs)
+        
+    def schedule_maintenance(self, machine_id, start_time, duration):
+        """记录维护计划"""
+        end_time = start_time + duration
+        if machine_id not in self.maintenance_schedule:
+            self.maintenance_schedule[machine_id] = []
+        self.maintenance_schedule[machine_id].append((start_time, end_time))
+    
+    def check_maintenance(self, current_time):
+        """检查当前时间是否需要维护"""
+        # print(current_time, self.maintenance_schedule)
+        for machine_id, periods in self.maintenance_schedule.items():
+            print(machine_id, periods)
+            for start, end in periods:
+                if start <= current_time < end:
+                    self.mask_machine(0, machine_id)
+                    # print("已屏蔽机器 {} 的加工".format(machine_id))
+                elif current_time >= end and hasattr(self, 'old_op_pt_list'):
+                    self.unmask_machine()
+
+    def mask_job(self, chosen_env_id, job_id):
+        """屏蔽指定工件的所有工序"""
+        # 记录旧的 process_relation
+        self.recorded_candidate_process_relation = self.candidate_process_relation.copy()
+        
+        self.candidate_process_relation[chosen_env_id, job_id, :] = True
+
+    def unmask_job(self, chosen_env_id, job_id):
+        self.candidate_process_relation[chosen_env_id, job_id] = self.recorded_candidate_process_relation[chosen_env_id, job_id]
+    

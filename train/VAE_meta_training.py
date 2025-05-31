@@ -109,7 +109,7 @@ class VariVAEMultiTaskTrainer(MultiTaskTrainer):
                 f'Training time: {ep_et - ep_st:.2f}s Makespan:{makespan_sum}'
             )
             self.mean_rewards.append(mean_reward_iter)
-
+            self.meta_loss.append(epoch_loss)
             # Save model periodically
             if makespan_sum < self.record:
                 self.record = makespan_sum

@@ -35,8 +35,8 @@ parser.add_argument('--cover_heu_flag', type=str2bool, default=False,
 parser.add_argument('--cover_train_flag', type=str2bool, default=True, help='Whether covering the trained model')
 
 # args for data load
-parser.add_argument('--model_source', type=str, default='SD1', help='Suffix of the data that model trained on')
-parser.add_argument('--data_source', type=str, default='SD1', help='Suffix of test data')
+parser.add_argument('--model_source', type=str, default='SD2', help='Suffix of the data that model trained on')
+parser.add_argument('--data_source', type=str, default='SD2', help='Suffix of test data')
 
 # args for SD2 data generation
 parser.add_argument('--op_per_job', type=float, default=0,
@@ -128,7 +128,7 @@ parser.add_argument('--finetuning_model', type=str, default='10x5+mix+exp9', hel
 
 #args for Varible method
 parser.add_argument('--latent_dim', type=int, default=8, help='VariVAE的参数')
-parser.add_argument('--vae_loss_coef', type=float, default=0.1, help='VAE 损失系数')
+parser.add_argument('--vae_loss_coef', type=float, default=0.2, help='VAE 损失系数')
 parser.add_argument('--hidden_dim_vae', type=int, default=64, help='VariVAE hidden dim的参数')
 
 # args for test
